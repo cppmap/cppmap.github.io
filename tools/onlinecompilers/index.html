@@ -471,6 +471,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" title="ソース → アセンブリ変換" class="md-nav__link">
+    ソース → アセンブリ変換
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="入力例" class="md-nav__link">
+    入力例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="出力" class="md-nav__link">
+    出力
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -531,6 +558,33 @@
         
           <li class="md-nav__item">
   <a href="#_5" title="出力" class="md-nav__link">
+    出力
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="ソース → アセンブリ変換" class="md-nav__link">
+    ソース → アセンブリ変換
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="入力例" class="md-nav__link">
+    入力例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="出力" class="md-nav__link">
     出力
   </a>
   
@@ -616,7 +670,7 @@
 </tbody>
 </table>
 <h2 id="_3">ソース → ソース変換</h2>
-<p><a href="https://cppinsights.io/">C++ Insights</a> は、ラムダ式、range-based for, 構造化束縛などで何が起こっているのかを、元のプログラムを簡単なソースコードに分解して可視化するツールです。  </p>
+<p><a href="https://cppinsights.io/">C++ Insights</a> は、ラムダ式、range-based for, 構造化束縛などで何が起こっているのかを、元のプログラムを単純なソースコードに分解して可視化するオンラインのツールです。  </p>
 <h4 id="_4">入力例</h4>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
 
@@ -650,6 +704,27 @@
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+
+
+<h2 id="_6">ソース → アセンブリ変換</h2>
+<p><a href="https://godbolt.org/">Compiler Explorer</a> は、C, C++, Rust, Swift などのソースコードをコンパイルしてアセンブリを表示するオンラインコンパイラです。複数タブを使って、GCC, Clang, MSVC, ICC などのコンパイラや、コンパイルオプションを変えたときの結果を比較できます。</p>
+<h4 id="_7">入力例</h4>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">square</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">num</span> <span class="o">*</span> <span class="n">num</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h4 id="_8">出力</h4>
+<div class="codehilite"><pre><span></span><span class="nf">square</span><span class="p">(</span><span class="no">int</span><span class="p">):</span>
+        <span class="nf">push</span>    <span class="no">rbp</span>
+        <span class="nf">mov</span>     <span class="no">rbp</span><span class="p">,</span> <span class="no">rsp</span>
+        <span class="nf">mov</span>     <span class="no">DWORD</span> <span class="no">PTR</span> <span class="p">[</span><span class="no">rbp-4</span><span class="p">],</span> <span class="no">edi</span>
+        <span class="nf">mov</span>     <span class="no">eax</span><span class="p">,</span> <span class="no">DWORD</span> <span class="no">PTR</span> <span class="p">[</span><span class="no">rbp-4</span><span class="p">]</span>
+        <span class="nf">imul</span>    <span class="no">eax</span><span class="p">,</span> <span class="no">DWORD</span> <span class="no">PTR</span> <span class="p">[</span><span class="no">rbp-4</span><span class="p">]</span>
+        <span class="nf">pop</span>     <span class="no">rbp</span>
+        <span class="nf">ret</span>
 </pre></div>
                 
                   

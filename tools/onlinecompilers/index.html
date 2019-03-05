@@ -419,9 +419,65 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        オンラインコンパイラ
+      </label>
+    
     <a href="./" title="オンラインコンパイラ" class="md-nav__link md-nav__link--active">
       オンラインコンパイラ
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="開発環境" class="md-nav__link">
+    開発環境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="ソース → ソース変換" class="md-nav__link">
+    ソース → ソース変換
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="入力例" class="md-nav__link">
+    入力例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="出力" class="md-nav__link">
+    出力
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -448,6 +504,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="開発環境" class="md-nav__link">
+    開発環境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="ソース → ソース変換" class="md-nav__link">
+    ソース → ソース変換
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="入力例" class="md-nav__link">
+    入力例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="出力" class="md-nav__link">
+    出力
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -460,6 +559,7 @@
                 
                 
                 <h1 id="_1">オンラインコンパイラ</h1>
+<h2 id="_2">開発環境</h2>
 <p>C++ プログラムのコンパイル・実行ができる Web サイトです。</p>
 <table>
 <thead>
@@ -515,6 +615,42 @@
 </tr>
 </tbody>
 </table>
+<h2 id="_3">ソース → ソース変換</h2>
+<p><a href="https://cppinsights.io/">C++ Insights</a> は、ラムダ式、range-based for, 構造化束縛などで何が起こっているのかを、元のプログラムを簡単なソースコードに分解して可視化するツールです。  </p>
+<h4 id="_4">入力例</h4>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">]{</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">};</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">&amp;</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">arr</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;c=%c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h4 id="_5">出力</h4>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">const</span> <span class="kt">char</span> <span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">};</span>
+  <span class="p">{</span>
+    <span class="kt">char</span> <span class="k">const</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">__range1</span><span class="p">)[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">__begin1</span> <span class="o">=</span> <span class="n">__range1</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">__end1</span> <span class="o">=</span> <span class="n">__range1</span> <span class="o">+</span> <span class="mi">10l</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span> <span class="p">;</span> <span class="n">__begin1</span> <span class="o">!=</span> <span class="n">__end1</span><span class="p">;</span> <span class="o">++</span><span class="n">__begin1</span> <span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">const</span> <span class="kt">char</span> <span class="o">&amp;</span> <span class="n">c</span> <span class="o">=</span> <span class="o">*</span><span class="n">__begin1</span><span class="p">;</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;c=%c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 

@@ -40,7 +40,7 @@
     
     
       
-        <title>パッケージマネージャ - C++ の歩き方 | CppMap</title>
+        <title>C++20 の新機能 - C++ の歩き方 | CppMap</title>
       
     
     
@@ -110,7 +110,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#c20" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -135,7 +135,7 @@
               C++ の歩き方 | CppMap
             </span>
             <span class="md-header-nav__topic">
-              パッケージマネージャ
+              C++20 の新機能
             </span>
           
         </div>
@@ -202,14 +202,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../.." title="Home" class="md-tabs__link md-tabs__link--active">
+      <a href="../.." title="Home" class="md-tabs__link">
         Home
       </a>
     
@@ -221,7 +223,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../standardization/cpp20/" title="C++ 規格" class="md-tabs__link">
+        <a href="./" title="C++ 規格" class="md-tabs__link md-tabs__link--active">
           C++ 規格
         </a>
       
@@ -260,7 +262,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../onlinecompilers/" title="ツール" class="md-tabs__link">
+        <a href="../../tools/onlinecompilers/" title="ツール" class="md-tabs__link">
           ツール
         </a>
       
@@ -327,10 +329,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       C++ 規格
@@ -346,11 +350,82 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../standardization/cpp20/" title="C++20 の新機能" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        C++20 の新機能
+      </label>
+    
+    <a href="./" title="C++20 の新機能" class="md-nav__link md-nav__link--active">
       C++20 の新機能
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="言語機能" class="md-nav__link">
+    言語機能
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p0683r1" title="ビットフィールドにデフォルトの初期値を設定可能に (P0683R1)" class="md-nav__link">
+    ビットフィールドにデフォルトの初期値を設定可能に (P0683R1)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="標準ライブラリ" class="md-nav__link">
+    標準ライブラリ
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p0457r2" title="文字列の先頭や末尾が、ある文字列と一致するか判定 (P0457R2)" class="md-nav__link">
+    文字列の先頭や末尾が、ある文字列と一致するか判定 (P0457R2)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -360,7 +435,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../standardization/cppx/" title="C++23 以降に向けた提案" class="md-nav__link">
+    <a href="../cppx/" title="C++23 以降に向けた提案" class="md-nav__link">
       C++23 以降に向けた提案
     </a>
   </li>
@@ -372,7 +447,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../standardization/meetings/" title="標準化会議" class="md-nav__link">
+    <a href="../meetings/" title="標準化会議" class="md-nav__link">
       標準化会議
     </a>
   </li>
@@ -504,7 +579,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../onlinecompilers/" title="オンラインコンパイラ" class="md-nav__link">
+    <a href="../../tools/onlinecompilers/" title="オンラインコンパイラ" class="md-nav__link">
       オンラインコンパイラ
     </a>
   </li>
@@ -532,6 +607,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="言語機能" class="md-nav__link">
+    言語機能
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p0683r1" title="ビットフィールドにデフォルトの初期値を設定可能に (P0683R1)" class="md-nav__link">
+    ビットフィールドにデフォルトの初期値を設定可能に (P0683R1)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="標準ライブラリ" class="md-nav__link">
+    標準ライブラリ
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p0457r2" title="文字列の先頭や末尾が、ある文字列と一致するか判定 (P0457R2)" class="md-nav__link">
+    文字列の先頭や末尾が、ある文字列と一致するか判定 (P0457R2)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -543,7 +667,67 @@
               
                 
                 
-                <h1 id="_1">パッケージマネージャ</h1>
+                <h1 id="c20">C++20 の新機能</h1>
+<h2 id="_1">言語機能</h2>
+<h3 id="p0683r1">ビットフィールドにデフォルトの初期値を設定可能に <a href="http://wg21.link/p0683r1">(P0683R1)</a></h3>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">Terrain</span>
+<span class="p">{</span>
+    <span class="n">Open</span><span class="p">,</span> <span class="n">Forest</span><span class="p">,</span> <span class="n">Hill</span><span class="p">,</span> <span class="n">Mountain</span><span class="p">,</span> <span class="n">Desert</span><span class="p">,</span> <span class="n">Tundra</span><span class="p">,</span> <span class="n">River</span><span class="p">,</span> <span class="n">Ocean</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">Tile</span>
+<span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nl">height</span> <span class="p">:</span> <span class="mi">4</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// デフォルト値を 1 に</span>
+    <span class="n">Terrain</span> <span class="nl">terrain</span> <span class="p">:</span> <span class="mi">3</span> <span class="o">=</span> <span class="n">Terrain</span><span class="o">::</span><span class="n">Open</span><span class="p">;</span> <span class="c1">// デフォルト値を明示的に Terrain::Open に</span>
+    <span class="kt">bool</span> <span class="nl">passable</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">// デフォルト値を true に</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="p">;</span>
+
+    <span class="n">Tile</span> <span class="n">tile1</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">tile1</span><span class="p">.</span><span class="n">height</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tile1</span><span class="p">.</span><span class="n">terrain</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">tile1</span><span class="p">.</span><span class="n">passable</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+
+    <span class="n">Tile</span> <span class="n">tile2</span><span class="p">{</span> <span class="mi">15</span><span class="p">,</span> <span class="n">Terrain</span><span class="o">::</span><span class="n">Mountain</span><span class="p">,</span> <span class="nb">false</span> <span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">tile2</span><span class="p">.</span><span class="n">height</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tile2</span><span class="p">.</span><span class="n">terrain</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">tile2</span><span class="p">.</span><span class="n">passable</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>1, 0, true
+15, 3, false
+</pre></div>
+
+
+<h2 id="_2">標準ライブラリ</h2>
+<h3 id="p0457r2">文字列の先頭や末尾が、ある文字列と一致するか判定 <a href="https://wg21.link/P0457R2">(P0457R2)</a></h3>
+<p><code class="codehilite">std::basic_string</code> と <code class="codehilite">std::basic_string_view</code> に、<code class="codehilite">starts_with()</code> と <code class="codehilite">ends_with()</code> メンバ関数が追加されます。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string_view&gt;</span><span class="cp"></span>
+
+<span class="k">constexpr</span> <span class="kt">bool</span> <span class="nf">HasPNGExtension</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">filePath</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// 文字列が &quot;.png&quot; で終わるなら true, それ以外は false を返す</span>
+    <span class="k">return</span> <span class="n">filePath</span><span class="p">.</span><span class="n">ends_with</span><span class="p">(</span><span class="s">&quot;.png&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">HasPNGExtension</span><span class="p">(</span><span class="s">&quot;picture.png&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">HasPNGExtension</span><span class="p">(</span><span class="s">&quot;photo.jpg&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">HasPNGExtension</span><span class="p">(</span><span class="s">&quot;music.mp3&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>true
+false
+false
+</pre></div>
                 
                   
                 
@@ -560,6 +744,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../.." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                Home
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../cppx/" title="C++23 以降に向けた提案" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                C++23 以降に向けた提案
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

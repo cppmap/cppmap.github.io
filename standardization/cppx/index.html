@@ -40,7 +40,7 @@
     
     
       
-        <title>パッケージマネージャ - C++ の歩き方 | CppMap</title>
+        <title>C++23 以降に向けた提案 - C++ の歩き方 | CppMap</title>
       
     
     
@@ -110,7 +110,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#c23" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -135,7 +135,7 @@
               C++ の歩き方 | CppMap
             </span>
             <span class="md-header-nav__topic">
-              パッケージマネージャ
+              C++23 以降に向けた提案
             </span>
           
         </div>
@@ -202,14 +202,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../.." title="Home" class="md-tabs__link md-tabs__link--active">
+      <a href="../.." title="Home" class="md-tabs__link">
         Home
       </a>
     
@@ -221,7 +223,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../standardization/meetings/" title="C++ 規格" class="md-tabs__link">
+        <a href="../meetings/" title="C++ 規格" class="md-tabs__link md-tabs__link--active">
           C++ 規格
         </a>
       
@@ -247,7 +249,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../onlinecompilers/" title="ツール" class="md-tabs__link">
+        <a href="../../tools/onlinecompilers/" title="ツール" class="md-tabs__link">
           ツール
         </a>
       
@@ -314,10 +316,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       C++ 規格
@@ -335,7 +339,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../standardization/meetings/" title="標準化会議" class="md-nav__link">
+    <a href="../meetings/" title="標準化会議" class="md-nav__link">
       標準化会議
     </a>
   </li>
@@ -345,11 +349,84 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../standardization/cppx/" title="C++23 以降に向けた提案" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        C++23 以降に向けた提案
+      </label>
+    
+    <a href="./" title="C++23 以降に向けた提案" class="md-nav__link md-nav__link--active">
       C++23 以降に向けた提案
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="標準ライブラリ モジュール" class="md-nav__link">
+    標準ライブラリ モジュール
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operator" title="operator[] に複数の引数" class="md-nav__link">
+    operator[] に複数の引数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" title="低レベル オーディオ API" class="md-nav__link">
+    低レベル オーディオ API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executors" title="Executors" class="md-nav__link">
+    Executors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="ネットワーク" class="md-nav__link">
+    ネットワーク
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="リフレクション" class="md-nav__link">
+    リフレクション
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -431,7 +508,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../onlinecompilers/" title="オンラインコンパイラ" class="md-nav__link">
+    <a href="../../tools/onlinecompilers/" title="オンラインコンパイラ" class="md-nav__link">
       オンラインコンパイラ
     </a>
   </li>
@@ -459,6 +536,57 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="標準ライブラリ モジュール" class="md-nav__link">
+    標準ライブラリ モジュール
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operator" title="operator[] に複数の引数" class="md-nav__link">
+    operator[] に複数の引数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" title="低レベル オーディオ API" class="md-nav__link">
+    低レベル オーディオ API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executors" title="Executors" class="md-nav__link">
+    Executors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="ネットワーク" class="md-nav__link">
+    ネットワーク
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="リフレクション" class="md-nav__link">
+    リフレクション
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -470,7 +598,27 @@
               
                 
                 
-                <h1 id="_1">パッケージマネージャ</h1>
+                <h1 id="c23">C++23 以降に向けた提案</h1>
+<p>議論が進行中のおもな提案です。標準化会議によって規格化が妥当でないと判断された場合は採択されません。</p>
+<h2 id="_1">標準ライブラリ モジュール</h2>
+<ul>
+<li><a href="https://wg21.link/p0581">Standard Library Modules (P0581)</a> </li>
+</ul>
+<p><code class="codehilite">&lt;iostream&gt;</code> や <code class="codehilite">&lt;vector&gt;</code> など、すべての C++ 標準ライブラリヘッダをモジュールとして提供する提案です。言語機能としてのモジュールは C++20 に導入されましたが、標準ライブラリへの導入は議論が間に合わず、C++23 に先送りされました。標準ライブラリのモジュールへの移行に合わせて、<a href="https://wg21.link/p1453">標準ライブラリを再編成する提案</a>も出されています。</p>
+<h2 id="operator"><code class="codehilite">operator[]</code> に複数の引数</h2>
+<ul>
+<li><a href="https://wg21.link/p1277">Subscripts On Parade (P1277)</a></li>
+</ul>
+<p><code class="codehilite">m[i, j, k]</code> のように、<code class="codehilite">operator[]</code> の引数に複数の値を渡せるようにする提案です。多次元配列の要素に簡潔な式でアクセスできるようになります。この書き方は、C++17 規格ではコンマ演算子と解釈されて <code class="codehilite">m[k]</code> になってしまうため、まずは<a href="https://wg21.link/p1161">現行の文法を deprecated にする提案</a>が提出されています。<code class="codehilite">std::span</code> の多次元版である <a href="https://github.com/kokkos/array_ref"><code class="codehilite">std::mdspan</code> の提案</a>での活用も期待されます。</p>
+<h2 id="api">低レベル オーディオ API</h2>
+<ul>
+<li><a href="https://wg21.link/p1386">A Standard Audio API for C++:
+Motivation, Scope, and Basic Design (P1386)</a></li>
+</ul>
+<p>音声再生・録音を行う低レベル API <code class="codehilite">std::audio</code> を追加する提案です。以前頓挫した 2D Graphics API の標準化に比べれば、枯れている技術なので実現可能性は低くはなさそうです。波形データをオーディオデバイスとやり取りすることが主要な役割で、音声コーデックやフィルタなどの機能は提供しません。<a href="https://github.com/stdcpp-audio/libstdaudio">実験的な実装を公開</a>して、設計に関するフィードバックを集めている段階です。</p>
+<h2 id="executors">Executors</h2>
+<h2 id="_2">ネットワーク</h2>
+<h2 id="_3">リフレクション</h2>
                 
                   
                 
@@ -487,6 +635,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../meetings/" title="標準化会議" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                標準化会議
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../learn/online-resources/" title="オンライン資料" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                オンライン資料
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

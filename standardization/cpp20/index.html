@@ -413,6 +413,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#operatorbasic_istream-chart-chartn-p0487r1" title="operator&gt;&gt;(basic_istream&amp;, charT*) の第二引数を charT(&amp;)[N] に変更して安全に (P0487R1)" class="md-nav__link">
+    operator&gt;&gt;(basic_istream&amp;, charT*) の第二引数を charT(&amp;)[N] に変更して安全に (P0487R1)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -645,6 +652,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#operatorbasic_istream-chart-chartn-p0487r1" title="operator&gt;&gt;(basic_istream&amp;, charT*) の第二引数を charT(&amp;)[N] に変更して安全に (P0487R1)" class="md-nav__link">
+    operator&gt;&gt;(basic_istream&amp;, charT*) の第二引数を charT(&amp;)[N] に変更して安全に (P0487R1)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -727,6 +741,62 @@
 <div class="codehilite"><pre><span></span>true
 false
 false
+</pre></div>
+
+
+<h3 id="operatorbasic_istream-chart-chartn-p0487r1"><code class="codehilite">operator&gt;&gt;(basic_istream&amp;, charT*)</code> の第二引数を <code class="codehilite">charT(&amp;)[N]</code> に変更して安全に <a href="https://wg21.link/P0487R1">(P0487R1)</a></h3>
+<p>C++17 までの <code class="codehilite">operator&gt;&gt;(basic_istream&amp;, charT*)</code> は、関数にバッファのサイズが渡されないため、次のようなプログラムでバッファオーバーフローへの対策が必要でした。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iomanip&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+
+    <span class="c1">// std::cin &gt;&gt; buffer; // 危険: バッファオーバーフローの可能性</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">buffer</span><span class="p">;</span> <span class="c1">// OK: バッファオーバーフロー対策</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">buffer</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>C++20 では引数を次のように変更し、関数がバッファオーバーフローの対策を実装するようになりました。</p>
+<div class="codehilite"><pre><span></span><span class="c1">// C++17 まで</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+<span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="n">in</span><span class="p">,</span> <span class="n">charT</span><span class="o">*</span> <span class="n">s</span><span class="p">);</span>
+
+<span class="c1">// C++20 から</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="n">in</span><span class="p">,</span> <span class="n">charT</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">)[</span><span class="n">N</span><span class="p">]);</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iomanip&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">buffer</span><span class="p">;</span> <span class="c1">// OK: C++20 ではバッファオーバーフローを防げる</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">buffer</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>この変更に伴い、C++17 までは有効だった次のようなプログラムが、C++20 からコンパイルエラーになります。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iomanip&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// C++20 からはコンパイルエラー</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
                 
                   

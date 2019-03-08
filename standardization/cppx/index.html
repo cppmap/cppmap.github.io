@@ -412,13 +412,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#executors" title="Executors" class="md-nav__link">
-    Executors
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" title="ネットワーク" class="md-nav__link">
     ネットワーク
   </a>
@@ -428,6 +421,13 @@
         <li class="md-nav__item">
   <a href="#_3" title="リフレクション" class="md-nav__link">
     リフレクション
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executors" title="Executors" class="md-nav__link">
+    Executors
   </a>
   
 </li>
@@ -658,13 +658,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#executors" title="Executors" class="md-nav__link">
-    Executors
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" title="ネットワーク" class="md-nav__link">
     ネットワーク
   </a>
@@ -674,6 +667,13 @@
         <li class="md-nav__item">
   <a href="#_3" title="リフレクション" class="md-nav__link">
     リフレクション
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executors" title="Executors" class="md-nav__link">
+    Executors
   </a>
   
 </li>
@@ -713,9 +713,32 @@
 Motivation, Scope, and Basic Design (P1386)</a></li>
 </ul>
 <p>音声再生・録音を行う低レベル API <code class="codehilite">std::audio</code> を追加する提案です。以前頓挫した 2D Graphics API の標準化に比べれば、枯れている技術なので実現可能性は低くはなさそうです。波形データをオーディオデバイスとやり取りすることが主要な役割で、音声コーデックやフィルタなどの機能は提供しません。<a href="https://github.com/stdcpp-audio/libstdaudio">実験的な実装を公開</a>して、設計に関するフィードバックを集めている段階です。</p>
-<h2 id="executors">Executors</h2>
 <h2 id="_2">ネットワーク</h2>
+<ul>
+<li><a href="https://wg21.link/n4734">Working Draft, C++ Extensions for Networking (N4734)</a></li>
+</ul>
+<p>ネットワーク機能を標準ライブラリに導入する提案です。<a href="https://www.boost.org/doc/libs/release/doc/html/boost_asio.html">Boost.Asio</a> をベースに、ソケット通信、名前解決、インターネットプロトコル、タイマー、バッファ、非同期処理のための各種機能を実装する予定です。</p>
 <h2 id="_3">リフレクション</h2>
+<ul>
+<li><a href="https://wg21.link/n4766">Working Draft, C++ Extensions for Reﬂection (N4766)</a></li>
+</ul>
+<p>C++ にリフレクションを導入する提案です。C# のような動的なリフレクションではなく、コンパイル時に情報を取得する静的なリフレクションです。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;experimental/reflect&gt;</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">experimental</span><span class="o">::</span><span class="n">reflect</span><span class="p">;</span>
+
+<span class="k">constexpr</span> <span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">arg1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">arg2</span><span class="p">);</span>
+
+<span class="k">using</span> <span class="n">f_mobj</span> <span class="o">=</span> <span class="n">reflexpr</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+
+<span class="k">auto</span> <span class="n">name</span> <span class="o">=</span> <span class="n">get_name_v</span><span class="o">&lt;</span><span class="n">get_element_t</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="n">get_parameters_t</span><span class="o">&lt;</span><span class="n">f_mobj</span><span class="o">&gt;&gt;&gt;</span><span class="p">;</span> <span class="c1">// &quot;arg1&quot;</span>
+
+<span class="k">auto</span> <span class="n">is_constexpr_function</span> <span class="o">=</span> <span class="n">is_constexpr</span><span class="o">&lt;</span><span class="n">f_mobj</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span> <span class="c1">// true</span>
+</pre></div>
+
+
+<p>この機能を前提とした<a href="https://wg21.link/p0707">メタクラスの提案</a>も議論が進んでいます。</p>
+<h2 id="executors">Executors</h2>
                 
                   
                 

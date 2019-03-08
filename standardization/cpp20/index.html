@@ -394,8 +394,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#p0704r1" title="メンバアクセス演算子の仕様を一貫性のために修正 (P0704R1)" class="md-nav__link">
-    メンバアクセス演算子の仕様を一貫性のために修正 (P0704R1)
+  <a href="#p0704r1" title="メンバポインタ演算子の仕様を一貫性のために修正 (P0704R1)" class="md-nav__link">
+    メンバポインタ演算子の仕様を一貫性のために修正 (P0704R1)
   </a>
   
 </li>
@@ -652,8 +652,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#p0704r1" title="メンバアクセス演算子の仕様を一貫性のために修正 (P0704R1)" class="md-nav__link">
-    メンバアクセス演算子の仕様を一貫性のために修正 (P0704R1)
+  <a href="#p0704r1" title="メンバポインタ演算子の仕様を一貫性のために修正 (P0704R1)" class="md-nav__link">
+    メンバポインタ演算子の仕様を一貫性のために修正 (P0704R1)
   </a>
   
 </li>
@@ -742,8 +742,8 @@
 </pre></div>
 
 
-<h3 id="p0704r1">メンバアクセス演算子の仕様を一貫性のために修正 <a href="http://wg21.link/p0704r1">(P0704R1)</a></h3>
-<p>C++17 までは、右辺値オブジェクトに対してメンバアクセス演算子 <code class="codehilite">.*</code> で「左辺値参照修飾されたメンバ関数ポインタを呼ぶことは不適格」という規格文面になっていました。そのため、同じ意味をもつ次の 2 つのプログラムで後者だけ不適格とされ、一貫性がありませんでした。</p>
+<h3 id="p0704r1">メンバポインタ演算子の仕様を一貫性のために修正 <a href="http://wg21.link/p0704r1">(P0704R1)</a></h3>
+<p>C++17 までのメンバポインタ演算子 <code class="codehilite">.*</code> は「右辺値オブジェクトから、左辺値参照修飾されたメンバ関数ポインタに使うことは不適格」という規格文面になっていました。そのため、同じ意味をもつ次の 2 つのプログラムで後者だけ不適格とされ、一貫性がありませんでした。</p>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
@@ -766,7 +766,7 @@
 </pre></div>
 
 
-<p>C++20 では「左辺値参照修飾された非 const メンバ関数ポインタを呼ぶことは不適格」と文面を修正し、後者もコンパイルできるようになります。</p>
+<p>C++20 では「右辺値オブジェクトから、左辺値参照修飾された非 const メンバ関数ポインタに使うことは不適格」と文面を修正し、後者もコンパイルできるようになります。</p>
 <h2 id="_2">標準ライブラリ</h2>
 <h3 id="p0457r2">文字列の先頭や末尾が、ある文字列と一致するか判定 <a href="https://wg21.link/P0457R2">(P0457R2)</a></h3>
 <p><code class="codehilite">std::basic_string</code> と <code class="codehilite">std::basic_string_view</code> に、<code class="codehilite">starts_with()</code> と <code class="codehilite">ends_with()</code> メンバ関数が追加されます。</p>

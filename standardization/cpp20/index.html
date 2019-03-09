@@ -427,6 +427,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#nodiscard-p0600r1" title="戻り値の無視が不具合をもたらす関数に [[nodiscard]] を付与 (P0600R1)" class="md-nav__link">
+    戻り値の無視が不具合をもたらす関数に [[nodiscard]] を付与 (P0600R1)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -709,6 +716,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#nodiscard-p0600r1" title="戻り値の無視が不具合をもたらす関数に [[nodiscard]] を付与 (P0600R1)" class="md-nav__link">
+    戻り値の無視が不具合をもたらす関数に [[nodiscard]] を付与 (P0600R1)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -873,6 +887,25 @@ false
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+
+
+<h3 id="nodiscard-p0600r1">戻り値の無視が不具合をもたらす関数に <code class="codehilite">[[nodiscard]]</code> を付与 <a href="https://wg21.link/P0600R1">(P0600R1)</a></h3>
+<p>C++17 で導入された <code class="codehilite">[[nodiscard]]</code> 属性を標準ライブラリで活用するようになります。C++20 では付与基準を「戻り値の無視がトラブルやメモリリークなどの重大なエラーを引き起こす C++ の関数」とし、<code class="codehilite">async()</code>, <code class="codehilite">launder()</code>, <code class="codehilite">allocate()</code>, <code class="codehilite">empty()</code>, <code class="codehilite">operator new()</code> が対象となっています。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;future&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span> <span class="p">};</span>
+
+    <span class="n">v</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span> <span class="c1">// C++20 では警告</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">async</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">launch</span><span class="o">::</span><span class="n">async</span><span class="p">,</span> <span class="p">[]</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">});</span> <span class="c1">// C++20 では警告</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の範囲を超えてより多くの関数（<a href="https://devblogs.microsoft.com/cppblog/c17-progress-in-vs-2017-15-5-and-15-6/">2,500 個以上</a>）に <code class="codehilite">[[nodiscard]]</code> 属性を使っています。その結果、<a href="https://bugs.chromium.org/p/webrtc/issues/detail?id=8463">Chromium のソースに無意味な std::move() が見つかる</a>など、既存のコードベースのバグの発見に役立っています。</p>
                 
                   
                 

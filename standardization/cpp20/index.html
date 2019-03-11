@@ -448,8 +448,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#array-constexpr-p1023r0-p1032r1" title="array ヘッダのすべての関数が constexpr に (P1023R0), (P1032R1)" class="md-nav__link">
-    array ヘッダのすべての関数が constexpr に (P1023R0), (P1032R1)
+  <a href="#array-constexpr-p1023r0-p1032r1" title="&lt;array&gt; ヘッダのすべての関数が constexpr に (P1023R0), (P1032R1)" class="md-nav__link">
+    &lt;array&gt; ヘッダのすべての関数が constexpr に (P1023R0), (P1032R1)
   </a>
   
 </li>
@@ -780,8 +780,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#array-constexpr-p1023r0-p1032r1" title="array ヘッダのすべての関数が constexpr に (P1023R0), (P1032R1)" class="md-nav__link">
-    array ヘッダのすべての関数が constexpr に (P1023R0), (P1032R1)
+  <a href="#array-constexpr-p1023r0-p1032r1" title="&lt;array&gt; ヘッダのすべての関数が constexpr に (P1023R0), (P1032R1)" class="md-nav__link">
+    &lt;array&gt; ヘッダのすべての関数が constexpr に (P1023R0), (P1032R1)
   </a>
   
 </li>
@@ -969,7 +969,7 @@ false
 
 
 <p>MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の範囲を超えてより多くの関数（<a href="https://devblogs.microsoft.com/cppblog/c17-progress-in-vs-2017-15-5-and-15-6/">2,500 個以上</a>）に <code class="codehilite">[[nodiscard]]</code> 属性を使っています。その結果、<a href="https://bugs.chromium.org/p/webrtc/issues/detail?id=8463">Chromium のソースに無意味な std::move() が見つかる</a>など、既存のコードベースのバグの発見に役立っています。</p>
-<h3 id="array-constexpr-p1023r0-p1032r1">array ヘッダのすべての関数が constexpr に <a href="https://wg21.link/P1023R0">(P1023R0)</a>, <a href="https://wg21.link/P1032R1">(P1032R1)</a></h3>
+<h3 id="array-constexpr-p1023r0-p1032r1"><code class="codehilite">&lt;array&gt;</code> ヘッダのすべての関数が constexpr に <a href="https://wg21.link/P1023R0">(P1023R0)</a>, <a href="https://wg21.link/P1032R1">(P1032R1)</a></h3>
 <p>C++17 の <code class="codehilite">&lt;array&gt;</code> ヘッダでは、比較演算子、<code class="codehilite">swap()</code>, <code class="codehilite">fill()</code> 以外のすべての関数が constexpr でした。C++20 ではさらに、array の比較演算の実装に使われている <code class="codehilite">std::equal()</code> と <code class="codehilite">std::lexicographical_compare()</code> が <a href="https://wg21.link/P0202R3">constexpr になった (P0202R3)</a> ことにともない、array の比較演算子を constexpr とし、また <code class="codehilite">swap()</code> と <code class="codehilite">fill()</code> についても constexpr にすることを決め、array ヘッダのすべての関数が constexpr で提供されます。</p>
                 
                   
@@ -1038,6 +1038,13 @@ false
           Material for MkDocs</a>
       </div>
       
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://twitter.com/Reputeless" class="md-footer-social__link fa fa-twitter"></a>
+    
+  </div>
+
     </div>
   </div>
 </footer>

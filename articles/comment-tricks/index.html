@@ -40,7 +40,7 @@
     
     
       
-        <title>オンライン資料 - C++ の歩き方 | CppMap</title>
+        <title>コメントアウトのトリック - C++ の歩き方 | CppMap</title>
       
     
     
@@ -135,7 +135,7 @@
               C++ の歩き方 | CppMap
             </span>
             <span class="md-header-nav__topic">
-              オンライン資料
+              コメントアウトのトリック
             </span>
           
         </div>
@@ -236,7 +236,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../articles/comment-tricks/" title="記事" class="md-tabs__link">
+        <a href="./" title="記事" class="md-tabs__link md-tabs__link--active">
           記事
         </a>
       
@@ -249,7 +249,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../books/" title="学習" class="md-tabs__link md-tabs__link--active">
+        <a href="../../learn/books/" title="学習" class="md-tabs__link">
           学習
         </a>
       
@@ -427,10 +427,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       記事
@@ -446,11 +448,70 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../articles/comment-tricks/" title="コメントアウトのトリック" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        コメントアウトのトリック
+      </label>
+    
+    <a href="./" title="コメントアウトのトリック" class="md-nav__link md-nav__link--active">
       コメントアウトのトリック
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#onoff" title="範囲の ON・OFF" class="md-nav__link">
+    範囲の ON・OFF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="値の切り替え" class="md-nav__link">
+    値の切り替え
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="範囲の切り替え" class="md-nav__link">
+    範囲の切り替え
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="行の入れ替えの防止" class="md-nav__link">
+    行の入れ替えの防止
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -463,12 +524,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       学習
@@ -486,7 +545,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../books/" title="書籍" class="md-nav__link">
+    <a href="../../learn/books/" title="書籍" class="md-nav__link">
       書籍
     </a>
   </li>
@@ -496,70 +555,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        オンライン資料
-      </label>
-    
-    <a href="./" title="オンライン資料" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../learn/online-resources/" title="オンライン資料" class="md-nav__link">
       オンライン資料
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="日本語のリファレンス" class="md-nav__link">
-    日本語のリファレンス
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="英語のリファレンス" class="md-nav__link">
-    英語のリファレンス
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c" title="C++ 規格関連" class="md-nav__link">
-    C++ 規格関連
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#faq" title="FAQ" class="md-nav__link">
-    FAQ
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -569,7 +569,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../studymeetings/" title="国内の勉強会" class="md-nav__link">
+    <a href="../../learn/studymeetings/" title="国内の勉強会" class="md-nav__link">
       国内の勉強会
     </a>
   </li>
@@ -581,7 +581,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../communities/" title="コミュニティ" class="md-nav__link">
+    <a href="../../learn/communities/" title="コミュニティ" class="md-nav__link">
       コミュニティ
     </a>
   </li>
@@ -733,29 +733,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="日本語のリファレンス" class="md-nav__link">
-    日本語のリファレンス
+  <a href="#onoff" title="範囲の ON・OFF" class="md-nav__link">
+    範囲の ON・OFF
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="英語のリファレンス" class="md-nav__link">
-    英語のリファレンス
+  <a href="#_2" title="値の切り替え" class="md-nav__link">
+    値の切り替え
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c" title="C++ 規格関連" class="md-nav__link">
-    C++ 規格関連
+  <a href="#_3" title="範囲の切り替え" class="md-nav__link">
+    範囲の切り替え
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#faq" title="FAQ" class="md-nav__link">
-    FAQ
+  <a href="#_4" title="行の入れ替えの防止" class="md-nav__link">
+    行の入れ替えの防止
   </a>
   
 </li>
@@ -777,32 +777,142 @@
               
                 
                 
-                <h1 id="_1">オンライン資料</h1>
-<p>オンラインでアクセスできる C++ リソースです。</p>
-<h2 id="_2">日本語のリファレンス</h2>
-<ul>
-<li><a href="https://cpprefjp.github.io/">cpprefjp</a></li>
-<li><a href="https://ja.cppreference.com/w/cpp">cppreference.com 日本語版</a></li>
-</ul>
-<h2 id="_3">英語のリファレンス</h2>
-<ul>
-<li><a href="https://en.cppreference.com/w/">cppreference.com</a></li>
-<li><a href="https://docs.microsoft.com/en-us/cpp/cpp/cpp-language-reference">C++ Language Reference</a></li>
-</ul>
-<h2 id="c">C++ 規格関連</h2>
-<ul>
-<li><a href="https://wg21.link/std11">C++11 最終ワーキングドラフト (N3337)</a> | <a href="https://timsong-cpp.github.io/cppwp/n3337/">HTML 版</a></li>
-<li><a href="https://github.com/cplusplus/draft/blob/master/papers/n4140.pdf?raw=true">C++14 最終ワーキングドラフト (N4140)</a> | <a href="https://timsong-cpp.github.io/cppwp/n4140/">HTML 版</a></li>
-<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf">C++17 最終ワーキングドラフト (N4659)</a> | <a href="https://timsong-cpp.github.io/cppwp/n4659/">HTML 版</a></li>
-<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/n4800.pdf">最新の C++20 ワーキングドラフト (N4800)</a> | <a href="http://eel.is/c++draft/">HTML 版</a></li>
-</ul>
-<h2 id="faq">FAQ</h2>
-<ul>
-<li><a href="https://isocpp.org/faq">C++ FAQ</a><ul>
-<li><a href="http://www.cs.technion.ac.il/users/yechiel/c++-faq/index.html">Marshall Cline の C++ FAQ</a> と <a href="http://stroustrup.com/bs_faq.html">Bjarne Stroustrup の C++ FAQ</a> を統合・更新した Q&amp;A 集</li>
-</ul>
-</li>
-</ul>
+                <h1 id="_1">コメントアウトのトリック</h1>
+<p>プログラムで使えるコメントアウトのトリックを紹介します。<br />
+開発中のちょっとしたデバッグや、ミスの防止に活用できます。</p>
+<h2 id="onoff">範囲の ON・OFF</h2>
+<p>スラッシュ <code class="codehilite">/</code> の有無に応じて、範囲コメントの有効・無効を切り替えます。</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">無効</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="cm">/**/</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+    <span class="cm">/**/</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">有効</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="cm">/**</span>
+<span class="cm">    int x;</span>
+
+<span class="cm">    std::cin &gt;&gt; x;</span>
+
+<span class="cm">    std::cout &lt;&lt; x * x;</span>
+<span class="cm">    /**/</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
+<h2 id="_2">値の切り替え</h2>
+<p>スラッシュ <code class="codehilite">/</code> の有無に応じて、左右どちらかの値を選択します。</p>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">左</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="cm">/**/</span> <span class="mi">100</span> <span class="cm">/*/ 200 /**/</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">N</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">右</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="cm">/** 100 /*/</span> <span class="mi">200</span> <span class="cm">/**/</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">N</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
+<h2 id="_3">範囲の切り替え</h2>
+<p>値の切り替えの範囲版です。<br />
+スラッシュ / の有無に応じて、前半、後半どちらかの範囲を選択します。</p>
+<div class="superfences-tabs">
+<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
+<label for="__tab_3_0">前半</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="cm">/**/</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+    <span class="cm">/*/</span>
+<span class="cm">    int x, y;</span>
+
+<span class="cm">    std::cin &gt;&gt; x &gt;&gt; y;</span>
+
+<span class="cm">    std::cout &lt;&lt; x + y;</span>
+<span class="cm">    /**/</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_3" type="radio" id="__tab_3_1" />
+<label for="__tab_3_1">後半</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="cm">/**</span>
+<span class="cm">    int x;</span>
+
+<span class="cm">    std::cin &gt;&gt; x;</span>
+
+<span class="cm">    std::cout &lt;&lt; x * x;</span>
+<span class="cm">    /*/</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+    <span class="cm">/**/</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
+<h2 id="_4">行の入れ替えの防止</h2>
+<p>リファクタリング時に、コピー＆ペーストで行の順番を入れ替えてしまうことを防ぎます。</p>
+<div class="superfences-tabs">
+<input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
+<label for="__tab_4_0">基本のコード</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">First</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">void</span> <span class="nf">Second</span><span class="p">()</span> <span class="p">{}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">First</span><span class="p">();</span><span class="cm">/*</span>
+<span class="cm">    */</span><span class="n">Second</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_4" type="radio" id="__tab_4_1" />
+<label for="__tab_4_1">入れ替えるとエラー</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">First</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">void</span> <span class="nf">Second</span><span class="p">()</span> <span class="p">{}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="err">*/</span> <span class="n">Second</span><span class="p">();</span>
+    <span class="n">First</span><span class="p">();</span><span class="cm">/*  </span>
+<span class="cm">}</span>
+</pre></div></div>
+</div>
                 
                   
                 
@@ -823,7 +933,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../books/" title="書籍" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../standardization/status/" title="処理系の対応状況" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -832,19 +942,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                書籍
+                処理系の対応状況
               </span>
             </div>
           </a>
         
         
-          <a href="../studymeetings/" title="国内の勉強会" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../learn/books/" title="書籍" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                国内の勉強会
+                書籍
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

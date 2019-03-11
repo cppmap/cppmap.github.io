@@ -236,6 +236,19 @@
   
     <li class="md-tabs__item">
       
+        <a href="../../articles/comment-tricks/" title="記事" class="md-tabs__link">
+          記事
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
         <a href="../../learn/books/" title="学習" class="md-tabs__link">
           学習
         </a>
@@ -521,10 +534,46 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      学習
+      記事
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        記事
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../articles/comment-tricks/" title="コメントアウトのトリック" class="md-nav__link">
+      コメントアウトのトリック
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      学習
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
         学習
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -590,13 +639,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       ライブラリ
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         ライブラリ
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -626,13 +675,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
       ツール
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-6">
         ツール
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -674,13 +723,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-7">
       貢献
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-7">
         貢献
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -811,7 +860,7 @@
                 <h1 id="c20">C++20 の新機能</h1>
 <h2 id="_1">言語機能</h2>
 <h3 id="p0683r1">ビットフィールドにデフォルトの初期値を設定可能に <a href="http://wg21.link/p0683r1">(P0683R1)</a></h3>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<p><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="k">enum</span> <span class="k">class</span> <span class="nc">Terrain</span>
 <span class="p">{</span>
@@ -836,15 +885,11 @@
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">tile2</span><span class="p">.</span><span class="n">height</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tile2</span><span class="p">.</span><span class="n">terrain</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">tile2</span><span class="p">.</span><span class="n">passable</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-
-
 <div class="codehilite"><pre><span></span>1, 0, true
 15, 3, false
-</pre></div>
-
-
+</pre></div></p>
 <h3 id="p0704r1">メンバポインタ演算子の仕様を一貫性のために修正 <a href="http://wg21.link/p0704r1">(P0704R1)</a></h3>
-<p>C++17 までのメンバポインタ演算子 <code class="codehilite">.*</code> は「右辺値オブジェクトから、左辺値参照修飾されたメンバ関数ポインタに使うことは不適格」という規格文面になっていました。そのため、同じ意味をもつ次の 2 つのプログラムで後者だけ不適格とされ、一貫性がありませんでした。</p>
+<p>C++17 までのメンバポインタ演算子 <code class="codehilite">.*</code> は「右辺値オブジェクトから、左辺値参照修飾されたメンバ関数ポインタに使うことは不適格」という規格文面になっていました。そのため、同じ意味をもつ次の 2 つのプログラムで後者だけ不適格とされ、一貫性がありませんでした。
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
@@ -865,12 +910,10 @@
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">Text</span><span class="p">{</span> <span class="s">&quot;Hello&quot;</span> <span class="p">}.</span><span class="o">*&amp;</span><span class="n">Text</span><span class="o">::</span><span class="n">get</span><span class="p">)()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// C++17 までは不適格、C++20 から OK</span>
 <span class="p">}</span>
 </pre></div>
-
-
-<p>C++20 では「右辺値オブジェクトから、左辺値参照修飾された "非 const" メンバ関数ポインタに使うことは不適格」と文面を修正し、後者もコンパイルできるようになります。</p>
+C++20 では「右辺値オブジェクトから、左辺値参照修飾された "非 const" メンバ関数ポインタに使うことは不適格」と文面を修正し、後者もコンパイルできるようになります。</p>
 <h2 id="_2">標準ライブラリ</h2>
 <h3 id="p0457r2">文字列の先頭や末尾が、ある文字列と一致するか判定 <a href="https://wg21.link/P0457R2">(P0457R2)</a></h3>
-<p><code class="codehilite">std::basic_string</code> と <code class="codehilite">std::basic_string_view</code> に、<code class="codehilite">starts_with()</code> と <code class="codehilite">ends_with()</code> メンバ関数が追加されます。</p>
+<p><code class="codehilite">std::basic_string</code> と <code class="codehilite">std::basic_string_view</code> に、<code class="codehilite">starts_with()</code> と <code class="codehilite">ends_with()</code> メンバ関数が追加されます。
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string_view&gt;</span><span class="cp"></span>
 
@@ -888,16 +931,12 @@
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">HasPNGExtension</span><span class="p">(</span><span class="s">&quot;music.mp3&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-
-
 <div class="codehilite"><pre><span></span>true
 false
 false
-</pre></div>
-
-
+</pre></div></p>
 <h3 id="operatorbasic_istream-chart-chartn-p0487r1"><code class="codehilite">operator&gt;&gt;(basic_istream&amp;, charT*)</code> の第二引数を <code class="codehilite">charT(&amp;)[N]</code> に変更して安全に <a href="https://wg21.link/P0487R1">(P0487R1)</a></h3>
-<p>C++17 までの <code class="codehilite">operator&gt;&gt;(basic_istream&amp;, charT*)</code> は、関数にバッファのサイズが渡されないため、次のようなプログラムでバッファオーバーフローへの対策が必要でした。</p>
+<p>C++17 までの <code class="codehilite">operator&gt;&gt;(basic_istream&amp;, charT*)</code> は、関数にバッファのサイズが渡されないため、次のようなプログラムでバッファオーバーフローへの対策が必要でした。
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iomanip&gt;</span><span class="cp"></span>
 
@@ -912,9 +951,7 @@ false
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">buffer</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-
-
-<p>C++20 では引数を次のように変更し、関数がバッファオーバーフローの対策を実装するようになります。</p>
+C++20 では引数を次のように変更し、関数がバッファオーバーフローの対策を実装するようになります。
 <div class="codehilite"><pre><span></span><span class="c1">// C++17 まで</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
 <span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="n">in</span><span class="p">,</span> <span class="n">charT</span><span class="o">*</span> <span class="n">s</span><span class="p">);</span>
@@ -923,8 +960,6 @@ false
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span>
 <span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="n">in</span><span class="p">,</span> <span class="n">charT</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">)[</span><span class="n">N</span><span class="p">]);</span>
 </pre></div>
-
-
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iomanip&gt;</span><span class="cp"></span>
 
@@ -937,9 +972,7 @@ false
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">buffer</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-
-
-<p>この変更に伴い、C++17 までは有効だった次のようなプログラムが、C++20 からコンパイルエラーになります。</p>
+この変更に伴い、C++17 までは有効だった次のようなプログラムが、C++20 からコンパイルエラーになります。
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iomanip&gt;</span><span class="cp"></span>
 
@@ -949,11 +982,9 @@ false
     <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// C++20 からはコンパイルエラー</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-
-
+</pre></div></p>
 <h3 id="nodiscard-p0600r1">戻り値の無視が不具合をもたらす関数に <code class="codehilite">[[nodiscard]]</code> を付与 <a href="https://wg21.link/P0600R1">(P0600R1)</a></h3>
-<p>C++17 で導入された <code class="codehilite">[[nodiscard]]</code> 属性を標準ライブラリで活用するようになります。C++20 では付与基準を「戻り値の無視がトラブルやメモリリークなどの重大なエラーを引き起こす C++ の関数」とし、<code class="codehilite">async()</code>, <code class="codehilite">launder()</code>, <code class="codehilite">allocate()</code>, <code class="codehilite">empty()</code>, <code class="codehilite">operator new()</code> が対象となっています。</p>
+<p>C++17 で導入された <code class="codehilite">[[nodiscard]]</code> 属性を標準ライブラリで活用するようになります。C++20 では付与基準を「戻り値の無視がトラブルやメモリリークなどの重大なエラーを引き起こす C++ の関数」とし、<code class="codehilite">async()</code>, <code class="codehilite">launder()</code>, <code class="codehilite">allocate()</code>, <code class="codehilite">empty()</code>, <code class="codehilite">operator new()</code> が対象となっています。
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;future&gt;</span><span class="cp"></span>
 
@@ -966,9 +997,7 @@ false
     <span class="n">std</span><span class="o">::</span><span class="n">async</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">launch</span><span class="o">::</span><span class="n">async</span><span class="p">,</span> <span class="p">[]</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">});</span> <span class="c1">// C++20 では警告</span>
 <span class="p">}</span>
 </pre></div>
-
-
-<p>MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の範囲を超えてより多くの関数（<a href="https://devblogs.microsoft.com/cppblog/c17-progress-in-vs-2017-15-5-and-15-6/">2,500 個以上</a>）に <code class="codehilite">[[nodiscard]]</code> 属性を使っています。その結果、<a href="https://bugs.chromium.org/p/webrtc/issues/detail?id=8463">Chromium のソースに無意味な std::move() が見つかる</a>など、既存のコードベースのバグの発見に役立っています。</p>
+MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の範囲を超えてより多くの関数（<a href="https://devblogs.microsoft.com/cppblog/c17-progress-in-vs-2017-15-5-and-15-6/">2,500 個以上</a>）に <code class="codehilite">[[nodiscard]]</code> 属性を使っています。その結果、<a href="https://bugs.chromium.org/p/webrtc/issues/detail?id=8463">Chromium のソースに無意味な std::move() が見つかる</a>など、既存のコードベースのバグの発見に役立っています。</p>
 <h3 id="array-constexpr-p1023r0-p1032r1"><code class="codehilite">&lt;array&gt;</code> ヘッダのすべての関数が constexpr に <a href="https://wg21.link/P1023R0">(P1023R0)</a>, <a href="https://wg21.link/P1032R1">(P1032R1)</a></h3>
 <p>C++17 の <code class="codehilite">&lt;array&gt;</code> ヘッダでは、比較演算子、<code class="codehilite">swap()</code>, <code class="codehilite">fill()</code> 以外のすべての関数が constexpr でした。C++20 ではさらに、array の比較演算の実装に使われている <code class="codehilite">std::equal()</code> と <code class="codehilite">std::lexicographical_compare()</code> が <a href="https://wg21.link/P0202R3">constexpr になった (P0202R3)</a> ことにともない、array の比較演算子を constexpr とし、また <code class="codehilite">swap()</code> と <code class="codehilite">fill()</code> についても constexpr にすることを決め、array ヘッダのすべての関数が constexpr で提供されます。</p>
                 

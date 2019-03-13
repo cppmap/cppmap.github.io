@@ -432,6 +432,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#2-p1236r1" title="符号付き整数型の負数表現を 2 の補数と規定 (P1236R1)" class="md-nav__link">
+    符号付き整数型の負数表現を 2 の補数と規定 (P1236R1)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8-bit-2" title="（参考）符号付き 8-bit 整数の 2 進表現" class="md-nav__link">
+    （参考）符号付き 8-bit 整数の 2 進表現
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" title="標準ライブラリ" class="md-nav__link">
     標準ライブラリ
   </a>
@@ -812,6 +832,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#2-p1236r1" title="符号付き整数型の負数表現を 2 の補数と規定 (P1236R1)" class="md-nav__link">
+    符号付き整数型の負数表現を 2 の補数と規定 (P1236R1)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8-bit-2" title="（参考）符号付き 8-bit 整数の 2 進表現" class="md-nav__link">
+    （参考）符号付き 8-bit 整数の 2 進表現
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" title="標準ライブラリ" class="md-nav__link">
     標準ライブラリ
   </a>
@@ -923,6 +963,94 @@
 <span class="p">}</span>
 </pre></div>
 C++20 では「右辺値オブジェクトから、左辺値参照修飾された "非 const" メンバ関数ポインタに使うことは不適格」と文面を修正し、後者もコンパイルできるようになります。</p>
+<h2 id="2-p1236r1">符号付き整数型の負数表現を 2 の補数と規定 <a href="http://wg21.link/p1236r1">(P1236R1)</a></h2>
+<p>ほぼすべての現代的なコンピュータで、符号付き整数型の負数は 2 の補数で表現されます。しかし、C++ では負数の表現方法について規格で定めていなかったため、（現実的ではありませんが）2 の補数以外で負数表現を実装する余地も残されていました。C++20 からは 2 の補数のみを許可するよう規格文言が修正されました。<br />
+近年のアーキテクチャで 2 の補数以外を使う例は、1 の補数を使う Unisys 2200 があります。また過去には符号と絶対値で表現するアーキテクチャもありました。これらはモダンな C++ を開発環境として使用しないので、この規格変更による影響は無いと考えられます。</p>
+<h4 id="8-bit-2">（参考）符号付き 8-bit 整数の 2 進表現</h4>
+<table>
+<thead>
+<tr>
+<th>10 進表現</th>
+<th>2 の補数</th>
+<th>1 の補数</th>
+<th>符号と絶対値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>127</td>
+<td>01111111</td>
+<td>01111111</td>
+<td>01111111</td>
+</tr>
+<tr>
+<td>126</td>
+<td>01111110</td>
+<td>01111110</td>
+<td>01111110</td>
+</tr>
+<tr>
+<td>125</td>
+<td>01111101</td>
+<td>01111101</td>
+<td>01111101</td>
+</tr>
+<tr>
+<td>2</td>
+<td>00000010</td>
+<td>00000010</td>
+<td>00000010</td>
+</tr>
+<tr>
+<td>1</td>
+<td>00000001</td>
+<td>00000001</td>
+<td>00000001</td>
+</tr>
+<tr>
+<td>0</td>
+<td>00000000</td>
+<td>00000000</td>
+<td>00000000</td>
+</tr>
+<tr>
+<td>-0</td>
+<td></td>
+<td>11111111</td>
+<td>10000000</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>11111111</td>
+<td>11111110</td>
+<td>10000001</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>11111110</td>
+<td>11111101</td>
+<td>10000010</td>
+</tr>
+<tr>
+<td>-126</td>
+<td>10000010</td>
+<td>10000001</td>
+<td>11111110</td>
+</tr>
+<tr>
+<td>-127</td>
+<td>10000001</td>
+<td>10000000</td>
+<td>11111111</td>
+</tr>
+<tr>
+<td>-128</td>
+<td>10000000</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="_2">標準ライブラリ</h2>
 <h3 id="p0457r2">文字列の先頭や末尾が、ある文字列と一致するか判定 <a href="https://wg21.link/P0457R2">(P0457R2)</a></h3>
 <p><code class="codehilite">std::basic_string</code> と <code class="codehilite">std::basic_string_view</code> に、<code class="codehilite">starts_with()</code> と <code class="codehilite">ends_with()</code> メンバ関数が追加されます。

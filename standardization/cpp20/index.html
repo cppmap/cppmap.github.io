@@ -446,6 +446,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#0-no_unique_address-p0840r2" title="メンバのオブジェクトが空のクラスの場合にメモリ消費を 0 にする [[no_unique_address]] 属性を追加 (P0840R2)" class="md-nav__link">
+    メンバのオブジェクトが空のクラスの場合にメモリ消費を 0 にする [[no_unique_address]] 属性を追加 (P0840R2)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -870,6 +877,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#0-no_unique_address-p0840r2" title="メンバのオブジェクトが空のクラスの場合にメモリ消費を 0 にする [[no_unique_address]] 属性を追加 (P0840R2)" class="md-nav__link">
+    メンバのオブジェクトが空のクラスの場合にメモリ消費を 0 にする [[no_unique_address]] 属性を追加 (P0840R2)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1075,6 +1089,54 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 </tr>
 </tbody>
 </table>
+<h3 id="0-no_unique_address-p0840r2">メンバのオブジェクトが空のクラスの場合にメモリ消費を 0 にする <code class="codehilite">[[no_unique_address]]</code> 属性を追加 <a href="http://wg21.link/p0840r2">(P0840R2)</a></h3>
+<p>アロケータなどをクラスのメンバとして保持するとき、それがステートレスな空のクラスであってもオブジェクトのアドレスを一意に用意しないといけないため、サイズを 0 にできずメモリ消費が無駄に増えてしまう問題がありました。
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Empty</span> <span class="p">{};</span>
+
+<span class="k">struct</span> <span class="n">X</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="n">Empty</span> <span class="n">e</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// 4 より大きい</span>
+<span class="p">}</span>
+</pre></div>
+これを回避するために「空の基底クラスは最適化によってサイズ 0 にしてよい」という仕様を利用した Empty Base Optimization (EBO) というテクニックがあり、標準ライブラリでも　<code class="codehilite">std::unique_ptr</code> や <code class="codehilite">std::shared_ptr</code>, <code class="codehilite">std::vector</code> などに使われています。
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Empty</span> <span class="p">{};</span>
+
+<span class="k">struct</span> <span class="nl">X</span> <span class="p">:</span> <span class="k">public</span> <span class="n">Empty</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// 4</span>
+<span class="p">}</span>
+</pre></div>
+しかし、これらのクラスで継承による EBO を実装するとコードが複雑になるという欠点がありました。C++20 ではメンバの宣言に <code class="codehilite">[[no_unique_address]]</code> 属性を付けることで、継承を使わなくてもコンパイラが EBO と同じような最適化をできるようになり、従来の継承による EBO を使っていたコードを、より単純なコードに置き換えられます。
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Empty</span> <span class="p">{};</span>
+
+<span class="k">struct</span> <span class="n">X</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">[[</span><span class="n">no_unique_address</span><span class="p">]]</span> <span class="n">Empty</span> <span class="n">e</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// 4</span>
+<span class="p">}</span>
+</pre></div></p>
 <h2 id="_2">標準ライブラリ</h2>
 <h3 id="p0457r2">文字列の先頭や末尾が、ある文字列と一致するか判定 <a href="https://wg21.link/P0457R2">(P0457R2)</a></h3>
 <p><code class="codehilite">std::basic_string</code> と <code class="codehilite">std::basic_string_view</code> に、<code class="codehilite">starts_with()</code> と <code class="codehilite">ends_with()</code> メンバ関数が追加されます。

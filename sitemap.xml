@@ -46,6 +46,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://cppmap.github.io/articles/how-to-read-libraries/</loc>
+     <lastmod>2019-03-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://cppmap.github.io/learn/books/</loc>
      <lastmod>2019-03-16</lastmod>
      <changefreq>daily</changefreq>

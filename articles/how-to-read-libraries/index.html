@@ -10,10 +10,10 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="C++ プログラムのコンパイル・実行ができる Web サイトの紹介">
+        <meta name="description" content="C++ の標準ライブラリの読みと名前の由来の紹介">
       
       
-        <link rel="canonical" href="https://cppmap.github.io/tools/onlinecompilers/">
+        <link rel="canonical" href="https://cppmap.github.io/articles/how-to-read-libraries/">
       
       
         <meta name="author" content="Ryo Suzuki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>オンラインコンパイラ - C++ の歩き方 | CppMap</title>
+        <title>標準ライブラリの読みと名前の由来 - C++ の歩き方 | CppMap</title>
       
     
     
@@ -137,7 +137,7 @@
               C++ の歩き方 | CppMap
             </span>
             <span class="md-header-nav__topic">
-              オンラインコンパイラ
+              標準ライブラリの読みと名前の由来
             </span>
           
         </div>
@@ -238,7 +238,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../articles/comment-tricks/" title="記事" class="md-tabs__link">
+        <a href="../comment-tricks/" title="記事" class="md-tabs__link md-tabs__link--active">
           記事
         </a>
       
@@ -277,7 +277,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="./" title="ツール" class="md-tabs__link md-tabs__link--active">
+        <a href="../../tools/onlinecompilers/" title="ツール" class="md-tabs__link">
           ツール
         </a>
       
@@ -429,10 +429,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       記事
@@ -450,7 +452,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../articles/comment-tricks/" title="コメントアウトのトリック" class="md-nav__link">
+    <a href="../comment-tricks/" title="コメントアウトのトリック" class="md-nav__link">
       コメントアウトのトリック
     </a>
   </li>
@@ -462,7 +464,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../articles/it-compiles/" title="なぜかコンパイルできる" class="md-nav__link">
+    <a href="../it-compiles/" title="なぜかコンパイルできる" class="md-nav__link">
       なぜかコンパイルできる
     </a>
   </li>
@@ -474,7 +476,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../articles/it-does-not-compile/" title="なぜかコンパイルできない" class="md-nav__link">
+    <a href="../it-does-not-compile/" title="なぜかコンパイルできない" class="md-nav__link">
       なぜかコンパイルできない
     </a>
   </li>
@@ -486,7 +488,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../articles/how-to-read-keywords/" title="予約語の読みと名前の由来" class="md-nav__link">
+    <a href="../how-to-read-keywords/" title="予約語の読みと名前の由来" class="md-nav__link">
       予約語の読みと名前の由来
     </a>
   </li>
@@ -496,11 +498,56 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../articles/how-to-read-libraries/" title="標準ライブラリの読みと名前の由来" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        標準ライブラリの読みと名前の由来
+      </label>
+    
+    <a href="./" title="標準ライブラリの読みと名前の由来" class="md-nav__link md-nav__link--active">
       標準ライブラリの読みと名前の由来
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#c" title="C++ の標準ライブラリ" class="md-nav__link">
+    C++ の標準ライブラリ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c_1" title="C 言語由来の標準ライブラリ" class="md-nav__link">
+    C 言語由来の標準ライブラリ
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -633,12 +680,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       ツール
@@ -654,123 +699,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        オンラインコンパイラ
-      </label>
-    
-    <a href="./" title="オンラインコンパイラ" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../tools/onlinecompilers/" title="オンラインコンパイラ" class="md-nav__link">
       オンラインコンパイラ
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="開発環境" class="md-nav__link">
-    開発環境
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c-insights" title="C++ Insights: ソース → ソース変換" class="md-nav__link">
-    C++ Insights: ソース → ソース変換
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" title="入力例" class="md-nav__link">
-    入力例
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" title="出力" class="md-nav__link">
-    出力
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compiler-explorer" title="Compiler Explorer: ソース → アセンブリ変換" class="md-nav__link">
-    Compiler Explorer: ソース → アセンブリ変換
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" title="概要" class="md-nav__link">
-    概要
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" title="入力例" class="md-nav__link">
-    入力例
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" title="出力" class="md-nav__link">
-    出力
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#url" title="URL からインクルード" class="md-nav__link">
-    URL からインクルード
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -780,7 +713,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../package-manager/" title="パッケージマネージャ" class="md-nav__link">
+    <a href="../../tools/package-manager/" title="パッケージマネージャ" class="md-nav__link">
       パッケージマネージャ
     </a>
   </li>
@@ -848,83 +781,16 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="開発環境" class="md-nav__link">
-    開発環境
+  <a href="#c" title="C++ の標準ライブラリ" class="md-nav__link">
+    C++ の標準ライブラリ
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-insights" title="C++ Insights: ソース → ソース変換" class="md-nav__link">
-    C++ Insights: ソース → ソース変換
+  <a href="#c_1" title="C 言語由来の標準ライブラリ" class="md-nav__link">
+    C 言語由来の標準ライブラリ
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" title="入力例" class="md-nav__link">
-    入力例
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" title="出力" class="md-nav__link">
-    出力
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compiler-explorer" title="Compiler Explorer: ソース → アセンブリ変換" class="md-nav__link">
-    Compiler Explorer: ソース → アセンブリ変換
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" title="概要" class="md-nav__link">
-    概要
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" title="入力例" class="md-nav__link">
-    入力例
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" title="出力" class="md-nav__link">
-    出力
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#url" title="URL からインクルード" class="md-nav__link">
-    URL からインクルード
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -945,121 +811,491 @@
               
                 
                 
-                <h1 id="_1">オンラインコンパイラ</h1>
-<h2 id="_2">開発環境</h2>
-<p>C++ プログラムのコンパイル・実行ができる Web サイトです。</p>
+                <h1 id="_1">標準ライブラリの読みと名前の由来</h1>
+<h2 id="c">C++ の標準ライブラリ</h2>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>コンパイラ</th>
-<th>日本語入出力</th>
-<th>インタラクティブ</th>
-<th>複数ファイル</th>
-<th>Share</th>
+<th>ライブラリ名</th>
+<th>読み</th>
+<th>名前の由来</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://wandbox.org/">Wandbox</a></td>
-<td>gcc HEAD 9.0.1, Clang HEAD 9.0.0</td>
-<td><i class="fa fa-check"></i></td>
-<td></td>
-<td><i class="fa fa-check"></i></td>
-<td><i class="fa fa-check"></i></td>
+<td>algorithm</td>
+<td>アルゴリズム</td>
+<td>アルゴリズム</td>
 </tr>
 <tr>
-<td><a href="https://repl.it/languages/cpp">repl.it</a></td>
-<td>Clang 6.0.0</td>
-<td><i class="fa fa-check"></i></td>
-<td><i class="fa fa-check"></i></td>
-<td><i class="fa fa-check"></i></td>
-<td><i class="fa fa-check"></i></td>
+<td>any</td>
+<td>エニー</td>
+<td>なんでも</td>
 </tr>
 <tr>
-<td><a href="https://paiza.io/ja/projects/new?language=cpp">paiza.io</a></td>
-<td>Clang 6.0.0</td>
-<td><i class="fa fa-check"></i></td>
-<td></td>
-<td><i class="fa fa-check"></i></td>
-<td><i class="fa fa-check"></i></td>
+<td>array</td>
+<td>アレイ</td>
+<td>配列</td>
 </tr>
 <tr>
-<td><a href="https://ideone.com/">Ideone</a></td>
-<td>gcc 6.3.0</td>
-<td><i class="fa fa-check"></i></td>
-<td></td>
-<td></td>
-<td><i class="fa fa-check"></i></td>
+<td>atomic</td>
+<td>アトミック</td>
+<td>不可分性</td>
 </tr>
 <tr>
-<td><a href="http://cpp.sh/">C++ Shell</a></td>
-<td>gcc 4.9.2</td>
-<td></td>
-<td><i class="fa fa-check"></i></td>
-<td></td>
-<td><i class="fa fa-check"></i></td>
+<td>bit</td>
+<td>ビット</td>
+<td>ビット演算</td>
+</tr>
+<tr>
+<td>bitset</td>
+<td>ビットセット</td>
+<td>ビット集合</td>
+</tr>
+<tr>
+<td>charconv</td>
+<td>チャーコンブ/キャラコンブ</td>
+<td>文字の変換 (character conversion) の略</td>
+</tr>
+<tr>
+<td>chrono</td>
+<td>クロノ</td>
+<td>時間 (ギリシャ語の Chronus に由来)</td>
+</tr>
+<tr>
+<td>codecvt</td>
+<td>コードコンバート/コードシーブイティー</td>
+<td>文字コード変換</td>
+</tr>
+<tr>
+<td>compare</td>
+<td>コンペア</td>
+<td>比較</td>
+</tr>
+<tr>
+<td>complex</td>
+<td>コンプレックス</td>
+<td>複素数</td>
+</tr>
+<tr>
+<td>concepts</td>
+<td>コンセプト</td>
+<td>コンセプト</td>
+</tr>
+<tr>
+<td>condition_variable</td>
+<td>コンディション・ヴァリアブル</td>
+<td>条件変数</td>
+</tr>
+<tr>
+<td>contract</td>
+<td>コントラクト</td>
+<td>契約</td>
+</tr>
+<tr>
+<td>coroutine</td>
+<td>コルーチン</td>
+<td>コルーチン</td>
+</tr>
+<tr>
+<td>deque</td>
+<td>デック/デキュー</td>
+<td>両端キュー (double ended queue) の略</td>
+</tr>
+<tr>
+<td>exception</td>
+<td>エクセプション</td>
+<td>例外</td>
+</tr>
+<tr>
+<td>execution</td>
+<td>エグゼキューション</td>
+<td>実行</td>
+</tr>
+<tr>
+<td>filesystem</td>
+<td>ファイルシステム</td>
+<td>ファイルシステム</td>
+</tr>
+<tr>
+<td>forward_list</td>
+<td>フォワード・リスト</td>
+<td>単方向リスト</td>
+</tr>
+<tr>
+<td>fstream</td>
+<td>エフストリーム</td>
+<td>ファイル用ストリーム</td>
+</tr>
+<tr>
+<td>functional</td>
+<td>ファンクショナル</td>
+<td>関数の</td>
+</tr>
+<tr>
+<td>future</td>
+<td>フューチャー</td>
+<td>未来</td>
+</tr>
+<tr>
+<td>initializer_list</td>
+<td>イニシャライザー・リスト</td>
+<td>初期化リスト</td>
+</tr>
+<tr>
+<td>iomanip</td>
+<td>アイオーマニピュ</td>
+<td>入出力の操作 (manipulator)</td>
+</tr>
+<tr>
+<td>ios</td>
+<td>アイオーエス</td>
+<td>入出力ストリーム</td>
+</tr>
+<tr>
+<td>iosfwd</td>
+<td>アイオーエスフォワード</td>
+<td>入出力ストリームの前方宣言</td>
+</tr>
+<tr>
+<td>iostream</td>
+<td>アイオーストリーム</td>
+<td>標準入出力ストリーム</td>
+</tr>
+<tr>
+<td>istream</td>
+<td>アイストリーム</td>
+<td>入力ストリーム</td>
+</tr>
+<tr>
+<td>iterator</td>
+<td>イテレーター</td>
+<td>反復子</td>
+</tr>
+<tr>
+<td>limits</td>
+<td>リミッツ</td>
+<td>上限下限</td>
+</tr>
+<tr>
+<td>list</td>
+<td>リスト</td>
+<td>リスト</td>
+</tr>
+<tr>
+<td>locale</td>
+<td>ロケール</td>
+<td>地域</td>
+</tr>
+<tr>
+<td>map</td>
+<td>マップ</td>
+<td>マップ</td>
+</tr>
+<tr>
+<td>memory</td>
+<td>メモリー</td>
+<td>メモリー</td>
+</tr>
+<tr>
+<td>memory_resource</td>
+<td>メモリー・リソース</td>
+<td>メモリーリソース</td>
+</tr>
+<tr>
+<td>mutex</td>
+<td>ミューテックス</td>
+<td>排他制御 (mutual exclusion) の略</td>
+</tr>
+<tr>
+<td>new</td>
+<td>ニュー</td>
+<td>新しい</td>
+</tr>
+<tr>
+<td>numeric</td>
+<td>ニューメリック</td>
+<td>数値的な</td>
+</tr>
+<tr>
+<td>optional</td>
+<td>オプショナル</td>
+<td>選択できる</td>
+</tr>
+<tr>
+<td>ostream</td>
+<td>オーストリーム</td>
+<td>出力ストリーム</td>
+</tr>
+<tr>
+<td>queue</td>
+<td>キュー</td>
+<td>キュー</td>
+</tr>
+<tr>
+<td>random</td>
+<td>ランダム</td>
+<td>乱数</td>
+</tr>
+<tr>
+<td>ranges</td>
+<td>レンジ</td>
+<td>範囲</td>
+</tr>
+<tr>
+<td>ratio</td>
+<td>レシオ</td>
+<td>有理数</td>
+</tr>
+<tr>
+<td>regex</td>
+<td>レジェックス</td>
+<td>正規表現 (regular expression) の略</td>
+</tr>
+<tr>
+<td>scoped_allocator</td>
+<td>スコープド・アロケーター</td>
+<td>範囲を決めたアロケータ</td>
+</tr>
+<tr>
+<td>set</td>
+<td>セット</td>
+<td>集合</td>
+</tr>
+<tr>
+<td>shared_mutex</td>
+<td>シェアード・ミューテックス</td>
+<td>共有的な mutex</td>
+</tr>
+<tr>
+<td>span</td>
+<td>スパン</td>
+<td>範囲</td>
+</tr>
+<tr>
+<td>sstream</td>
+<td>エスストリーム</td>
+<td>文字列のストリーム</td>
+</tr>
+<tr>
+<td>stack</td>
+<td>スタック</td>
+<td>スタック</td>
+</tr>
+<tr>
+<td>stdexcept</td>
+<td>エスティーディーエクセプト/スタンダードアーグエクセプト</td>
+<td>標準的な例外</td>
+</tr>
+<tr>
+<td>streambuf</td>
+<td>ストリームバフ/ストームバッファー</td>
+<td>ストリームバッファー</td>
+</tr>
+<tr>
+<td>string</td>
+<td>ストリング</td>
+<td>文字列</td>
+</tr>
+<tr>
+<td>string_view</td>
+<td>ストリングビュー</td>
+<td>文字列のビュー</td>
+</tr>
+<tr>
+<td>strstream</td>
+<td>エスティーアールストリーム/ストラストリーム</td>
+<td>文字列のストリーム</td>
+</tr>
+<tr>
+<td>syncstream</td>
+<td>シンクストリーム</td>
+<td>同期的なストリーム</td>
+</tr>
+<tr>
+<td>system_error</td>
+<td>システム・エラー</td>
+<td>システムエラー</td>
+</tr>
+<tr>
+<td>thread</td>
+<td>スレッド</td>
+<td>スレッド</td>
+</tr>
+<tr>
+<td>tuple</td>
+<td>タプル</td>
+<td>値の組</td>
+</tr>
+<tr>
+<td>typeindex</td>
+<td>タイプインデックス</td>
+<td>タイプインデックス</td>
+</tr>
+<tr>
+<td>typeinfo</td>
+<td>タイプインフォ</td>
+<td>型の情報</td>
+</tr>
+<tr>
+<td>type_traits</td>
+<td>タイプ・トレイツ</td>
+<td>型の特徴</td>
+</tr>
+<tr>
+<td>unordered_map</td>
+<td>アンオーダード・マップ</td>
+<td>非順序な map</td>
+</tr>
+<tr>
+<td>unordered_set</td>
+<td>アンオーダード・セット</td>
+<td>非順序な set</td>
+</tr>
+<tr>
+<td>utility</td>
+<td>ユーティリティー</td>
+<td>便利機能</td>
+</tr>
+<tr>
+<td>valarray</td>
+<td>ヴァルアレイ</td>
+<td>値の配列</td>
+</tr>
+<tr>
+<td>variant</td>
+<td>ヴァリアント</td>
+<td>相違した</td>
+</tr>
+<tr>
+<td>vector</td>
+<td>ベクター</td>
+<td>ベクトル</td>
+</tr>
+<tr>
+<td>version</td>
+<td>バージョン</td>
+<td>バージョン</td>
 </tr>
 </tbody>
 </table>
-<h2 id="c-insights">C++ Insights: ソース → ソース変換</h2>
-<p><a href="https://cppinsights.io/">C++ Insights</a> は、ラムダ式、range-based for, 構造化束縛などで何が起こっているのかを、プログラムを単純なソースコードに分解することで可視化するオンラインのツールです。  </p>
-<h4 id="_3">入力例</h4>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="k">const</span> <span class="kt">char</span> <span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">]{</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">};</span>
-
-    <span class="k">for</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">&amp;</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">arr</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;c=%c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<h4 id="_4">出力</h4>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="k">const</span> <span class="kt">char</span> <span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">};</span>
-  <span class="p">{</span>
-    <span class="kt">char</span> <span class="k">const</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">__range1</span><span class="p">)[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">;</span>
-    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">__begin1</span> <span class="o">=</span> <span class="n">__range1</span><span class="p">;</span>
-    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">__end1</span> <span class="o">=</span> <span class="n">__range1</span> <span class="o">+</span> <span class="mi">10l</span><span class="p">;</span>
-
-    <span class="k">for</span><span class="p">(</span> <span class="p">;</span> <span class="n">__begin1</span> <span class="o">!=</span> <span class="n">__end1</span><span class="p">;</span> <span class="o">++</span><span class="n">__begin1</span> <span class="p">)</span>
-    <span class="p">{</span>
-      <span class="k">const</span> <span class="kt">char</span> <span class="o">&amp;</span> <span class="n">c</span> <span class="o">=</span> <span class="o">*</span><span class="n">__begin1</span><span class="p">;</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;c=%c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<h2 id="compiler-explorer">Compiler Explorer: ソース → アセンブリ変換</h2>
-<h3 id="_5">概要</h3>
-<p><a href="https://godbolt.org/">Compiler Explorer</a> は、C, C++, Rust, Swift などのソースコードをコンパイルしてアセンブリを表示するオンラインコンパイラです。複数タブを使って、GCC, Clang, MSVC, ICC などのコンパイラや、コンパイルオプションを変えたときの結果を比較できます。</p>
-<h4 id="_6">入力例</h4>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">square</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">num</span> <span class="o">*</span> <span class="n">num</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-<h4 id="_7">出力</h4>
-<div class="codehilite"><pre><span></span><span class="nf">square</span><span class="p">(</span><span class="no">int</span><span class="p">):</span>
-        <span class="nf">push</span>    <span class="no">rbp</span>
-        <span class="nf">mov</span>     <span class="no">rbp</span><span class="p">,</span> <span class="no">rsp</span>
-        <span class="nf">mov</span>     <span class="no">DWORD</span> <span class="no">PTR</span> <span class="p">[</span><span class="no">rbp-4</span><span class="p">],</span> <span class="no">edi</span>
-        <span class="nf">mov</span>     <span class="no">eax</span><span class="p">,</span> <span class="no">DWORD</span> <span class="no">PTR</span> <span class="p">[</span><span class="no">rbp-4</span><span class="p">]</span>
-        <span class="nf">imul</span>    <span class="no">eax</span><span class="p">,</span> <span class="no">DWORD</span> <span class="no">PTR</span> <span class="p">[</span><span class="no">rbp-4</span><span class="p">]</span>
-        <span class="nf">pop</span>     <span class="no">rbp</span>
-        <span class="nf">ret</span>
-</pre></div>
-
-<h3 id="url">URL からインクルード</h3>
-<p>Compiler Explorer には、Web 上のファイルを <code class="codehilite"><span class="cp">#include</span> <span class="cpf">&quot;URL&quot;</span><span class="cp"></span></code> でインクルードできる独自拡張機能があります。この機能を使うと、GitHub などに公開されているシングルヘッダライブラリをプログラムの中で簡単に使えます（例: <a href="https://godbolt.org/z/OV-vGQ">https://godbolt.org/z/OV-vGQ</a>）</p>
+<h2 id="c_1">C 言語由来の標準ライブラリ</h2>
+<table>
+<thead>
+<tr>
+<th>ライブラリ名</th>
+<th>読み</th>
+<th>名前の由来</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cassert</td>
+<td>シーアサート</td>
+<td>表明</td>
+</tr>
+<tr>
+<td>cctype</td>
+<td>シーシータイプ</td>
+<td>文字の分類</td>
+</tr>
+<tr>
+<td>cerrno</td>
+<td>シーエラーナンバー</td>
+<td>エラーナンバー (error number) の略</td>
+</tr>
+<tr>
+<td>cfenv</td>
+<td>シーエフエンブ</td>
+<td>浮動小数点数の環境設定 (float environment) の略</td>
+</tr>
+<tr>
+<td>cfloat</td>
+<td>シーフロート</td>
+<td>浮動小数点数</td>
+</tr>
+<tr>
+<td>cinttypes</td>
+<td>シーイントタイプス</td>
+<td>整数型</td>
+</tr>
+<tr>
+<td>climits</td>
+<td>シーリミッツ</td>
+<td>上限下限</td>
+</tr>
+<tr>
+<td>clocale</td>
+<td>シーロケール</td>
+<td>地域</td>
+</tr>
+<tr>
+<td>cmath</td>
+<td>シーマス</td>
+<td>数学関数</td>
+</tr>
+<tr>
+<td>csetjmp</td>
+<td>シーセットジャンプ</td>
+<td>セットジャンプ命令</td>
+</tr>
+<tr>
+<td>csignal</td>
+<td>シーシグナル</td>
+<td>シグナル</td>
+</tr>
+<tr>
+<td>cstdarg</td>
+<td>シーエスティーディーアーグ/シースタンダードアーグ</td>
+<td>引数</td>
+</tr>
+<tr>
+<td>cstddef</td>
+<td>シーエスティーディーデフ/シースタンダードデフ</td>
+<td>基本的な定義</td>
+</tr>
+<tr>
+<td>cstdint</td>
+<td>シーエスティーディーイント/シースタンダードイント</td>
+<td>基本的な整数</td>
+</tr>
+<tr>
+<td>cstdio</td>
+<td>シーエスティーディーアイオー/シースタンダードアイオー</td>
+<td>基本的な入出力</td>
+</tr>
+<tr>
+<td>cstdlib</td>
+<td>シーエスティーディーリブ/シースタンダードリブ</td>
+<td>基本的なライブラリ</td>
+</tr>
+<tr>
+<td>cstring</td>
+<td>シーストリング</td>
+<td>文字列</td>
+</tr>
+<tr>
+<td>ctime</td>
+<td>シータイム</td>
+<td>時間</td>
+</tr>
+<tr>
+<td>cuchar</td>
+<td>シーユーチャー</td>
+<td>Unicode 文字</td>
+</tr>
+<tr>
+<td>cwchar</td>
+<td>シーダブルチャー</td>
+<td>ワイド文字</td>
+</tr>
+<tr>
+<td>cwctype</td>
+<td>シーダブルタイプ</td>
+<td>ワイド文字の分類</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
@@ -1080,7 +1316,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../libraries/text-data/" title="テキストデータ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../how-to-read-keywords/" title="予約語の読みと名前の由来" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1089,19 +1325,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                テキストデータ
+                予約語の読みと名前の由来
               </span>
             </div>
           </a>
         
         
-          <a href="../package-manager/" title="パッケージマネージャ" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../learn/books/" title="書籍" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                パッケージマネージャ
+                書籍
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

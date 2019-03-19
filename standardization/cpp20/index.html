@@ -455,6 +455,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#typename-p0634r3" title="型名であることが明らかな文脈で typename を省略可能に (P0634R3)" class="md-nav__link">
+    型名であることが明らかな文脈で typename を省略可能に (P0634R3)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -936,6 +943,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#typename-p0634r3" title="型名であることが明らかな文脈で typename を省略可能に (P0634R3)" class="md-nav__link">
+    型名であることが明らかな文脈で typename を省略可能に (P0634R3)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1203,6 +1217,70 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// 4</span>
 <span class="p">}</span>
 </pre></div></p>
+<h3 id="typename-p0634r3">型名であることが明らかな文脈で <code class="codehilite">typename</code> を省略可能に <a href="https://wg21.link/P0634R3">(P0634R3)</a></h3>
+<p>C++17 で依存名が型である場合に <code class="codehilite">typename</code> を付けないのは、派生クラス定義時の基底クラスの指定と、初期化子リストでの基底クラスの指定のみでした（厳密にはこの 2 つには <code class="codehilite">typename</code> を付けられません）。C++20 では、型名しか使えないさらにいくつかの文脈で <code class="codehilite">typename</code> が省略可能になります。次のサンプルコードの左右タブで比較できます。</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">C++17</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">allocator_type</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="nl">S</span> <span class="p">:</span> <span class="n">T</span><span class="o">::</span><span class="n">value_type</span> <span class="c1">// 派生クラス定義時の基底クラスの指定</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="p">;</span>
+
+    <span class="n">S</span><span class="p">()</span>
+        <span class="o">:</span> <span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// 初期化子リストでの基底クラスの指定</span>
+
+    <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">size_type</span> <span class="n">max_size</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="k">auto</span> <span class="nf">data</span><span class="p">()</span><span class="o">-&gt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">pointer</span><span class="p">;</span>
+
+    <span class="k">auto</span> <span class="nf">min_size</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">size_type</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">size_type</span> <span class="n">MaxSize</span><span class="p">();</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">S</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">C++20</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span> <span class="o">=</span> <span class="n">T</span><span class="o">::</span><span class="n">allocator_type</span><span class="o">&gt;</span> <span class="c1">// OK</span>
+<span class="k">struct</span> <span class="nl">S</span> <span class="p">:</span> <span class="n">T</span><span class="o">::</span><span class="n">value_type</span> <span class="c1">// 派生クラス定義時の基底クラスの指定</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="p">;</span> <span class="c1">// OK</span>
+
+    <span class="n">S</span><span class="p">()</span>
+        <span class="o">:</span> <span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// 初期化子リストでの基底クラスの指定</span>
+
+    <span class="n">T</span><span class="o">::</span><span class="n">size_type</span> <span class="n">max_size</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// OK</span>
+
+    <span class="k">auto</span> <span class="nf">data</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">T</span><span class="o">::</span><span class="n">pointer</span><span class="p">;</span> <span class="c1">// OK</span>
+
+    <span class="k">auto</span> <span class="nf">min_size</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">::</span><span class="n">size_type</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// OK</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="n">T</span><span class="o">::</span><span class="n">size_type</span> <span class="n">MaxSize</span><span class="p">();</span> <span class="c1">// OK</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">S</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
 <h2 id="_2">標準ライブラリ</h2>
 <h3 id="p0457r2">文字列の先頭や末尾が、ある文字列と一致するか判定 <a href="https://wg21.link/P0457R2">(P0457R2)</a></h3>
 <p><code class="codehilite">std::basic_string</code> と <code class="codehilite">std::basic_string_view</code> に、<code class="codehilite">starts_with()</code> と <code class="codehilite">ends_with()</code> メンバ関数が追加されます。

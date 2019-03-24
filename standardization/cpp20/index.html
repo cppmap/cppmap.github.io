@@ -518,8 +518,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#stdassume_aligned-p1007r3" title="ポインタのアライメントを最適化ヒントとしてコンパイラに伝える std::assume_aligned() 関数 (P1007R3)" class="md-nav__link">
-    ポインタのアライメントを最適化ヒントとしてコンパイラに伝える std::assume_aligned() 関数 (P1007R3)
+  <a href="#assume_aligned-p1007r3" title="ポインタのアライメントを最適化ヒントとしてコンパイラに伝える assume_aligned() 関数 (P1007R3)" class="md-nav__link">
+    ポインタのアライメントを最適化ヒントとしてコンパイラに伝える assume_aligned() 関数 (P1007R3)
   </a>
   
 </li>
@@ -1013,8 +1013,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#stdassume_aligned-p1007r3" title="ポインタのアライメントを最適化ヒントとしてコンパイラに伝える std::assume_aligned() 関数 (P1007R3)" class="md-nav__link">
-    ポインタのアライメントを最適化ヒントとしてコンパイラに伝える std::assume_aligned() 関数 (P1007R3)
+  <a href="#assume_aligned-p1007r3" title="ポインタのアライメントを最適化ヒントとしてコンパイラに伝える assume_aligned() 関数 (P1007R3)" class="md-nav__link">
+    ポインタのアライメントを最適化ヒントとしてコンパイラに伝える assume_aligned() 関数 (P1007R3)
   </a>
   
 </li>
@@ -1388,7 +1388,7 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
 <p><code class="codehilite">std::chrono::duration_values</code>, <code class="codehilite">std::chrono::duration</code>, <code class="codehilite">std::chrono::time_point</code> などの <code class="codehilite">zero()</code>, <code class="codehilite">min()</code>, <code class="codehilite">max()</code> 関数に noexcept が付きます。</p>
 <h3 id="pointer_traits-constexpr-p1006r1"><code class="codehilite">pointer_traits</code> が constexpr に <a href="https://wg21.link/P1006R1">(P1006R1)</a></h3>
 <p><code class="codehilite">std::vector</code> を constexpr にするのに必要なため、<code class="codehilite">std::pointer_traits::pointer_to()</code> 関数が constrexpr になります。</p>
-<h3 id="stdassume_aligned-p1007r3">ポインタのアライメントを最適化ヒントとしてコンパイラに伝える <code class="codehilite">std::assume_aligned()</code> 関数 <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1007r3.pdf">(P1007R3)</a></h3>
+<h3 id="assume_aligned-p1007r3">ポインタのアライメントを最適化ヒントとしてコンパイラに伝える <code class="codehilite">assume_aligned()</code> 関数 <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1007r3.pdf">(P1007R3)</a></h3>
 <p>データのアドレスが 16 バイトなどのサイズにアライメントされている場合、コンパイラが SIMD を使った最適なコードを生成できる場合があります。あるポインタの指すデータがアライメントされていることをコンパイラに伝える方法として、GCC や Clang では <code class="codehilite">__builtin_assume_aligned()</code> や <code class="codehilite">__attribute__((assume_aligned(alignment)))</code>, ICC では <code class="codehilite">__assume_aligned()</code> などの独自拡張がありますが、標準化された方法はありませんでした。C++20 では、これらの差異を吸収する次のような関数テンプレートが提供されます。
 <div class="codehilite"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">size_t</span> <span class="n">N</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
 <span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="k">constexpr</span> <span class="n">T</span><span class="o">*</span> <span class="n">assume_aligned</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">ptr</span><span class="p">);</span>

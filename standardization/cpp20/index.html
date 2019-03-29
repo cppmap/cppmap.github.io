@@ -1419,7 +1419,7 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
 <span class="p">}</span>
 </pre></div></p>
 <h3 id="make-p1020r1">スマートポインタの作成時に値をデフォルト初期化する make 関数を追加 <a href="https://wg21.link/P1020R1">(P1020R1)</a></h3>
-<p><code class="codehilite">float</code> や <code class="codehilite">unsigned char</code> など組み込み型の配列を、実行時性能のために値をデフォルト初期化させたい（ゼロ初期化しない）ケースがあります。しかし、<code class="codehilite">make_unique</code> や <code class="codehilite">make_shared</code>, <code class="codehilite">allocate_shared</code> でスマートポインタを作成した場合には値初期化が実行されます。C++20 では、値初期化をせずにデフォルト初期化でスマートポインタを作成する関数 <code class="codehilite">make_unique_default_init</code>, <code class="codehilite">make_shared_default_init</code>, <code class="codehilite">allocate_shared_default_init</code> が追加されました。
+<p><code class="codehilite">float</code> や <code class="codehilite">unsigned char</code> など組み込み型の配列は、実行時性能のために値をデフォルト初期化させたい（ゼロ初期化しない）ケースがあります。しかし、<code class="codehilite">make_unique</code> や <code class="codehilite">make_shared</code>, <code class="codehilite">allocate_shared</code> でスマートポインタを作成した場合には値初期化が実行されます。C++20 では、値初期化をせずにデフォルト初期化でスマートポインタを作成する関数 <code class="codehilite">make_unique_default_init</code>, <code class="codehilite">make_shared_default_init</code>, <code class="codehilite">allocate_shared_default_init</code> が追加されました。
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
 

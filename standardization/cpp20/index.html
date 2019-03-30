@@ -1485,7 +1485,7 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
 <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">};</span>
 
-    <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">table</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span> <span class="c1">// std::string 型の一時オブジェクトを作成</span>
+    <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">table</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span> <span class="c1">// std::string 型の一時オブジェクトが作成される</span>
 <span class="p">}</span>
 </pre></div>
 

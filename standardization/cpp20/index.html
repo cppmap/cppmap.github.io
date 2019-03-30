@@ -531,6 +531,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#key_type-p0919r3" title="非順序連想コンテナのルックアップ操作で、key_type と比較可能な型を変換せずに使えるように (P0919R3)" class="md-nav__link">
+    非順序連想コンテナのルックアップ操作で、key_type と比較可能な型を変換せずに使えるように (P0919R3)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1033,6 +1040,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#key_type-p0919r3" title="非順序連想コンテナのルックアップ操作で、key_type と比較可能な型を変換せずに使えるように (P0919R3)" class="md-nav__link">
+    非順序連想コンテナのルックアップ操作で、key_type と比較可能な型を変換せずに使えるように (P0919R3)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1462,6 +1476,44 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
 4.63281e+30
 2.32703e+17
 </pre></div></p>
+<h3 id="key_type-p0919r3">非順序連想コンテナのルックアップ操作で、<code class="codehilite">key_type</code> と比較可能な型を変換せずに使えるように <a href="http://wg21.link/P0919r3">(P0919R3)</a></h3>
+<p>C++17 までの <code class="codehilite">unorderd_map</code> や <code class="codehilite">unordered_set</code> など非順序連想コンテナでは、<code class="codehilite">find()</code>, <code class="codehilite">count()</code>, <code class="codehilite">equal_range()</code> などルックアップを行うメンバ関数は引数に <code class="codehilite">key_type</code> をとり、例えば次のようなケースで <code class="codehilite">std::string</code> 型の一時オブジェクトが作成されて非効率でした。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">};</span>
+
+    <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">table</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span> <span class="c1">// std::string 型のオブジェクトを作成</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>C++20 では、非順序連想コンテナのテンプレートパラメータ <code class="codehilite">Hash</code> が <code class="codehilite">transparent_key_equal</code> タグを持つときに、<code class="codehilite">key_type</code> 以外の型を引数にとるメンバ関数テンプレートのオーバーロードが使用可能になり、一時オブジェクトの作成を回避できるようになります。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string_view&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">string_hash</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="n">transparent_key_equal</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">equal_to</span><span class="o">&lt;&gt;</span><span class="p">;</span>  <span class="c1">// KeyEqual to use</span>
+    <span class="k">using</span> <span class="n">hash_type</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="o">&gt;</span><span class="p">;</span>  <span class="c1">// helper local type</span>
+    <span class="kt">size_t</span> <span class="nf">operator</span><span class="p">()(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">txt</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">hash_type</span><span class="p">{}(</span><span class="n">txt</span><span class="p">);</span> <span class="p">}</span>
+    <span class="kt">size_t</span> <span class="nf">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">txt</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">hash_type</span><span class="p">{}(</span><span class="n">txt</span><span class="p">);</span> <span class="p">}</span>
+    <span class="kt">size_t</span> <span class="nf">operator</span><span class="p">()(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">txt</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">hash_type</span><span class="p">{}(</span><span class="n">txt</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">literals</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="n">string_hash</span><span class="o">&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">};</span>
+
+    <span class="k">auto</span> <span class="n">it1</span> <span class="o">=</span> <span class="n">table</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span> <span class="c1">// 一時オブジェクトを作成しない</span>
+
+    <span class="k">auto</span> <span class="n">it2</span> <span class="o">=</span> <span class="n">table</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="n">sv</span><span class="p">);</span> <span class="c1">// 一時オブジェクトを作成しない</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 

@@ -538,6 +538,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#p0920r2" title="非順序連想コンテナのルックアップ操作で、計算済みハッシュを再利用可能に (P0920R2)" class="md-nav__link">
+    非順序連想コンテナのルックアップ操作で、計算済みハッシュを再利用可能に (P0920R2)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-stdmidpoint-p0811r3" title="2 つの値の中点を計算する std::midpoint() 関数 (P0811R3)" class="md-nav__link">
+    2 つの値の中点を計算する std::midpoint() 関数 (P0811R3)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-stdlerp-p0811r3" title="2 つの値の線形補間を計算する std::lerp() 関数 (P0811R3)" class="md-nav__link">
+    2 つの値の線形補間を計算する std::lerp() 関数 (P0811R3)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1047,6 +1068,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#p0920r2" title="非順序連想コンテナのルックアップ操作で、計算済みハッシュを再利用可能に (P0920R2)" class="md-nav__link">
+    非順序連想コンテナのルックアップ操作で、計算済みハッシュを再利用可能に (P0920R2)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-stdmidpoint-p0811r3" title="2 つの値の中点を計算する std::midpoint() 関数 (P0811R3)" class="md-nav__link">
+    2 つの値の中点を計算する std::midpoint() 関数 (P0811R3)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-stdlerp-p0811r3" title="2 つの値の線形補間を計算する std::lerp() 関数 (P0811R3)" class="md-nav__link">
+    2 つの値の線形補間を計算する std::lerp() 関数 (P0811R3)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1514,6 +1556,83 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
     <span class="k">auto</span> <span class="n">it2</span> <span class="o">=</span> <span class="n">table</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="n">sv</span><span class="p">);</span> <span class="c1">// std::string 型の一時オブジェクトは作成されない</span>
 <span class="p">}</span>
 </pre></div>
+
+<h3 id="p0920r2">非順序連想コンテナのルックアップ操作で、計算済みハッシュを再利用可能に <a href="https://wg21.link/P0920R2">(P0920R2)</a></h3>
+<p>同じ種類の非順序連想コンテナを複数扱い、同じキーを用いたルックアップ操作をそれらのコンテナに対して行うようなケースでは、キーのハッシュ値の計算を毎回行うのは冗長です。C++20 ではメンバ関数 <code class="codehilite">find()</code>, <code class="codehilite">count()</code>, <code class="codehilite">contains()</code>, <code class="codehilite">equal_range()</code> に、計算済みのハッシュ値を渡せるオーバーロードが追加されます。
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="mi">10</span><span class="o">&gt;</span> <span class="n">maps</span> <span class="o">=</span> <span class="p">{</span> <span class="cm">/*...*/</span> <span class="p">};</span>
+
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">key</span> <span class="o">=</span> <span class="s">&quot;key&quot;</span><span class="p">;</span>
+
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">hash</span> <span class="o">=</span> <span class="n">maps</span><span class="p">.</span><span class="n">front</span><span class="p">().</span><span class="n">hash_function</span><span class="p">()(</span><span class="n">key</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">map</span> <span class="p">:</span> <span class="n">maps</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">map</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">hash</span><span class="p">);</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></p>
+<h3 id="2-stdmidpoint-p0811r3">2 つの値の中点を計算する <code class="codehilite">std::midpoint()</code> 関数 <a href="https://wg21.link/P0811R3">(P0811R3)</a></h3>
+<p>2 つの値 <code class="codehilite">a</code>, <code class="codehilite">b</code> の中点を計算する際に、単純な <code class="codehilite">(a + b) / 2</code> という式ではオーバーフローを起こす可能性があります。C++20 で追加される <code class="codehilite">std::midpoint()</code> 関数では、整数に対して
+<div class="codehilite"><pre><span></span><span class="k">constexpr</span> <span class="n">Integer</span> <span class="nf">midpoint</span><span class="p">(</span><span class="n">Integer</span> <span class="n">a</span><span class="p">,</span> <span class="n">Integer</span> <span class="n">b</span><span class="p">)</span> <span class="k">noexcept</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="n">U</span> <span class="o">=</span> <span class="n">make_unsigned_t</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">&gt;</span><span class="n">b</span> <span class="o">?</span> <span class="n">a</span><span class="o">-</span><span class="p">(</span><span class="n">U</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">:</span> <span class="n">a</span><span class="o">+</span><span class="p">(</span><span class="n">U</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+のような実装が使われ、オーバーフローを回避できます。<code class="codehilite">(a + b)</code> が奇数になるケースの結果は <code class="codehilite">a</code> の方向に丸められます。<br />
+浮動小数点数に対しては次のような実装が使われます。
+<div class="codehilite"><pre><span></span><span class="n">Float</span> <span class="nf">midpoint</span><span class="p">(</span><span class="n">Float</span> <span class="n">a</span><span class="p">,</span> <span class="n">Float</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">isnormal</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">isnormal</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">?</span> <span class="n">a</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">b</span><span class="o">/</span><span class="mi">2</span> <span class="o">:</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;numeric&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">2</span><span class="err">&#39;</span><span class="mo">000</span><span class="err">&#39;</span><span class="mo">000</span><span class="err">&#39;</span><span class="mo">000</span> <span class="o">+</span> <span class="mi">1</span><span class="err">&#39;</span><span class="mo">000</span><span class="err">&#39;</span><span class="mo">000</span><span class="err">&#39;</span><span class="mo">000</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// オーバーフロー</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">midpoint</span><span class="p">(</span><span class="mi">2</span><span class="err">&#39;</span><span class="mo">000</span><span class="err">&#39;</span><span class="mo">000</span><span class="err">&#39;</span><span class="mo">000</span><span class="p">,</span> <span class="mi">1</span><span class="err">&#39;</span><span class="mo">000</span><span class="err">&#39;</span><span class="mo">000</span><span class="err">&#39;</span><span class="mo">000</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// 1500000000</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">midpoint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// 2</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">midpoint</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// 3</span>
+<span class="p">}</span>
+</pre></div></p>
+<h3 id="2-stdlerp-p0811r3">2 つの値の線形補間を計算する <code class="codehilite">std::lerp()</code> 関数 <a href="https://wg21.link/P0811R3">(P0811R3)</a></h3>
+<p>2 点 <code class="codehilite">a</code>, <code class="codehilite">b</code> の間をパラメータ <code class="codehilite">t</code> によって線形補間する関数が提供されます。計算結果 <code class="codehilite">r</code> は <code class="codehilite">a + t * (b - a)</code> によって求められますが、実装により <code class="codehilite">isfinite(a) &amp;&amp; isfinite(b)</code> のとき</p>
+<ul>
+<li><code class="codehilite">lerp(a, b, 0) == a &amp;&amp; lerp(a, b, 1) == b</code></li>
+<li><code class="codehilite">0 &lt;= t &amp;&amp; t &lt;= 1</code> のとき <code class="codehilite">isfinite(r)</code></li>
+<li><code class="codehilite">isfinite(t) &amp;&amp; a == b</code> のとき <code class="codehilite">r == a</code></li>
+<li><code class="codehilite">isfinite(t) || !isnan(t) &amp;&amp; (b - a) != 0</code> のとき <code class="codehilite"><span class="sx">!isnan(r)</span></code></li>
+</ul>
+<p>また、<code class="codehilite">cmp(lerp(a,b,t2), lerp(a,b,t1)) * cmp(t2,t1) * cmp(b,a) &gt;= 0</code> (cmp は -1, 0, 1 を返す三方比較関数とする)<br />
+であることが保証されます。
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;numeric&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">lerp</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// 0</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">lerp</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// 3</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">lerp</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// 10</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">lerp</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// 12</span>
+<span class="p">}</span>
+</pre></div></p>
                 
                   
                 

@@ -559,6 +559,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#version-p0754r2" title="実装固有の情報をまとめる &lt;version&gt; ヘッダを追加 (P0754R2)" class="md-nav__link">
+    実装固有の情報をまとめる &lt;version&gt; ヘッダを追加 (P0754R2)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1085,6 +1092,13 @@
           <li class="md-nav__item">
   <a href="#2-stdlerp-p0811r3" title="2 つの値の線形補間を計算する std::lerp() 関数 (P0811R3)" class="md-nav__link">
     2 つの値の線形補間を計算する std::lerp() 関数 (P0811R3)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-p0754r2" title="実装固有の情報をまとめる &lt;version&gt; ヘッダを追加 (P0754R2)" class="md-nav__link">
+    実装固有の情報をまとめる &lt;version&gt; ヘッダを追加 (P0754R2)
   </a>
   
 </li>
@@ -1633,6 +1647,9 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">lerp</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// 12</span>
 <span class="p">}</span>
 </pre></div></p>
+<h3 id="version-p0754r2">実装固有の情報をまとめる <code class="codehilite">&lt;version&gt;</code> ヘッダを追加 <a href="https://wg21.link/P0754R2">(P0754R2)</a></h3>
+<p><code class="codehilite">__cpp_lib_byte</code>, <code class="codehilite">__cpp_lib_void_t</code> のような標準ライブラリの機能テストマクロ、その他ライブラリのバージョンや実装固有の情報をまとめる目的の <code class="codehilite">&lt;version&gt;</code> ヘッダが追加されました。
+例えば C++20 以前の MSVC の標準ライブラリでは、<code class="codehilite">&lt;yvals_core.h&gt;</code> という独自ヘッダに標準ライブラリの機能テストマクロがまとめられていましたが、C++20 以降ではあらゆる実装において、<code class="codehilite">&lt;version&gt;</code> ヘッダを見ることで、こうした実装固有の情報にアクセスできるため利便性が高まります。</p>
                 
                   
                 

@@ -565,6 +565,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" title="名前空間エイリアスの再帰" class="md-nav__link">
+    名前空間エイリアスの再帰
+  </a>
+  
+</li>
+      
       
       
       
@@ -904,6 +911,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" title="名前空間エイリアスの再帰" class="md-nav__link">
+    名前空間エイリアスの再帰
+  </a>
+  
+</li>
+      
       
       
       
@@ -1036,6 +1050,20 @@
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
 
+<span class="p">}</span>
+</pre></div>
+
+<h2 id="_7">名前空間エイリアスの再帰</h2>
+<div class="codehilite"><pre><span></span><span class="k">namespace</span> <span class="n">A</span>
+<span class="p">{</span>
+    <span class="k">namespace</span> <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="p">;</span>
+
+    <span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">A</span><span class="o">::</span><span class="n">A</span><span class="o">::</span><span class="n">A</span><span class="o">::</span><span class="n">A</span><span class="o">::</span><span class="n">A</span><span class="o">::</span><span class="n">A</span><span class="o">::</span><span class="n">f</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
                 

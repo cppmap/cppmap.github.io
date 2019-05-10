@@ -567,8 +567,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#is_nothrow_convertible-p0758r1" title="例外を投げない暗黙の変換が可能か調べる is_nothrow_convertible 型特性 (P0758R1)" class="md-nav__link">
-    例外を投げない暗黙の変換が可能か調べる is_nothrow_convertible 型特性 (P0758R1)
+  <a href="#is_nothrow_convertible-p0758r1" title="例外を投げない暗黙の変換が可能か調べる is_nothrow_convertible (P0758R1)" class="md-nav__link">
+    例外を投げない暗黙の変換が可能か調べる is_nothrow_convertible (P0758R1)
   </a>
   
 </li>
@@ -1111,8 +1111,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#is_nothrow_convertible-p0758r1" title="例外を投げない暗黙の変換が可能か調べる is_nothrow_convertible 型特性 (P0758R1)" class="md-nav__link">
-    例外を投げない暗黙の変換が可能か調べる is_nothrow_convertible 型特性 (P0758R1)
+  <a href="#is_nothrow_convertible-p0758r1" title="例外を投げない暗黙の変換が可能か調べる is_nothrow_convertible (P0758R1)" class="md-nav__link">
+    例外を投げない暗黙の変換が可能か調べる is_nothrow_convertible (P0758R1)
   </a>
   
 </li>
@@ -1664,13 +1664,13 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
 <h3 id="version-p0754r2">実装固有の情報をまとめる <code class="codehilite">&lt;version&gt;</code> ヘッダを追加 <a href="https://wg21.link/P0754R2">(P0754R2)</a></h3>
 <p><code class="codehilite">__cpp_lib_byte</code>, <code class="codehilite">__cpp_lib_void_t</code> のような標準ライブラリの機能テストマクロ、その他ライブラリのバージョンや実装固有の情報をまとめる目的の <code class="codehilite">&lt;version&gt;</code> ヘッダが追加されました。
 例えば C++20 以前の MSVC の標準ライブラリでは、<code class="codehilite">&lt;yvals_core.h&gt;</code> という独自ヘッダに標準ライブラリの機能テストマクロがまとめられていましたが、C++20 以降ではあらゆる実装において、<code class="codehilite">&lt;version&gt;</code> ヘッダを見ることで、こうした実装固有の情報にアクセスできるため利便性が高まります。</p>
-<h3 id="is_nothrow_convertible-p0758r1">例外を投げない暗黙の変換が可能か調べる is_nothrow_convertible 型特性 <a href="https://wg21.link/P0758R1">(P0758R1)</a></h3>
-<p>型 <code class="codehilite">From</code> から型 <code class="codehilite">To</code> への暗黙の変換が可能であるかを調べる <code class="codehilite">std::is_convertible&lt;class From, class To&gt;</code> が C++11 から導入されましたが、その変換が <code class="codehilite">noexcept</code> でもあるかを調べられる型特性は実装されていませんでした。
+<h3 id="is_nothrow_convertible-p0758r1">例外を投げない暗黙の変換が可能か調べる is_nothrow_convertible <a href="https://wg21.link/P0758R1">(P0758R1)</a></h3>
+<p>型 <code class="codehilite">From</code> から型 <code class="codehilite">To</code> への暗黙の変換が可能であるかを調べる型特性クラス <code class="codehilite">std::is_convertible&lt;class From, class To&gt;</code> が C++11 から導入されましたが、その変換が <code class="codehilite">noexcept</code> でもあるかを調べられるバージョンは実装されていませんでした。
 このことが原因で、<code class="codehilite">std::decay_copy</code> の提案 (<a href="http://wg21.link/n3255">N3255</a>) において、適切な <code class="codehilite">noexcept</code> 例外仕様を移植性のある方法で定義できない問題 (<a href="http://wg21.link/lwg2040">LWG 2040</a>) が指摘されていました。
 <div class="codehilite"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> 
 <span class="k">typename</span> <span class="n">decay</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span> <span class="n">decay_copy</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="o">???</span> <span class="cm">/* is_nothrow_convertible&lt;T, T&gt;::value */</span><span class="p">);</span>
 </pre></div>
-C++20 からは、<code class="codehilite">noexcept</code> な暗黙の変換が可能であることを調べる型特性 <code class="codehilite">std::is_nothrow_convertible&lt;class From, class To&gt;</code> が実装されることで問題を解消できます。
+C++20 からは、<code class="codehilite">noexcept</code> な暗黙の変換が可能であることを調べる新しい型特性クラス <code class="codehilite">std::is_nothrow_convertible&lt;class From, class To&gt;</code> が実装されることで問題を解消できます。
 既存の標準ライブラリ関数においても、<code class="codehilite">std::basic_string</code> のメンバ関数テンプレートに、より適切な <code class="codehilite">noexcept</code> 例外仕様を定義するために活用されます。</p>
 <div class="codehilite"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
 <span class="n">size_type</span> <span class="n">find</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">(</span><span class="n">is_nothrow_convertible_v</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">basic_string_view</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&gt;</span><span class="p">);</span>

@@ -23,7 +23,7 @@
       
         <meta name="lang:clipboard.copied" content="コピーしました">
       
-        <meta name="lang:search.language" content="en, jp">
+        <meta name="lang:search.language" content="en, ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s　、。，．がのをにへとでやかもる「」『』]+">
       
       <link rel="shortcut icon" href="../../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
     
     
       
@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.750b69bd.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -57,7 +57,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
@@ -897,18 +897,18 @@
 <ul>
 <li><a href="https://wg21.link/p0581">Standard Library Modules (P0581)</a> </li>
 </ul>
-<p><code class="codehilite">&lt;iostream&gt;</code> や <code class="codehilite">&lt;vector&gt;</code> など、すべての C++ 標準ライブラリヘッダをモジュールとして提供する提案です。言語機能としてのモジュールは C++20 に導入されましたが、標準ライブラリへの導入は議論が間に合わず、C++23 に先送りされました。標準ライブラリのモジュールへの移行に合わせて、<a href="https://wg21.link/p1453">標準ライブラリを再編成する提案</a>も出されています。</p>
-<h2 id="operator"><code class="codehilite">operator[]</code> に複数の引数</h2>
+<p><code class="codehilite"><span class="o">&lt;</span><span class="n">iostream</span><span class="o">&gt;</span></code> や <code class="codehilite"><span class="o">&lt;</span><span class="n">vector</span><span class="o">&gt;</span></code> など、すべての C++ 標準ライブラリヘッダをモジュールとして提供する提案です。言語機能としてのモジュールは C++20 に導入されましたが、標準ライブラリへの導入は議論が間に合わず、C++23 に先送りされました。標準ライブラリのモジュールへの移行に合わせて、<a href="https://wg21.link/p1453">標準ライブラリを再編成する提案</a>も出されています。</p>
+<h2 id="operator"><code class="codehilite"><span class="k">operator</span><span class="p">[]</span></code> に複数の引数</h2>
 <ul>
 <li><a href="https://wg21.link/p1277">Subscripts On Parade (P1277)</a></li>
 </ul>
-<p><code class="codehilite">m[i, j, k]</code> のように、<code class="codehilite">operator[]</code> の引数に複数の値を渡せるようにする提案です。多次元配列の要素に簡潔な式でアクセスできるようになります。この書き方は、C++17 規格ではコンマ演算子と解釈されて <code class="codehilite">m[k]</code> になってしまうため、まずは<a href="https://wg21.link/p1161">現行の文法を deprecated にする提案</a>が提出されています。<code class="codehilite">std::span</code> の多次元版である <a href="https://github.com/kokkos/array_ref"><code class="codehilite">std::mdspan</code> の提案</a>での活用も期待されます。</p>
+<p><code class="codehilite"><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span></code> のように、<code class="codehilite"><span class="k">operator</span><span class="p">[]</span></code> の引数に複数の値を渡せるようにする提案です。多次元配列の要素に簡潔な式でアクセスできるようになります。この書き方は、C++17 規格ではコンマ演算子と解釈されて <code class="codehilite"><span class="n">m</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"></span></code> になってしまうため、まずは<a href="https://wg21.link/p1161">現行の文法を deprecated にする提案</a>が提出されています。<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">span</span></code> の多次元版である <a href="https://github.com/kokkos/array_ref"><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">mdspan</span></code> の提案</a>での活用も期待されます。</p>
 <h2 id="api">低レベル オーディオ API</h2>
 <ul>
 <li><a href="https://wg21.link/p1386">A Standard Audio API for C++:
 Motivation, Scope, and Basic Design (P1386)</a></li>
 </ul>
-<p>音声再生・録音を行う低レベル API <code class="codehilite">std::audio</code> を追加する提案です。以前頓挫した 2D Graphics API の標準化に比べれば、枯れている技術なので実現可能性は低くはなさそうです。波形データをオーディオデバイスとやり取りすることが主要な役割で、音声コーデックやフィルタなどの機能は提供しません。<a href="https://github.com/stdcpp-audio/libstdaudio">実験的な実装を公開</a>して、設計に関するフィードバックを集めている段階です。</p>
+<p>音声再生・録音を行う低レベル API <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">audio</span></code> を追加する提案です。以前頓挫した 2D Graphics API の標準化に比べれば、枯れている技術なので実現可能性は低くはなさそうです。波形データをオーディオデバイスとやり取りすることが主要な役割で、音声コーデックやフィルタなどの機能は提供しません。<a href="https://github.com/stdcpp-audio/libstdaudio">実験的な実装を公開</a>して、設計に関するフィードバックを集めている段階です。</p>
 <h2 id="_2">ネットワーク</h2>
 <ul>
 <li><a href="https://wg21.link/n4734">Working Draft, C++ Extensions for Networking (N4734)</a></li>
@@ -1014,7 +1014,7 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
       
     </div>
     
-      <script src="../../assets/javascripts/application.d9aa80ab.js"></script>
+      <script src="../../assets/javascripts/application.39abc4af.js"></script>
       
         
         
@@ -1028,7 +1028,7 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
                 <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
               
               
-                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           

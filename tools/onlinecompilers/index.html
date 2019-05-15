@@ -23,7 +23,7 @@
       
         <meta name="lang:clipboard.copied" content="コピーしました">
       
-        <meta name="lang:search.language" content="en, jp">
+        <meta name="lang:search.language" content="en, ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s　、。，．がのをにへとでやかもる「」『』]+">
       
       <link rel="shortcut icon" href="../../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
     
     
       
@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.750b69bd.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -57,7 +57,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
@@ -1145,7 +1145,7 @@
 </pre></div>
 
 <h3 id="url">URL からインクルード</h3>
-<p>Compiler Explorer には、Web 上のファイルを <code class="codehilite"><span class="cp">#include</span> <span class="cpf">&quot;URL&quot;</span><span class="cp"></span></code> でインクルードできる独自拡張機能があります。この機能を使うと、GitHub などに公開されているシングルヘッダライブラリをプログラムの中で簡単に使えます（例: <a href="https://godbolt.org/z/OV-vGQ">https://godbolt.org/z/OV-vGQ</a>）</p>
+<p>Compiler Explorer には、Web 上のファイルを <code class="codehilite">#<span class="k">include</span> <span class="s2">&quot;</span><span class="s">URL</span><span class="s2">&quot;</span></code> でインクルードできる独自拡張機能があります。この機能を使うと、GitHub などに公開されているシングルヘッダライブラリをプログラムの中で簡単に使えます（例: <a href="https://godbolt.org/z/OV-vGQ">https://godbolt.org/z/OV-vGQ</a>）</p>
 <h2 id="stensal">Stensal: セグメンテーション違反の原因を表示</h2>
 <p><a href="https://segfault.stensal.com/">Stensal</a> は、C, C++ プログラムを実行して、セグメンテーション違反などメモリに関する問題が発生したときに、その箇所と原因をわかりやすく表示するオンラインコンパイラです。バッファオーバーラン、Null ポインタの参照外し、未初期化変数の利用などの問題を明らかにします。実装には Wandbox が使われています。</p>
 <h4 id="_8">入力例</h4>
@@ -1160,35 +1160,35 @@
 </pre></div>
 
 <h4 id="_9">出力例</h4>
-<div class="codehilite"><pre><span></span>=========== Start of #0 stensal runtime message ===========
+<div class="codehilite"><pre><span></span><span class="o">===========</span> <span class="nv">Start</span> <span class="nv">of</span> <span class="sc">#0</span> <span class="nv">stensal</span> <span class="nv">runtime</span> <span class="nv">message</span> <span class="o">===========</span>
 
-  Runtime error: **[out-of-bounds read]**  
-  Continuing execution can cause undefined behavior, abort!
+  <span class="nv">Runtime</span> <span class="nv">error</span>: <span class="o">**</span>[<span class="nv">out</span><span class="o">-</span><span class="nv">of</span><span class="o">-</span><span class="nv">bounds</span> <span class="nv">read</span>]<span class="o">**</span>  
+  <span class="nv">Continuing</span> <span class="nv">execution</span> <span class="nv">can</span> <span class="nv">cause</span> <span class="nv">undefined</span> <span class="nv">behavior</span>, <span class="nv">abort</span><span class="o">!</span>
 
- ```stensal-diagnostic-info
--
-- Reading 4 bytes from 0x937c414 will read undefined values.
-- 
-- The memory-space-to-be-read (start:0x937c414, size:3 bytes) is bound to &#39;s&#39; at
--     file:/prog.cc::5, 0
-- 
--  0x937c414               0x937c416
--  +------------------------------+
--  | the memory-space-to-be-read  |......
--  +------------------------------+
--  ^~~~~~~~~~
--  the read starts at the memory begin.
-- 
-- Stack trace (most recent call first) of the read.
-- [1]  file:/musl-1.1.10/src/string/strlen.c::91, 3
-- [2]  @[unknown_id 291]
-- [3]  file:/prog.cc::7, 2
-- [4]  [libc-start-main]
--
+ ```<span class="nv">stensal</span><span class="o">-</span><span class="nv">diagnostic</span><span class="o">-</span><span class="nv">info</span>
+<span class="o">-</span>
+<span class="o">-</span> <span class="nv">Reading</span> <span class="mi">4</span> <span class="nv">bytes</span> <span class="nv">from</span> <span class="mi">0</span><span class="nv">x937c414</span> <span class="nv">will</span> <span class="nv">read</span> <span class="nv">undefined</span> <span class="nv">values</span>.
+<span class="o">-</span> 
+<span class="o">-</span> <span class="nv">The</span> <span class="nv">memory</span><span class="o">-</span><span class="nv">space</span><span class="o">-</span><span class="nv">to</span><span class="o">-</span><span class="nv">be</span><span class="o">-</span><span class="nv">read</span> <span class="ss">(</span><span class="nv">start</span>:<span class="mi">0</span><span class="nv">x937c414</span>, <span class="nv">size</span>:<span class="mi">3</span> <span class="nv">bytes</span><span class="ss">)</span> <span class="nv">is</span> <span class="nv">bound</span> <span class="nv">to</span> <span class="s1">&#39;</span><span class="s">s</span><span class="s1">&#39;</span> <span class="nv">at</span>
+<span class="o">-</span>     <span class="nv">file</span>:<span class="o">/</span><span class="nv">prog</span>.<span class="nv">cc</span>::<span class="mi">5</span>, <span class="mi">0</span>
+<span class="o">-</span> 
+<span class="o">-</span>  <span class="mi">0</span><span class="nv">x937c414</span>               <span class="mi">0</span><span class="nv">x937c416</span>
+<span class="o">-</span>  <span class="o">+------------------------------+</span>
+<span class="o">-</span>  <span class="o">|</span> <span class="nv">the</span> <span class="nv">memory</span><span class="o">-</span><span class="nv">space</span><span class="o">-</span><span class="nv">to</span><span class="o">-</span><span class="nv">be</span><span class="o">-</span><span class="nv">read</span>  <span class="o">|</span>......
+<span class="o">-</span>  <span class="o">+------------------------------+</span>
+<span class="o">-</span>  <span class="o">^~~~~~~~~~</span>
+<span class="o">-</span>  <span class="nv">the</span> <span class="nv">read</span> <span class="nv">starts</span> <span class="nv">at</span> <span class="nv">the</span> <span class="nv">memory</span> <span class="nv">begin</span>.
+<span class="o">-</span> 
+<span class="o">-</span> <span class="nv">Stack</span> <span class="nv">trace</span> <span class="ss">(</span><span class="nv">most</span> <span class="nv">recent</span> <span class="k">call</span> <span class="nl">first</span><span class="ss">)</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">read</span>.
+<span class="o">-</span> [<span class="mi">1</span>]  <span class="nv">file</span>:<span class="o">/</span><span class="nv">musl</span><span class="o">-</span><span class="mi">1</span>.<span class="mi">1</span>.<span class="mi">10</span><span class="o">/</span><span class="nv">src</span><span class="o">/</span><span class="nv">string</span><span class="o">/</span><span class="k">strlen</span>.<span class="nv">c</span>::<span class="mi">91</span>, <span class="mi">3</span>
+<span class="o">-</span> [<span class="mi">2</span>]  @[<span class="nv">unknown_id</span> <span class="mi">291</span>]
+<span class="o">-</span> [<span class="mi">3</span>]  <span class="nv">file</span>:<span class="o">/</span><span class="nv">prog</span>.<span class="nv">cc</span>::<span class="mi">7</span>, <span class="mi">2</span>
+<span class="o">-</span> [<span class="mi">4</span>]  [<span class="nv">libc</span><span class="o">-</span><span class="nv">start</span><span class="o">-</span><span class="nv">main</span>]
+<span class="o">-</span>
  ```
-error code (56,213)
+<span class="nv">error</span> <span class="nv">code</span> <span class="ss">(</span><span class="mi">56</span>,<span class="mi">213</span><span class="ss">)</span>
 
-============ End of #0 stensal runtime message ============
+<span class="o">============</span> <span class="k">End</span> <span class="nv">of</span> <span class="sc">#0</span> <span class="nv">stensal</span> <span class="nv">runtime</span> <span class="nv">message</span> <span class="o">============</span>
 </pre></div>
                 
                   
@@ -1270,7 +1270,7 @@ error code (56,213)
       
     </div>
     
-      <script src="../../assets/javascripts/application.d9aa80ab.js"></script>
+      <script src="../../assets/javascripts/application.39abc4af.js"></script>
       
         
         
@@ -1284,7 +1284,7 @@ error code (56,213)
                 <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
               
               
-                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           

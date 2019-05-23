@@ -462,6 +462,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#p1064r0" title="定数式での仮想関数呼び出しが可能に (P1064R0)" class="md-nav__link">
+    定数式での仮想関数呼び出しが可能に (P1064R0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type_id-dynamic_cast-constexpr-p1327r1" title="type_id と dynamic_cast が constexpr に (P1327R1)" class="md-nav__link">
+    type_id と dynamic_cast が constexpr に (P1327R1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p1330r0" title="定数式において共用体のアクティブメンバの切り替えが可能に (P1330R0)" class="md-nav__link">
+    定数式において共用体のアクティブメンバの切り替えが可能に (P1330R0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-catch-p1002r1" title="定数式の文脈では try-catch を無視するように (P1002R1)" class="md-nav__link">
+    定数式の文脈では try-catch を無視するように (P1002R1)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -583,6 +611,13 @@
           <li class="md-nav__item">
   <a href="#complex-constexpr-p0415r1" title="&lt;complex&gt; ヘッダの関数の constexpr 対応を強化 (P0415R1)" class="md-nav__link">
     &lt;complex&gt; ヘッダの関数の constexpr 対応を強化 (P0415R1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdis_constant_evaluated-p0595r2" title="コンパイル時評価の文脈か実行時評価の文脈かを判別できる std::is_constant_evaluated() 関数 (P0595R2)" class="md-nav__link">
+    コンパイル時評価の文脈か実行時評価の文脈かを判別できる std::is_constant_evaluated() 関数 (P0595R2)
   </a>
   
 </li>
@@ -1032,6 +1067,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#p1064r0" title="定数式での仮想関数呼び出しが可能に (P1064R0)" class="md-nav__link">
+    定数式での仮想関数呼び出しが可能に (P1064R0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type_id-dynamic_cast-constexpr-p1327r1" title="type_id と dynamic_cast が constexpr に (P1327R1)" class="md-nav__link">
+    type_id と dynamic_cast が constexpr に (P1327R1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p1330r0" title="定数式において共用体のアクティブメンバの切り替えが可能に (P1330R0)" class="md-nav__link">
+    定数式において共用体のアクティブメンバの切り替えが可能に (P1330R0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-catch-p1002r1" title="定数式の文脈では try-catch を無視するように (P1002R1)" class="md-nav__link">
+    定数式の文脈では try-catch を無視するように (P1002R1)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1153,6 +1216,13 @@
           <li class="md-nav__item">
   <a href="#complex-constexpr-p0415r1" title="&lt;complex&gt; ヘッダの関数の constexpr 対応を強化 (P0415R1)" class="md-nav__link">
     &lt;complex&gt; ヘッダの関数の constexpr 対応を強化 (P0415R1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdis_constant_evaluated-p0595r2" title="コンパイル時評価の文脈か実行時評価の文脈かを判別できる std::is_constant_evaluated() 関数 (P0595R2)" class="md-nav__link">
+    コンパイル時評価の文脈か実行時評価の文脈かを判別できる std::is_constant_evaluated() 関数 (P0595R2)
   </a>
   
 </li>
@@ -1433,6 +1503,181 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <span class="p">}</span>
 </pre></div></div>
 </div>
+<h3 id="p1064r0">定数式での仮想関数呼び出しが可能に <a href="https://wg21.link/P1064">(P1064R0)</a></h3>
+<p>コンパイル時に決定可能であれば、参照やポインタを通した仮想関数の呼び出しを <code class="codehilite"><span class="n">constexpr</span></code> にできるようになります。<code class="codehilite"><span class="n">constexpr</span></code> 修飾された仮想関数を非 <code class="codehilite"><span class="n">constexpr</span></code> 関数でオーバーライドすることや、その逆も可能です。</p>
+<div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">Cpp</span>
+<span class="p">{</span>
+    <span class="k">virtual</span> <span class="kt">int</span> <span class="n">version</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">Cpp17</span> <span class="p">:</span> <span class="n">Cpp</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">version</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">17</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">Cpp20</span> <span class="p">:</span> <span class="n">Cpp</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">version</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">GetVersion</span><span class="p">(</span><span class="k">const</span> <span class="n">Cpp</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">version</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="n">Cpp17</span> <span class="n">cpp17</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="n">Cpp20</span> <span class="n">cpp20</span><span class="p">;</span>
+
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">GetVersion</span><span class="p">(</span><span class="n">cpp17</span><span class="p">)</span> <span class="o">==</span> <span class="mi">17</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">GetVersion</span><span class="p">(</span><span class="n">cpp20</span><span class="p">)</span> <span class="o">==</span> <span class="mi">20</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="type_id-dynamic_cast-constexpr-p1327r1"><code class="codehilite"><span class="n">type_id</span></code> と <code class="codehilite"><span class="n">dynamic_cast</span></code> が constexpr に <a href="https://wg21.link/P1327">(P1327R1)</a></h3>
+<p><code class="codehilite"><span class="n">dynamic_cast</span></code> と <code class="codehilite"><span class="n">type_id</span></code> が、例外を投げるケースを除いて <code class="codehilite"><span class="n">constexpr</span></code> になります。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;typeinfo&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Cpp</span>
+<span class="p">{</span>
+    <span class="k">virtual</span> <span class="kt">int</span> <span class="n">version</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">Cpp17</span> <span class="p">:</span> <span class="n">Cpp</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">version</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">17</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">Cpp20</span> <span class="p">:</span> <span class="n">Cpp</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">version</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="k">static</span> <span class="n">Cpp17</span> <span class="n">cpp17</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="k">const</span> <span class="n">Cpp</span><span class="o">*</span> <span class="n">pCpp</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">cpp17</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">cpptype</span> <span class="o">=</span> <span class="k">typeid</span><span class="p">(</span><span class="o">*</span><span class="n">pCpp</span><span class="p">);</span>
+
+    <span class="k">constexpr</span> <span class="k">const</span> <span class="n">Cpp</span><span class="o">&amp;</span> <span class="n">refCpp</span> <span class="o">=</span> <span class="n">cpp17</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="k">const</span> <span class="n">Cpp17</span><span class="o">&amp;</span> <span class="n">redCpp2</span> <span class="o">=</span> <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Cpp17</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">refCpp</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>次のように例外を投げるケースでは <code class="codehilite"><span class="n">constexpr</span></code> にできずコンパイルエラーになります。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;typeinfo&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Cpp</span>
+<span class="p">{</span>
+    <span class="k">virtual</span> <span class="kt">int</span> <span class="n">version</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">Cpp17</span> <span class="p">:</span> <span class="n">Cpp</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">version</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">17</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">Cpp20</span> <span class="p">:</span> <span class="n">Cpp</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">version</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="n">Cpp</span><span class="o">*</span> <span class="n">pCpp</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">cpptype</span> <span class="o">=</span> <span class="k">typeid</span><span class="p">(</span><span class="o">*</span><span class="n">pCpp</span><span class="p">);</span> <span class="c1">//コンパイルエラー: 例外 std::bad_typeid を投げるため constexpr 不可</span>
+
+    <span class="k">constexpr</span> <span class="k">static</span> <span class="n">Cpp17</span> <span class="n">cpp17</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="k">const</span> <span class="n">Cpp</span><span class="o">&amp;</span> <span class="n">refCpp</span> <span class="o">=</span> <span class="n">cpp17</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="k">const</span> <span class="n">Cpp20</span><span class="o">&amp;</span> <span class="n">redCpp2</span> <span class="o">=</span> <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Cpp20</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">refCpp</span><span class="p">);</span> <span class="c1">// コンパイルエラー: 例外 std::bad_cast を投げるため constexpr 不可</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="p1330r0">定数式において共用体のアクティブメンバの切り替えが可能に <a href="https://wg21.link/P1330">(P1330R0)</a></h3>
+<p>共用体のアクティブメンバとは、最後に初期化または値を代入したメンバのことです。C++17 では共用体の初期化やアクティブメンバへのアクセスを定数式で行えましたが、アクティブメンバの切り替えはできませんでした。定数式でのアクティブメンバの切り替えが可能になると、共用体によって実装される <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">string</span></code> や <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">optional</span></code> などの標準ライブラリクラスのメンバ関数の <code class="codehilite"><span class="n">constexpr</span></code> 対応を拡充できます。非アクティブメンバへのアクセスは未定義動作なので、定数式で行うとコンパイルエラーになります。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
+
+<span class="k">union</span> <span class="n">Value</span>
+<span class="p">{</span>
+    <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">constexpr</span> <span class="n">Value</span> <span class="nf">GetFloat</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">Value</span><span class="p">{</span> <span class="n">x</span> <span class="p">};</span> <span class="c1">// value.f がアクティブメンバ</span>
+<span class="p">}</span>
+
+<span class="k">constexpr</span> <span class="n">Value</span> <span class="nf">GetUint</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Value</span> <span class="n">value</span> <span class="o">=</span> <span class="n">GetFloat</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">);</span> <span class="c1">// value.f がアクティブメンバ</span>
+    <span class="n">value</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// value.i がアクティブメンバに</span>
+    <span class="k">return</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">GetUint</span><span class="p">(</span><span class="mi">123</span><span class="p">).</span><span class="n">i</span> <span class="o">==</span> <span class="mi">123</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="try-catch-p1002r1">定数式の文脈では <code class="codehilite"><span class="n">try</span><span class="o">-</span><span class="n">catch</span></code> を無視するように <a href="https://wg21.link/P1002">(P1002R1)</a></h3>
+<p>これまで <code class="codehilite"><span class="n">constexpr</span></code> 関数の中には <code class="codehilite"><span class="n">try</span><span class="o">-</span><span class="n">catch</span></code> ブロックを書くことができませんでした。しかし、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">vector</span></code> 等のコンテナを <code class="codehilite"><span class="n">constexpr</span></code> 対応するにあたっては、この制限が障壁となるため、C++20 では <code class="codehilite"><span class="n">constexpr</span></code> 関数の中の <code class="codehilite"><span class="n">try</span><span class="o">-</span><span class="n">catch</span></code> は、定数式として評価されるときには無視するよう仕様が改められます。定数式の評価中に例外を投げるようであればコンパイルエラーになります。<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">vector</span></code> などを <code class="codehilite"><span class="n">constexpr</span></code> 対応させるための措置であり、将来の C++ におけるコンパイル時例外処理の実現を否定するものではありません。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt; </span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt; </span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;exception&gt; </span><span class="cp"></span>
+
+<span class="k">constexpr</span> <span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span> <span class="n">AddU8</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span> <span class="n">a</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">256</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="p">{};</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">constexpr</span> <span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span> <span class="n">DoubleU8</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">try</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">AddU8</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">catch</span> <span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span> <span class="n">except</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">DoubleU8</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span> <span class="o">==</span> <span class="mi">246</span><span class="p">);</span> <span class="c1">// OK: 例外を投げずに定数式として評価可能</span>
+
+    <span class="c1">//static_assert(DoubleU8(200) &gt; 0); // コンパイルエラー: 定数式として評価される constexpr 関数内で例外を投げるため</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;result: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">DoubleU8</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// OK: 実行時に評価される関数で例外が発生する</span>
+<span class="p">}</span>
+</pre></div>
+
 <h2 id="_2">標準ライブラリ</h2>
 <h3 id="p0457r2">文字列の先頭や末尾が、ある文字列と一致するか判定 <a href="https://wg21.link/P0457R2">(P0457R2)</a></h3>
 <p><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string</span></code> と <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string_view</span></code> に、<code class="codehilite"><span class="n">starts_with</span><span class="p">()</span></code> と <code class="codehilite"><span class="n">ends_with</span><span class="p">()</span></code> メンバ関数が追加されます。
@@ -1720,6 +1965,46 @@ C++20 からは、<code class="codehilite"><span class="n">noexcept</span></code
 <p>ポインタライクなオブジェクトを引数にとり、それが表すのと同じアドレスを生ポインタで返す関数 <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">to_address</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code> が追加されます。オブジェクトがポインタ型の場合はその値を返し、それ以外の場合、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">pointer_traits</span><span class="o">&lt;</span><span class="n">Ptr</span><span class="o">&gt;</span><span class="p">::</span><span class="n">to_address</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code> の特殊化が定義されていて使えればその戻り値を、そうでない場合は <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">to_address</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="k">operator</span><span class="o">-&gt;</span><span class="p">())</span></code> の戻り値を返します。</p>
 <h3 id="complex-constexpr-p0415r1"><code class="codehilite"><span class="o">&lt;</span><span class="n">complex</span><span class="o">&gt;</span></code> ヘッダの関数の <code class="codehilite"><span class="n">constexpr</span></code> 対応を強化 <a href="https://wg21.link/P0415R1">(P0415R1)</a></h3>
 <p><code class="codehilite"><span class="o">&lt;</span><span class="n">complex</span><span class="o">&gt;</span></code> ヘッダが提供する関数のうち、複素数の四則演算、ノルムの取得、共役複素数の取得など、<code class="codehilite"><span class="n">constexpr</span></code> 非対応の数学関数 (sqrt など) を使わずに実装できるものが <code class="codehilite"><span class="n">constexpr</span></code> 化されます。</p>
+<h3 id="stdis_constant_evaluated-p0595r2">コンパイル時評価の文脈か実行時評価の文脈かを判別できる <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">is_constant_evaluated</span><span class="p">()</span></code> 関数 <a href="https://wg21.link/P0595">(P0595R2)</a></h3>
+<p>C++17 までは、実行するコードを、コンパイル時評価か実行時評価かに応じて使い分ける方法はありませんでした。C++20 では、コンパイル時評価されている文脈では <code class="codehilite"><span class="k">true</span></code> を、それ以外の場合では <code class="codehilite"><span class="k">false</span></code> を返す <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">is_constant_evaluated</span><span class="p">()</span></code> 関数が <code class="codehilite"><span class="o">&lt;</span><span class="n">type_traits</span><span class="o">&gt;</span></code> ヘッダに追加されます。例えば標準ライブラリで <code class="codehilite"><span class="n">constexpr</span></code> 対応していないような数学関数を提供する際、コンパイル時評価では <code class="codehilite"><span class="n">constexpr</span></code> 版の実装を、実行時には非 <code class="codehilite"><span class="n">constexpr</span></code> の標準ライブラリの実装を提供するよう選択させることができます。なお、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">is_constant_evaluated</span><span class="p">()</span></code> を <code class="codehilite"><span class="k">if</span> <span class="nv">constexpr</span></code> の <code class="codehilite"><span class="p">(</span> <span class="p">)</span></code> 内や <code class="codehilite"><span class="n">static_assert</span></code> 内で使うと常に <code class="codehilite"><span class="k">true</span></code> に評価されてしまうので注意が必要です。基本的には <code class="codehilite"><span class="k">if</span> <span class="ss">(</span><span class="nv">std</span>::<span class="nv">is_constant_evaluated</span><span class="ss">())</span></code> と書きます。</p>
+<p><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iomanip&gt;</span><span class="cp"></span>
+
+<span class="k">constexpr</span> <span class="kt">float</span> <span class="nf">Sin_impl</span><span class="p">(</span><span class="kt">float</span> <span class="n">x2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="kt">float</span> <span class="n">xn</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">nf</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="mf">0.0f</span> <span class="o">:</span> <span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="n">xn</span> <span class="o">/</span> <span class="n">nf</span> <span class="o">+</span> <span class="n">Sin_impl</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="n">xn</span> <span class="o">*</span> <span class="n">x2</span><span class="p">,</span> <span class="n">nf</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)));</span>
+<span class="p">}</span>
+
+<span class="k">constexpr</span> <span class="kt">float</span> <span class="nf">Sin</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_constant_evaluated</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Sin_impl</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">float</span> <span class="n">Pi</span> <span class="o">=</span> <span class="mf">3.14159265f</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="kt">float</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">Pi</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">;</span>
+
+    <span class="k">constexpr</span> <span class="kt">float</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">Sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span> <span class="c1">// コンパイル時計算    </span>
+    <span class="kt">float</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">Sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>  <span class="c1">// 実行時計算</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x1</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x2</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<div class="codehilite"><pre><span></span><span class="mi">0</span><span class="p">.</span><span class="mi">7071068286895752</span>
+<span class="mi">0</span><span class="p">.</span><span class="mi">7071067690849304</span>
+</pre></div></p>
                 
                   
                 

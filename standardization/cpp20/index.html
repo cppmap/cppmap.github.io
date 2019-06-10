@@ -622,6 +622,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#p0020r6" title="浮動小数点数型のアトミック操作を拡張 (P0020R6)" class="md-nav__link">
+    浮動小数点数型のアトミック操作を拡張 (P0020R6)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdmemory_order-enum-class-p0439r0" title="std::memory_order を enum class に変更 (P0439R0)" class="md-nav__link">
+    std::memory_order を enum class に変更 (P0439R0)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1223,6 +1237,20 @@
           <li class="md-nav__item">
   <a href="#stdis_constant_evaluated-p0595r2" title="コンパイル時評価の文脈か実行時評価の文脈かを判別できる std::is_constant_evaluated() 関数 (P0595R2)" class="md-nav__link">
     コンパイル時評価の文脈か実行時評価の文脈かを判別できる std::is_constant_evaluated() 関数 (P0595R2)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p0020r6" title="浮動小数点数型のアトミック操作を拡張 (P0020R6)" class="md-nav__link">
+    浮動小数点数型のアトミック操作を拡張 (P0020R6)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdmemory_order-enum-class-p0439r0" title="std::memory_order を enum class に変更 (P0439R0)" class="md-nav__link">
+    std::memory_order を enum class に変更 (P0439R0)
   </a>
   
 </li>
@@ -1949,7 +1977,7 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
 <h3 id="version-p0754r2">実装固有の情報をまとめる <code class="codehilite"><span class="o">&lt;</span><span class="k">version</span><span class="o">&gt;</span></code> ヘッダを追加 <a href="https://wg21.link/P0754R2">(P0754R2)</a></h3>
 <p><code class="codehilite"><span class="n">__cpp_lib_byte</span></code>, <code class="codehilite"><span class="n">__cpp_lib_void_t</span></code> のような標準ライブラリの機能テストマクロ、その他ライブラリのバージョンや実装固有の情報をまとめる目的の <code class="codehilite"><span class="o">&lt;</span><span class="k">version</span><span class="o">&gt;</span></code> ヘッダが追加されました。
 例えば C++20 以前の MSVC の標準ライブラリでは、<code class="codehilite"><span class="o">&lt;</span><span class="n">yvals_core</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span></code> という独自ヘッダに標準ライブラリの機能テストマクロがまとめられていましたが、C++20 以降ではあらゆる実装において、<code class="codehilite"><span class="o">&lt;</span><span class="k">version</span><span class="o">&gt;</span></code> ヘッダを見ることで、こうした実装固有の情報にアクセスできるため利便性が高まります。</p>
-<h3 id="is_nothrow_convertible-p0758r1">例外を投げない暗黙の変換が可能か調べる is_nothrow_convertible <a href="https://wg21.link/P0758R1">(P0758R1)</a></h3>
+<h3 id="is_nothrow_convertible-p0758r1">例外を投げない暗黙の変換が可能か調べる <code class="codehilite"><span class="n">is_nothrow_convertible</span></code> <a href="https://wg21.link/P0758R1">(P0758R1)</a></h3>
 <p>型 <code class="codehilite"><span class="k">From</span></code> から型 <code class="codehilite"><span class="k">To</span></code> への暗黙の変換が可能であるかを調べる型特性クラス <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">is_convertible</span><span class="o">&lt;</span><span class="k">class</span> <span class="k">From</span><span class="p">,</span> <span class="k">class</span> <span class="k">To</span><span class="o">&gt;</span></code> が C++11 から導入されましたが、その変換が <code class="codehilite"><span class="n">noexcept</span></code> でもあるかを調べられるバージョンは実装されていませんでした。
 このことが原因で、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">decay_copy</span></code> の提案 (<a href="http://wg21.link/n3255">N3255</a>) において、適切な <code class="codehilite"><span class="n">noexcept</span></code> 例外仕様を移植性のある方法で定義できない問題 (<a href="http://wg21.link/lwg2040">LWG 2040</a>) が指摘されていました。
 <div class="codehilite"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> 
@@ -2005,6 +2033,49 @@ C++20 からは、<code class="codehilite"><span class="n">noexcept</span></code
 <div class="codehilite"><pre><span></span><span class="mi">0</span><span class="p">.</span><span class="mi">7071068286895752</span>
 <span class="mi">0</span><span class="p">.</span><span class="mi">7071067690849304</span>
 </pre></div></p>
+<h3 id="p0020r6">浮動小数点数型のアトミック操作を拡張 <a href="https://wg21.link/P0020R6">(P0020R6)</a></h3>
+<p><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="k">atomic</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span></code> の <code class="codehilite"><span class="nb">float</span></code>, <code class="codehilite"><span class="n">double</span></code>, <code class="codehilite"><span class="n">long</span> <span class="n">double</span></code> 型の特殊化に、メンバ関数 <code class="codehilite"><span class="n">fetch_add</span><span class="p">()</span></code>, <code class="codehilite"><span class="n">fetch_sub</span><span class="p">()</span></code>, <code class="codehilite"><span class="k">operator</span><span class="o">+=</span><span class="p">()</span></code>, <code class="codehilite"><span class="k">operator</span><span class="o">-=</span><span class="p">()</span></code> が追加されます。</p>
+<h3 id="stdmemory_order-enum-class-p0439r0"><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">memory_order</span></code> を <code class="codehilite"><span class="k">enum</span> <span class="k">class</span></code> に変更 <a href="https://wg21.link/P0439R0">(P0439R0)</a></h3>
+<p>C++17 まで <code class="codehilite"><span class="k">enum</span></code> で定義されていた <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">memory_order</span></code> を、モダンな C++ 文法と型安全のために、<code class="codehilite"><span class="k">enum</span> <span class="k">class</span></code> で定義する仕様に変更されます。これまでの表記は定数で提供されるようになるため、既存のソースコードは影響を受けません。また、バイナリ互換性のために、<code class="codehilite"><span class="k">enum</span> <span class="k">class</span></code> の基底型の選択は実装に任されています。</p>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">C++17</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="k">namespace</span> <span class="n">std</span>
+<span class="p">{</span>
+    <span class="k">typedef</span> <span class="k">enum</span> <span class="n">memory_order</span>
+    <span class="p">{</span>
+        <span class="n">memory_order_relaxed</span><span class="p">,</span>
+        <span class="n">memory_order_consume</span><span class="p">,</span>
+        <span class="n">memory_order_acquire</span><span class="p">,</span>
+        <span class="n">memory_order_release</span><span class="p">,</span>
+        <span class="n">memory_order_acq_rel</span><span class="p">,</span>
+        <span class="n">memory_order_seq_cst</span>
+    <span class="p">}</span> <span class="n">memory_order</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">C++20</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="k">namespace</span> <span class="n">std</span>
+<span class="p">{</span>
+    <span class="k">enum</span> <span class="k">class</span> <span class="nc">memory_order</span> <span class="cm">/* : unspecified */</span>
+    <span class="p">{</span>
+        <span class="n">relaxed</span><span class="p">,</span>
+        <span class="n">consume</span><span class="p">,</span>
+        <span class="n">acquire</span><span class="p">,</span>
+        <span class="n">release</span><span class="p">,</span>
+        <span class="n">acq_rel</span><span class="p">,</span>
+        <span class="n">seq_cst</span>
+    <span class="p">};</span>
+
+    <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_relaxed</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">relaxed</span><span class="p">;</span>
+    <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_consume</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">consume</span><span class="p">;</span>
+    <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_acquire</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">acquire</span><span class="p">;</span>
+    <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_release</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">release</span><span class="p">;</span>
+    <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_acq_rel</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">acq_rel</span><span class="p">;</span>
+    <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_seq_cst</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">seq_cst</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
                 
                   
                 

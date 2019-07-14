@@ -636,6 +636,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#hash-p0809r0" title="Hash が同一の挙動をしない非順序連想コンテナどうしの比較が可能に (P0809R0)" class="md-nav__link">
+    Hash が同一の挙動をしない非順序連想コンテナどうしの比較が可能に (P0809R0)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1263,6 +1270,13 @@
           <li class="md-nav__item">
   <a href="#stdmemory_order-enum-class-p0439r0" title="std::memory_order を enum class に変更 (P0439R0)" class="md-nav__link">
     std::memory_order を enum class に変更 (P0439R0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash-p0809r0" title="Hash が同一の挙動をしない非順序連想コンテナどうしの比較が可能に (P0809R0)" class="md-nav__link">
+    Hash が同一の挙動をしない非順序連想コンテナどうしの比較が可能に (P0809R0)
   </a>
   
 </li>
@@ -2090,6 +2104,53 @@ C++20 からは、<code class="codehilite"><span class="n">noexcept</span></code
 <span class="p">}</span>
 </pre></div></div>
 </div>
+<h3 id="hash-p0809r0"><code class="codehilite"><span class="n">Hash</span></code> が同一の挙動をしない非順序連想コンテナどうしの比較が可能に <a href="https://wg21.link/P0809R0">(P0809R0)</a></h3>
+<p>C++17 までは、非順序連想コンテナの <code class="codehilite"><span class="k">operator</span><span class="o">==</span></code>, <code class="codehilite"><span class="k">operator</span><span class="o">!=</span></code> について、「両者の <code class="codehilite"><span class="n">Hash</span></code> と <code class="codehilite"><span class="n">Pred</span></code> がそれぞれ同一の挙動をしない場合は未定義動作」と規格に記されていました。しかし、ランダムなソルトを使うハッシュ関数を持つコンテナ同士の比較もユースケースとして想定され、また、対応するための実装も難しくなかったことから、C++20 からはこのうち <code class="codehilite"><span class="n">Hash</span></code> に関する記述が削除されました。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;random&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Type</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">RandomizedHash</span>
+<span class="p">{</span>
+    <span class="kt">size_t</span> <span class="n">rnd</span><span class="p">;</span>
+
+    <span class="n">RandomizedHash</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">random_device</span> <span class="n">rd</span><span class="p">;</span>
+        <span class="n">rnd</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">uniform_int_distribution</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">{}(</span><span class="n">rd</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">size_t</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n">Type</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;</span><span class="p">{}(</span><span class="n">s</span><span class="p">)</span> <span class="o">^</span> <span class="n">rnd</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="n">RandomizedHash</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;&gt;</span> <span class="n">u1</span> <span class="o">=</span>
+    <span class="p">{</span>
+        <span class="p">{</span> <span class="s">&quot;One&quot;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&quot;Two&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&quot;Three&quot;</span><span class="p">,</span> <span class="mi">3</span> <span class="p">},</span>
+    <span class="p">};</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="n">RandomizedHash</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;&gt;</span> <span class="n">u2</span> <span class="o">=</span>
+    <span class="p">{</span>
+        <span class="p">{</span> <span class="s">&quot;One&quot;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&quot;Two&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&quot;Three&quot;</span><span class="p">,</span> <span class="mi">3</span> <span class="p">},</span>
+    <span class="p">};</span>
+
+    <span class="c1">// それぞれ異なるハッシュ値を返す</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;abcde&quot;</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;u1: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">u1</span><span class="p">.</span><span class="n">hash_function</span><span class="p">()(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;u2: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">u2</span><span class="p">.</span><span class="n">hash_function</span><span class="p">()(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="p">;</span>
+
+    <span class="c1">// C++17 までは未定義動作、C++20 から OK</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">u1</span> <span class="o">==</span> <span class="n">u2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 

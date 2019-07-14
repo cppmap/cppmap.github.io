@@ -643,15 +643,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#p0463r1" title="実行環境のエンディアンを判別するための列挙定数を追加 (P0463R1)" class="md-nav__link">
     実行環境のエンディアンを判別するための列挙定数を追加 (P0463R1)
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1288,15 +1288,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#p0463r1" title="実行環境のエンディアンを判別するための列挙定数を追加 (P0463R1)" class="md-nav__link">
     実行環境のエンディアンを判別するための列挙定数を追加 (P0463R1)
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2166,7 +2166,7 @@ C++20 からは、<code class="codehilite"><span class="n">noexcept</span></code
 <span class="p">}</span>
 </pre></div>
 
-<h2 id="p0463r1">実行環境のエンディアンを判別するための列挙定数を追加 <a href="https://wg21.link/P0463R1">(P0463R1)</a></h2>
+<h3 id="p0463r1">実行環境のエンディアンを判別するための列挙定数を追加 <a href="https://wg21.link/P0463R1">(P0463R1)</a></h3>
 <p>これまでの C++ プログラムでは、ターゲットアーキテクチャのバイトオーダを判別する際にトリッキーなコードを書く必要がありました。C++20 からは、リトルエンディアンを表す <code class="codehilite"><span class="n">endian</span><span class="p">::</span><span class="n">little</span></code>, ビッグエンディアンを表す <code class="codehilite"><span class="n">endian</span><span class="p">::</span><span class="n">big</span></code>, 実行環境のエンディアンを表す <code class="codehilite"><span class="n">endian</span><span class="p">::</span><span class="n">native</span></code> の 3 つの <code class="codehilite"><span class="n">endian</span></code> 型の列挙定数（値は実装に依存）が <code class="codehilite"><span class="o">&lt;</span><span class="n">type_traits</span><span class="o">&gt;</span></code> に定義され、<code class="codehilite"><span class="n">endian</span><span class="p">::</span><span class="n">native</span></code> をそれ以外の値と比較することで、実行環境のバイトオーダを判別できるようになります。現在の C++ コンパイラで、リトルエンディアンでもビッグエンディアンでもないミドルエンディアン（PDP エンディアンなど）をサポートしているものはありませんが、ミドルエンディアンの環境においては、<code class="codehilite"><span class="n">endian</span><span class="p">::</span><span class="n">native</span></code> は <code class="codehilite"><span class="n">endian</span><span class="p">::</span><span class="n">big</span></code> でも <code class="codehilite"><span class="n">endian</span><span class="p">::</span><span class="n">little</span></code> でもない値を持つことになっています。</p>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>

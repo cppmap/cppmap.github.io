@@ -648,6 +648,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#p0463r1" title="実行環境のエンディアンを判別するための列挙定数を追加 (P0463R1)" class="md-nav__link">
+    実行環境のエンディアンを判別するための列挙定数を追加 (P0463R1)
+  </a>
+  
+</li>
+      
       
       
       
@@ -1286,6 +1293,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#p0463r1" title="実行環境のエンディアンを判別するための列挙定数を追加 (P0463R1)" class="md-nav__link">
+    実行環境のエンディアンを判別するための列挙定数を追加 (P0463R1)
+  </a>
+  
+</li>
+      
       
       
       
@@ -1304,7 +1318,7 @@
                 
                 
                 <h1 id="c20">C++20 の新機能</h1>
-<p>現在、執筆作業中です（約 100 項目のうち、30 項目完成）。<br />
+<p>現在、執筆作業中です（完成度 約 25%）。<br />
 一覧は <a href="https://cppmap.github.io/standardization/status/">処理系の対応状況</a> から C++20 のページを参照してください。</p>
 <h2 id="_1">言語機能</h2>
 <h3 id="p0683r1">ビットフィールドにデフォルトの初期値を設定可能に <a href="http://wg21.link/p0683r1">(P0683R1)</a></h3>
@@ -2149,6 +2163,28 @@ C++20 からは、<code class="codehilite"><span class="n">noexcept</span></code
 
     <span class="c1">// C++17 までは未定義動作、C++20 から OK</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">u1</span> <span class="o">==</span> <span class="n">u2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2 id="p0463r1">実行環境のエンディアンを判別するための列挙定数を追加 <a href="https://wg21.link/P0463R1">(P0463R1)</a></h2>
+<p>これまでの C++ プログラムでは、ターゲットアーキテクチャのバイトオーダを判別する際にトリッキーなコードを書く必要がありました。C++20 からは、リトルエンディアンを表す <code class="codehilite"><span class="n">endian</span><span class="p">::</span><span class="n">little</span></code>, ビッグエンディアンを表す <code class="codehilite"><span class="n">endian</span><span class="p">::</span><span class="n">big</span></code>, 実行環境のエンディアンを表す <code class="codehilite"><span class="n">endian</span><span class="p">::</span><span class="n">native</span></code> の 3 つの <code class="codehilite"><span class="n">endian</span></code> 型の列挙定数（値は実装に依存）が <code class="codehilite"><span class="o">&lt;</span><span class="n">type_traits</span><span class="o">&gt;</span></code> に定義され、<code class="codehilite"><span class="n">endian</span><span class="p">::</span><span class="n">native</span></code> をそれ以外の値と比較することで、実行環境のバイトオーダを判別できるようになります。現在の C++ コンパイラで、リトルエンディアンでもビッグエンディアンでもないミドルエンディアン（PDP エンディアンなど）をサポートしているものはありませんが、ミドルエンディアンの環境においては、<code class="codehilite"><span class="n">endian</span><span class="p">::</span><span class="n">native</span></code> は <code class="codehilite"><span class="n">endian</span><span class="p">::</span><span class="n">big</span></code> でも <code class="codehilite"><span class="n">endian</span><span class="p">::</span><span class="n">little</span></code> でもない値を持つことになっています。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">endian</span><span class="o">::</span><span class="n">native</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">endian</span><span class="o">::</span><span class="n">little</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Little-endian</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">endian</span><span class="o">::</span><span class="n">native</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">endian</span><span class="o">::</span><span class="n">big</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Big-endian</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Middle-endian</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
                 

@@ -10,10 +10,10 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="C++ の歩き方 Web サイトのコントリビュータ">
+        <meta name="description" content="C++ の平行・並列ライブラリの紹介">
       
       
-        <link rel="canonical" href="https://cppmap.github.io/contribution/contributors/">
+        <link rel="canonical" href="https://cppmap.github.io/libraries/multi-threading/">
       
       
         <meta name="author" content="Ryo Suzuki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>コントリビュータ - C++ の歩き方 | CppMap</title>
+        <title>平行・並列 - C++ の歩き方 | CppMap</title>
       
     
     
@@ -137,7 +137,7 @@
               C++ の歩き方 | CppMap
             </span>
             <span class="md-header-nav__topic">
-              コントリビュータ
+              平行・並列
             </span>
           
         </div>
@@ -264,7 +264,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../libraries/boost/" title="ライブラリ" class="md-tabs__link">
+        <a href="../boost/" title="ライブラリ" class="md-tabs__link md-tabs__link--active">
           ライブラリ
         </a>
       
@@ -290,7 +290,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="./" title="貢献" class="md-tabs__link md-tabs__link--active">
+        <a href="../../contribution/contributors/" title="貢献" class="md-tabs__link">
           貢献
         </a>
       
@@ -609,10 +609,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       ライブラリ
@@ -630,7 +632,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../libraries/boost/" title="Boost" class="md-nav__link">
+    <a href="../boost/" title="Boost" class="md-nav__link">
       Boost
     </a>
   </li>
@@ -642,7 +644,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../libraries/containers/" title="コンテナ" class="md-nav__link">
+    <a href="../containers/" title="コンテナ" class="md-nav__link">
       コンテナ
     </a>
   </li>
@@ -654,7 +656,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../libraries/text-data/" title="テキストデータ" class="md-nav__link">
+    <a href="../text-data/" title="テキストデータ" class="md-nav__link">
       テキストデータ
     </a>
   </li>
@@ -664,11 +666,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../libraries/multi-threading/" title="平行・並列" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="平行・並列" class="md-nav__link md-nav__link--active">
       平行・並列
     </a>
+    
   </li>
 
         
@@ -678,7 +689,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../libraries/testing/" title="テストフレームワーク" class="md-nav__link">
+    <a href="../testing/" title="テストフレームワーク" class="md-nav__link">
       テストフレームワーク
     </a>
   </li>
@@ -741,12 +752,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       貢献
@@ -762,20 +771,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="コントリビュータ" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../contribution/contributors/" title="コントリビュータ" class="md-nav__link">
       コントリビュータ
     </a>
-    
   </li>
 
         
@@ -812,66 +812,13 @@
               
                 
                 
-                <h1 id="_1">コントリビュータ</h1>
-<p>C++ の歩き方 Web サイトの改善、情報拡充に協力してくれた方々です（ABC 順）。</p>
-<!-- ABC 順-->
-
+                <h1 id="_1">マルチタスクスケジューリング</h1>
 <ul>
-<li><a href="https://twitter.com/cpp_akira">@cpp_akira</a> さん<ul>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/16">オンライン資料 情報提供</a></li>
-</ul>
-</li>
-<li><a href="https://twitter.com/Fuyutsubaki">@Fuyutsubaki</a> さん<ul>
-<li><a href="https://github.com/cppmap/cppmap.docs/issues/9#issuecomment-472076826">なぜかコンパイルできない ネタ提供</a></li>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/12">標準ライブラリ 記事作成</a></li>
-</ul>
-</li>
-<li><a href="https://twitter.com/kariya_mitsuru">@kariya_mitsuru</a> さん<ul>
-<li><a href="https://github.com/cppmap/cppmap.docs/issues/6">C++17 洋書 情報提供</a></li>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/7">処理系の対応状況 情報提供</a></li>
-<li><a href="https://twitter.com/kariya_mitsuru/status/1148972200713584640">IEEE 754 演算について 情報提供</a></li>
-</ul>
-</li>
-<li><a href="https://twitter.com/Linda_pp">@Linda_pp</a> さん<ul>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/22">ライブラリ 記事提供</a></li>
-</ul>
-</li>
-<li><a href="https://twitter.com/matken11235">@matken11235</a> さん<ul>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/2">C++ パッケージマネージャ 情報提供</a></li>
-</ul>
-</li>
-<li><a href="https://twitter.com/nekko1119">@nekko1119</a> さん<ul>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/11">予約語 記事作成</a>    </li>
-</ul>
-</li>
-<li><a href="https://twitter.com/NxNeu_J">@NxNeu_J</a> さん<ul>
-<li><a href="https://github.com/cppmap/cppmap.docs/issues/5">C++17 洋書 情報提供</a></li>
-</ul>
-</li>
-<li><a href="https://twitter.com/onihusube9">@onihusube9</a> さん<ul>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/1">オンライン資料 情報提供</a></li>
-<li><a href="https://twitter.com/onihusube9/status/1103168500703485952">Q &amp; A サイト 情報提供</a></li>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/4">C++23 以降に向けた提案 記事提供</a></li>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/10">テキストデータ ライブラリ 情報提供</a></li>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/19">標準化会議 記事加筆</a></li>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/20">C++20 の新機能 記事加筆</a></li>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/21">標準化会議 記事加筆</a></li>
-</ul>
-</li>
-<li><a href="https://twitter.com/tetzrom">@tetzrom</a> さん<ul>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/15">オンライン資料 情報提供</a></li>
-</ul>
-</li>
-<li><a href="https://twitter.com/wx257osn2">@wx257osn2</a> さん<ul>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/18">オンラインコンパイラ 情報提供</a></li>
-</ul>
-</li>
-<li><a href="https://twitter.com/yohhoy">@yohhoy</a> さん<ul>
-<li><a href="https://twitter.com/yohhoy/status/1106950996192747521">記事改善案 提供</a></li>
-</ul>
-</li>
-<li><a href="https://twitter.com/yumetodo">@yumetodo</a> さん<ul>
-<li><a href="https://github.com/cppmap/cppmap.docs/pull/17">テキストデータ ライブラリ 情報提供</a></li>
+<li><a href="https://github.com/cpp-taskflow/cpp-taskflow">Cpp-Taskflow</a> <small>MIT</small><ul>
+<li>C++17 以上でモダンな API でタスクフローが組める</li>
+<li>work-stealing スケジューラによる高効率なタスクスケジューリング</li>
+<li><code class="codehilite"><span class="n">chrome</span><span class="p">:</span><span class="o">//</span><span class="n">tracing</span></code> で実行状況をモニタできる</li>
+<li>タスクフローをグラフ出力できる</li>
 </ul>
 </li>
 </ul>
@@ -895,7 +842,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../tools/package-manager/" title="パッケージマネージャ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../text-data/" title="テキストデータ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -904,11 +851,25 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                パッケージマネージャ
+                テキストデータ
               </span>
             </div>
           </a>
         
+        
+          <a href="../testing/" title="テストフレームワーク" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                テストフレームワーク
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>

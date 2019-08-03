@@ -1,0 +1,2047 @@
+
+
+
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="C++ でよく使われる略語の紹介">
+      
+      
+        <link rel="canonical" href="https://cppmap.github.io/articles/acronyms/">
+      
+      
+        <meta name="author" content="Ryo Suzuki">
+      
+      
+        <meta name="lang:clipboard.copy" content="クリップボードへコピー">
+      
+        <meta name="lang:clipboard.copied" content="コピーしました">
+      
+        <meta name="lang:search.language" content="en, ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="何も見つかりませんでした">
+      
+        <meta name="lang:search.result.one" content="1件見つかりました">
+      
+        <meta name="lang:search.result.other" content="#件見つかりました">
+      
+        <meta name="lang:search.tokenizer" content="[\s　、。，．がのをにへとでやかもる「」『』]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
+    
+    
+      
+        <title>C++ でよく使われる略語 - C++ の歩き方 | CppMap</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.750b69bd.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../../cppmap_styles.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#c" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://cppmap.github.io/" title="C++ の歩き方 | CppMap" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">donut_small</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              C++ の歩き方 | CppMap
+            </span>
+            <span class="md-header-nav__topic">
+              C++ でよく使われる略語
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            検索キーワードを入力してください
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/cppmap/cppmap.docs" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    cppmap/cppmap.docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Home" class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../standardization/cpp20/" title="C++ 規格" class="md-tabs__link">
+          C++ 規格
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../comment-tricks/" title="記事" class="md-tabs__link md-tabs__link--active">
+          記事
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../learn/books/" title="学習" class="md-tabs__link">
+          学習
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../libraries/boost/" title="ライブラリ" class="md-tabs__link">
+          ライブラリ
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../tools/onlinecompilers/" title="ツール" class="md-tabs__link">
+          ツール
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../contribution/contributors/" title="貢献" class="md-tabs__link">
+          貢献
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://cppmap.github.io/" title="C++ の歩き方 | CppMap" class="md-nav__button md-logo">
+      
+        <i class="md-icon">donut_small</i>
+      
+    </a>
+    C++ の歩き方 | CppMap
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/cppmap/cppmap.docs" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    cppmap/cppmap.docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      C++ 規格
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        C++ 規格
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../standardization/cpp20/" title="C++20 の新機能" class="md-nav__link">
+      C++20 の新機能
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../standardization/cppx/" title="C++23 以降に向けた提案" class="md-nav__link">
+      C++23 以降に向けた提案
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../standardization/meetings/" title="標準化会議" class="md-nav__link">
+      標準化会議
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../standardization/status/" title="処理系の対応状況" class="md-nav__link">
+      処理系の対応状況
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../standardization/working-drafts/" title="C++ 規格" class="md-nav__link">
+      C++ 規格
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      記事
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        記事
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../comment-tricks/" title="コメントアウトのトリック" class="md-nav__link">
+      コメントアウトのトリック
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../it-compiles/" title="なぜかコンパイルできる" class="md-nav__link">
+      なぜかコンパイルできる
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../it-does-not-compile/" title="なぜかコンパイルできない" class="md-nav__link">
+      なぜかコンパイルできない
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../how-to-read-keywords/" title="予約語の読みと名前の由来" class="md-nav__link">
+      予約語の読みと名前の由来
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../how-to-read-libraries/" title="標準ライブラリの読みと名前の由来" class="md-nav__link">
+      標準ライブラリの読みと名前の由来
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ieee754-arithmetic/" title="IEEE 754 演算のルール" class="md-nav__link">
+      IEEE 754 演算のルール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        C++ でよく使われる略語
+      </label>
+    
+    <a href="./" title="C++ でよく使われる略語" class="md-nav__link md-nav__link--active">
+      C++ でよく使われる略語
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abi-application-binary-interface" title="ABI | Application Binary Interface" class="md-nav__link">
+    ABI | Application Binary Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accu-association-of-c-and-c-users" title="ACCU | Association of C and C++ Users" class="md-nav__link">
+    ACCU | Association of C and C++ Users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adl-argument-dependent-lookup" title="ADL | Argument-dependent lookup" class="md-nav__link">
+    ADL | Argument-dependent lookup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ansi-american-national-standards-institute" title="ANSI | American National Standards Institute" class="md-nav__link">
+    ANSI | American National Standards Institute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-application-programming-interface" title="API | Application Programming Interface" class="md-nav__link">
+    API | Application Programming Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bcpl-basic-combined-programming-language" title="BCPL | Basic Combined Programming Language" class="md-nav__link">
+    BCPL | Basic Combined Programming Language
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bmi-binary-module-interface" title="BMI | Binary Module Interface" class="md-nav__link">
+    BMI | Binary Module Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cd-committee-draft" title="CD | Committee Draft" class="md-nav__link">
+    CD | Committee Draft
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cow-copy-on-write" title="COW | Copy On Write" class="md-nav__link">
+    COW | Copy On Write
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpp-c-preprocessor" title="CPP | C Preprocessor" class="md-nav__link">
+    CPP | C Preprocessor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crtp-curiously-recurring-template-pattern" title="CRTP | Curiously Recurring Template Pattern" class="md-nav__link">
+    CRTP | Curiously Recurring Template Pattern
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ctad-class-template-argument-deduction" title="CTAD | Class Template Argument Deduction" class="md-nav__link">
+    CTAD | Class Template Argument Deduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cwg-core-working-group" title="CWG | Core Working Group" class="md-nav__link">
+    CWG | Core Working Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deque-double-ended-queue" title="deque | double-ended queue" class="md-nav__link">
+    deque | double-ended queue
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dis-draft-international-standard" title="DIS | Draft International Standard" class="md-nav__link">
+    DIS | Draft International Standard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebo-empty-base-optimization" title="EBO | Empty Base Optimization" class="md-nav__link">
+    EBO | Empty Base Optimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edg-edison-design-group" title="EDG | Edison Design Group" class="md-nav__link">
+    EDG | Edison Design Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eof-end-of-file" title="EOF | End-of-File" class="md-nav__link">
+    EOF | End-of-File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ewg-evolution-working-group" title="EWG | Evolution Working Group" class="md-nav__link">
+    EWG | Evolution Working Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ewgi-evolution-working-group-incubator" title="EWGI | Evolution Working Group Incubator" class="md-nav__link">
+    EWGI | Evolution Working Group Incubator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fcd-final-committee-draft" title="FCD | Final Committee Draft" class="md-nav__link">
+    FCD | Final Committee Draft
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fdis-final-draft-international-standard" title="FDIS | Final Draft International Standard" class="md-nav__link">
+    FDIS | Final Draft International Standard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gcc-gnu-compiler-collection-gnu-c-compiler" title="GCC | GNU Compiler Collection / GNU C++ Compiler" class="md-nav__link">
+    GCC | GNU Compiler Collection / GNU C++ Compiler
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#g-gnu-c-compiler" title="G++ | GNU C++ Compiler" class="md-nav__link">
+    G++ | GNU C++ Compiler
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ice-internal-compiler-error" title="ICE | Internal Compiler Error" class="md-nav__link">
+    ICE | Internal Compiler Error
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ide-integrated-development-enviornment" title="IDE | Integrated Development Enviornment" class="md-nav__link">
+    IDE | Integrated Development Enviornment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iec-international-electronics-commission" title="IEC | International Electronics Commission" class="md-nav__link">
+    IEC | International Electronics Commission
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io-inputoutput" title="I/O | Input/Output" class="md-nav__link">
+    I/O | Input/Output
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is-international-standard" title="IS | International Standard" class="md-nav__link">
+    IS | International Standard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iso-international-organization-for-standardization" title="ISO | International Organization for Standardization" class="md-nav__link">
+    ISO | International Organization for Standardization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kr-kernighan-and-ritchies" title="K&amp;R | Kernighan and Ritchie's" class="md-nav__link">
+    K&amp;R | Kernighan and Ritchie's
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lewg-library-evolution-working-group" title="LEWG | Library Evolution Working Group" class="md-nav__link">
+    LEWG | Library Evolution Working Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lewgi-library-evolution-working-group-incubator" title="LEWGI | Library Evolution Working Group Incubator" class="md-nav__link">
+    LEWGI | Library Evolution Working Group Incubator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lwg-library-working-group" title="LWG | Library Working Group" class="md-nav__link">
+    LWG | Library Working Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msvc-microsoft-visual-c" title="MSVC | Microsoft Visual C++" class="md-nav__link">
+    MSVC | Microsoft Visual C++
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nan-not-a-number" title="NaN | Not a Number" class="md-nav__link">
+    NaN | Not a Number
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nb-national-body" title="NB | National Body" class="md-nav__link">
+    NB | National Body
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nrvo-named-return-value-optimization" title="NRVO | Named Return Value Optimization" class="md-nav__link">
+    NRVO | Named Return Value Optimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nsdmi-non-static-data-member-initializers" title="NSDMI | Non-Static Data Member Initializers" class="md-nav__link">
+    NSDMI | Non-Static Data Member Initializers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nttp-non-type-template-parameter" title="NTTP | Non-Type Template Parameter" class="md-nav__link">
+    NTTP | Non-Type Template Parameter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nvi-non-virtual-interface" title="NVI | Non-Virtual Interface" class="md-nav__link">
+    NVI | Non-Virtual Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#odr-one-definition-rule" title="ODR | One Definition Rule" class="md-nav__link">
+    ODR | One Definition Rule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ood-object-oriented-design" title="OOD | Object Oriented Design" class="md-nav__link">
+    OOD | Object Oriented Design
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oop-object-oriented-programming" title="OOP | Object Oriented Programming" class="md-nav__link">
+    OOP | Object Oriented Programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oopl-object-oriented-programing-language" title="OOPL | Object Oriented Programing Language" class="md-nav__link">
+    OOPL | Object Oriented Programing Language
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pch-precompiled-header" title="PCH | Precompiled Header" class="md-nav__link">
+    PCH | Precompiled Header
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pimpl-pointer-to-implementation" title="PImpl | Pointer to Implementation" class="md-nav__link">
+    PImpl | Pointer to Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pod-plain-old-data" title="POD | Plain Old Data" class="md-nav__link">
+    POD | Plain Old Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raii-resource-allocation-is-initialization" title="RAII | Resource Allocation Is Initialization" class="md-nav__link">
+    RAII | Resource Allocation Is Initialization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rtti-run-time-type-information" title="RTTI | Run-Time Type Information" class="md-nav__link">
+    RTTI | Run-Time Type Information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rvo-return-value-optimization" title="RVO | Return Value Optimization" class="md-nav__link">
+    RVO | Return Value Optimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sbo-small-buffer-optimization" title="SBO | Small Buffer Optimization" class="md-nav__link">
+    SBO | Small Buffer Optimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seh-structured-exception-handling" title="SEH | Structured Exception Handling" class="md-nav__link">
+    SEH | Structured Exception Handling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sfinae-substitution-failure-is-not-an-error" title="SFINAE | Substitution Failure Is Not An Error" class="md-nav__link">
+    SFINAE | Substitution Failure Is Not An Error
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sg-study-group" title="SG | Study Group" class="md-nav__link">
+    SG | Study Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soo-small-object-optimization" title="SOO | Small Object Optimization" class="md-nav__link">
+    SOO | Small Object Optimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sso-small-string-optimization" title="SSO | Small String Optimization" class="md-nav__link">
+    SSO | Small String Optimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stl-standard-template-library" title="STL | Standard Template Library" class="md-nav__link">
+    STL | Standard Template Library
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tls-thread-local-storage" title="TLS | Thread Local Storage" class="md-nav__link">
+    TLS | Thread Local Storage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tmp-template-meta-programming" title="TMP | Template Meta Programming" class="md-nav__link">
+    TMP | Template Meta Programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tr-technical-report" title="TR | Technical Report" class="md-nav__link">
+    TR | Technical Report
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ts-technical-specification" title="TS | Technical Specification" class="md-nav__link">
+    TS | Technical Specification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ub-undefined-behavior" title="UB | Undefined Behavior" class="md-nav__link">
+    UB | Undefined Behavior
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#udl-user-defined-literals" title="UDL | User-Defined Literals" class="md-nav__link">
+    UDL | User-Defined Literals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wd-working-draft" title="WD | Working Draft" class="md-nav__link">
+    WD | Working Draft
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wg-working-group" title="WG | Working Group" class="md-nav__link">
+    WG | Working Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="参考文献" class="md-nav__link">
+    参考文献
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      学習
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        学習
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../learn/books/" title="書籍" class="md-nav__link">
+      書籍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../learn/online-resources/" title="オンライン資料" class="md-nav__link">
+      オンライン資料
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../learn/studymeetings/" title="国内の勉強会" class="md-nav__link">
+      国内の勉強会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../learn/communities/" title="コミュニティ" class="md-nav__link">
+      コミュニティ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      ライブラリ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        ライブラリ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../libraries/boost/" title="Boost" class="md-nav__link">
+      Boost
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../libraries/containers/" title="コンテナ" class="md-nav__link">
+      コンテナ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../libraries/text-data/" title="テキストデータ" class="md-nav__link">
+      テキストデータ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../libraries/multi-threading/" title="並行・並列" class="md-nav__link">
+      並行・並列
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../libraries/testing/" title="テストフレームワーク" class="md-nav__link">
+      テストフレームワーク
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      ツール
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        ツール
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tools/onlinecompilers/" title="オンラインコンパイラ" class="md-nav__link">
+      オンラインコンパイラ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tools/package-manager/" title="パッケージマネージャ" class="md-nav__link">
+      パッケージマネージャ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      貢献
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        貢献
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../contribution/contributors/" title="コントリビュータ" class="md-nav__link">
+      コントリビュータ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abi-application-binary-interface" title="ABI | Application Binary Interface" class="md-nav__link">
+    ABI | Application Binary Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accu-association-of-c-and-c-users" title="ACCU | Association of C and C++ Users" class="md-nav__link">
+    ACCU | Association of C and C++ Users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adl-argument-dependent-lookup" title="ADL | Argument-dependent lookup" class="md-nav__link">
+    ADL | Argument-dependent lookup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ansi-american-national-standards-institute" title="ANSI | American National Standards Institute" class="md-nav__link">
+    ANSI | American National Standards Institute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-application-programming-interface" title="API | Application Programming Interface" class="md-nav__link">
+    API | Application Programming Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bcpl-basic-combined-programming-language" title="BCPL | Basic Combined Programming Language" class="md-nav__link">
+    BCPL | Basic Combined Programming Language
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bmi-binary-module-interface" title="BMI | Binary Module Interface" class="md-nav__link">
+    BMI | Binary Module Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cd-committee-draft" title="CD | Committee Draft" class="md-nav__link">
+    CD | Committee Draft
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cow-copy-on-write" title="COW | Copy On Write" class="md-nav__link">
+    COW | Copy On Write
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpp-c-preprocessor" title="CPP | C Preprocessor" class="md-nav__link">
+    CPP | C Preprocessor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crtp-curiously-recurring-template-pattern" title="CRTP | Curiously Recurring Template Pattern" class="md-nav__link">
+    CRTP | Curiously Recurring Template Pattern
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ctad-class-template-argument-deduction" title="CTAD | Class Template Argument Deduction" class="md-nav__link">
+    CTAD | Class Template Argument Deduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cwg-core-working-group" title="CWG | Core Working Group" class="md-nav__link">
+    CWG | Core Working Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deque-double-ended-queue" title="deque | double-ended queue" class="md-nav__link">
+    deque | double-ended queue
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dis-draft-international-standard" title="DIS | Draft International Standard" class="md-nav__link">
+    DIS | Draft International Standard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebo-empty-base-optimization" title="EBO | Empty Base Optimization" class="md-nav__link">
+    EBO | Empty Base Optimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edg-edison-design-group" title="EDG | Edison Design Group" class="md-nav__link">
+    EDG | Edison Design Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eof-end-of-file" title="EOF | End-of-File" class="md-nav__link">
+    EOF | End-of-File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ewg-evolution-working-group" title="EWG | Evolution Working Group" class="md-nav__link">
+    EWG | Evolution Working Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ewgi-evolution-working-group-incubator" title="EWGI | Evolution Working Group Incubator" class="md-nav__link">
+    EWGI | Evolution Working Group Incubator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fcd-final-committee-draft" title="FCD | Final Committee Draft" class="md-nav__link">
+    FCD | Final Committee Draft
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fdis-final-draft-international-standard" title="FDIS | Final Draft International Standard" class="md-nav__link">
+    FDIS | Final Draft International Standard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gcc-gnu-compiler-collection-gnu-c-compiler" title="GCC | GNU Compiler Collection / GNU C++ Compiler" class="md-nav__link">
+    GCC | GNU Compiler Collection / GNU C++ Compiler
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#g-gnu-c-compiler" title="G++ | GNU C++ Compiler" class="md-nav__link">
+    G++ | GNU C++ Compiler
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ice-internal-compiler-error" title="ICE | Internal Compiler Error" class="md-nav__link">
+    ICE | Internal Compiler Error
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ide-integrated-development-enviornment" title="IDE | Integrated Development Enviornment" class="md-nav__link">
+    IDE | Integrated Development Enviornment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iec-international-electronics-commission" title="IEC | International Electronics Commission" class="md-nav__link">
+    IEC | International Electronics Commission
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io-inputoutput" title="I/O | Input/Output" class="md-nav__link">
+    I/O | Input/Output
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is-international-standard" title="IS | International Standard" class="md-nav__link">
+    IS | International Standard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iso-international-organization-for-standardization" title="ISO | International Organization for Standardization" class="md-nav__link">
+    ISO | International Organization for Standardization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kr-kernighan-and-ritchies" title="K&amp;R | Kernighan and Ritchie's" class="md-nav__link">
+    K&amp;R | Kernighan and Ritchie's
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lewg-library-evolution-working-group" title="LEWG | Library Evolution Working Group" class="md-nav__link">
+    LEWG | Library Evolution Working Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lewgi-library-evolution-working-group-incubator" title="LEWGI | Library Evolution Working Group Incubator" class="md-nav__link">
+    LEWGI | Library Evolution Working Group Incubator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lwg-library-working-group" title="LWG | Library Working Group" class="md-nav__link">
+    LWG | Library Working Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msvc-microsoft-visual-c" title="MSVC | Microsoft Visual C++" class="md-nav__link">
+    MSVC | Microsoft Visual C++
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nan-not-a-number" title="NaN | Not a Number" class="md-nav__link">
+    NaN | Not a Number
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nb-national-body" title="NB | National Body" class="md-nav__link">
+    NB | National Body
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nrvo-named-return-value-optimization" title="NRVO | Named Return Value Optimization" class="md-nav__link">
+    NRVO | Named Return Value Optimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nsdmi-non-static-data-member-initializers" title="NSDMI | Non-Static Data Member Initializers" class="md-nav__link">
+    NSDMI | Non-Static Data Member Initializers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nttp-non-type-template-parameter" title="NTTP | Non-Type Template Parameter" class="md-nav__link">
+    NTTP | Non-Type Template Parameter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nvi-non-virtual-interface" title="NVI | Non-Virtual Interface" class="md-nav__link">
+    NVI | Non-Virtual Interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#odr-one-definition-rule" title="ODR | One Definition Rule" class="md-nav__link">
+    ODR | One Definition Rule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ood-object-oriented-design" title="OOD | Object Oriented Design" class="md-nav__link">
+    OOD | Object Oriented Design
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oop-object-oriented-programming" title="OOP | Object Oriented Programming" class="md-nav__link">
+    OOP | Object Oriented Programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oopl-object-oriented-programing-language" title="OOPL | Object Oriented Programing Language" class="md-nav__link">
+    OOPL | Object Oriented Programing Language
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pch-precompiled-header" title="PCH | Precompiled Header" class="md-nav__link">
+    PCH | Precompiled Header
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pimpl-pointer-to-implementation" title="PImpl | Pointer to Implementation" class="md-nav__link">
+    PImpl | Pointer to Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pod-plain-old-data" title="POD | Plain Old Data" class="md-nav__link">
+    POD | Plain Old Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raii-resource-allocation-is-initialization" title="RAII | Resource Allocation Is Initialization" class="md-nav__link">
+    RAII | Resource Allocation Is Initialization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rtti-run-time-type-information" title="RTTI | Run-Time Type Information" class="md-nav__link">
+    RTTI | Run-Time Type Information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rvo-return-value-optimization" title="RVO | Return Value Optimization" class="md-nav__link">
+    RVO | Return Value Optimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sbo-small-buffer-optimization" title="SBO | Small Buffer Optimization" class="md-nav__link">
+    SBO | Small Buffer Optimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seh-structured-exception-handling" title="SEH | Structured Exception Handling" class="md-nav__link">
+    SEH | Structured Exception Handling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sfinae-substitution-failure-is-not-an-error" title="SFINAE | Substitution Failure Is Not An Error" class="md-nav__link">
+    SFINAE | Substitution Failure Is Not An Error
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sg-study-group" title="SG | Study Group" class="md-nav__link">
+    SG | Study Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soo-small-object-optimization" title="SOO | Small Object Optimization" class="md-nav__link">
+    SOO | Small Object Optimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sso-small-string-optimization" title="SSO | Small String Optimization" class="md-nav__link">
+    SSO | Small String Optimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stl-standard-template-library" title="STL | Standard Template Library" class="md-nav__link">
+    STL | Standard Template Library
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tls-thread-local-storage" title="TLS | Thread Local Storage" class="md-nav__link">
+    TLS | Thread Local Storage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tmp-template-meta-programming" title="TMP | Template Meta Programming" class="md-nav__link">
+    TMP | Template Meta Programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tr-technical-report" title="TR | Technical Report" class="md-nav__link">
+    TR | Technical Report
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ts-technical-specification" title="TS | Technical Specification" class="md-nav__link">
+    TS | Technical Specification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ub-undefined-behavior" title="UB | Undefined Behavior" class="md-nav__link">
+    UB | Undefined Behavior
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#udl-user-defined-literals" title="UDL | User-Defined Literals" class="md-nav__link">
+    UDL | User-Defined Literals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wd-working-draft" title="WD | Working Draft" class="md-nav__link">
+    WD | Working Draft
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wg-working-group" title="WG | Working Group" class="md-nav__link">
+    WG | Working Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="参考文献" class="md-nav__link">
+    参考文献
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="c">C++ でよく使われる略語</h1>
+<h3 id="abi-application-binary-interface">ABI | Application Binary Interface</h3>
+<p>アプリケーション・バイナリ・インタフェース</p>
+<h3 id="accu-association-of-c-and-c-users">ACCU | Association of C and C++ Users</h3>
+<p>C および C++ ユーザ協会。<a href="https://conference.accu.org/">年次カンファレンス</a> の開催や「<a href="https://accu.org/index.php/journals/c78/">Overload</a>」の刊行などを行う。</p>
+<h3 id="adl-argument-dependent-lookup">ADL | Argument-dependent lookup</h3>
+<p>実引数依存の名前検索</p>
+<h3 id="ansi-american-national-standards-institute">ANSI | American National Standards Institute</h3>
+<p>米国国家規格協会</p>
+<h3 id="api-application-programming-interface">API | Application Programming Interface</h3>
+<p>アプリケーション・プログラミング・インタフェース</p>
+<h3 id="bcpl-basic-combined-programming-language">BCPL | Basic Combined Programming Language</h3>
+<p>1966 年にマーティン・リチャーズが設計したプログラミング言語。C 言語や C++ に影響を与えた。</p>
+<h3 id="bmi-binary-module-interface">BMI | Binary Module Interface</h3>
+<p>コンパイラがモジュールファイルをコンパイルして生成する中間ファイル。GCC では CMI (Compiled Module Interfaces) と呼ぶ</p>
+<h3 id="cd-committee-draft">CD | Committee Draft</h3>
+<p>規格の委員会原案</p>
+<h3 id="cow-copy-on-write">COW | Copy On Write</h3>
+<p>コピーオンライトと呼ばれる最適化テクニック</p>
+<h3 id="cpp-c-preprocessor">CPP | C Preprocessor</h3>
+<p>マクロを処理するプリプロセッサ</p>
+<h3 id="crtp-curiously-recurring-template-pattern">CRTP | Curiously Recurring Template Pattern</h3>
+<p>奇妙に再帰したテンプレートパターン</p>
+<h3 id="ctad-class-template-argument-deduction">CTAD | Class Template Argument Deduction</h3>
+<p>クラステンプレートのテンプレート引数推論</p>
+<h3 id="cwg-core-working-group">CWG | Core Working Group</h3>
+<p>C++ 標準化委員会のワーキンググループの 1 つ。言語機能に関する規格文面をレビューする。</p>
+<h3 id="deque-double-ended-queue">deque | double-ended queue</h3>
+<p>両端キュー</p>
+<h3 id="dis-draft-international-standard">DIS | Draft International Standard</h3>
+<p>国際規格案</p>
+<h3 id="ebo-empty-base-optimization">EBO | Empty Base Optimization</h3>
+<p>空の基底クラスの最適化</p>
+<h3 id="edg-edison-design-group">EDG | Edison Design Group</h3>
+<p>企業名。C/C++ コンパイラフロントエンドを開発する。<a href="https://www.edg.com/company">Edison Design Group</a></p>
+<h3 id="eof-end-of-file">EOF | End-of-File</h3>
+<p>ファイルの終端</p>
+<h3 id="ewg-evolution-working-group">EWG | Evolution Working Group</h3>
+<p>C++ 標準化委員会のワーキンググループの 1 つ。言語機能の設計をする。</p>
+<h3 id="ewgi-evolution-working-group-incubator">EWGI | Evolution Working Group Incubator</h3>
+<p>C++ 標準化委員会のスタディグループの 1 つ (SG17). EWG に向けた提案の評価をする。</p>
+<h3 id="fcd-final-committee-draft">FCD | Final Committee Draft</h3>
+<p>規格の最終委員会原案</p>
+<h3 id="fdis-final-draft-international-standard">FDIS | Final Draft International Standard</h3>
+<p>最終国際規格案</p>
+<h3 id="gcc-gnu-compiler-collection-gnu-c-compiler">GCC | GNU Compiler Collection / GNU C++ Compiler</h3>
+<p>GNU コンパイラコレクション、またはその C++ コンパイラ</p>
+<h3 id="g-gnu-c-compiler">G++ | GNU C++ Compiler</h3>
+<p>GNU コンパイラコレクションの C++ コンパイラ</p>
+<h3 id="ice-internal-compiler-error">ICE | Internal Compiler Error</h3>
+<p>コンパイラ内部エラー</p>
+<h3 id="ide-integrated-development-enviornment">IDE | Integrated Development Enviornment</h3>
+<p>統合開発環境</p>
+<h3 id="iec-international-electronics-commission">IEC | International Electronics Commission</h3>
+<p>国際電気標準会議</p>
+<h3 id="io-inputoutput">I/O | Input/Output</h3>
+<p>入出力</p>
+<h3 id="is-international-standard">IS | International Standard</h3>
+<p>国際規格</p>
+<h3 id="iso-international-organization-for-standardization">ISO | International Organization for Standardization</h3>
+<p>国際標準化機構</p>
+<h3 id="kr-kernighan-and-ritchies">K&amp;R | Kernighan and Ritchie's</h3>
+<p>ブライアン・カーニハンとデニス・リッチーによる著書「プログラミング言語 C」の俗称。書中で使われている字下げスタイルが「K&amp;R スタイル」と呼ばれる。</p>
+<h3 id="lewg-library-evolution-working-group">LEWG | Library Evolution Working Group</h3>
+<p>C++ 標準化委員会のワーキンググループの 1 つ。標準ライブラリの設計をする。</p>
+<h3 id="lewgi-library-evolution-working-group-incubator">LEWGI | Library Evolution Working Group Incubator</h3>
+<p>C++ 標準化委員会のスタディグループの 1 つ (SG18). LEWG に向けた提案の評価をする。</p>
+<h3 id="lwg-library-working-group">LWG | Library Working Group</h3>
+<p>C++ 標準化委員会のワーキンググループの 1 つ。標準ライブラリに関する規格文面をレビューする。</p>
+<h3 id="msvc-microsoft-visual-c">MSVC | Microsoft Visual C++</h3>
+<p>Microsoft Visual Studio の C++ コンパイラ</p>
+<h3 id="nan-not-a-number">NaN | Not a Number</h3>
+<p>浮動小数点数で使われる非数の表現</p>
+<h3 id="nb-national-body">NB | National Body</h3>
+<p>標準化委員会の各国支部</p>
+<h3 id="nrvo-named-return-value-optimization">NRVO | Named Return Value Optimization</h3>
+<p>名前付き戻り値の最適化</p>
+<h3 id="nsdmi-non-static-data-member-initializers">NSDMI | Non-Static Data Member Initializers</h3>
+<p>非静的メンバの初期化</p>
+<h3 id="nttp-non-type-template-parameter">NTTP | Non-Type Template Parameter</h3>
+<p>非型テンプレート・パラメータ</p>
+<h3 id="nvi-non-virtual-interface">NVI | Non-Virtual Interface</h3>
+<p>非仮想インターフェース。C++ のプログラミングテクニック</p>
+<h3 id="odr-one-definition-rule">ODR | One Definition Rule</h3>
+<p>C++ の設計コンセプトの 1 つ。あらゆる型や関数、テンプレートは複数の定義を持てないというルール</p>
+<h3 id="ood-object-oriented-design">OOD | Object Oriented Design</h3>
+<p>オブジェクト指向設計</p>
+<h3 id="oop-object-oriented-programming">OOP | Object Oriented Programming</h3>
+<p>オブジェクト指向プログラミング</p>
+<h3 id="oopl-object-oriented-programing-language">OOPL | Object Oriented Programing Language</h3>
+<p>オブジェクト指向プログラミング言語</p>
+<h3 id="pch-precompiled-header">PCH | Precompiled Header</h3>
+<p>プリコンパイル済みヘッダ</p>
+<h3 id="pimpl-pointer-to-implementation">PImpl | Pointer to Implementation</h3>
+<p>クラスの実装の詳細を隠す、C++ のプログラミングテクニック</p>
+<h3 id="pod-plain-old-data">POD | Plain Old Data</h3>
+<p>C 言語と互換性のあるオブジェクトレイアウトを持つ型</p>
+<h3 id="raii-resource-allocation-is-initialization">RAII | Resource Allocation Is Initialization</h3>
+<p>「リソース取得は初期化である」という C++ のプログラミングテクニック</p>
+<h3 id="rtti-run-time-type-information">RTTI | Run-Time Type Information</h3>
+<p>実行時型情報</p>
+<h3 id="rvo-return-value-optimization">RVO | Return Value Optimization</h3>
+<p>戻り値の最適化</p>
+<h3 id="sbo-small-buffer-optimization">SBO | Small Buffer Optimization</h3>
+<p>小さい動的配列でのメモリアロケーションを避ける C++ の最適化テクニック</p>
+<h3 id="seh-structured-exception-handling">SEH | Structured Exception Handling</h3>
+<p>構造化例外処理。Windows で使われる独自の例外処理。</p>
+<h3 id="sfinae-substitution-failure-is-not-an-error">SFINAE | Substitution Failure Is Not An Error</h3>
+<p>テンプレートプログラミングのテクニックの 1 つ</p>
+<h3 id="sg-study-group">SG | Study Group</h3>
+<p>特定のテーマについて議論する、C++ 標準化委員会のサブグループ</p>
+<h3 id="soo-small-object-optimization">SOO | Small Object Optimization</h3>
+<p>小さなオブジェクトに対するメモリアロケーションを避ける C++ の最適化テクニック</p>
+<h3 id="sso-small-string-optimization">SSO | Small String Optimization</h3>
+<p>短い文字列でのメモリアロケーションを避ける C++ の最適化テクニック</p>
+<h3 id="stl-standard-template-library">STL | Standard Template Library</h3>
+<p>アレクサンダー・ステパノフらによって設計された標準テンプレートライブラリ。のちに C++ の標準ライブラリの一部となった。現在では C++ 標準ライブラリ全般を指して STL と呼ぶこともある。</p>
+<h3 id="tls-thread-local-storage">TLS | Thread Local Storage</h3>
+<p>スレッド局所記憶</p>
+<h3 id="tmp-template-meta-programming">TMP | Template Meta Programming</h3>
+<p>テンプレートメタプログラミング</p>
+<h3 id="tr-technical-report">TR | Technical Report</h3>
+<p>実験的な C++ の機能に関する報告書、現在は TS に移行</p>
+<h3 id="ts-technical-specification">TS | Technical Specification</h3>
+<p>実験的な C++ の機能に関する仕様書</p>
+<h3 id="ub-undefined-behavior">UB | Undefined Behavior</h3>
+<p>未定義動作</p>
+<h3 id="udl-user-defined-literals">UDL | User-Defined Literals</h3>
+<p>ユーザ定義リテラル</p>
+<h3 id="wd-working-draft">WD | Working Draft</h3>
+<p>規格の作業原案</p>
+<h3 id="wg-working-group">WG | Working Group</h3>
+<p>作業グループ</p>
+<h2 id="_1">参考文献</h2>
+<ul>
+<li>Acronyms | cppreference.com<br />
+<a href="https://en.cppreference.com/w/cpp/language/acronyms">https://en.cppreference.com/w/cpp/language/acronyms</a></li>
+<li>A C++ acronym glossary<br />
+<a href="https://quuxplusone.github.io/blog/2019/08/02/the-tough-guide-to-cpp-acronyms/">https://quuxplusone.github.io/blog/2019/08/02/the-tough-guide-to-cpp-acronyms/</a></li>
+<li>C++ 国際標準規格 | cpprefjp<br />
+<a href="https://cpprefjp.github.io/international-standard.html">https://cpprefjp.github.io/international-standard.html</a></li>
+<li>Bjarne Stroustrup's C++ Glossary<br />
+<a href="http://www.stroustrup.com/glossary.html#Gvirtual-function-table">http://www.stroustrup.com/glossary.html#Gvirtual-function-table</a></li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../ieee754-arithmetic/" title="IEEE 754 演算のルール" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                IEEE 754 演算のルール
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../learn/books/" title="書籍" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                書籍
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            To the extent possible under law, Ryo Suzuki has waived all copyright and related or neighboring rights to C++ の歩き方 | CppMap. Third party copyrights are property of their respective owners.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://twitter.com/Reputeless" class="md-footer-social__link fa fa-twitter"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.39abc4af.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+            <script src="../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

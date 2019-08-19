@@ -665,8 +665,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#numbers-p0631r8" title="数学定数をまとめた &lt;numbers&gt; ヘッダ (P0631R8)" class="md-nav__link">
-    数学定数をまとめた &lt;numbers&gt; ヘッダ (P0631R8)
+  <a href="#numbers-p0631r8" title="数学定数を提供する &lt;numbers&gt; ヘッダ (P0631R8)" class="md-nav__link">
+    数学定数を提供する &lt;numbers&gt; ヘッダ (P0631R8)
   </a>
   
 </li>
@@ -1367,8 +1367,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#numbers-p0631r8" title="数学定数をまとめた &lt;numbers&gt; ヘッダ (P0631R8)" class="md-nav__link">
-    数学定数をまとめた &lt;numbers&gt; ヘッダ (P0631R8)
+  <a href="#numbers-p0631r8" title="数学定数を提供する &lt;numbers&gt; ヘッダ (P0631R8)" class="md-nav__link">
+    数学定数を提供する &lt;numbers&gt; ヘッダ (P0631R8)
   </a>
   
 </li>
@@ -2270,7 +2270,7 @@ C++20 からは、<code class="codehilite"><span class="n">noexcept</span></code
 <p>型から <code class="codehilite"><span class="n">const</span></code> や <code class="codehilite"><span class="k">volatile</span></code> の修飾および参照を除去したいだけで、配列からポインタ、関数型から関数ポインタへの変換については不要であっても、C++17 では <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">remove_cv_t</span><span class="o">&lt;</span><span class="n">std</span><span class="p">::</span><span class="n">remove_reference_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span></code> と書くと長くなるため <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">decay</span></code> を使うというケースがよくありました。C++20 からは <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">remove_cv_t</span><span class="o">&lt;</span><span class="n">std</span><span class="p">::</span><span class="n">remove_reference_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span></code> と同じ効果を持つ <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">remove_cvref</span></code> trait と、そのヘルパー型 <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">remove_cvref_t</span></code> が追加され、短く書けるようになります。<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">remove_reference_t</span><span class="o">&lt;</span><span class="n">std</span><span class="p">::</span><span class="n">remove_cv_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span></code> のような順番の間違いを防ぐことにもつながります。</p>
 <h3 id="stddecay-p0777r1">標準ライブラリでの不必要な <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">decay</span></code> の使用を回避 <a href="https://wg21.link/P0777R1">(P0777R1)</a></h3>
 <p>C++17 の標準ライブラリの規格では <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">decay_t</span></code> がおよそ 40 箇所で使われていましたが、そのうち cv 修飾の除去や参照の除去だけで十分な箇所について、実装の意図をより明確にするため <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">remove_reference_t</span></code> や、C++20 から導入される <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">remove_cvref_t</span></code> に置き換えられます。具体的には、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">apply</span></code> や、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">optional</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">variant</span></code> の一部のメンバ関数などで置き換えが発生します。</p>
-<h3 id="numbers-p0631r8">数学定数をまとめた <code class="codehilite"><span class="o">&lt;</span><span class="n">numbers</span><span class="o">&gt;</span></code> ヘッダ <a href="https://wg21.link/P0631R8">(P0631R8)</a></h3>
+<h3 id="numbers-p0631r8">数学定数を提供する <code class="codehilite"><span class="o">&lt;</span><span class="n">numbers</span><span class="o">&gt;</span></code> ヘッダ <a href="https://wg21.link/P0631R8">(P0631R8)</a></h3>
 <p>これまで C++ の標準ライブラリには数学定数が用意されていませんでした（<code class="codehilite"><span class="n">M_PI</span></code> などは拡張）。C++20 からは <code class="codehilite"><span class="o">&lt;</span><span class="n">numbers</span><span class="o">&gt;</span></code> ヘッダが追加され、13 種類の数学定数の変数テンプレート宣言と、それらの <code class="codehilite"><span class="n">double</span></code> 型への特殊化の定義が提供されます。<br />
 変数テンプレートは、標準ライブラリコンセプト <code class="codehilite"><span class="n">floating_point</span></code> を使って、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">numbers</span></code> 名前空間に次のように宣言されます。
 <div class="codehilite"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="n">floating_point</span> <span class="n">T</span><span class="o">&gt;</span>

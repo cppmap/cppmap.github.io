@@ -491,8 +491,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#deprecated-p1161r3" title="添字式にかかる , 演算子の使用を deprecated に (P1161R3)" class="md-nav__link">
-    添字式にかかる , 演算子の使用を deprecated に (P1161R3)
+  <a href="#deprecated-p1161r3" title="添字式にかかるコンマ演算子の使用を deprecated に (P1161R3)" class="md-nav__link">
+    添字式にかかるコンマ演算子の使用を deprecated に (P1161R3)
   </a>
   
 </li>
@@ -1193,8 +1193,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#deprecated-p1161r3" title="添字式にかかる , 演算子の使用を deprecated に (P1161R3)" class="md-nav__link">
-    添字式にかかる , 演算子の使用を deprecated に (P1161R3)
+  <a href="#deprecated-p1161r3" title="添字式にかかるコンマ演算子の使用を deprecated に (P1161R3)" class="md-nav__link">
+    添字式にかかるコンマ演算子の使用を deprecated に (P1161R3)
   </a>
   
 </li>
@@ -1826,8 +1826,8 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <span class="p">}</span>
 </pre></div>
 
-<h3 id="deprecated-p1161r3">添字式にかかる <code class="codehilite"><span class="p">,</span></code> 演算子の使用を deprecated に <a href="https://wg21.link/P1161R3">(P1161R3)</a></h3>
-<p>これまで <code class="codehilite"><span class="nb">array</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span></code> というコードでは、<code class="codehilite"><span class="p">,</span></code> 演算子の作用で <code class="codehilite"><span class="n">y</span></code> が添字演算の引数として渡されました。しかし、この挙動は紛らわしく、将来の C++ 標準ライブラリに多次元配列クラスが実装されたとき、添字演算子を複数の引数に対応させるような規格を追加するうえでの障壁にもなります。そのため、C++20 から、<code class="codehilite"><span class="nb">array</span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span></code> のように括弧を使用する場合をのぞき、添字式にかかる <code class="codehilite"><span class="p">,</span></code> 演算子の使用が deprecated になります。古いコードで deprecated な書き方をしていた場合、前述のように <code class="codehilite"><span class="p">()</span></code> を付けることで、コードの挙動に影響を与えずに移植が可能です。</p>
+<h3 id="deprecated-p1161r3">添字式にかかるコンマ演算子の使用を deprecated に <a href="https://wg21.link/P1161R3">(P1161R3)</a></h3>
+<p>これまで <code class="codehilite"><span class="nb">array</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span></code> というコードでは、コンマ演算子の作用で <code class="codehilite"><span class="n">y</span></code> が添字演算の引数として渡されました。しかし、この挙動は紛らわしく、将来の C++ 標準ライブラリに多次元配列クラスが実装されたとき、添字演算子を複数の引数に対応させるような規格を追加するうえでの障壁にもなります。そのため、C++20 から、<code class="codehilite"><span class="nb">array</span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span></code> のように括弧を使用する場合をのぞき、添字式にかかるコンマ演算子の使用が deprecated になります。古いコードで deprecated な書き方をしていた場合、前述のように <code class="codehilite"><span class="p">()</span></code> を付けることで、コードの挙動に影響を与えずに移植が可能です。</p>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>

@@ -497,6 +497,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#using-p1099r5" title="スコープ付き列挙型に対する using 宣言ができるように (P1099R5)" class="md-nav__link">
+    スコープ付き列挙型に対する using 宣言ができるように (P1099R5)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1199,6 +1206,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#using-p1099r5" title="スコープ付き列挙型に対する using 宣言ができるように (P1099R5)" class="md-nav__link">
+    スコープ付き列挙型に対する using 宣言ができるように (P1099R5)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1842,6 +1856,85 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <span class="p">}</span>
 </pre></div>
 
+<h3 id="using-p1099r5">スコープ付き列挙型に対する using 宣言ができるように <a href="http://wg21.link/p1099r5">(P1099R5)</a></h3>
+<p>これまでは、enum class のスコープ解決を省略する方法が無く、次のような <code class="codehilite"><span class="n">switch</span></code> で、列挙型の名前が何度も登場するようなコードを書く必要があり、読みにくく、長い列挙型の名前が避けられる原因になっていました。
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string_view&gt;</span><span class="cp"></span>
+
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">Terrain</span>
+<span class="p">{</span>
+    <span class="n">Open</span><span class="p">,</span> <span class="n">Mountain</span><span class="p">,</span> <span class="n">River</span><span class="p">,</span> <span class="n">Ocean</span>
+<span class="p">};</span>
+
+<span class="k">constexpr</span> <span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">ToString</span><span class="p">(</span><span class="n">Terrain</span> <span class="n">terrain</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">string_view_literals</span><span class="p">;</span>
+
+    <span class="k">switch</span> <span class="p">(</span><span class="n">terrain</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="k">case</span> <span class="n">Terrain</span><span class="o">::</span><span class="nl">Open</span><span class="p">:</span>     <span class="k">return</span> <span class="s">&quot;Open&quot;</span><span class="n">sv</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">Terrain</span><span class="o">::</span><span class="nl">Mountain</span><span class="p">:</span> <span class="k">return</span> <span class="s">&quot;Mountain&quot;</span><span class="n">sv</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">Terrain</span><span class="o">::</span><span class="nl">River</span><span class="p">:</span>    <span class="k">return</span> <span class="s">&quot;River&quot;</span><span class="n">sv</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">Terrain</span><span class="o">::</span><span class="nl">Ocean</span><span class="p">:</span>    <span class="k">return</span> <span class="s">&quot;Ocean&quot;</span><span class="n">sv</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>                <span class="k">return</span> <span class="s">&quot;&quot;</span><span class="n">sv</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ToString</span><span class="p">(</span><span class="n">Terrain</span><span class="o">::</span><span class="n">Mountain</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+C++20 では <code class="codehilite"><span class="k">using</span></code> 宣言を拡張し、<code class="codehilite"><span class="nt">using</span> <span class="nt">Terrain</span><span class="p">::</span><span class="nd">Open</span><span class="o">;</span></code> で <code class="codehilite"><span class="k">Open</span></code> をエイリアスとして使えるようになります。また <code class="codehilite"><span class="k">using</span> <span class="n">enum</span></code> 宣言という新しい仕組みにより、<code class="codehilite"><span class="k">using</span> <span class="n">enum</span> <span class="n">Terrain</span><span class="p">;</span></code> で <code class="codehilite"><span class="n">Terrain</span></code> がローカルスコープに導入され、スコープ解決演算子を使わずにその列挙子を使えるようになります。
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string_view&gt;</span><span class="cp"></span>
+
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">Terrain</span>
+<span class="p">{</span>
+    <span class="n">Open</span><span class="p">,</span> <span class="n">Mountain</span><span class="p">,</span> <span class="n">River</span><span class="p">,</span> <span class="n">Ocean</span>
+<span class="p">};</span>
+
+<span class="k">constexpr</span> <span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">ToString</span><span class="p">(</span><span class="n">Terrain</span> <span class="n">terrain</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">string_view_literals</span><span class="p">;</span>
+
+    <span class="k">switch</span> <span class="p">(</span><span class="n">terrain</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="k">using</span> <span class="k">enum</span> <span class="n">Terrain</span><span class="p">;</span> <span class="c1">// using enum 宣言で、列挙型の名前 Terrain をローカルスコープに導入</span>
+    <span class="k">case</span> <span class="nl">Open</span><span class="p">:</span>      <span class="k">return</span> <span class="s">&quot;Open&quot;</span><span class="n">sv</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nl">Mountain</span><span class="p">:</span>  <span class="k">return</span> <span class="s">&quot;Mountain&quot;</span><span class="n">sv</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nl">River</span><span class="p">:</span>     <span class="k">return</span> <span class="s">&quot;River&quot;</span><span class="n">sv</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nl">Ocean</span><span class="p">:</span>     <span class="k">return</span> <span class="s">&quot;Ocean&quot;</span><span class="n">sv</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>        <span class="k">return</span> <span class="s">&quot;&quot;</span><span class="n">sv</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="n">Terrain</span><span class="o">::</span><span class="n">Mountain</span><span class="p">;</span> <span class="c1">// using 宣言で、列挙子 Mountain をローカルスコープに導入</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ToString</span><span class="p">(</span><span class="n">Mountain</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+なお、次のように複数の <code class="codehilite"><span class="k">using</span></code> 宣言によって名前の衝突が起こる場合はコンパイルエラーになります。
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string_view&gt;</span><span class="cp"></span>
+
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">Terrain</span>
+<span class="p">{</span>
+    <span class="n">Open</span><span class="p">,</span> <span class="n">Mountain</span><span class="p">,</span> <span class="n">River</span><span class="p">,</span> <span class="n">Ocean</span>
+<span class="p">};</span>
+
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">State</span>
+<span class="p">{</span>
+    <span class="n">Open</span><span class="p">,</span> <span class="n">Closed</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="k">enum</span> <span class="n">Terrain</span><span class="p">;</span> <span class="c1">// OK</span>
+    <span class="k">using</span> <span class="k">enum</span> <span class="n">State</span><span class="p">;</span>   <span class="c1">// コンパイルエラー: Terrain::Open と State::Open の名前が衝突</span>
+<span class="p">}</span>
+</pre></div></p>
 <h2 id="_2">標準ライブラリ</h2>
 <h3 id="p0457r2">文字列の先頭や末尾が、ある文字列と一致するか判定 <a href="https://wg21.link/P0457R2">(P0457R2)</a></h3>
 <p><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string</span></code> と <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string_view</span></code> に、<code class="codehilite"><span class="n">starts_with</span><span class="p">()</span></code> と <code class="codehilite"><span class="n">ends_with</span><span class="p">()</span></code> メンバ関数が追加されます。

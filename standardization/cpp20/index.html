@@ -736,8 +736,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../working-drafts/" title="C++ 規格" class="md-nav__link">
-      C++ 規格
+    <a href="../working-drafts/" title="規格ドラフト" class="md-nav__link">
+      規格ドラフト
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../header/" title="標準ライブラリ" class="md-nav__link">
+      標準ライブラリ
     </a>
   </li>
 
@@ -1886,10 +1898,7 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <span class="p">}</span>
 </pre></div>
 C++20 では <code class="codehilite"><span class="k">using</span></code> 宣言を拡張し、<code class="codehilite"><span class="nt">using</span> <span class="nt">Terrain</span><span class="p">::</span><span class="nd">Open</span><span class="o">;</span></code> で <code class="codehilite"><span class="k">Open</span></code> をエイリアスとして使えるようになります。また <code class="codehilite"><span class="k">using</span> <span class="n">enum</span></code> 宣言という新しい仕組みにより、<code class="codehilite"><span class="k">using</span> <span class="n">enum</span> <span class="n">Terrain</span><span class="p">;</span></code> で <code class="codehilite"><span class="n">Terrain</span></code> がローカルスコープに導入され、スコープ解決演算子を使わずにその列挙子を使えるようになります。
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;string_view&gt;</span><span class="cp"></span>
-
-<span class="k">enum</span> <span class="k">class</span> <span class="nc">Terrain</span>
+<div class="codehilite"><pre><span></span><span class="k">enum</span> <span class="k">class</span> <span class="nc">Terrain</span>
 <span class="p">{</span>
     <span class="n">Open</span><span class="p">,</span> <span class="n">Mountain</span><span class="p">,</span> <span class="n">River</span><span class="p">,</span> <span class="n">Ocean</span>
 <span class="p">};</span>

@@ -504,6 +504,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#nodiscard-p1771r1" title="コンストラクタに [[nodiscard]] が使えるように (P1771R1)" class="md-nav__link">
+    コンストラクタに [[nodiscard]] が使えるように (P1771R1)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1225,6 +1232,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#nodiscard-p1771r1" title="コンストラクタに [[nodiscard]] が使えるように (P1771R1)" class="md-nav__link">
+    コンストラクタに [[nodiscard]] が使えるように (P1771R1)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1942,6 +1956,27 @@ C++20 では <code class="codehilite"><span class="k">using</span></code> 宣言
 <span class="p">{</span>
     <span class="k">using</span> <span class="k">enum</span> <span class="n">Terrain</span><span class="p">;</span> <span class="c1">// OK</span>
     <span class="k">using</span> <span class="k">enum</span> <span class="n">State</span><span class="p">;</span>   <span class="c1">// コンパイルエラー: Terrain::Open と State::Open の名前が衝突</span>
+<span class="p">}</span>
+</pre></div></p>
+<h3 id="nodiscard-p1771r1">コンストラクタに <code class="codehilite"><span class="o">[</span><span class="n">[nodiscard</span><span class="o">]</span><span class="err">]</span><span class="w"></span></code> が使えるように <a href="http://wg21.link/p1771r1">(P1771R1)</a></h3>
+<p>C++17 で <code class="codehilite"><span class="o">[</span><span class="n">[nodiscard</span><span class="o">]</span><span class="err">]</span><span class="w"></span></code> が導入された際、仕様ではコンストラクタを対象としていませんでした（ただし、GCC では警告を出しつつもコンストラクタに付けた <code class="codehilite"><span class="o">[</span><span class="n">[nodiscard</span><span class="o">]</span><span class="err">]</span><span class="w"></span></code> をチェックしていました）。コンストラクタの呼び出しによって作成された一時オブジェクトが意図せず無視されたときに警告を出せると、ユーザの間違いを減らせます。そこで、コンストラクタにも <code class="codehilite"><span class="o">[</span><span class="n">[nodiscard</span><span class="o">]</span><span class="err">]</span><span class="w"></span></code> 属性を付けられるよう、C++17 向けの規格にさかのぼって仕様が修正され、C++20 および、この変更に対応した C++17 コンパイラで新仕様を利用できるようになります。なお、デストラクタを定義していた場合でも警告は消えません。
+<div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">Circle</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r</span><span class="p">;</span>
+
+    <span class="n">Circle</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="k">constexpr</span> <span class="n">Circle</span><span class="p">(</span><span class="kt">double</span> <span class="n">_x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">_y</span><span class="p">,</span> <span class="kt">double</span> <span class="n">_r</span><span class="p">)</span> <span class="k">noexcept</span>
+        <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">_x</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">_y</span><span class="p">),</span> <span class="n">r</span><span class="p">(</span><span class="n">_r</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="kt">void</span> <span class="n">draw</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span> <span class="c1">// warning: nodiscard 属性のコンストラクタで作成された一時オブジェクトを無視</span>
+
+    <span class="n">Circle</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">50</span><span class="p">).</span><span class="n">draw</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div></p>
 <h2 id="_2">標準ライブラリ</h2>

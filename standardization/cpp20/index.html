@@ -685,6 +685,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#basic_stringreserve-capacity-p0966r1" title="basic_string::reserve() が capacity を縮小しないよう仕様変更 (P0966R1)" class="md-nav__link">
+    basic_string::reserve() が capacity を縮小しないよう仕様変更 (P0966R1)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1409,6 +1416,13 @@
           <li class="md-nav__item">
   <a href="#numbers-p0631r8" title="数学定数を提供する &lt;numbers&gt; ヘッダ (P0631R8)" class="md-nav__link">
     数学定数を提供する &lt;numbers&gt; ヘッダ (P0631R8)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic_stringreserve-capacity-p0966r1" title="basic_string::reserve() が capacity を縮小しないよう仕様変更 (P0966R1)" class="md-nav__link">
+    basic_string::reserve() が capacity を縮小しないよう仕様変更 (P0966R1)
   </a>
   
 </li>
@@ -2499,6 +2513,9 @@ C++20 で追加される数学定数の一覧は次のとおりです。</p>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">pi_v</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+
+<h3 id="basic_stringreserve-capacity-p0966r1"><code class="codehilite"><span class="n">basic_string</span><span class="p">::</span><span class="n">reserve</span><span class="p">()</span></code> が capacity を縮小しないよう仕様変更 <a href="https://wg21.link/P0966R1">(P0966R1)</a></h3>
+<p>C++17 では、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string</span><span class="p">::</span><span class="n">reserve</span><span class="p">(</span><span class="n">size_type</span><span class="p">)</span></code> に現在の <code class="codehilite"><span class="n">capacity</span><span class="p">()</span></code> よりも小さい値が渡された際、shrink-to-fit を実行することが許可されていたため、注意深く使わないとメモリの再配置を頻繁に引き起こし、実行時性能を低下させることがありました。また、デフォルト引数として <code class="codehilite"><span class="mi">0</span></code> が定義されており、<code class="codehilite"><span class="n">s</span><span class="p">.</span><span class="n">reserve</span><span class="p">()</span></code> と <code class="codehilite"><span class="n">s</span><span class="p">.</span><span class="n">shrink_to_fit</span><span class="p">()</span></code> で機能が重複するという問題や、shrink-to-fit を実行せずデフォルト引数も無い <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="p">::</span><span class="n">reserve</span><span class="p">(</span><span class="n">size_type</span><span class="p">)</span></code> との一貫性がないという問題がありました。C++20 からの新しい仕様では <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">vector</span></code> 側に合わせ、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string</span><span class="p">::</span><span class="n">reserve</span><span class="p">(</span><span class="n">size_type</span><span class="p">)</span></code> に現在の <code class="codehilite"><span class="n">capacity</span><span class="p">()</span></code> よりも小さい値が渡された際には何もしないことが保証され、デフォルト引数も廃止（互換性のために deprecated 指定の <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string</span><span class="p">:</span><span class="n">reserve</span><span class="p">(</span><span class="n">void</span><span class="p">)</span></code> オーバーロードが追加）となり、これらの問題が解決されます。</p>
                 
                   
                 

@@ -692,6 +692,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#constains-p0458r2" title="連想コンテナに constains() メンバ関数を追加 (P0458R2)" class="md-nav__link">
+    連想コンテナに constains() メンバ関数を追加 (P0458R2)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1423,6 +1430,13 @@
           <li class="md-nav__item">
   <a href="#basic_stringreserve-capacity-p0966r1" title="basic_string::reserve() が capacity を縮小しないように (P0966R1)" class="md-nav__link">
     basic_string::reserve() が capacity を縮小しないように (P0966R1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constains-p0458r2" title="連想コンテナに constains() メンバ関数を追加 (P0458R2)" class="md-nav__link">
+    連想コンテナに constains() メンバ関数を追加 (P0458R2)
   </a>
   
 </li>
@@ -2516,6 +2530,46 @@ C++20 で追加される数学定数の一覧は次のとおりです。</p>
 
 <h3 id="basic_stringreserve-capacity-p0966r1"><code class="codehilite"><span class="n">basic_string</span><span class="p">::</span><span class="n">reserve</span><span class="p">()</span></code> が capacity を縮小しないように <a href="https://wg21.link/P0966R1">(P0966R1)</a></h3>
 <p>C++17 では、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string</span><span class="p">::</span><span class="n">reserve</span><span class="p">(</span><span class="n">size_type</span><span class="p">)</span></code> に現在の <code class="codehilite"><span class="n">capacity</span><span class="p">()</span></code> よりも小さい値が渡された際、shrink-to-fit を実行することが許可されていたため、注意深く使わないとメモリの再配置を頻繁に引き起こし、実行時性能を低下させることがありました。また、デフォルト引数として <code class="codehilite"><span class="mi">0</span></code> が定義されており、<code class="codehilite"><span class="n">s</span><span class="p">.</span><span class="n">reserve</span><span class="p">()</span></code> と <code class="codehilite"><span class="n">s</span><span class="p">.</span><span class="n">shrink_to_fit</span><span class="p">()</span></code> で機能が重複するという問題や、shrink-to-fit を実行せずデフォルト引数も無い <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="p">::</span><span class="n">reserve</span><span class="p">(</span><span class="n">size_type</span><span class="p">)</span></code> との一貫性がないという問題がありました。C++20 からの新しい仕様では <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">vector</span></code> 側に合わせ、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string</span><span class="p">::</span><span class="n">reserve</span><span class="p">(</span><span class="n">size_type</span><span class="p">)</span></code> に現在の <code class="codehilite"><span class="n">capacity</span><span class="p">()</span></code> よりも小さい値が渡された際には何もしないことが保証され、デフォルト引数も廃止（互換性のために deprecated 指定の <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string</span><span class="p">:</span><span class="n">reserve</span><span class="p">(</span><span class="n">void</span><span class="p">)</span></code> オーバーロードが追加）となり、これらの問題が解決されます。</p>
+<h3 id="constains-p0458r2">連想コンテナに <code class="codehilite"><span class="n">constains</span><span class="p">()</span></code> メンバ関数を追加 <a href="https://wg21.link/P0458R2">(P0458R2)</a></h3>
+<p>ある要素が連想コンテナに含まれているか調べるための C++17 までのイディオムは、直感的でなく初心者にとっても明快ではありませんでした。C++20 からは、要素の存在をチェックする <code class="codehilite"><span class="k">contains</span><span class="p">(</span><span class="k">key</span><span class="p">)</span></code> メンバ関数が <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="k">map</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">multimap</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="k">set</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">multiset</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">unordered_map</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">unordered_multimap</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">unordered_set</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">unordered_multiset</span></code> に追加されます。</p>
+<div class="superfences-tabs">
+<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
+<label for="__tab_3_0">C++17</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">table</span> <span class="o">=</span>
+    <span class="p">{</span>
+        <span class="p">{</span> <span class="mi">200</span><span class="p">,</span> <span class="s">&quot;OK&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="mi">201</span><span class="p">,</span> <span class="s">&quot;Created&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="mi">202</span><span class="p">,</span> <span class="s">&quot;Accepted&quot;</span> <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">table</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">!=</span> <span class="n">table</span><span class="p">.</span><span class="n">end</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;key exists</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_3" type="radio" id="__tab_3_1" />
+<label for="__tab_3_1">C++20</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">table</span> <span class="o">=</span>
+    <span class="p">{</span>
+        <span class="p">{</span> <span class="mi">200</span><span class="p">,</span> <span class="s">&quot;OK&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="mi">201</span><span class="p">,</span> <span class="s">&quot;Created&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="mi">202</span><span class="p">,</span> <span class="s">&quot;Accepted&quot;</span> <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">table</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="mi">200</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;key exists</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
                 
                   
                 

@@ -454,8 +454,70 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_4" title="パターンマッチング" class="md-nav__link">
+    パターンマッチング
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="整数のマッチング" class="md-nav__link">
+    整数のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="文字列のマッチング" class="md-nav__link">
+    文字列のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuples" title="Tuples のマッチング" class="md-nav__link">
+    Tuples のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variants" title="Variants のマッチング" class="md-nav__link">
+    Variants のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymorphic-types" title="Polymorphic Types のマッチング" class="md-nav__link">
+    Polymorphic Types のマッチング
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#executors" title="Executors" class="md-nav__link">
     Executors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="コルーチンのライブラリサポート" class="md-nav__link">
+    コルーチンのライブラリサポート
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="契約プログラミング" class="md-nav__link">
+    契約プログラミング
   </a>
   
 </li>
@@ -513,8 +575,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../header/" title="標準ライブラリ" class="md-nav__link">
-      標準ライブラリ
+    <a href="../header/" title="C++ 標準ライブラリ" class="md-nav__link">
+      C++ 標準ライブラリ
     </a>
   </li>
 
@@ -928,8 +990,70 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_4" title="パターンマッチング" class="md-nav__link">
+    パターンマッチング
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="整数のマッチング" class="md-nav__link">
+    整数のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="文字列のマッチング" class="md-nav__link">
+    文字列のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuples" title="Tuples のマッチング" class="md-nav__link">
+    Tuples のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variants" title="Variants のマッチング" class="md-nav__link">
+    Variants のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymorphic-types" title="Polymorphic Types のマッチング" class="md-nav__link">
+    Polymorphic Types のマッチング
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#executors" title="Executors" class="md-nav__link">
     Executors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="コルーチンのライブラリサポート" class="md-nav__link">
+    コルーチンのライブラリサポート
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="契約プログラミング" class="md-nav__link">
+    契約プログラミング
   </a>
   
 </li>
@@ -993,7 +1117,205 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 </pre></div>
 
 <p>この機能を前提とした<a href="https://wg21.link/p0707">メタクラスの提案</a>も議論が進んでいます。</p>
+<h2 id="_4">パターンマッチング</h2>
+<ul>
+<li><a href="https://wg21.link/p1371">Pattern Matching (P1371)</a></li>
+</ul>
+<p><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">tuple</span></code> や <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">variant</span></code> で C++ における代数的データ型の表現が広がりましたが、それらを扱うための <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">apply</span></code> や <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">visit</span></code> は複雑で多くの制約があります。C++ 以外のプログラミング言語にならい、パターンマッチングを導入してこの問題を解決する提案です。この提案では、より宣言的で構造化された <code class="codehilite"><span class="n">switch</span></code> 文として、<code class="codehilite"><span class="n">inspect</span></code> 文/式という新しい文法の導入を提案しています。</p>
+<div class="codehilite"><pre><span></span><span class="c1">// inspect 文の文法</span>
+<span class="n">inspect</span> <span class="nf">constexpr_opt</span> <span class="p">(</span><span class="n">init</span><span class="o">-</span><span class="n">statement_opt</span> <span class="n">condition</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">pattern</span> <span class="nl">guard_opt</span> <span class="p">:</span> <span class="n">statement</span>
+    <span class="n">pattern</span> <span class="nl">guard_opt</span> <span class="p">:</span> <span class="n">statement</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+
+<span class="c1">// inspect 式の文法</span>
+<span class="n">inspect</span> <span class="nf">constexpr_opt</span> <span class="p">(</span><span class="n">init</span><span class="o">-</span><span class="n">statement_opt</span> <span class="n">condition</span><span class="p">)</span> <span class="n">trailing</span><span class="o">-</span><span class="k">return</span><span class="o">-</span><span class="n">type_opt</span>
+<span class="p">{</span>
+    <span class="n">pattern</span> <span class="n">guard_opt</span> <span class="o">=&gt;</span> <span class="n">expression</span>
+    <span class="n">pattern</span> <span class="n">guard_opt</span> <span class="o">=&gt;</span> <span class="n">expression</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="_5">整数のマッチング</h3>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">現在</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="n">code</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="mi">200</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;OK</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">404</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not Found</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;don&#39;t care</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">提案</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">inspect</span> <span class="p">(</span><span class="n">code</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="mi">200</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;OK</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="mi">404</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not Found</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="nl">__</span><span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;don&#39;t care</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="c1">// __ はワイルドカードパターン</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
+<h3 id="_6">文字列のマッチング</h3>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">現在</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="s">&quot;png&quot;</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;PNG Image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="s">&quot;jpg&quot;</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;JPEG Image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not supported</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">提案</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">inspect</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="s">&quot;png&quot;</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;PNG Image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="s">&quot;jpg&quot;</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;JPEG Image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="nl">__</span><span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not supported</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
+<h3 id="tuples">Tuples のマッチング</h3>
+<div class="superfences-tabs">
+<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
+<label for="__tab_3_0">現在</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">pos</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the origin</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on X-axis</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on Y-axis</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_3" type="radio" id="__tab_3_1" />
+<label for="__tab_3_1">提案</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">inspect</span> <span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the origin</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the X-axis</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the Y-axis</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
+<h3 id="variants">Variants のマッチング</h3>
+<div class="superfences-tabs">
+<input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
+<label for="__tab_4_0">現在</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">Visitor</span>
+<span class="p">{</span>
+    <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;int: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">float</span> <span class="n">f</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;float: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">variant</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">float</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="mf">3.14f</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">visit</span><span class="p">(</span><span class="n">Visitor</span><span class="p">{},</span> <span class="n">v</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_4" type="radio" id="__tab_4_1" />
+<label for="__tab_4_1">提案</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">variant</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">float</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="mf">3.14f</span><span class="p">;</span>
+
+    <span class="n">inspect</span> <span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="nl">i</span><span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;int: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+        <span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="nl">f</span><span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;float: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
+<h3 id="polymorphic-types">Polymorphic Types のマッチング</h3>
+<div class="superfences-tabs">
+<input name="__tabs_5" type="radio" id="__tab_5_0" checked="checked" />
+<label for="__tab_5_0">現在</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">Shape</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">Circle</span> <span class="p">:</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">radius</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">Rectangle</span> <span class="p">:</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">width</span> <span class="o">*</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div></div>
+<input name="__tabs_5" type="radio" id="__tab_5_1" />
+<label for="__tab_5_1">提案</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">Shape</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">Circle</span> <span class="p">:</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">radius</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">Rectangle</span> <span class="p">:</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">double</span> <span class="nf">Area</span><span class="p">(</span><span class="k">const</span> <span class="n">Shape</span><span class="o">&amp;</span> <span class="n">shape</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">inspect</span> <span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="o">&lt;</span><span class="n">Circle</span><span class="o">&gt;</span>    <span class="p">[</span><span class="n">r</span><span class="p">]</span>     <span class="o">=&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n">pi</span><span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span><span class="p">,</span> <span class="c1">// inspect 式では =&gt; を使う</span>
+        <span class="o">&lt;</span><span class="n">Rectangle</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">]</span>  <span class="o">=&gt;</span> <span class="n">w</span> <span class="o">*</span> <span class="n">h</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
 <h2 id="executors">Executors</h2>
+<h2 id="_7">コルーチンのライブラリサポート</h2>
+<h2 id="_8">契約プログラミング</h2>
                 
                   
                 

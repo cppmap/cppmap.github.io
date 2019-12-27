@@ -1075,30 +1075,30 @@
               
                 
                 
-                <h1 id="c23">C++23 以降に向けた提案</h1>
+                <h1 id="c23">C++23 以降に向けた提案<a class="headerlink" href="#c23" title="Permanent link">&para;</a></h1>
 <p>議論が進行中のおもな提案です。標準化会議によって規格化が妥当でないと判断された場合は採択されません。</p>
-<h2 id="_1">標準ライブラリ モジュール</h2>
+<h2 id="_1">標準ライブラリ モジュール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://wg21.link/p0581">Standard Library Modules (P0581)</a> </li>
 </ul>
 <p><code class="codehilite"><span class="o">&lt;</span><span class="n">iostream</span><span class="o">&gt;</span></code> や <code class="codehilite"><span class="o">&lt;</span><span class="n">vector</span><span class="o">&gt;</span></code> など、すべての C++ 標準ライブラリヘッダをモジュールとして提供する提案です。言語機能としてのモジュールは C++20 に導入されましたが、標準ライブラリへの導入は議論が間に合わず、C++23 に先送りされました。標準ライブラリのモジュールへの移行に合わせて、<a href="https://wg21.link/p1453">標準ライブラリを再編成する提案</a>も出されています。</p>
-<h2 id="operator"><code class="codehilite"><span class="k">operator</span><span class="p">[]</span></code> に複数の引数</h2>
+<h2 id="operator"><code class="codehilite"><span class="k">operator</span><span class="p">[]</span></code> に複数の引数<a class="headerlink" href="#operator" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://wg21.link/p1277">Subscripts On Parade (P1277)</a></li>
 </ul>
 <p><code class="codehilite"><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span></code> のように、<code class="codehilite"><span class="k">operator</span><span class="p">[]</span></code> の引数に複数の値を渡せるようにする提案です。多次元配列の要素に簡潔な式でアクセスできるようになります。この書き方は、C++17 規格ではコンマ演算子と解釈されて <code class="codehilite"><span class="n">m</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"></span></code> になってしまうため、まずは<a href="https://wg21.link/p1161">現行の文法を deprecated にする提案</a>が提出されています。<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">span</span></code> の多次元版である <a href="https://github.com/kokkos/array_ref"><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">mdspan</span></code> の提案</a>での活用も期待されます。</p>
-<h2 id="api">低レベル オーディオ API</h2>
+<h2 id="api">低レベル オーディオ API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://wg21.link/p1386">A Standard Audio API for C++:
 Motivation, Scope, and Basic Design (P1386)</a></li>
 </ul>
 <p>音声再生・録音を行う低レベル API <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">audio</span></code> を追加する提案です。以前頓挫した 2D Graphics API の標準化に比べれば、枯れている技術なので実現可能性は低くはなさそうです。波形データをオーディオデバイスとやり取りすることが主要な役割で、音声コーデックやフィルタなどの機能は提供しません。<a href="https://github.com/stdcpp-audio/libstdaudio">実験的な実装を公開</a>して、設計に関するフィードバックを集めている段階です。</p>
-<h2 id="_2">ネットワーク</h2>
+<h2 id="_2">ネットワーク<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://wg21.link/n4734">Working Draft, C++ Extensions for Networking (N4734)</a></li>
 </ul>
 <p>ネットワーク機能を標準ライブラリに導入する提案です。<a href="https://www.boost.org/doc/libs/release/doc/html/boost_asio.html">Boost.Asio</a> をベースに、ソケット通信、名前解決、インターネットプロトコル、タイマー、バッファ、非同期処理のための各種機能を実装する予定です。</p>
-<h2 id="_3">リフレクション</h2>
+<h2 id="_3">リフレクション<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://wg21.link/n4818">Working Draft, C++ Extensions for Reﬂection (N4818)</a></li>
 </ul>
@@ -1117,7 +1117,7 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 </pre></div>
 
 <p>この機能を前提とした<a href="https://wg21.link/p0707">メタクラスの提案</a>も議論が進んでいます。</p>
-<h2 id="_4">パターンマッチング</h2>
+<h2 id="_4">パターンマッチング<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://wg21.link/p1371">Pattern Matching (P1371)</a></li>
 </ul>
@@ -1139,7 +1139,7 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 <span class="p">}</span>
 </pre></div>
 
-<h3 id="_5">整数のマッチング</h3>
+<h3 id="_5">整数のマッチング<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
 <label for="__tab_1_0">現在</label>
@@ -1160,7 +1160,7 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 <span class="p">}</span>
 </pre></div></div>
 </div>
-<h3 id="_6">文字列のマッチング</h3>
+<h3 id="_6">文字列のマッチング<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <div class="superfences-tabs">
 <input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
 <label for="__tab_2_0">現在</label>
@@ -1187,7 +1187,7 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 <span class="p">}</span>
 </pre></div></div>
 </div>
-<h3 id="tuples">Tuples のマッチング</h3>
+<h3 id="tuples">Tuples のマッチング<a class="headerlink" href="#tuples" title="Permanent link">&para;</a></h3>
 <div class="superfences-tabs">
 <input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
 <label for="__tab_3_0">現在</label>
@@ -1220,7 +1220,7 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 <span class="p">}</span>
 </pre></div></div>
 </div>
-<h3 id="variants">Variants のマッチング</h3>
+<h3 id="variants">Variants のマッチング<a class="headerlink" href="#variants" title="Permanent link">&para;</a></h3>
 <div class="superfences-tabs">
 <input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
 <label for="__tab_4_0">現在</label>
@@ -1258,7 +1258,7 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 <span class="p">}</span>
 </pre></div></div>
 </div>
-<h3 id="polymorphic-types">Polymorphic Types のマッチング</h3>
+<h3 id="polymorphic-types">Polymorphic Types のマッチング<a class="headerlink" href="#polymorphic-types" title="Permanent link">&para;</a></h3>
 <div class="superfences-tabs">
 <input name="__tabs_5" type="radio" id="__tab_5_0" checked="checked" />
 <label for="__tab_5_0">現在</label>
@@ -1313,9 +1313,9 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 <span class="p">}</span>
 </pre></div></div>
 </div>
-<h2 id="executors">Executors</h2>
-<h2 id="_7">コルーチンのライブラリサポート</h2>
-<h2 id="_8">契約プログラミング</h2>
+<h2 id="executors">Executors<a class="headerlink" href="#executors" title="Permanent link">&para;</a></h2>
+<h2 id="_7">コルーチンのライブラリサポート<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_8">契約プログラミング<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
                 
                   
                 

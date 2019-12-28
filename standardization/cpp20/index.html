@@ -511,6 +511,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#inline-namespace-p1094r2" title="ネストした名前空間定義で inline namespace を使えるように (P1094R2)" class="md-nav__link">
+    ネストした名前空間定義で inline namespace を使えるように (P1094R2)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1249,6 +1256,13 @@
           <li class="md-nav__item">
   <a href="#nodiscard-p1771r1" title="コンストラクタに [[nodiscard]] が使えるように (P1771R1)" class="md-nav__link">
     コンストラクタに [[nodiscard]] が使えるように (P1771R1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inline-namespace-p1094r2" title="ネストした名前空間定義で inline namespace を使えるように (P1094R2)" class="md-nav__link">
+    ネストした名前空間定義で inline namespace を使えるように (P1094R2)
   </a>
   
 </li>
@@ -2007,6 +2021,58 @@ C++20 では <code class="codehilite"><span class="k">using</span></code> 宣言
     <span class="n">Circle</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">50</span><span class="p">).</span><span class="n">draw</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div></p>
+<h3 id="inline-namespace-p1094r2">ネストした名前空間定義で <code class="codehilite"><span class="n">inline</span> <span class="n">namespace</span></code> を使えるように <a href="http://wg21.link/p1094r2">(P1094R2)</a><a class="headerlink" href="#inline-namespace-p1094r2" title="Permanent link">&para;</a></h3>
+<p>C++17 でネストした名前空間定義が導入されましたが、その中では <code class="codehilite"><span class="n">inline</span> <span class="n">namespace</span></code> を使うことができず、<code class="codehilite"><span class="n">inline</span> <span class="n">namespace</span></code> が <code class="codehilite"><span class="n">namespace</span></code> 内にある次のようなケースで恩恵を受けられませんでした。C++20 からはネストした名前空間定義の中で <code class="codehilite"><span class="n">inline</span></code> を使えるようになります。</p>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">C++17</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">mylib</span><span class="o">::</span><span class="n">v1</span><span class="o">::</span><span class="n">util</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">GetValue</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">namespace</span> <span class="n">mylib</span>
+<span class="p">{</span>
+    <span class="kr">inline</span> <span class="k">namespace</span> <span class="n">v2</span>
+    <span class="p">{</span>
+        <span class="k">namespace</span> <span class="n">util</span>
+        <span class="p">{</span>
+            <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">GetValue</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">2</span><span class="p">;</span> <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">mylib</span><span class="o">::</span><span class="n">v1</span><span class="o">::</span><span class="n">util</span><span class="o">::</span><span class="n">GetValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">mylib</span><span class="o">::</span><span class="n">v2</span><span class="o">::</span><span class="n">util</span><span class="o">::</span><span class="n">GetValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">mylib</span><span class="o">::</span><span class="n">util</span><span class="o">::</span><span class="n">GetValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// v2</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">C++20</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">mylib</span><span class="o">::</span><span class="n">v1</span><span class="o">::</span><span class="n">util</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">GetValue</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">namespace</span> <span class="n">mylib</span><span class="o">::</span><span class="kr">inline</span> <span class="n">v2</span><span class="o">::</span><span class="n">util</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">GetValue</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">2</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">mylib</span><span class="o">::</span><span class="n">v1</span><span class="o">::</span><span class="n">util</span><span class="o">::</span><span class="n">GetValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">mylib</span><span class="o">::</span><span class="n">v2</span><span class="o">::</span><span class="n">util</span><span class="o">::</span><span class="n">GetValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">mylib</span><span class="o">::</span><span class="n">util</span><span class="o">::</span><span class="n">GetValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// v2</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
 <h2 id="_2">標準ライブラリ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="p0457r2">文字列の先頭や末尾が、ある文字列と一致するか判定 <a href="https://wg21.link/P0457R2">(P0457R2)</a><a class="headerlink" href="#p0457r2" title="Permanent link">&para;</a></h3>
 <p><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string</span></code> と <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string_view</span></code> に、<code class="codehilite"><span class="n">starts_with</span><span class="p">()</span></code> と <code class="codehilite"><span class="n">ends_with</span><span class="p">()</span></code> メンバ関数が追加されます。
@@ -2316,8 +2382,8 @@ C++20 からは、<code class="codehilite"><span class="n">noexcept</span></code
 <h3 id="stdmemory_order-enum-class-p0439r0"><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">memory_order</span></code> を <code class="codehilite"><span class="k">enum</span> <span class="k">class</span></code> に変更 <a href="https://wg21.link/P0439R0">(P0439R0)</a><a class="headerlink" href="#stdmemory_order-enum-class-p0439r0" title="Permanent link">&para;</a></h3>
 <p>C++17 まで <code class="codehilite"><span class="k">enum</span></code> で定義されていた <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">memory_order</span></code> を、モダンな C++ 文法と型安全のために、<code class="codehilite"><span class="k">enum</span> <span class="k">class</span></code> で定義する仕様に変更されます。これまでの表記は定数で提供されるようになるため、既存のソースコードは影響を受けません。また、バイナリ互換性のために、<code class="codehilite"><span class="k">enum</span> <span class="k">class</span></code> の基底型の選択は実装に任せられています。</p>
 <div class="superfences-tabs">
-<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
-<label for="__tab_2_0">C++17</label>
+<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
+<label for="__tab_3_0">C++17</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="k">namespace</span> <span class="n">std</span>
 <span class="p">{</span>
     <span class="k">typedef</span> <span class="k">enum</span> <span class="n">memory_order</span>
@@ -2331,8 +2397,8 @@ C++20 からは、<code class="codehilite"><span class="n">noexcept</span></code
     <span class="p">}</span> <span class="n">memory_order</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div></div>
-<input name="__tabs_2" type="radio" id="__tab_2_1" />
-<label for="__tab_2_1">C++20</label>
+<input name="__tabs_3" type="radio" id="__tab_3_1" />
+<label for="__tab_3_1">C++20</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="k">namespace</span> <span class="n">std</span>
 <span class="p">{</span>
     <span class="k">enum</span> <span class="k">class</span> <span class="nc">memory_order</span> <span class="cm">/* : unspecified */</span>
@@ -2533,8 +2599,8 @@ C++20 で追加される数学定数の一覧は次のとおりです。</p>
 <h3 id="constains-p0458r2">連想コンテナに <code class="codehilite"><span class="n">constains</span><span class="p">()</span></code> メンバ関数を追加 <a href="https://wg21.link/P0458R2">(P0458R2)</a><a class="headerlink" href="#constains-p0458r2" title="Permanent link">&para;</a></h3>
 <p>ある要素が連想コンテナに含まれているか調べるための C++17 までのイディオムは、直感的でなく初心者にとっても明快ではありませんでした。C++20 からは、要素の存在をチェックする <code class="codehilite"><span class="k">contains</span><span class="p">(</span><span class="k">key</span><span class="p">)</span></code> メンバ関数が <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="k">map</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">multimap</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="k">set</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">multiset</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">unordered_map</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">unordered_multimap</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">unordered_set</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">unordered_multiset</span></code> に追加されます。</p>
 <div class="superfences-tabs">
-<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
-<label for="__tab_3_0">C++17</label>
+<input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
+<label for="__tab_4_0">C++17</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
 
@@ -2551,8 +2617,8 @@ C++20 で追加される数学定数の一覧は次のとおりです。</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div></div>
-<input name="__tabs_3" type="radio" id="__tab_3_1" />
-<label for="__tab_3_1">C++20</label>
+<input name="__tabs_4" type="radio" id="__tab_4_1" />
+<label for="__tab_4_1">C++20</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
 

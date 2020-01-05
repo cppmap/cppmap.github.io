@@ -707,8 +707,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#stderase-stderase_if-p1209r0" title="コンテナから指定した要素を削除する std::erase() / std::erase_if() 関数 (P1209R0)" class="md-nav__link">
-    コンテナから指定した要素を削除する std::erase() / std::erase_if() 関数 (P1209R0)
+  <a href="#stderase-stderase_if-p1209r0" title="コンテナから指定した要素を削除する操作に一貫して使える std::erase() / std::erase_if() 関数 (P1209R0)" class="md-nav__link">
+    コンテナから指定した要素を削除する操作に一貫して使える std::erase() / std::erase_if() 関数 (P1209R0)
   </a>
   
 </li>
@@ -1475,8 +1475,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#stderase-stderase_if-p1209r0" title="コンテナから指定した要素を削除する std::erase() / std::erase_if() 関数 (P1209R0)" class="md-nav__link">
-    コンテナから指定した要素を削除する std::erase() / std::erase_if() 関数 (P1209R0)
+  <a href="#stderase-stderase_if-p1209r0" title="コンテナから指定した要素を削除する操作に一貫して使える std::erase() / std::erase_if() 関数 (P1209R0)" class="md-nav__link">
+    コンテナから指定した要素を削除する操作に一貫して使える std::erase() / std::erase_if() 関数 (P1209R0)
   </a>
   
 </li>
@@ -2662,7 +2662,7 @@ C++20 で追加される数学定数の一覧は次のとおりです。</p>
 <span class="p">}</span>
 </pre></div></div>
 </div>
-<h3 id="stderase-stderase_if-p1209r0">コンテナから指定した要素を削除する std::erase() / std::erase_if() 関数 <a href="https://wg21.link/p1209r0">(P1209R0)</a><a class="headerlink" href="#stderase-stderase_if-p1209r0" title="Permanent link">&para;</a></h3>
+<h3 id="stderase-stderase_if-p1209r0">コンテナから指定した要素を削除する操作に一貫して使える std::erase() / std::erase_if() 関数 <a href="https://wg21.link/p1209r0">(P1209R0)</a><a class="headerlink" href="#stderase-stderase_if-p1209r0" title="Permanent link">&para;</a></h3>
 <p>コンテナから特定の要素を削除するという処理は、コンテナの種類によって最適な書き方が異なります。<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">unordered_map</span></code> ではイテレータを使って先頭から要素を削除していき、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">list</span></code> ではメンバ関数の <code class="codehilite"><span class="n">remove</span><span class="p">()</span></code> や <code class="codehilite"><span class="n">remove_if</span><span class="p">()</span></code> を使い、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">vector</span></code> では <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">remove_if</span><span class="p">()</span></code> と <code class="codehilite"><span class="n">erase</span><span class="p">()</span></code> メンバ関数を組み合わせます。このようにコンテナの特性に応じてコードを書き分けるのは大変だったため、C++20 ではすべてのコンテナ向けに適切な実装を提供する、一貫して使える非メンバ関数 <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">erase</span><span class="p">()</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">erase_if</span><span class="p">()</span></code> が追加されます。</p>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>

@@ -706,6 +706,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stderase-stderase_if-p1209r0" title="コンテナから要素を削除する std::erase() / std::erase_if() 関数 (P1209R0)" class="md-nav__link">
+    コンテナから要素を削除する std::erase() / std::erase_if() 関数 (P1209R0)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1463,6 +1470,13 @@
           <li class="md-nav__item">
   <a href="#constains-p0458r2" title="連想コンテナに constains() メンバ関数を追加 (P0458R2)" class="md-nav__link">
     連想コンテナに constains() メンバ関数を追加 (P0458R2)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stderase-stderase_if-p1209r0" title="コンテナから要素を削除する std::erase() / std::erase_if() 関数 (P1209R0)" class="md-nav__link">
+    コンテナから要素を削除する std::erase() / std::erase_if() 関数 (P1209R0)
   </a>
   
 </li>
@@ -2648,6 +2662,30 @@ C++20 で追加される数学定数の一覧は次のとおりです。</p>
 <span class="p">}</span>
 </pre></div></div>
 </div>
+<h3 id="stderase-stderase_if-p1209r0">コンテナから要素を削除する std::erase() / std::erase_if() 関数 <a href="https://wg21.link/p1209r0">(P1209R0)</a><a class="headerlink" href="#stderase-stderase_if-p1209r0" title="Permanent link">&para;</a></h3>
+<p>コンテナから特定の要素を削除するという処理は、コンテナの種類によって最適な書き方が異なります。<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">unordered_map</span></code> ではイテレータを使って先頭から要素を削除していき、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">list</span></code> ではメンバ関数の <code class="codehilite"><span class="n">remove</span><span class="p">()</span></code> や <code class="codehilite"><span class="n">remove_if</span><span class="p">()</span></code> を使い、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">vector</span></code> では <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">remove_if</span><span class="p">()</span></code> と <code class="codehilite"><span class="n">erase</span><span class="p">()</span></code> メンバ関数を組み合わせます。このようにコンテナの特性に応じてコードを書き分けるのは大変だったため、C++20 ではすべてのコンテナ向けに適切な実装を提供する、一貫して使える非メンバ関数 <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">erase</span><span class="p">()</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">erase_if</span><span class="p">()</span></code> が追加されます。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;list&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">92</span> <span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">li</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">92</span> <span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">m</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">{</span> <span class="s">&quot;aa&quot;</span><span class="p">,</span> <span class="mi">3</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&quot;bb&quot;</span><span class="p">,</span> <span class="mi">14</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&quot;cc&quot;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&quot;dd&quot;</span><span class="p">,</span> <span class="mi">5</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&quot;ee&quot;</span><span class="p">,</span> <span class="mi">92</span> <span class="p">}</span> <span class="p">};</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">erase</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">erase</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">erase_if</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="p">[](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">p</span><span class="p">.</span><span class="n">second</span> <span class="o">==</span> <span class="mi">3</span><span class="p">;</span> <span class="p">});</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">erase_if</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">[](</span><span class="k">auto</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="p">});</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">erase_if</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="p">[](</span><span class="k">auto</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="p">});</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">erase_if</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="p">[](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">p</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 

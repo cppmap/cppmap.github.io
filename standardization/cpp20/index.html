@@ -518,6 +518,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#private-p0969r0" title="本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった問題を修正 (P0969R0)" class="md-nav__link">
+    本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった問題を修正 (P0969R0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p1008r1" title="ユーザ宣言されたコンストラクタを持つクラスの集成体初期化を禁止 (P1008R1)" class="md-nav__link">
+    ユーザ宣言されたコンストラクタを持つクラスの集成体初期化を禁止 (P1008R1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throw-p0619r4" title="throw() による動的例外指定を削除 (P0619R4)" class="md-nav__link">
+    throw() による動的例外指定を削除 (P0619R4)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1282,6 +1303,27 @@
           <li class="md-nav__item">
   <a href="#inline-namespace-p1094r2" title="ネストした名前空間定義で inline namespace を使えるように (P1094R2)" class="md-nav__link">
     ネストした名前空間定義で inline namespace を使えるように (P1094R2)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private-p0969r0" title="本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった問題を修正 (P0969R0)" class="md-nav__link">
+    本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった問題を修正 (P0969R0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p1008r1" title="ユーザ宣言されたコンストラクタを持つクラスの集成体初期化を禁止 (P1008R1)" class="md-nav__link">
+    ユーザ宣言されたコンストラクタを持つクラスの集成体初期化を禁止 (P1008R1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throw-p0619r4" title="throw() による動的例外指定を削除 (P0619R4)" class="md-nav__link">
+    throw() による動的例外指定を削除 (P0619R4)
   </a>
   
 </li>
@@ -2099,6 +2141,82 @@ C++20 では <code class="codehilite"><span class="k">using</span></code> 宣言
 <span class="p">}</span>
 </pre></div></div>
 </div>
+<h3 id="private-p0969r0">本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった問題を修正 <a href="https://wg21.link/P0969R0">(P0969R0)</a><a class="headerlink" href="#private-p0969r0" title="Permanent link">&para;</a></h3>
+<p>メンバ関数内で自身の <code class="codehilite"><span class="n">private</span></code> メンバにアクセスすることや、<code class="codehilite"><span class="n">friend</span></code> 指定された関数で該当クラスの <code class="codehilite"><span class="n">private</span></code> メンバ変数にアクセスすることは通常可能ですが、C++17 の構造化束縛はクラスの <code class="codehilite"><span class="k">public</span></code> メンバにしかバインドできないという規格文面の制約があり、次のようなケースで一貫性がありませんでした。この制約を課す合理的な理由は無かったため、C++17 向けの規格にさかのぼって仕様が修正され、アクセス可能であれば <code class="codehilite"><span class="n">private</span></code> メンバ変数をバインドできるようになります。C++20 および、この変更に対応した C++17 コンパイラで新仕様を利用できます。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Date</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+
+    <span class="kt">int</span> <span class="n">m_year</span><span class="p">,</span> <span class="n">m_month</span><span class="p">,</span> <span class="n">m_day</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+
+    <span class="k">friend</span> <span class="kt">void</span> <span class="n">Work</span><span class="p">(</span><span class="k">const</span> <span class="n">Date</span><span class="o">&amp;</span> <span class="n">date</span><span class="p">);</span>
+
+    <span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="k">const</span> <span class="n">Date</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="c1">// OK</span>
+        <span class="kt">int</span> <span class="n">year</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">m_year</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">month</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">m_month</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">day</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">m_day</span><span class="p">;</span>
+
+        <span class="c1">// これまではコンパイルエラー, C++20 以降 OK</span>
+        <span class="k">auto</span> <span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">other</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// friend 指定されている関数</span>
+<span class="kt">void</span> <span class="nf">Work</span><span class="p">(</span><span class="k">const</span> <span class="n">Date</span><span class="o">&amp;</span> <span class="n">date</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// OK</span>
+    <span class="kt">int</span> <span class="n">year</span> <span class="o">=</span> <span class="n">date</span><span class="p">.</span><span class="n">m_year</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">month</span> <span class="o">=</span> <span class="n">date</span><span class="p">.</span><span class="n">m_month</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">day</span> <span class="o">=</span> <span class="n">date</span><span class="p">.</span><span class="n">m_day</span><span class="p">;</span>
+
+    <span class="c1">// これまではコンパイルエラー, C++20 以降 OK</span>
+    <span class="k">auto</span> <span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">date</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="p1008r1">ユーザ宣言されたコンストラクタを持つクラスの集成体初期化を禁止 <a href="https://wg21.link/P1008R1">(P1008R1)</a><a class="headerlink" href="#p1008r1" title="Permanent link">&para;</a></h3>
+<p>C++17 までは集成体の要件が緩かったため、コンストラクタについては、デフォルトコンストラクタが <code class="codehilite"><span class="o">=</span> <span class="k">delete</span></code> または <code class="codehilite"><span class="n">private</span></code> であっても、集成体初期化によって初期化できる抜け道がありました。これはメンバ変数が意図しない値で初期化されるといった問題を引き起こします。C++20 からは集成体の要件が厳しくなり、ユーザ宣言されたコンストラクタがあるクラスは集成体にはなりません。</p>
+<div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">A</span>
+<span class="p">{</span>
+    <span class="n">A</span><span class="p">()</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">B</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">B</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">C</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">C</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">A</span> <span class="n">a1</span><span class="p">;</span> <span class="c1">// コンパイルエラー</span>
+    <span class="n">A</span> <span class="n">a2</span><span class="p">{};</span> <span class="c1">// C++17 までは OK, C++20 からはコンパイルエラー</span>
+
+    <span class="n">B</span> <span class="n">b1</span><span class="p">;</span> <span class="c1">// コンパイルエラー</span>
+    <span class="n">B</span> <span class="n">b2</span><span class="p">{};</span> <span class="c1">// C++17 までは OK, C++20 からはコンパイルエラー</span>
+
+    <span class="n">C</span> <span class="n">c1</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span> <span class="c1">//コンパイルエラー</span>
+    <span class="n">C</span> <span class="n">c2</span><span class="p">{</span> <span class="mi">123</span> <span class="p">};</span> <span class="c1">// C++17 までは OK, C++20 からはコンパイルエラー</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="throw-p0619r4"><code class="codehilite"><span class="n">throw</span><span class="p">()</span></code> による動的例外指定を削除 <a href="https://wg21.link/P0619R4">(P0619R4)</a><a class="headerlink" href="#throw-p0619r4" title="Permanent link">&para;</a></h3>
+<p>C++11 では、<code class="codehilite"><span class="n">noexcept</span></code> の追加に合わせ、<code class="codehilite"><span class="n">throw</span><span class="p">(</span><span class="n">typeid</span><span class="p">,</span> <span class="p">...)</span></code> や <code class="codehilite"><span class="n">throw</span><span class="p">()</span></code> による動的例外指定が非推奨化されました。C++17 では前者が削除されましたが、古いコードにおいて広く使われていた後者は、移行猶予のために <code class="codehilite"><span class="n">noexcept</span><span class="p">(</span><span class="k">true</span><span class="p">)</span></code> のエイリアスとして改められつつ保持されていました。C++20 では後者も削除されます。</p>
 <h2 id="_2">標準ライブラリ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="p0457r2">文字列の先頭や末尾が、ある文字列と一致するか判定 <a href="https://wg21.link/P0457R2">(P0457R2)</a><a class="headerlink" href="#p0457r2" title="Permanent link">&para;</a></h3>
 <p><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string</span></code> と <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string_view</span></code> に、<code class="codehilite"><span class="n">starts_with</span><span class="p">()</span></code> と <code class="codehilite"><span class="n">ends_with</span><span class="p">()</span></code> メンバ関数が追加されます。

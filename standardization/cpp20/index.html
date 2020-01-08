@@ -519,8 +519,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#private-p0969r0" title="本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった問題を修正 (P0969R0)" class="md-nav__link">
-    本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった問題を修正 (P0969R0)
+  <a href="#private-p0969r0" title="本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった仕様を修正 (P0969R0)" class="md-nav__link">
+    本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった仕様を修正 (P0969R0)
   </a>
   
 </li>
@@ -1308,8 +1308,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#private-p0969r0" title="本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった問題を修正 (P0969R0)" class="md-nav__link">
-    本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった問題を修正 (P0969R0)
+  <a href="#private-p0969r0" title="本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった仕様を修正 (P0969R0)" class="md-nav__link">
+    本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった仕様を修正 (P0969R0)
   </a>
   
 </li>
@@ -2141,7 +2141,7 @@ C++20 では <code class="codehilite"><span class="k">using</span></code> 宣言
 <span class="p">}</span>
 </pre></div></div>
 </div>
-<h3 id="private-p0969r0">本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった問題を修正 <a href="https://wg21.link/P0969R0">(P0969R0)</a><a class="headerlink" href="#private-p0969r0" title="Permanent link">&para;</a></h3>
+<h3 id="private-p0969r0">本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった仕様を修正 <a href="https://wg21.link/P0969R0">(P0969R0)</a><a class="headerlink" href="#private-p0969r0" title="Permanent link">&para;</a></h3>
 <p>メンバ関数内で自身の <code class="codehilite"><span class="n">private</span></code> メンバにアクセスすることや、<code class="codehilite"><span class="n">friend</span></code> 指定された関数で該当クラスの <code class="codehilite"><span class="n">private</span></code> メンバ変数にアクセスすることは通常可能ですが、C++17 の構造化束縛はクラスの <code class="codehilite"><span class="k">public</span></code> メンバにしかバインドできないという規格文面の制約があり、次のようなケースで一貫性がありませんでした。この制約を課す合理的な理由は無かったため、C++17 向けの規格にさかのぼって仕様が修正され、アクセス可能であれば <code class="codehilite"><span class="n">private</span></code> メンバ変数をバインドできるようになります。C++20 および、この変更に対応した C++17 コンパイラで新仕様を利用できます。</p>
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Date</span>
 <span class="p">{</span>

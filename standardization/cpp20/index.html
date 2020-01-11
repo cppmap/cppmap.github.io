@@ -734,6 +734,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stdbit_cast-p0476r2" title="バイト列の再解釈キャストを補助する std::bit_cast() 関数 (P0476R2)" class="md-nav__link">
+    バイト列の再解釈キャストを補助する std::bit_cast() 関数 (P0476R2)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1519,6 +1526,13 @@
           <li class="md-nav__item">
   <a href="#stderase-stderase_if-p1209r0" title="コンテナから指定した要素を削除する操作に一貫して使える std::erase(), std::erase_if() 関数 (P1209R0)" class="md-nav__link">
     コンテナから指定した要素を削除する操作に一貫して使える std::erase(), std::erase_if() 関数 (P1209R0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdbit_cast-p0476r2" title="バイト列の再解釈キャストを補助する std::bit_cast() 関数 (P0476R2)" class="md-nav__link">
+    バイト列の再解釈キャストを補助する std::bit_cast() 関数 (P0476R2)
   </a>
   
 </li>
@@ -2802,6 +2816,58 @@ C++20 で追加される数学定数の一覧は次のとおりです。</p>
     <span class="n">std</span><span class="o">::</span><span class="n">erase_if</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">[](</span><span class="k">auto</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="p">});</span>
     <span class="n">std</span><span class="o">::</span><span class="n">erase_if</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="p">[](</span><span class="k">auto</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="p">});</span>
     <span class="n">std</span><span class="o">::</span><span class="n">erase_if</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="p">[](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">p</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="stdbit_cast-p0476r2">バイト列の再解釈キャストを補助する <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">bit_cast</span><span class="p">()</span></code> 関数 <a href="https://wg21.link/P0476R2">(P0476R2)</a><a class="headerlink" href="#stdbit_cast-p0476r2" title="Permanent link">&para;</a></h3>
+<p>ある型のオブジェクトのバイト列を、別の型のオブジェクトと解釈して使うこと (type punning) は C++ では禁止されています (strict aliasing rule). <code class="codehilite"><span class="nb">float</span></code> 型の値のバイト列を <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">uint32_t</span></code> 型として扱うときの間違った方法として、次のサンプルのように <code class="codehilite"><span class="n">reinterpret_cast</span></code> や <code class="codehilite"><span class="k">union</span></code> を用いる例があります。これは直感的に見え、実際ほとんどのコンパイラで期待通り動作しますが、規格上は未定義動作となる不正なコードです。正しくは <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">memcpy</span><span class="p">()</span></code> を使います。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">union</span> <span class="n">FloatUint32</span>
+<span class="p">{</span>
+    <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span> <span class="n">u</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mf">0.5f</span><span class="p">;</span>
+
+    <span class="c1">// 未定義動作</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span> <span class="n">u1</span> <span class="o">=</span> <span class="o">*</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">f</span><span class="p">);</span>
+
+    <span class="c1">// 未定義動作</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span> <span class="n">u2</span> <span class="o">=</span> <span class="n">FloatUint32</span><span class="p">{</span> <span class="n">f</span> <span class="p">}.</span><span class="n">u</span><span class="p">;</span>
+
+    <span class="c1">// OK</span>
+    <span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span> <span class="n">u3</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">u3</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">f</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">u1</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">u2</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">u3</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>しかし、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">memcpy</span><span class="p">()</span></code> では型変換を <code class="codehilite"><span class="n">constexpr</span></code> にできず、また、デフォルトコンストラクト可能でない型に対応するには <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">aligned_storage</span></code> と組み合わせる必要があるなど、適切な実装は面倒でした。C++20 では、この実装をコンパイラサポートによる <code class="codehilite"><span class="n">constexpr</span></code> 対応も含めて実現する <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">bit_cast</span><span class="p">()</span></code> 関数が提供されます。</p>
+<div class="codehilite"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">To</span><span class="p">,</span> <span class="k">typename</span> <span class="n">From</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">To</span> <span class="n">bit_cast</span><span class="p">(</span><span class="k">const</span> <span class="n">From</span><span class="o">&amp;</span> <span class="n">from</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+</pre></div>
+
+<p>変換先の型 <code class="codehilite"><span class="k">To</span></code> と変換元の型 <code class="codehilite"><span class="k">From</span></code> について、<code class="codehilite"><span class="n">sizeof</span><span class="p">(</span><span class="k">To</span><span class="p">)</span> <span class="o">!=</span> <span class="n">sizeof</span><span class="p">(</span><span class="k">From</span><span class="p">)</span></code> の場合や、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">is_trivially_copyable_v</span><span class="o">&lt;</span><span class="k">To</span><span class="o">&gt;</span> <span class="o">==</span> <span class="k">false</span></code> または <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">is_trivially_copyable_v</span><span class="o">&lt;</span><span class="k">From</span><span class="o">&gt;</span> <span class="o">==</span> <span class="k">false</span></code> の場合にはコンパイルエラーになるため、間違いを減らす効果もあります。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;bit&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mf">0.5f</span><span class="p">;</span>
+
+    <span class="k">constexpr</span> <span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span> <span class="n">u</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">bit_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">u</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
                 

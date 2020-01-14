@@ -741,6 +741,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#numeric-p0616r0" title="&lt;numeric&gt; の関数の非効率な実装を改善 (P0616R0)" class="md-nav__link">
+    &lt;numeric&gt; の関数の非効率な実装を改善 (P0616R0)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1533,6 +1540,13 @@
           <li class="md-nav__item">
   <a href="#stdbit_cast-p0476r2" title="バイト列の再解釈キャストを補助する std::bit_cast() 関数 (P0476R2)" class="md-nav__link">
     バイト列の再解釈キャストを補助する std::bit_cast() 関数 (P0476R2)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numeric-p0616r0" title="&lt;numeric&gt; の関数の非効率な実装を改善 (P0616R0)" class="md-nav__link">
+    &lt;numeric&gt; の関数の非効率な実装を改善 (P0616R0)
   </a>
   
 </li>
@@ -2870,6 +2884,57 @@ C++20 で追加される数学定数の一覧は次のとおりです。</p>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">u</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+
+<h3 id="numeric-p0616r0"><code class="codehilite"><span class="o">&lt;</span><span class="nb">numeric</span><span class="o">&gt;</span></code> の関数の非効率な実装を改善 <a href="https://wg21.link/P0616R0">(P0616R0)</a><a class="headerlink" href="#numeric-p0616r0" title="Permanent link">&para;</a></h3>
+<p>C++17 では、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">accumulate</span><span class="p">()</span></code> は <code class="codehilite"><span class="n">acc</span> <span class="o">=</span> <span class="n">binary_op</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="o">*</span><span class="n">i</span><span class="p">)</span></code> として実装されると規格に定められていいたため、次のようなケースで <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">accumulate</span><span class="p">()</span></code> の最中に <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">string</span></code> のアロケーションが大量に発生して非効率でした。</p>
+<p><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;numeric&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">words</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s">&quot;abc&quot;</span><span class="p">);</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;start&quot;</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">r</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">accumulate</span><span class="p">(</span><span class="n">words</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">words</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">s</span><span class="p">);</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+C++17 の <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">accumulate</span><span class="p">()</span></code> の中で行われること:
+<div class="codehilite"><pre><span></span><span class="n">acc</span> <span class="o">=</span> <span class="n">acc</span> <span class="o">+</span> <span class="o">*</span><span class="n">i</span><span class="p">;</span> <span class="c1">// operator+(const std::string&amp;, const std::string&amp;)</span>
+<span class="o">++</span><span class="n">i</span><span class="p">;</span>
+<span class="p">...</span> <span class="c1">// くり返し</span>
+</pre></div></p>
+<p>C++20 では、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="k">move</span><span class="p">()</span></code> を使う <code class="codehilite"><span class="n">acc</span> <span class="o">=</span> <span class="n">binary_op</span><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="k">move</span><span class="p">(</span><span class="n">acc</span><span class="p">),</span> <span class="o">*</span><span class="n">i</span><span class="p">)</span></code> という実装に変更され、右辺値の演算に対する効率的な実装を提供する型 (<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">string</span></code> など) が、恩恵を受けられるようになります。</p>
+<p>C++20 の <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">accumulate</span><span class="p">()</span></code> の中で行われること:
+<div class="codehilite"><pre><span></span><span class="n">acc</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="o">*</span><span class="n">i</span><span class="p">;</span> <span class="c1">// operator+(std::string&amp;&amp;, const std::string&amp;)</span>
+<span class="o">++</span><span class="n">i</span><span class="p">;</span>
+<span class="p">...</span>
+</pre></div>
+<code class="codehilite"><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="o">&amp;&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span></code> は基本的に <code class="codehilite"><span class="n">lhs</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">rhs</span><span class="p">)</span></code> です。次のようにあらかじめ十分なキャパシティを確保したバッファを <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">accumulate</span><span class="p">()</span></code> 内で使えるようにもなります。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;numeric&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">words</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s">&quot;abc&quot;</span><span class="p">);</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;start&quot;</span><span class="p">;</span>
+
+    <span class="n">s</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">+</span> <span class="p">(</span><span class="n">word</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">*</span> <span class="n">words</span><span class="p">.</span><span class="n">front</span><span class="p">().</span><span class="n">size</span><span class="p">()));</span> <span class="c1">// C++17 では無意味</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">r</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">accumulate</span><span class="p">(</span><span class="n">words</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">words</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="k">move</span><span class="p">()</span></code> を使うこの仕様変更は、同じ <code class="codehilite"><span class="o">&lt;</span><span class="nb">numeric</span><span class="o">&gt;</span></code> ヘッダの <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">inner_product</span><span class="p">()</span></code> や <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">partial_sum</span><span class="p">()</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">adjacent_difference</span><span class="p">()</span></code> にも適用されます。</p>
                 
                   
                 

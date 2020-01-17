@@ -748,6 +748,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2-p0556r3-p1355r2" title="2 の累乗数に関するユーティリティ関数を追加 (P0556R3), (P1355R2)" class="md-nav__link">
+    2 の累乗数に関するユーティリティ関数を追加 (P0556R3), (P1355R2)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1547,6 +1554,13 @@
           <li class="md-nav__item">
   <a href="#numeric-p0616r0" title="&lt;numeric&gt; の関数の非効率な実装を改善 (P0616R0)" class="md-nav__link">
     &lt;numeric&gt; の関数の非効率な実装を改善 (P0616R0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-p0556r3-p1355r2" title="2 の累乗数に関するユーティリティ関数を追加 (P0556R3), (P1355R2)" class="md-nav__link">
+    2 の累乗数に関するユーティリティ関数を追加 (P0556R3), (P1355R2)
   </a>
   
 </li>
@@ -2935,6 +2949,67 @@ C++17 の <code class="codehilite"><span class="n">std</span><span class="p">::<
 </pre></div>
 
 <p><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="k">move</span><span class="p">()</span></code> を使うこの仕様変更は、同じ <code class="codehilite"><span class="o">&lt;</span><span class="nb">numeric</span><span class="o">&gt;</span></code> ヘッダの <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">inner_product</span><span class="p">()</span></code> や <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">partial_sum</span><span class="p">()</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">adjacent_difference</span><span class="p">()</span></code> にも適用されます。</p>
+<h3 id="2-p0556r3-p1355r2">2 の累乗数に関するユーティリティ関数を追加 <a href="https://wg21.link/P0556R3">(P0556R3)</a>, <a href="https://wg21.link/P1355R2">(P1355R2)</a><a class="headerlink" href="#2-p0556r3-p1355r2" title="Permanent link">&para;</a></h3>
+<p>ある整数が 2 の累乗数であるかを調べたり、ある整数に近い 2 の累乗数を探したりする処理は、プログラミングでよく登場しますが、C++17 の標準ライブラリには実装されていませんでした。C++20 では次のような関数が追加されます。</p>
+<div class="codehilite"><pre><span></span><span class="k">namespace</span> <span class="n">std</span>
+<span class="p">{</span>
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+    <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">ispow2</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+    <span class="k">constexpr</span> <span class="n">T</span> <span class="n">ceil2</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">);</span>
+
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+    <span class="k">constexpr</span> <span class="n">T</span> <span class="n">floor2</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+    <span class="k">constexpr</span> <span class="n">T</span> <span class="n">log2p1</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<ul>
+<li>引数 <code class="codehilite"><span class="n">x</span></code> が 2 の累乗数であるかを判定する <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">ispow2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></code></li>
+<li><code class="codehilite"><span class="n">x</span></code> 以上で最小の 2 の累乗数を返す <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">ceil2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></code></li>
+<li><code class="codehilite"><span class="n">x</span></code> 以下で最大の 2 の累乗数 (ただし <code class="codehilite"><span class="n">x</span></code> が 0 の場合は 0) を返す <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">floor2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></code>)</li>
+<li><code class="codehilite"><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">log2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></code> の整数部 (ただし <code class="codehilite"><span class="n">x</span></code> が 0 の場合は 0) を返す <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">log2p1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></code><ul>
+<li>「<code class="codehilite"><span class="n">x</span></code> を表現するために何ビット必要か」と同じ意味</li>
+</ul>
+</li>
+</ul>
+<p>いずれの関数も、型 <code class="codehilite"><span class="n">T</span></code> が符号なし整数型 (<code class="codehilite"><span class="n">unsigned</span> <span class="nb">char</span></code>, <code class="codehilite"><span class="n">unsigned</span> <span class="n">short</span></code>, <code class="codehilite"><span class="n">unsigned</span> <span class="nb">int</span></code>, <code class="codehilite"><span class="n">unsigned</span> <span class="n">long</span></code>, <code class="codehilite"><span class="n">unsigned</span> <span class="n">long</span> <span class="n">long</span></code>) の場合のみオーバーロード解決に参加します。なお、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">ceil2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></code> について、結果が型 <code class="codehilite"><span class="n">T</span></code> で表現できない場合の動作は未定義です。</p>
+<p><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;bit&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">16</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;: &quot;</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">ispow2</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">ceil2</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">floor2</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">log2p1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<div class="codehilite"><pre><span></span><span class="mi">0</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="mi">1</span><span class="o">:</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span>
+<span class="mi">2</span><span class="o">:</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">2</span> <span class="mi">2</span>
+<span class="mi">3</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">4</span> <span class="mi">2</span> <span class="mi">2</span>
+<span class="mi">4</span><span class="o">:</span> <span class="mi">1</span> <span class="mi">4</span> <span class="mi">4</span> <span class="mi">3</span>
+<span class="mi">5</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">8</span> <span class="mi">4</span> <span class="mi">3</span>
+<span class="mi">6</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">8</span> <span class="mi">4</span> <span class="mi">3</span>
+<span class="mi">7</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">8</span> <span class="mi">4</span> <span class="mi">3</span>
+<span class="mi">8</span><span class="o">:</span> <span class="mi">1</span> <span class="mi">8</span> <span class="mi">8</span> <span class="mi">4</span>
+<span class="mi">9</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">16</span> <span class="mi">8</span> <span class="mi">4</span>
+<span class="mi">10</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">16</span> <span class="mi">8</span> <span class="mi">4</span>
+<span class="mi">11</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">16</span> <span class="mi">8</span> <span class="mi">4</span>
+<span class="mi">12</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">16</span> <span class="mi">8</span> <span class="mi">4</span>
+<span class="mi">13</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">16</span> <span class="mi">8</span> <span class="mi">4</span>
+<span class="mi">14</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">16</span> <span class="mi">8</span> <span class="mi">4</span>
+<span class="mi">15</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">16</span> <span class="mi">8</span> <span class="mi">4</span>
+<span class="mi">16</span><span class="o">:</span> <span class="mi">1</span> <span class="mi">16</span> <span class="mi">16</span> <span class="mi">5</span>
+</pre></div></p>
                 
                   
                 

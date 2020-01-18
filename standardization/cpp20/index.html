@@ -755,6 +755,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stdlist-stdforward_list-p0646r1" title="std::list, std::forward_list の要素削除メンバ関数が削除された要素数を返すように (P0646R1)" class="md-nav__link">
+    std::list, std::forward_list の要素削除メンバ関数が削除された要素数を返すように (P0646R1)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1565,6 +1572,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stdlist-stdforward_list-p0646r1" title="std::list, std::forward_list の要素削除メンバ関数が削除された要素数を返すように (P0646R1)" class="md-nav__link">
+    std::list, std::forward_list の要素削除メンバ関数が削除された要素数を返すように (P0646R1)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1588,7 +1602,7 @@
                 
                 
                 <h1 id="c20">C++20 の新機能<a class="headerlink" href="#c20" title="Permanent link">&para;</a></h1>
-<p>C++20 の変更すべてをカバーするために、項目追加・執筆作業中です（完成度 約 25%）</p>
+<p>C++20 の変更すべてをカバーするために、項目追加・執筆作業中です（完成度 約 30%）</p>
 <h2 id="_1">言語機能<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="p0683r1">ビットフィールドにデフォルトの初期値を設定可能に <a href="http://wg21.link/p0683r1">(P0683R1)</a><a class="headerlink" href="#p0683r1" title="Permanent link">&para;</a></h3>
 <p>ビットフィールドにおけるビット幅の指定に続いて、<code class="codehilite"><span class="o">=</span></code> 演算子または <code class="codehilite"><span class="err">{}</span></code> 初期化子を使って初期化式を記述できるようになります。</p>
@@ -3010,6 +3024,8 @@ C++17 の <code class="codehilite"><span class="n">std</span><span class="p">::<
 <span class="mi">15</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">16</span> <span class="mi">8</span> <span class="mi">4</span>
 <span class="mi">16</span><span class="o">:</span> <span class="mi">1</span> <span class="mi">16</span> <span class="mi">16</span> <span class="mi">5</span>
 </pre></div></p>
+<h3 id="stdlist-stdforward_list-p0646r1"><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">list</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">forward_list</span></code> の要素削除メンバ関数が削除された要素数を返すように <a href="https://wg21.link/P0646R1">(P0646R1)</a><a class="headerlink" href="#stdlist-stdforward_list-p0646r1" title="Permanent link">&para;</a></h3>
+<p><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">list</span></code> のメンバ関数 <code class="codehilite"><span class="n">remove</span><span class="p">()</span></code> で要素を削除した際、実際に削除された要素数を知るには、前後で <code class="codehilite"><span class="k">size</span><span class="p">()</span></code> の比較を行わなければなりませんでした。ただし、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">forward_list</span></code> の場合は <code class="codehilite"><span class="k">size</span><span class="p">()</span></code> メンバ関数を持たないため、O(n) の操作である <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">distance</span><span class="p">()</span></code> を使う必要がありました。C++20 では、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">list</span></code> および <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">forward_list</span></code> の <code class="codehilite"><span class="n">remove</span><span class="p">()</span></code>, <code class="codehilite"><span class="n">remove_if</span><span class="p">()</span></code>, <code class="codehilite"><span class="k">unique</span><span class="p">()</span></code> メンバ関数が、削除された要素数を戻り値として返すようになります。なお、呼び出し側で戻り値を使わない場合、主要コンパイラは最適化で処理を省略するため、この仕様変更が実行時性能に与える影響は無いとされています。</p>
                 
                   
                 

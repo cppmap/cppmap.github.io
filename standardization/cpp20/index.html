@@ -539,6 +539,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#nodiscard-p1301r4" title="メッセージ付きの [[nodiscard]] 属性 (P1301R4)" class="md-nav__link">
+    メッセージ付きの [[nodiscard]] 属性 (P1301R4)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1352,6 +1359,13 @@
           <li class="md-nav__item">
   <a href="#throw-p0619r4" title="throw() による動的例外指定を削除 (P0619R4)" class="md-nav__link">
     throw() による動的例外指定を削除 (P0619R4)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodiscard-p1301r4" title="メッセージ付きの [[nodiscard]] 属性 (P1301R4)" class="md-nav__link">
+    メッセージ付きの [[nodiscard]] 属性 (P1301R4)
   </a>
   
 </li>
@@ -2273,6 +2287,46 @@ C++20 では <code class="codehilite"><span class="k">using</span></code> 宣言
 
 <h3 id="throw-p0619r4"><code class="codehilite"><span class="n">throw</span><span class="p">()</span></code> による動的例外指定を削除 <a href="https://wg21.link/P0619R4">(P0619R4)</a><a class="headerlink" href="#throw-p0619r4" title="Permanent link">&para;</a></h3>
 <p>C++11 では、<code class="codehilite"><span class="n">noexcept</span></code> の追加に合わせ、<code class="codehilite"><span class="n">throw</span><span class="p">(</span><span class="n">typeid</span><span class="p">,</span> <span class="p">...)</span></code> や <code class="codehilite"><span class="n">throw</span><span class="p">()</span></code> による動的例外指定が非推奨化されました。C++17 では前者が削除されましたが、古いコードにおいて広く使われていた後者は、移行猶予のために <code class="codehilite"><span class="n">noexcept</span><span class="p">(</span><span class="k">true</span><span class="p">)</span></code> のエイリアスとして改められつつ保持されていました。C++20 では後者も削除されます。</p>
+<h3 id="nodiscard-p1301r4">メッセージ付きの <code class="codehilite"><span class="o">[</span><span class="n">[nodiscard</span><span class="o">]</span><span class="err">]</span><span class="w"></span></code> 属性 <a href="https://wg21.link/P1301R4">(P1301R4)</a><a class="headerlink" href="#nodiscard-p1301r4" title="Permanent link">&para;</a></h3>
+<p>C++17 で追加された <code class="codehilite"><span class="o">[</span><span class="n">[nodiscard</span><span class="o">]</span><span class="err">]</span><span class="w"></span></code> 属性は、ライブラリなどが提供する関数の誤用を防ぐ助けになりますが、関数がなぜ <code class="codehilite"><span class="o">[</span><span class="n">[nodiscard</span><span class="o">]</span><span class="err">]</span><span class="w"></span></code> 属性を持っているのかについて、利用者に十分な情報が伝わらない場合がありました。C++20 では <code class="codehilite"><span class="p">[[</span><span class="n">nodiscard</span><span class="p">(</span><span class="ss">&quot;....&quot;</span><span class="p">)]]</span></code> のような形式でメッセージを追加できるようになります。戻り値の無視があった場合、コンパイラは警告に加えてこのメッセージを補足情報として出力できます。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Data</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">m_data</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+
+    <span class="kt">void</span> <span class="n">clear</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">m_data</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="p">[[</span><span class="n">nodiscard</span><span class="p">(</span><span class="s">&quot;Did you mean &#39;clear&#39;?&quot;</span><span class="p">)]]</span>
+    <span class="kt">bool</span> <span class="n">empty</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">m_data</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Data</span> <span class="n">data</span><span class="p">;</span>
+
+    <span class="n">data</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>コンパイラの出力例</p>
+<div class="codehilite"><pre><span></span><span class="nv">prog</span>.<span class="nv">cc</span>:<span class="mi">27</span>:<span class="mi">2</span>: <span class="nv">warning</span>: <span class="nv">ignoring</span> <span class="k">return</span> <span class="nv">value</span> <span class="nv">of</span> <span class="nv">function</span> <span class="nv">declared</span> <span class="nv">with</span> <span class="s1">&#39;</span><span class="s">nodiscard</span><span class="s1">&#39;</span> <span class="nv">attribute</span>:
+        <span class="nv">Did</span> <span class="nv">you</span> <span class="nv">mean</span> <span class="s1">&#39;</span><span class="s">clear</span><span class="s1">&#39;</span>? [<span class="o">-</span><span class="nv">Wunused</span><span class="o">-</span><span class="nb">result</span>]
+        <span class="nv">data</span>.<span class="nv">empty</span><span class="ss">()</span><span class="c1">;</span>
+        <span class="o">^~~~~~~~~~</span>
+<span class="mi">1</span> <span class="nv">warning</span> <span class="nv">generated</span>.
+</pre></div>
+
 <h2 id="_2">標準ライブラリ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="p0457r2">文字列の先頭や末尾が、ある文字列と一致するか判定 <a href="https://wg21.link/P0457R2">(P0457R2)</a><a class="headerlink" href="#p0457r2" title="Permanent link">&para;</a></h3>
 <p><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string</span></code> と <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">basic_string_view</span></code> に、<code class="codehilite"><span class="n">starts_with</span><span class="p">()</span></code> と <code class="codehilite"><span class="n">ends_with</span><span class="p">()</span></code> メンバ関数が追加されます。

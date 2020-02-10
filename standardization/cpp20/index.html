@@ -769,15 +769,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#stdis_bounded_array-stdis_unbounded_array-p1357r1" title="要素数が決まっている配列型かどうかを調べる型特性 std::is_bounded_array, std::is_unbounded_array (P1357R1)" class="md-nav__link">
     要素数が決まっている配列型かどうかを調べる型特性 std::is_bounded_array, std::is_unbounded_array (P1357R1)
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1600,15 +1600,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#stdis_bounded_array-stdis_unbounded_array-p1357r1" title="要素数が決まっている配列型かどうかを調べる型特性 std::is_bounded_array, std::is_unbounded_array (P1357R1)" class="md-nav__link">
     要素数が決まっている配列型かどうかを調べる型特性 std::is_bounded_array, std::is_unbounded_array (P1357R1)
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3094,7 +3094,7 @@ C++17 の <code class="codehilite"><span class="n">std</span><span class="p">::<
 </pre></div></p>
 <h3 id="stdlist-stdforward_list-p0646r1"><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">list</span></code> と <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">forward_list</span></code> の要素削除メンバ関数が、削除した要素数を返すように <a href="https://wg21.link/P0646R1">(P0646R1)</a><a class="headerlink" href="#stdlist-stdforward_list-p0646r1" title="Permanent link">&para;</a></h3>
 <p><code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">list</span></code> のメンバ関数 <code class="codehilite"><span class="n">remove</span><span class="p">()</span></code> で要素を削除した際、実際に削除された要素数を知るには、前後で <code class="codehilite"><span class="k">size</span><span class="p">()</span></code> の比較を行わなければなりませんでした。しかし、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">forward_list</span></code> の場合は <code class="codehilite"><span class="k">size</span><span class="p">()</span></code> メンバ関数を持たないため、O(n) の操作である <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">distance</span><span class="p">()</span></code> を使う必要がありました。C++20 では、<code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">list</span></code> および <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">forward_list</span></code> の <code class="codehilite"><span class="n">remove</span><span class="p">()</span></code>, <code class="codehilite"><span class="n">remove_if</span><span class="p">()</span></code>, <code class="codehilite"><span class="k">unique</span><span class="p">()</span></code> メンバ関数が、削除された要素数を戻り値として返すようになります。なお、呼び出し側で戻り値を使わない場合、主要コンパイラは最適化で処理を省略するため、この仕様変更が実行時性能に与える影響は無いとされています。</p>
-<h2 id="stdis_bounded_array-stdis_unbounded_array-p1357r1">要素数が決まっている配列型かどうかを調べる型特性 <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">is_bounded_array</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">is_unbounded_array</span></code> <a href="https://wg21.link/P1357R1">(P1357R1)</a><a class="headerlink" href="#stdis_bounded_array-stdis_unbounded_array-p1357r1" title="Permanent link">&para;</a></h2>
+<h3 id="stdis_bounded_array-stdis_unbounded_array-p1357r1">要素数が決まっている配列型かどうかを調べる型特性 <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">is_bounded_array</span></code>, <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">is_unbounded_array</span></code> <a href="https://wg21.link/P1357R1">(P1357R1)</a><a class="headerlink" href="#stdis_bounded_array-stdis_unbounded_array-p1357r1" title="Permanent link">&para;</a></h3>
 <p>C++17 の標準ライブラリが提供する型特性には、配列の要素数が決まっている (bounded) かどうかを判定するものはありませんでした。C++20 では利便性のために、型 <code class="codehilite"><span class="n">T</span></code> が要素数既知の配列型であるかを調べる型特性 <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">is_bounded_array</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span></code> と、型 <code class="codehilite"><span class="n">T</span></code> が要素数未知の配列型であるかを調べる型特性 <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">is_unbounded_array</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span></code> が追加されました。</p>
 <p><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>

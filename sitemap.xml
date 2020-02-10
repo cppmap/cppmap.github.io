@@ -116,6 +116,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://cppmap.github.io/libraries/math/</loc>
+     <lastmod>2020-02-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://cppmap.github.io/tools/compilers/</loc>
      <lastmod>2020-02-10</lastmod>
      <changefreq>daily</changefreq>

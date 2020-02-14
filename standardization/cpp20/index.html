@@ -769,8 +769,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#constexpr-p0202r3-p0879r0" class="md-nav__link">
-    アルゴリズムライブラリの関数の多くが constexpr に (P0202R3), (P0879R0)
+  <a href="#utility-algorithm-constexpr-p0202r3-p0879r0" class="md-nav__link">
+    &lt;utility&gt;, &lt;algorithm&gt; の多くの関数が constexpr に (P0202R3), (P0879R0)
   </a>
   
 </li>
@@ -1626,8 +1626,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#constexpr-p0202r3-p0879r0" class="md-nav__link">
-    アルゴリズムライブラリの関数の多くが constexpr に (P0202R3), (P0879R0)
+  <a href="#utility-algorithm-constexpr-p0202r3-p0879r0" class="md-nav__link">
+    &lt;utility&gt;, &lt;algorithm&gt; の多くの関数が constexpr に (P0202R3), (P0879R0)
   </a>
   
 </li>
@@ -3157,7 +3157,7 @@ C++17 の <code class="codehilite"><span class="c">std::accumulate()</span></cod
 
 <h3 id="stdfunction-noexcept-p0771r1"><code class="codehilite"><span class="c">std::function</span></code> のムーブコンストラクタが <code class="codehilite"><span class="err">noexcept</span></code> に <a href="https://wg21.link/P0771R1">(P0771R1)</a><a class="headerlink" href="#stdfunction-noexcept-p0771r1" title="Permanent link">&para;</a></h3>
 <p>実行時性能を向上させるため、C++20 では <code class="codehilite"><span class="c">std::function</span></code> のムーブコンストラクタが <code class="codehilite"><span class="err">noexcept</span></code> になります。なお、libstdc++ と libc++ では提案時点ですでに実装済みでした。</p>
-<h3 id="constexpr-p0202r3-p0879r0">アルゴリズムライブラリの関数の多くが <code class="codehilite"><span class="err">constexpr</span></code> に <a href="https://wg21.link/P0202R3">(P0202R3)</a>, <a href="https://wg21.link/P0879R0">(P0879R0)</a><a class="headerlink" href="#constexpr-p0202r3-p0879r0" title="Permanent link">&para;</a></h3>
+<h3 id="utility-algorithm-constexpr-p0202r3-p0879r0"><code class="codehilite"><span class="err">&lt;utility&gt;</span></code>, <code class="codehilite"><span class="err">&lt;algorithm&gt;</span></code> の多くの関数が <code class="codehilite"><span class="err">constexpr</span></code> に <a href="https://wg21.link/P0202R3">(P0202R3)</a>, <a href="https://wg21.link/P0879R0">(P0879R0)</a><a class="headerlink" href="#utility-algorithm-constexpr-p0202r3-p0879r0" title="Permanent link">&para;</a></h3>
 <p>C++20 では <code class="codehilite"><span class="err">&lt;utility&gt;</span></code> ヘッダの <code class="codehilite"><span class="c">std::swap()</span></code>, <code class="codehilite"><span class="c">std::exchange()</span></code> および、<code class="codehilite"><span class="err">&lt;algorithm&gt;</span></code> ヘッダで条件を満たす全関数が <code class="codehilite"><span class="err">constexpr</span></code> に対応します。<code class="codehilite"><span class="c">std::all_of()</span></code> や <code class="codehilite"><span class="c">std::sort()</span></code>, <code class="codehilite"><span class="c">std::reverse()</span></code> など、よく使われるアルゴリズム関数が <code class="codehilite"><span class="err">constexpr</span></code> になります。</p>
 <p><code class="codehilite"><span class="err">&lt;algorithm&gt;</span></code> ヘッダで <code class="codehilite"><span class="err">constexpr</span></code> にならないのは以下の関数のみです。</p>
 <ul>

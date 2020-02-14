@@ -761,6 +761,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stdfunction-noexcept-p0771r1" class="md-nav__link">
+    std::function のムーブコンストラクタが noexcept に (P0771R1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constexpr-p0202r3-p0879r0" class="md-nav__link">
+    アルゴリズムライブラリの関数の多くが constexpr に (P0202R3), (P0879R0)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1600,6 +1614,20 @@
           <li class="md-nav__item">
   <a href="#stdis_bounded_array-stdis_unbounded_array-p1357r1" class="md-nav__link">
     要素数が決まっている配列型かどうかを調べる型特性 std::is_bounded_array, std::is_unbounded_array (P1357R1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdfunction-noexcept-p0771r1" class="md-nav__link">
+    std::function のムーブコンストラクタが noexcept に (P0771R1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constexpr-p0202r3-p0879r0" class="md-nav__link">
+    アルゴリズムライブラリの関数の多くが constexpr に (P0202R3), (P0879R0)
   </a>
   
 </li>
@@ -3125,6 +3153,46 @@ C++17 の <code class="codehilite"><span class="c">std::accumulate()</span></cod
     <span class="k">auto</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
     <span class="k">auto</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// コンパイルエラー</span>
 <span class="p">}</span>
+</code></pre></div>
+
+<h3 id="stdfunction-noexcept-p0771r1"><code class="codehilite"><span class="c">std::function</span></code> のムーブコンストラクタが <code class="codehilite"><span class="err">noexcept</span></code> に <a href="https://wg21.link/P0771R1">(P0771R1)</a><a class="headerlink" href="#stdfunction-noexcept-p0771r1" title="Permanent link">&para;</a></h3>
+<p>実行時性能を向上させるため、C++20 では <code class="codehilite"><span class="c">std::function</span></code> のムーブコンストラクタが <code class="codehilite"><span class="err">noexcept</span></code> になります。なお、libstdc++ と libc++ では提案時点ですでに実装済みでした。</p>
+<h3 id="constexpr-p0202r3-p0879r0">アルゴリズムライブラリの関数の多くが <code class="codehilite"><span class="err">constexpr</span></code> に <a href="https://wg21.link/P0202R3">(P0202R3)</a>, <a href="https://wg21.link/P0879R0">(P0879R0)</a><a class="headerlink" href="#constexpr-p0202r3-p0879r0" title="Permanent link">&para;</a></h3>
+<p>C++20 では <code class="codehilite"><span class="err">&lt;utility&gt;</span></code> ヘッダの <code class="codehilite"><span class="c">std::swap()</span></code>, <code class="codehilite"><span class="c">std::exchange()</span></code> および、<code class="codehilite"><span class="err">&lt;algorithm&gt;</span></code> ヘッダで条件を満たす全関数が <code class="codehilite"><span class="err">constexpr</span></code> に対応します。<code class="codehilite"><span class="c">std::all_of()</span></code> や <code class="codehilite"><span class="c">std::sort()</span></code>, <code class="codehilite"><span class="c">std::reverse()</span></code> など、よく使われるアルゴリズム関数が <code class="codehilite"><span class="err">constexpr</span></code> になります。</p>
+<p><code class="codehilite"><span class="err">&lt;algorithm&gt;</span></code> ヘッダで <code class="codehilite"><span class="err">constexpr</span></code> にならないのは以下の関数のみです。</p>
+<ul>
+<li><code class="codehilite"><span class="c">std::stable_partition()</span></code>, <code class="codehilite"><span class="c">std::inplace_merge()</span></code>, <code class="codehilite"><span class="c">std::stable_sort()</span></code><ul>
+<li>メモリのアロケーション等が必要なため</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="c">std::shuffle()</span></code>, <code class="codehilite"><span class="c">std::sample()</span></code><ul>
+<li><code class="codehilite"><span class="err">constexpr</span></code> 関数を持たない <code class="codehilite"><span class="c">std::uniform_int_distribution</span></code> を使用するため</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="err">ExecutionPolicy</span></code> を引数に取る関数</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">SumOfTop3</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">5</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">nth_element</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">());</span> <span class="c1">// C++20 では constexpr</span>
+
+    <span class="k">return</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">SumOfTop3</span><span class="p">({</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span> <span class="p">});</span>
+
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">7</span><span class="p">);</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// 7</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="err">7</span>
 </code></pre></div>
                 
                   

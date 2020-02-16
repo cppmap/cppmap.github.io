@@ -487,6 +487,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    拡張浮動小数点数型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode" class="md-nav__link">
+    Unicode 名による文字エスケープ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stdstringoperatorchar" class="md-nav__link">
+    std::string::operator=(char) の問題の解消
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#executors" class="md-nav__link">
     Executors
   </a>
@@ -494,14 +515,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     コルーチンのライブラリサポート
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     契約プログラミング
   </a>
   
@@ -1047,6 +1068,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    拡張浮動小数点数型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode" class="md-nav__link">
+    Unicode 名による文字エスケープ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stdstringoperatorchar" class="md-nav__link">
+    std::string::operator=(char) の問題の解消
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#executors" class="md-nav__link">
     Executors
   </a>
@@ -1054,14 +1096,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     コルーチンのライブラリサポート
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     契約プログラミング
   </a>
   
@@ -1322,9 +1364,35 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 <span class="p">}</span>
 </code></pre></div></div>
 </div>
+<h2 id="_7">拡張浮動小数点数型<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/P1467">Extended floating-point types (P1467)</a></li>
+<li><a href="https://wg21.link/P1468">Fixed-layout floating-point type aliases (P1468)</a></li>
+</ul>
+<p><code class="codehilite"><span class="err">float</span></code>, <code class="codehilite"><span class="err">double</span></code>, <code class="codehilite"><span class="err">long double</span></code> 以外の浮動小数点数型の実装を可能にする提案です。コンピュータグラフィックスや機械学習分野で使用頻度が増えている半精度 (16-bit) 浮動小数点数型を、組み込み型として提供できるようにすることが主な目的です。</p>
+<h2 id="unicode">Unicode 名による文字エスケープ<a class="headerlink" href="#unicode" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/P2071">Named universal character escapes (P2071)</a></li>
+</ul>
+<p>Python などで採用されている、Unicode 名による文字エスケープを導入する提案です。不可視文字や似ている字形を文字 / 文字列リテラルで記述する際に役に立ちます。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">a</span> <span class="o">=</span><span class="s">&quot;\N{ZERO WIDTH SPACE}&quot;</span><span class="p">;</span> <span class="c1">// &quot;​&quot; (不可視の空白)</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">b</span> <span class="o">=</span> <span class="s">&quot;\N{GREEK CAPITAL LETTER OMEGA}&quot;</span><span class="p">;</span> <span class="c1">// &quot;Ω&quot;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">c</span> <span class="o">=</span> <span class="s">&quot;\N{OHM SIGN}&quot;</span><span class="p">;</span> <span class="c1">// &quot;Ω&quot;</span>
+</code></pre></div>
+
+<h2 id="stdstringoperatorchar"><code class="codehilite"><span class="c">std::string::operator=(char)</span></code> の問題の解消<a class="headerlink" href="#stdstringoperatorchar" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/P2037">String's gratuitous assignment (P2037)</a></li>
+</ul>
+<p><code class="codehilite"><span class="c">std::string::operator=(char)</span></code> によって次のようなコードがコンパイルできてしまう問題の解決を図る提案です。この関数自体を <code class="codehilite"><span class="err">deprecated</span></code> にすることも解決法の候補として挙げられています。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span><span class="p">;</span>
+<span class="n">s</span> <span class="o">=</span> <span class="mf">48.0</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+</code></pre></div>
+
 <h2 id="executors">Executors<a class="headerlink" href="#executors" title="Permanent link">&para;</a></h2>
-<h2 id="_7">コルーチンのライブラリサポート<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<h2 id="_8">契約プログラミング<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_8">コルーチンのライブラリサポート<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_9">契約プログラミング<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
                 
                   
                 

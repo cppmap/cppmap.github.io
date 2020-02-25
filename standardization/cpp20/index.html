@@ -741,8 +741,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-p0556r3-p1355r2" class="md-nav__link">
-    2 の累乗数に関するユーティリティ関数を追加 (P0556R3), (P1355R2)
+  <a href="#2-p0556r3-p1355r2-p1956r1" class="md-nav__link">
+    2 の累乗数に関するユーティリティ関数を追加 (P0556R3), (P1355R2), (P1956R1)
   </a>
   
 </li>
@@ -1598,8 +1598,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-p0556r3-p1355r2" class="md-nav__link">
-    2 の累乗数に関するユーティリティ関数を追加 (P0556R3), (P1355R2)
+  <a href="#2-p0556r3-p1355r2-p1956r1" class="md-nav__link">
+    2 の累乗数に関するユーティリティ関数を追加 (P0556R3), (P1355R2), (P1956R1)
   </a>
   
 </li>
@@ -3056,34 +3056,37 @@ C++17 の <code class="codehilite"><span class="c">std::accumulate()</span></cod
 </code></pre></div>
 
 <p><code class="codehilite"><span class="c">std::move()</span></code> を使うこの仕様変更は、同じ <code class="codehilite"><span class="err">&lt;numeric&gt;</span></code> ヘッダの <code class="codehilite"><span class="c">std::inner_product()</span></code> や <code class="codehilite"><span class="c">std::partial_sum()</span></code>, <code class="codehilite"><span class="c">std::adjacent_difference()</span></code> にも適用されます。</p>
-<h3 id="2-p0556r3-p1355r2">2 の累乗数に関するユーティリティ関数を追加 <a href="https://wg21.link/P0556R3">(P0556R3)</a>, <a href="https://wg21.link/P1355R2">(P1355R2)</a><a class="headerlink" href="#2-p0556r3-p1355r2" title="Permanent link">&para;</a></h3>
+<h3 id="2-p0556r3-p1355r2-p1956r1">2 の累乗数に関するユーティリティ関数を追加 <a href="https://wg21.link/P0556R3">(P0556R3)</a>, <a href="https://wg21.link/P1355R2">(P1355R2)</a>, <a href="https://wg21.link/P1956R1">(P1956R1)</a><a class="headerlink" href="#2-p0556r3-p1355r2-p1956r1" title="Permanent link">&para;</a></h3>
 <p>ある整数が 2 の累乗数であるかを調べたり、ある整数に近い 2 の累乗数を探したりする処理は、プログラミングでよく登場しますが、C++17 の標準ライブラリには実装されていませんでした。C++20 では次のような関数が追加されます。</p>
 <div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span>
 <span class="p">{</span>
     <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-    <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">ispow2</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">has_single_bit</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
 
     <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-    <span class="k">constexpr</span> <span class="n">T</span> <span class="n">ceil2</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">);</span>
+    <span class="k">constexpr</span> <span class="n">T</span> <span class="n">bit_ceil</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">);</span>
 
     <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-    <span class="k">constexpr</span> <span class="n">T</span> <span class="n">floor2</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="n">T</span> <span class="n">bit_floor</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
 
     <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-    <span class="k">constexpr</span> <span class="n">T</span> <span class="n">log2p1</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+    <span class="k">constexpr</span> <span class="n">T</span> <span class="n">bit_width</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <ul>
-<li>引数 <code class="codehilite"><span class="err">x</span></code> が 2 の累乗数であるかを判定する <code class="codehilite"><span class="c">std::ispow2(x)</span></code></li>
-<li><code class="codehilite"><span class="err">x</span></code> 以上で最小の 2 の累乗数を返す <code class="codehilite"><span class="c">std::ceil2(x)</span></code></li>
-<li><code class="codehilite"><span class="err">x</span></code> 以下で最大の 2 の累乗数 (ただし <code class="codehilite"><span class="err">x</span></code> が 0 の場合は 0) を返す <code class="codehilite"><span class="c">std::floor2(x)</span></code></li>
-<li><code class="codehilite"><span class="err">(1 + log2(x))</span></code> の整数部 (ただし <code class="codehilite"><span class="err">x</span></code> が 0 の場合は 0) を返す <code class="codehilite"><span class="c">std::log2p1(x)</span></code><ul>
+<li>引数 <code class="codehilite"><span class="err">x</span></code> のビット列に含まれる 1 が 1 個だけであるかを判定する <code class="codehilite"><span class="c">std::has_single_bit(x)</span></code><ul>
+<li>「<code class="codehilite"><span class="err">x</span></code> が 2 の累乗数 (1, 2, 4, 8, ...) であるか」と同じ意味</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="err">x</span></code> 以上で最小の 2 の累乗数を返す <code class="codehilite"><span class="c">std::bit_ceil(x)</span></code></li>
+<li><code class="codehilite"><span class="err">x</span></code> 以下で最大の 2 の累乗数 (ただし <code class="codehilite"><span class="err">x</span></code> が 0 の場合は 0) を返す <code class="codehilite"><span class="c">std::bit_floor(x)</span></code></li>
+<li><code class="codehilite"><span class="err">(1 + log2(x))</span></code> の整数部 (ただし <code class="codehilite"><span class="err">x</span></code> が 0 の場合は 0) を返す <code class="codehilite"><span class="c">std::bit_width(x)</span></code><ul>
 <li>「<code class="codehilite"><span class="err">x</span></code> を表現するために何ビット必要か」と同じ意味</li>
 </ul>
 </li>
 </ul>
-<p>いずれの関数も、型 <code class="codehilite"><span class="err">T</span></code> が符号なし整数型 (<code class="codehilite"><span class="err">unsigned char</span></code>, <code class="codehilite"><span class="err">unsigned short</span></code>, <code class="codehilite"><span class="err">unsigned int</span></code>, <code class="codehilite"><span class="err">unsigned long</span></code>, <code class="codehilite"><span class="err">unsigned long long</span></code>) の場合のみオーバーロード解決に参加します。なお、<code class="codehilite"><span class="c">std::ceil2(x)</span></code> について、結果が型 <code class="codehilite"><span class="err">T</span></code> で表現できない場合の動作は未定義です。</p>
+<p>いずれの関数も、型 <code class="codehilite"><span class="err">T</span></code> が符号なし整数型 (<code class="codehilite"><span class="err">unsigned char</span></code>, <code class="codehilite"><span class="err">unsigned short</span></code>, <code class="codehilite"><span class="err">unsigned int</span></code>, <code class="codehilite"><span class="err">unsigned long</span></code>, <code class="codehilite"><span class="err">unsigned long long</span></code>) の場合のみオーバーロード解決に参加します。なお、<code class="codehilite"><span class="c">std::bit_ceil(x)</span></code> について、結果が型 <code class="codehilite"><span class="err">T</span></code> で表現できない場合の動作は未定義です。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;bit&gt;</span><span class="cp"></span>
 
@@ -3092,10 +3095,10 @@ C++17 の <code class="codehilite"><span class="c">std::accumulate()</span></cod
     <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">16</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;: &quot;</span>
-            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">ispow2</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span>
-            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">ceil2</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span>
-            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">floor2</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span>
-            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">log2p1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">has_single_bit</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">bit_ceil</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">bit_floor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span>
+            <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">bit_width</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

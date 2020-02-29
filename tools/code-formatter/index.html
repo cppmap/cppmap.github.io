@@ -10,10 +10,10 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="各種 C++ 処理系の規格対応状況">
+        <meta name="description" content="C++ のコードフォーマッタの紹介">
       
       
-        <link rel="canonical" href="https://cppmap.github.io/standardization/status/">
+        <link rel="canonical" href="https://cppmap.github.io/tools/code-formatter/">
       
       
         <meta name="author" content="Ryo Suzuki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>処理系の対応状況 - C++ の歩き方 | CppMap</title>
+        <title>C++ コードフォーマッタ - C++ の歩き方 | CppMap</title>
       
     
     
@@ -95,7 +95,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="0" class="md-skip">
+      <a href="#c" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -121,7 +121,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                処理系の対応状況
+                C++ コードフォーマッタ
               
             </span>
           
@@ -210,7 +210,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../cpp20/" class="md-tabs__link md-tabs__link--active">
+        <a href="../../standardization/cpp20/" class="md-tabs__link">
           C++ 規格
         </a>
       
@@ -262,7 +262,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../tools/compilers/" class="md-tabs__link">
+        <a href="../compilers/" class="md-tabs__link md-tabs__link--active">
           ツール
         </a>
       
@@ -342,12 +342,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       C++ 規格
@@ -365,7 +363,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cpp20/" title="C++20 の新機能" class="md-nav__link">
+    <a href="../../standardization/cpp20/" title="C++20 の新機能" class="md-nav__link">
       C++20 の新機能
     </a>
   </li>
@@ -377,7 +375,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cppx/" title="C++23 以降に向けた提案" class="md-nav__link">
+    <a href="../../standardization/cppx/" title="C++23 以降に向けた提案" class="md-nav__link">
       C++23 以降に向けた提案
     </a>
   </li>
@@ -389,7 +387,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../meetings/" title="標準化会議" class="md-nav__link">
+    <a href="../../standardization/meetings/" title="標準化会議" class="md-nav__link">
       標準化会議
     </a>
   </li>
@@ -399,70 +397,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        処理系の対応状況
-      </label>
-    
-    <a href="./" title="処理系の対応状況" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../standardization/status/" title="処理系の対応状況" class="md-nav__link">
       処理系の対応状況
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    処理系の比較表
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c20" class="md-nav__link">
-    C++20
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c17" class="md-nav__link">
-    C++17
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c14" class="md-nav__link">
-    C++14
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -472,7 +411,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../working-drafts/" title="規格ドラフト" class="md-nav__link">
+    <a href="../../standardization/working-drafts/" title="規格ドラフト" class="md-nav__link">
       規格ドラフト
     </a>
   </li>
@@ -484,7 +423,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../header/" title="C++ 標準ライブラリ" class="md-nav__link">
+    <a href="../../standardization/header/" title="C++ 標準ライブラリ" class="md-nav__link">
       C++ 標準ライブラリ
     </a>
   </li>
@@ -775,10 +714,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       ツール
@@ -796,7 +737,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tools/compilers/" title="C++ コンパイラ" class="md-nav__link">
+    <a href="../compilers/" title="C++ コンパイラ" class="md-nav__link">
       C++ コンパイラ
     </a>
   </li>
@@ -808,7 +749,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tools/onlinecompilers/" title="C++ オンラインコンパイラ" class="md-nav__link">
+    <a href="../onlinecompilers/" title="C++ オンラインコンパイラ" class="md-nav__link">
       C++ オンラインコンパイラ
     </a>
   </li>
@@ -820,7 +761,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tools/package-manager/" title="C++ パッケージマネージャ" class="md-nav__link">
+    <a href="../package-manager/" title="C++ パッケージマネージャ" class="md-nav__link">
       C++ パッケージマネージャ
     </a>
   </li>
@@ -830,11 +771,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../tools/code-formatter/" title="C++ コードフォーマッタ" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="C++ コードフォーマッタ" class="md-nav__link md-nav__link--active">
       C++ コードフォーマッタ
     </a>
+    
   </li>
 
         
@@ -896,43 +846,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    処理系の比較表
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c20" class="md-nav__link">
-    C++20
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c17" class="md-nav__link">
-    C++17
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c14" class="md-nav__link">
-    C++14
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -944,35 +857,7 @@
               
                 
                 
-                <h1 id="_1">処理系の対応状況<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">処理系の比較表<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://en.cppreference.com/w/cpp/compiler_support">C++ compiler support</a></li>
-</ul>
-<h2 id="c20">C++20<a class="headerlink" href="#c20" title="Permanent link">&para;</a></h2>
-<ul>
-<li>GCC: <a href="https://gcc.gnu.org/projects/cxx-status.html#cxx2a">C++2a Support in GCC</a></li>
-<li>libstdc++: <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2020">C++ 202a</a></li>
-<li>Clang: <a href="http://clang.llvm.org/cxx_status.html#cxx20">C++2a implementation status</a></li>
-<li>libc++: <a href="http://libcxx.llvm.org/cxx2a_status.html">libc++ C++2a Status</a></li>
-<li>Microsoft Visaul C++: <a href="https://docs.microsoft.com/en-us/cpp/visual-cpp-language-conformance">Visual C++ Language Conformance</a></li>
-</ul>
-<h2 id="c17">C++17<a class="headerlink" href="#c17" title="Permanent link">&para;</a></h2>
-<ul>
-<li>GCC: <a href="https://gcc.gnu.org/projects/cxx-status.html#cxx17">C++17 Support in GCC</a></li>
-<li>libstdc++: <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2017">C++ 2017</a></li>
-<li>Clang: <a href="http://clang.llvm.org/cxx_status.html#cxx17">C++17 implementation status</a></li>
-<li>libc++: <a href="http://libcxx.llvm.org/cxx1z_status.html">libc++ C++17 Status</a></li>
-<li>Microsoft Visaul C++: <a href="https://docs.microsoft.com/en-us/cpp/visual-cpp-language-conformance">Visual C++ Language Conformance</a></li>
-</ul>
-<h2 id="c14">C++14<a class="headerlink" href="#c14" title="Permanent link">&para;</a></h2>
-<ul>
-<li>GCC: <a href="https://gcc.gnu.org/projects/cxx-status.html#cxx14">C++14 Support in GCC</a></li>
-<li>libstdc++: <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2014">C++ 2014</a></li>
-<li>Clang: <a href="http://clang.llvm.org/cxx_status.html#cxx14">C++14 implementation status</a></li>
-<li>libc++: <a href="http://libcxx.llvm.org/cxx1y_status.html">libc++ C++14 Status</a></li>
-<li>Microsoft Visaul C++: <a href="https://docs.microsoft.com/en-us/cpp/visual-cpp-language-conformance">Visual C++ Language Conformance</a></li>
-</ul>
+                <h1 id="c">C++ コードフォーマッタ<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
                 
                   
                 
@@ -994,7 +879,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../meetings/" title="標準化会議" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../package-manager/" title="C++ パッケージマネージャ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1003,19 +888,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                標準化会議
+                C++ パッケージマネージャ
               </span>
             </div>
           </a>
         
         
-          <a href="../working-drafts/" title="規格ドラフト" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../contribution/contributors/" title="コントリビュータ" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                規格ドラフト
+                コントリビュータ
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

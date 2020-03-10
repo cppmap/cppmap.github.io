@@ -3227,6 +3227,7 @@ C++17 の <code class="codehilite"><span class="c">std::accumulate()</span></cod
 <h3 id="delete-p0722r3">デストラクタを自動で呼ばない <code class="codehilite"><span class="err">delete</span></code> 演算子オーバーロード <a href="https://wg21.link/P0722R3">(P0722R3)</a><a class="headerlink" href="#delete-p0722r3" title="Permanent link">&para;</a></h3>
 <p>C++17 では、ユーザ定義の <code class="codehilite"><span class="err">delete</span></code> の中でメンバ変数にアクセスしたくても、すでにクラスのデストラクタが呼ばれているため未定義の動作になります。</p>
 <div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;new&gt;</span><span class="cp"></span>
 
 <span class="k">struct</span> <span class="n">Object</span>
 <span class="p">{</span>
@@ -3250,6 +3251,7 @@ C++17 の <code class="codehilite"><span class="c">std::accumulate()</span></cod
 
 <p>C++20 では、<code class="codehilite"><span class="err">delete</span></code> の第二引数を <code class="codehilite"><span class="c">std::destroying_delete_t</span></code> 型にすることで、デストラクタの呼び出しが自動で実行されない挙動に設定できます（この新しい挙動を「destroying operator delete」と呼びます）。<code class="codehilite"><span class="err">void T::operator delete(T* ptr, std::destroying_delete_t)</span></code> のように、第一引数にはクラスへのポインタが渡され、明示的にデストラクタ <code class="codehilite"><span class="err">ptr-&gt;~T()</span></code> を呼ぶ必要があります。</p>
 <div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;new&gt;</span><span class="cp"></span>
 
 <span class="k">struct</span> <span class="n">Object</span>
 <span class="p">{</span>

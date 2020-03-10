@@ -775,6 +775,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#delete-p0722r3" class="md-nav__link">
+    デストラクタを自動で呼ばない delete 演算子オーバーロード (P0722R3)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1640,6 +1647,13 @@
           <li class="md-nav__item">
   <a href="#utility-algorithm-constexpr-p0202r3-p0879r0" class="md-nav__link">
     &lt;utility&gt;, &lt;algorithm&gt; の多くの関数が constexpr に (P0202R3), (P0879R0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-p0722r3" class="md-nav__link">
+    デストラクタを自動で呼ばない delete 演算子オーバーロード (P0722R3)
   </a>
   
 </li>
@@ -3208,6 +3222,54 @@ C++17 の <code class="codehilite"><span class="c">std::accumulate()</span></cod
 </code></pre></div>
 
 <div class="codehilite"><pre><span></span><code><span class="err">7</span>
+</code></pre></div>
+
+<h3 id="delete-p0722r3">デストラクタを自動で呼ばない <code class="codehilite"><span class="err">delete</span></code> 演算子オーバーロード <a href="https://wg21.link/P0722R3">(P0722R3)</a><a class="headerlink" href="#delete-p0722r3" title="Permanent link">&para;</a></h3>
+<p>C++17 では、ユーザ定義の <code class="codehilite"><span class="err">delete</span></code> の中でメンバ変数にアクセスしたくても、すでにクラスのデストラクタが呼ばれているため未定義の動作になります。</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Object</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">m_str</span> <span class="o">=</span> <span class="s">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span><span class="p">;</span>
+
+    <span class="k">static</span> <span class="kt">void</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span>
+    <span class="p">{</span>    
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;m_str: &quot;</span>
+            <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">m_str</span> <span class="c1">// 未定義の動作</span>
+            <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+        <span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Object</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="p">();</span>
+    <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>C++20 では、<code class="codehilite"><span class="err">delete</span></code> の第二引数を <code class="codehilite"><span class="c">std::destroying_delete_t</span></code> 型にすることで、デストラクタの呼び出しが自動で実行されない挙動に設定できます（この新しい挙動を「destroying operator delete」と呼びます）。<code class="codehilite"><span class="err">void T::operator delete(T* ptr, std::destroying_delete_t)</span></code> のように、第一引数にはクラスへのポインタが渡され、明示的にデストラクタ <code class="codehilite"><span class="err">ptr-&gt;~T()</span></code> を呼ぶ必要があります。</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Object</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">m_str</span> <span class="o">=</span> <span class="s">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span><span class="p">;</span>
+
+    <span class="k">static</span> <span class="kt">void</span> <span class="k">operator</span> <span class="nf">delete</span><span class="p">(</span><span class="n">Object</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">destroying_delete_t</span><span class="p">)</span>
+    <span class="p">{</span>    
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;m_str: &quot;</span>
+            <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">m_str</span>
+            <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>      
+        <span class="n">p</span><span class="o">-&gt;~</span><span class="n">Object</span><span class="p">();</span>
+        <span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Object</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="p">();</span>
+    <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
                 
                   

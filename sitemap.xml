@@ -71,6 +71,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://cppmap.github.io/articles/type-traits/</loc>
+     <lastmod>2020-03-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://cppmap.github.io/learn/books/</loc>
      <lastmod>2020-03-16</lastmod>
      <changefreq>daily</changefreq>

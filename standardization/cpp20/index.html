@@ -784,7 +784,7 @@
         
           <li class="md-nav__item">
   <a href="#p0553r4" class="md-nav__link">
-    ビット操作のための関数 (P0553R4)
+    ビット循環シフト・ビットカウント関数 (P0553R4)
   </a>
   
 </li>
@@ -1667,7 +1667,7 @@
         
           <li class="md-nav__item">
   <a href="#p0553r4" class="md-nav__link">
-    ビット操作のための関数 (P0553R4)
+    ビット循環シフト・ビットカウント関数 (P0553R4)
   </a>
   
 </li>
@@ -3288,7 +3288,7 @@ C++17 の <code class="codehilite"><span class="c">std::accumulate()</span></cod
 <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="p0553r4">ビット操作のための関数 <a href="https://wg21.link/P0553R4">(P0553R4)</a><a class="headerlink" href="#p0553r4" title="Permanent link">&para;</a></h3>
+<h3 id="p0553r4">ビット循環シフト・ビットカウント関数 <a href="https://wg21.link/P0553R4">(P0553R4)</a><a class="headerlink" href="#p0553r4" title="Permanent link">&para;</a></h3>
 <p>ビット列の左端と右端が循環するようにシフトするビットローテーションや、1 になっているビットを数える popcount などのビット操作命令は、多くの CPU アーキテクチャに搭載されていますが、それに対応する関数は C++17 標準ライブラリには存在せず、<code class="codehilite"><span class="err">__builtin_popcount</span></code> (GCC, Clang) や <code class="codehilite"><span class="err">__popcnt</span></code> (MSVC) のような、処理系が提供する非標準の組み込み関数を使う必要がありました。C++20 では、7 種類のビット操作が標準ライブラリ関数として提供されます。</p>
 <div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span>
 <span class="p">{</span>

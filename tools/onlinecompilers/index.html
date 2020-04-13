@@ -812,8 +812,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#stensal" class="md-nav__link">
-    Stensal
+  <a href="#ceestudio" class="md-nav__link">
+    cee.studio
   </a>
   
 </li>
@@ -968,8 +968,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#stensal" class="md-nav__link">
-    Stensal
+  <a href="#ceestudio" class="md-nav__link">
+    cee.studio
   </a>
   
 </li>
@@ -1120,8 +1120,8 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></p>
-<h3 id="stensal">Stensal<a class="headerlink" href="#stensal" title="Permanent link">&para;</a></h3>
-<p><a href="https://segfault.stensal.com/">Stensal</a> は、C, C++ プログラムを実行して、セグメンテーション違反などメモリに関する問題が発生したときに、その箇所と原因をわかりやすく表示するオンラインコンパイラです。バッファオーバーラン、Null ポインタの参照外し、未初期化変数の利用などの問題を明らかにします。実装には Wandbox が使われています。</p>
+<h3 id="ceestudio">cee.studio<a class="headerlink" href="#ceestudio" title="Permanent link">&para;</a></h3>
+<p><a href="https://www.cee.studio/">cee.studio</a> は、C, C++ プログラムを実行して、セグメンテーション違反などメモリに関する問題が発生したときに、その箇所と原因をわかりやすく表示する機能を持つオンラインコンパイラです。バッファオーバーラン、Null ポインタの参照外し、未初期化変数の利用などの問題を明らかにします。オンライン IDE で「Run in Guarrail」モードで実行することでメモリのデバッグを行えます。</p>
 <p>入力例
 <div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
@@ -1133,35 +1133,25 @@
 <span class="p">}</span>
 </code></pre></div></p>
 <p>出力例
-<div class="codehilite"><pre><span></span><code><span class="o">===========</span> <span class="k">Start</span> <span class="k">of</span> <span class="o">#</span><span class="mi">0</span> <span class="n">stensal</span> <span class="n">runtime</span> <span class="n">message</span> <span class="o">===========</span>
-
-  <span class="n">Runtime</span> <span class="n">error</span><span class="p">:</span> <span class="o">**</span><span class="p">[</span><span class="k">out</span><span class="o">-</span><span class="k">of</span><span class="o">-</span><span class="n">bounds</span> <span class="k">read</span><span class="p">]</span><span class="o">**</span>  
-  <span class="n">Continuing</span> <span class="n">execution</span> <span class="n">can</span> <span class="n">cause</span> <span class="n">undefined</span> <span class="n">behavior</span><span class="p">,</span> <span class="k">abort</span><span class="o">!</span>
-
- <span class="o">```</span><span class="n">stensal</span><span class="o">-</span><span class="n">diagnostic</span><span class="o">-</span><span class="n">info</span>
-<span class="o">-</span>
-<span class="o">-</span> <span class="n">Reading</span> <span class="mi">4</span> <span class="n">bytes</span> <span class="k">from</span> <span class="mi">0</span><span class="n">x937c414</span> <span class="n">will</span> <span class="k">read</span> <span class="n">undefined</span> <span class="k">values</span><span class="p">.</span>
-<span class="o">-</span> 
-<span class="o">-</span> <span class="n">The</span> <span class="n">memory</span><span class="o">-</span><span class="k">space</span><span class="o">-</span><span class="k">to</span><span class="o">-</span><span class="n">be</span><span class="o">-</span><span class="k">read</span> <span class="p">(</span><span class="k">start</span><span class="p">:</span><span class="mi">0</span><span class="n">x937c414</span><span class="p">,</span> <span class="k">size</span><span class="p">:</span><span class="mi">3</span> <span class="n">bytes</span><span class="p">)</span> <span class="k">is</span> <span class="n">bound</span> <span class="k">to</span> <span class="s1">&#39;s&#39;</span> <span class="k">at</span>
-<span class="o">-</span>     <span class="n">file</span><span class="p">:</span><span class="o">/</span><span class="n">prog</span><span class="p">.</span><span class="n">cc</span><span class="p">::</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span>
-<span class="o">-</span> 
-<span class="o">-</span>  <span class="mi">0</span><span class="n">x937c414</span>               <span class="mi">0</span><span class="n">x937c416</span>
-<span class="o">-</span>  <span class="o">+</span><span class="c1">------------------------------+</span>
-<span class="o">-</span>  <span class="o">|</span> <span class="n">the</span> <span class="n">memory</span><span class="o">-</span><span class="k">space</span><span class="o">-</span><span class="k">to</span><span class="o">-</span><span class="n">be</span><span class="o">-</span><span class="k">read</span>  <span class="o">|</span><span class="p">......</span>
-<span class="o">-</span>  <span class="o">+</span><span class="c1">------------------------------+</span>
-<span class="o">-</span>  <span class="o">^~~~~~~~~~</span>
-<span class="o">-</span>  <span class="n">the</span> <span class="k">read</span> <span class="n">starts</span> <span class="k">at</span> <span class="n">the</span> <span class="n">memory</span> <span class="k">begin</span><span class="p">.</span>
-<span class="o">-</span> 
-<span class="o">-</span> <span class="n">Stack</span> <span class="n">trace</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="k">call</span> <span class="k">first</span><span class="p">)</span> <span class="k">of</span> <span class="n">the</span> <span class="k">read</span><span class="p">.</span>
-<span class="o">-</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="n">file</span><span class="p">:</span><span class="o">/</span><span class="n">musl</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">10</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">string</span><span class="o">/</span><span class="n">strlen</span><span class="p">.</span><span class="k">c</span><span class="p">::</span><span class="mi">91</span><span class="p">,</span> <span class="mi">3</span>
-<span class="o">-</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="o">@</span><span class="p">[</span><span class="n">unknown_id</span> <span class="mi">291</span><span class="p">]</span>
-<span class="o">-</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>  <span class="n">file</span><span class="p">:</span><span class="o">/</span><span class="n">prog</span><span class="p">.</span><span class="n">cc</span><span class="p">::</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span>
-<span class="o">-</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span>  <span class="p">[</span><span class="n">libc</span><span class="o">-</span><span class="k">start</span><span class="o">-</span><span class="n">main</span><span class="p">]</span>
-<span class="o">-</span>
- <span class="o">```</span>
-<span class="n">error</span> <span class="n">code</span> <span class="p">(</span><span class="mi">56</span><span class="p">,</span><span class="mi">213</span><span class="p">)</span>
-
-<span class="o">============</span> <span class="k">End</span> <span class="k">of</span> <span class="o">#</span><span class="mi">0</span> <span class="n">stensal</span> <span class="n">runtime</span> <span class="n">message</span> <span class="o">============</span>
+<div class="codehilite"><pre><span></span><code><span class="err">  Memory access error: reading from the outside of a memory space; abort execution.</span>
+<span class="err">  # Reading 4 bytes from 0x981cdd4 will read undefined values.</span>
+<span class="err">  #</span>
+<span class="err">  # The memory-space-to-be-read (start:0x981cdd4, size:3 bytes) is bound to &#39;s&#39; at</span>
+<span class="err">  #    file:/prog.cc::5, 0</span>
+<span class="err">  #</span>
+<span class="err">  #  0x981cdd4               0x981cdd6</span>
+<span class="err">  #  +------------------------------+</span>
+<span class="err">  #  | the memory-space-to-be-read  |......</span>
+<span class="err">  #  +------------------------------+</span>
+<span class="err">  #  ^~~~~~~~~~</span>
+<span class="err">  #  the read starts at the memory-space begin.</span>
+<span class="err">  #</span>
+<span class="err">  # Stack trace (most recent call first) of the read.</span>
+<span class="err">  # [0]  file:/musl-1.1.10/src/string/strlen.c::91, 3</span>
+<span class="err">  # [1]  unknown_location (report this ::244)</span>
+<span class="err">  # [2]  file:/prog.cc::7, 5</span>
+<span class="err">  # [3]  [libc-start-main]</span>
+<span class="err">Segmentation fault</span>
 </code></pre></div></p>
                 
                   

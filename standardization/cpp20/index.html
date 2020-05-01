@@ -2451,8 +2451,8 @@ C++20 では <code class="codehilite"><span class="err">using</span></code> 宣�
 <ul>
 <li>(a) 指示子の順番はメンバの宣言順と同じである必要がある</li>
 <li>(b) 指示付き初期化子と通常の初期化子の混在はできない</li>
-<li>(c) 指示付き初期化は重複できない</li>
-<li>(d) 指示付き初期化のネストはできない</li>
+<li>(c) 同一メンバの指示付き初期化子は複数回使えない</li>
+<li>(d) 指示付き初期化子はネストできない</li>
 <li>(e) 配列の指示付き初期化はできない</li>
 </ul>
 <p>また、初期化子の評価順序が左から右であることが保証されます。</p>
@@ -2467,7 +2467,7 @@ C++20 では <code class="codehilite"><span class="err">using</span></code> 宣�
 <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">Point</span> <span class="n">pos</span> <span class="o">=</span> <span class="p">{</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="p">};</span>
 <span class="p">};</span>
 
 <span class="kt">void</span> <span class="nf">F</span><span class="p">(</span><span class="n">Point</span><span class="p">)</span> <span class="p">{}</span>
@@ -2482,14 +2482,14 @@ C++20 では <code class="codehilite"><span class="err">using</span></code> 宣�
 
     <span class="n">Point</span> <span class="n">p4</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">30</span> <span class="p">};</span> <span class="c1">// コンパイルエラー: (a) 指示子の順番がメンバの宣言順と異なる</span>
     <span class="n">Point</span> <span class="n">p5</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span> <span class="p">};</span> <span class="c1">// コンパイルエラー: (b) 指示付き初期化子と通常の初期化子は混在できない</span>
-    <span class="n">Point</span> <span class="n">p6</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">30</span> <span class="p">};</span> <span class="c1">// コンパイルエラー: (c) 指示付き初期化子は重複できない</span>
+    <span class="n">Point</span> <span class="n">p6</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">30</span> <span class="p">};</span> <span class="c1">// コンパイルエラー: (c) 同一メンバの指示付き初期化子は複数回登場できない</span>
 
-    <span class="n">Item</span> <span class="n">i1</span><span class="p">{</span> <span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;shield&quot;</span><span class="p">,</span> <span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="p">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">100</span> <span class="p">};</span> <span class="c1">// OK</span>
-    <span class="n">Item</span> <span class="n">i2</span><span class="p">{</span> <span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">};</span> <span class="c1">// OK: name は {} で初期化、count は 1 で初期化</span>
+    <span class="n">Item</span> <span class="n">i1</span><span class="p">{</span> <span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;shield&quot;</span><span class="p">,</span> <span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="p">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span> <span class="p">};</span> <span class="c1">// OK</span>
+    <span class="n">Item</span> <span class="n">i2</span><span class="p">{</span> <span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">};</span> <span class="c1">// OK: name は {} で初期化、pos は { -1, -1 } で初期化</span>
 
-    <span class="n">Item</span> <span class="n">i3</span><span class="p">{</span> <span class="p">.</span><span class="n">pos</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="p">.</span><span class="n">pos</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">40</span> <span class="p">};</span> <span class="c1">// コンパイルエラー: (d) 指示付き初期化のネストはできない</span>
+    <span class="n">Item</span> <span class="n">i3</span><span class="p">{</span> <span class="p">.</span><span class="n">pos</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="p">.</span><span class="n">pos</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">40</span> <span class="p">};</span> <span class="c1">// コンパイルエラー: (d) 指示付き初期化子はネストできない</span>
 
-    <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">};</span> <span class="c1">// コンパイルエラー: (e) 配列の指示付き初期化はできない</span>
+    <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span> <span class="p">};</span> <span class="c1">// コンパイルエラー: (e) 配列の指示付き初期化はできない</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -2509,7 +2509,7 @@ C++20 では <code class="codehilite"><span class="err">using</span></code> 宣�
 <span class="p">{</span>
     <span class="c1">// コンパイルエラー:</span>
     <span class="c1">// ユーザ宣言されたコンストラクタを持つため集成体ではない</span>
-    <span class="c1">// 集成体ではないため指示付き初期化子は使えない</span>
+    <span class="c1">// 集成体でないため指示付き初期化子を使えない</span>
     <span class="n">Point</span> <span class="n">p</span><span class="p">{</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">};</span> 
 <span class="p">}</span>
 </code></pre></div>

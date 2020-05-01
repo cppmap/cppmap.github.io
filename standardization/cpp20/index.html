@@ -533,7 +533,7 @@
         
           <li class="md-nav__item">
   <a href="#p0329r4" class="md-nav__link">
-    指示付き初期化子 (P0329R4)
+    指示付き初期化子による集成体の初期化 (P0329R4)
   </a>
   
 </li>
@@ -1442,7 +1442,7 @@
         
           <li class="md-nav__item">
   <a href="#p0329r4" class="md-nav__link">
-    指示付き初期化子 (P0329R4)
+    指示付き初期化子による集成体の初期化 (P0329R4)
   </a>
   
 </li>
@@ -2446,8 +2446,8 @@ C++20 では <code class="codehilite"><span class="err">using</span></code> 宣�
 <span class="err">1 warning generated.</span>
 </code></pre></div>
 
-<h3 id="p0329r4">指示付き初期化子 <a href="https://wg21.link/P0329R4">(P0329R4)</a><a class="headerlink" href="#p0329r4" title="Permanent link">&para;</a></h3>
-<p>C++20 から、集成体において、メンバ変数名を指定した初期化（指示付き初期化子を用いた初期化: "Designated Initialization" ）ができるようになります。C 言語 (C99) にも同様の機能がありますが、C++20 では C99 と比較して以下のような制約が追加されています。</p>
+<h3 id="p0329r4">指示付き初期化子による集成体の初期化 <a href="https://wg21.link/P0329R4">(P0329R4)</a><a class="headerlink" href="#p0329r4" title="Permanent link">&para;</a></h3>
+<p>C++20 から、集成体において、メンバ変数名を指定した初期化（指示付き初期化子を用いた初期化: "Designated Initialization" ）ができるようになります。C 言語 (C99) にも同様の機能がありますが、C++20 では C99 の指示付き初期化子と比較して以下のような制約が追加されています。</p>
 <ul>
 <li>(a) 指示子の順番はメンバの宣言順と同じである必要がある</li>
 <li>(b) 指示付き初期化子と通常の初期化子の混在はできない</li>
@@ -2480,20 +2480,40 @@ C++20 では <code class="codehilite"><span class="err">using</span></code> 宣�
     <span class="n">Point</span> <span class="n">p4</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span> <span class="p">};</span> <span class="c1">// OK: x は 0 に初期化される</span>
     <span class="n">F</span><span class="p">({</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span> <span class="p">});</span> <span class="c1">// OK</span>
 
-    <span class="c1">//Point p4 = { .y = 20, .x = 30 }; // コンパイルエラー: (a) 指示子の順番がメンバの宣言順と異なる</span>
-    <span class="c1">//Point p5 = { .x = 20, 40 }; // コンパイルエラー: (b) 指示付き初期化子と通常の初期化子は混在できない</span>
-    <span class="c1">//Point p6 = { .x = 20, .x = 30, .y = 30 }; // コンパイルエラー: (c) 指示付き初期化子は重複できない</span>
+    <span class="n">Point</span> <span class="n">p4</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">30</span> <span class="p">};</span> <span class="c1">// コンパイルエラー: (a) 指示子の順番がメンバの宣言順と異なる</span>
+    <span class="n">Point</span> <span class="n">p5</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span> <span class="p">};</span> <span class="c1">// コンパイルエラー: (b) 指示付き初期化子と通常の初期化子は混在できない</span>
+    <span class="n">Point</span> <span class="n">p6</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">30</span> <span class="p">};</span> <span class="c1">// コンパイルエラー: (c) 指示付き初期化子は重複できない</span>
 
     <span class="n">Item</span> <span class="n">i1</span><span class="p">{</span> <span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;shield&quot;</span><span class="p">,</span> <span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="p">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">100</span> <span class="p">};</span> <span class="c1">// OK</span>
     <span class="n">Item</span> <span class="n">i2</span><span class="p">{</span> <span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">};</span> <span class="c1">// OK: name は {} で初期化、count は 1 で初期化</span>
 
-    <span class="c1">//Item i3{ .pos.x = 10, .pos.y = 40 }; // コンパイルエラー: (d) 指示付き初期化のネストはできない</span>
+    <span class="n">Item</span> <span class="n">i3</span><span class="p">{</span> <span class="p">.</span><span class="n">pos</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="p">.</span><span class="n">pos</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">40</span> <span class="p">};</span> <span class="c1">// コンパイルエラー: (d) 指示付き初期化のネストはできない</span>
 
-    <span class="c1">//int arr[3] = {[1] = 5}; // コンパイルエラー: (e) 配列の指示付き初期化はできない</span>
+    <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">};</span> <span class="c1">// コンパイルエラー: (e) 配列の指示付き初期化はできない</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>従来までの <code class="codehilite"><span class="err">Point p{}</span></code>, <code class="codehilite"><span class="err">Item i{}</span></code> のような集成体初期化を「指示付き初期化子が 0 個の初期化」と考えると、新しい挙動も理解しやすくなります。</p>
+<p>従来までの <code class="codehilite"><span class="err">Point p{}</span></code>, <code class="codehilite"><span class="err">Item i{}</span></code> のような集成体初期化を「指示付き初期化子が 0 個の初期化」と考えると、新しい挙動も理解しやすくなります。なお、次のように集成体ではないクラスの初期化には、指示付き初期化子は使えません。</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Point</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">Point</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="n">Point</span><span class="p">(</span><span class="kt">int</span> <span class="n">_x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_y</span><span class="p">)</span>
+        <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">_x</span><span class="p">)</span>
+        <span class="p">,</span> <span class="n">y</span><span class="p">(</span><span class="n">_y</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// コンパイルエラー:</span>
+    <span class="c1">// ユーザ宣言されたコンストラクタを持つため集成体ではない</span>
+    <span class="c1">// 集成体ではないため指示付き初期化子は使えない</span>
+    <span class="n">Point</span> <span class="n">p</span><span class="p">{</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">};</span> 
+<span class="p">}</span>
+</code></pre></div>
+
 <h2 id="_2">標準ライブラリ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="p0457r2">文字列の先頭や末尾が、ある文字列と一致するか判定 <a href="https://wg21.link/P0457R2">(P0457R2)</a><a class="headerlink" href="#p0457r2" title="Permanent link">&para;</a></h3>
 <p><code class="codehilite"><span class="c">std::basic_string</span></code> と <code class="codehilite"><span class="c">std::basic_string_view</span></code> に、<code class="codehilite"><span class="err">starts_with()</span></code> と <code class="codehilite"><span class="err">ends_with()</span></code> メンバ関数が追加されます。

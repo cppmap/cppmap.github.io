@@ -531,6 +531,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#p0329r4" class="md-nav__link">
+    指示付き初期化子 (P0329R4)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -785,6 +792,13 @@
           <li class="md-nav__item">
   <a href="#p0553r4" class="md-nav__link">
     ビット循環シフト・ビットカウント関数 (P0553R4)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdarray-stdto_array-p0325r4" class="md-nav__link">
+    組み込み配列から std::array を作成する std::to_array() (P0325R4)
   </a>
   
 </li>
@@ -1426,6 +1440,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#p0329r4" class="md-nav__link">
+    指示付き初期化子 (P0329R4)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1680,6 +1701,13 @@
           <li class="md-nav__item">
   <a href="#p0553r4" class="md-nav__link">
     ビット循環シフト・ビットカウント関数 (P0553R4)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdarray-stdto_array-p0325r4" class="md-nav__link">
+    組み込み配列から std::array を作成する std::to_array() (P0325R4)
   </a>
   
 </li>
@@ -2418,6 +2446,54 @@ C++20 では <code class="codehilite"><span class="err">using</span></code> 宣�
 <span class="err">1 warning generated.</span>
 </code></pre></div>
 
+<h3 id="p0329r4">指示付き初期化子 <a href="https://wg21.link/P0329R4">(P0329R4)</a><a class="headerlink" href="#p0329r4" title="Permanent link">&para;</a></h3>
+<p>C++20 から、集成体において、メンバ変数名を指定した初期化（指示付き初期化子を用いた初期化: "Designated Initialization" ）ができるようになります。C 言語 (C99) にも同様の機能がありますが、C++20 では C99 と比較して以下のような制約が追加されています。</p>
+<ul>
+<li>(a) 指示子の順番はメンバの宣言順と同じである必要がある</li>
+<li>(b) 指示付き初期化子と通常の初期化子の混在はできない</li>
+<li>(c) 指示付き初期化は重複できない</li>
+<li>(d) 指示付き初期化のネストはできない</li>
+<li>(e) 配列の指示付き初期化はできない</li>
+</ul>
+<p>また、初期化子の評価順序が左から右であることが保証されます。</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Point</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">Item</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">F</span><span class="p">(</span><span class="n">Point</span><span class="p">)</span> <span class="p">{}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Point</span> <span class="n">p1</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span> <span class="p">};</span> <span class="c1">// OK</span>
+    <span class="n">Point</span> <span class="n">p2</span><span class="p">{</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span> <span class="p">};</span> <span class="c1">// OK</span>
+    <span class="n">Point</span> <span class="n">p3</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">};</span> <span class="c1">// OK: y は 0 に初期化される</span>
+    <span class="n">Point</span> <span class="n">p4</span> <span class="o">=</span> <span class="p">{</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span> <span class="p">};</span> <span class="c1">// OK: x は 0 に初期化される</span>
+    <span class="n">F</span><span class="p">({</span> <span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span> <span class="p">});</span> <span class="c1">// OK</span>
+
+    <span class="c1">//Point p4 = { .y = 20, .x = 30 }; // コンパイルエラー: (a) 指示子の順番がメンバの宣言順と異なる</span>
+    <span class="c1">//Point p5 = { .x = 20, 40 }; // コンパイルエラー: (b) 指示付き初期化子と通常の初期化子は混在できない</span>
+    <span class="c1">//Point p6 = { .x = 20, .x = 30, .y = 30 }; // コンパイルエラー: (c) 指示付き初期化子は重複できない</span>
+
+    <span class="n">Item</span> <span class="n">i1</span><span class="p">{</span> <span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;shield&quot;</span><span class="p">,</span> <span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="p">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">100</span> <span class="p">};</span> <span class="c1">// OK</span>
+    <span class="n">Item</span> <span class="n">i2</span><span class="p">{</span> <span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">};</span> <span class="c1">// OK: name は {} で初期化、count は 1 で初期化</span>
+
+    <span class="c1">//Item i3{ .pos.x = 10, .pos.y = 40 }; // コンパイルエラー: (d) 指示付き初期化のネストはできない</span>
+
+    <span class="c1">//int arr[3] = {[1] = 5}; // コンパイルエラー: (e) 配列の指示付き初期化はできない</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>従来までの <code class="codehilite"><span class="err">Point p{}</span></code>, <code class="codehilite"><span class="err">Item i{}</span></code> のような集成体初期化を「指示付き初期化子が 0 個の初期化」と考えると、新しい挙動も理解しやすくなります。</p>
 <h2 id="_2">標準ライブラリ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="p0457r2">文字列の先頭や末尾が、ある文字列と一致するか判定 <a href="https://wg21.link/P0457R2">(P0457R2)</a><a class="headerlink" href="#p0457r2" title="Permanent link">&para;</a></h3>
 <p><code class="codehilite"><span class="c">std::basic_string</span></code> と <code class="codehilite"><span class="c">std::basic_string_view</span></code> に、<code class="codehilite"><span class="err">starts_with()</span></code> と <code class="codehilite"><span class="err">ends_with()</span></code> メンバ関数が追加されます。
@@ -3408,6 +3484,41 @@ C++17 の <code class="codehilite"><span class="c">std::accumulate()</span></cod
 <span class="mi">0</span>
 <span class="mi">4</span>
 </code></pre></div></p>
+<h3 id="stdarray-stdto_array-p0325r4">組み込み配列から <code class="codehilite"><span class="c">std::array</span></code> を作成する <code class="codehilite"><span class="c">std::to_array()</span></code> <a href="https://wg21.link/P0325R4">(P0325R4)</a><a class="headerlink" href="#stdarray-stdto_array-p0325r4" title="Permanent link">&para;</a></h3>
+<p>C++17 で導入された型推論ガイドによって、<code class="codehilite"><span class="c">std::array</span></code> で次のようなコードが書けるようになりました。</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">auto</span> <span class="n">a</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">};</span> <span class="c1">// std::array&lt;int, 3&gt;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>しかし、<code class="codehilite"><span class="err">&quot;hello&quot;</span></code> や <code class="codehilite"><span class="err">int[4]</span></code> のような組み込み配列から <code class="codehilite"><span class="c">std::array&lt;char, 6&gt;</span></code> や <code class="codehilite"><span class="c">std::array&lt;int, 4&gt;</span></code> を作成する方法はありませんでした。</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">auto</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="p">{</span> <span class="s">&quot;hello&quot;</span> <span class="p">};</span> <span class="c1">// std::array&lt;const char*, 1&gt;</span>
+
+    <span class="kt">int</span> <span class="n">xs</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span> <span class="p">};</span>
+    <span class="k">auto</span> <span class="n">a2</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="p">{</span> <span class="n">xs</span> <span class="p">};</span> <span class="c1">// std::array&lt;int*, 1&gt;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>C++20 では、組み込み配列の左辺値または右辺値を引数にとり、値をコピー（ムーブ）して新しい <code class="codehilite"><span class="c">std::array</span></code> を作成する補助関数 <code class="codehilite"><span class="c">std::to_array()</span></code> が追加され、組み込み配列からの <code class="codehilite"><span class="c">std::array</span></code> の作成が簡単になりました。</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">auto</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">to_array</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span> <span class="c1">// std::array&lt;char, 6&gt;</span>
+
+    <span class="kt">int</span> <span class="n">xs</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span> <span class="p">};</span>
+    <span class="k">auto</span> <span class="n">a2</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">to_array</span><span class="p">(</span><span class="n">xs</span><span class="p">);</span> <span class="c1">// std::array&lt;int, 4&gt;</span>
+
+    <span class="k">auto</span> <span class="n">a3</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">to_array</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span><span class="p">({</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">});</span> <span class="c1">// std::array&lt;long, 2&gt;</span>
+<span class="p">}</span>
+</code></pre></div>
                 
                   
                 

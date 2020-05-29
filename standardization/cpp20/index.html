@@ -803,6 +803,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stdfilesystemcreate_directory-p1164r1" class="md-nav__link">
+    std::filesystem::create_directory() の挙動を直感的に (P1164R1)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1708,6 +1715,13 @@
           <li class="md-nav__item">
   <a href="#stdarray-stdto_array-p0325r4" class="md-nav__link">
     組み込み配列から std::array を作成する std::to_array() (P0325R4)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdfilesystemcreate_directory-p1164r1" class="md-nav__link">
+    std::filesystem::create_directory() の挙動を直感的に (P1164R1)
   </a>
   
 </li>
@@ -3539,6 +3553,14 @@ C++17 の <code class="codehilite"><span class="c">std::accumulate()</span></cod
     <span class="k">auto</span> <span class="n">a3</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">to_array</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span><span class="p">({</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">});</span> <span class="c1">// std::array&lt;long, 2&gt;</span>
 <span class="p">}</span>
 </code></pre></div>
+
+<h3 id="stdfilesystemcreate_directory-p1164r1"><code class="codehilite"><span class="c">std::filesystem::create_directory()</span></code> の挙動を直感的に <a href="https://wg21.link/P1164R1">(P1164R1)</a><a class="headerlink" href="#stdfilesystemcreate_directory-p1164r1" title="Permanent link">&para;</a></h3>
+<p>C++17 で導入された <code class="codehilite"><span class="c">std::filesystem::create_directory()</span></code> および <code class="codehilite"><span class="c">std::filesystem::create_directories()</span></code> の当初の仕様では、</p>
+<ul>
+<li>新しく作成するディレクトリのパスと同名のファイルが存在するときにはエラーにならない</li>
+<li>新しく作成するディレクトリのパスが <code class="codehilite"><span class="err">&quot;a/b/c&quot;</span></code> であるとき、すでに <code class="codehilite"><span class="err">&quot;a/b&quot;</span></code> という名前のファイルが存在する場合はエラーとなる一方で、<code class="codehilite"><span class="err">&quot;a/b/c&quot;</span></code> というファイルが存在する場合にはエラーにならない</li>
+</ul>
+<p>という、対処しにくく一貫しない挙動がありました。C++20 では同名の（ディレクトリでない）ファイルが存在する場合は常にエラーになるよう仕様が修正されます。この変更は C++17 規格にさかのぼって適用され、対応した C++17 環境でも利用できます。</p>
                 
                   
                 

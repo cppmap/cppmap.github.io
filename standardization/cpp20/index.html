@@ -608,8 +608,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#key_type-p0919r3" class="md-nav__link">
-    非順序連想コンテナのルックアップ操作で、key_type と比較可能な型を変換せずに使えるように (P0919R3)
+  <a href="#key_type-p0919r3-p1690r1" class="md-nav__link">
+    非順序連想コンテナのルックアップ操作で、key_type と比較可能な型を変換せずに使えるように (P0919R3), (P1690R1)
   </a>
   
 </li>
@@ -1548,8 +1548,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#key_type-p0919r3" class="md-nav__link">
-    非順序連想コンテナのルックアップ操作で、key_type と比較可能な型を変換せずに使えるように (P0919R3)
+  <a href="#key_type-p0919r3-p1690r1" class="md-nav__link">
+    非順序連想コンテナのルックアップ操作で、key_type と比較可能な型を変換せずに使えるように (P0919R3), (P1690R1)
   </a>
   
 </li>
@@ -2705,7 +2705,7 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
 <span class="err">4.63281e+30</span>
 <span class="err">2.32703e+17</span>
 </code></pre></div></p>
-<h3 id="key_type-p0919r3">非順序連想コンテナのルックアップ操作で、<code class="codehilite"><span class="err">key_type</span></code> と比較可能な型を変換せずに使えるように <a href="http://wg21.link/P0919r3">(P0919R3)</a><a class="headerlink" href="#key_type-p0919r3" title="Permanent link">&para;</a></h3>
+<h3 id="key_type-p0919r3-p1690r1">非順序連想コンテナのルックアップ操作で、<code class="codehilite"><span class="err">key_type</span></code> と比較可能な型を変換せずに使えるように <a href="http://wg21.link/P0919r3">(P0919R3)</a>, <a href="http://wg21.link/P1690R1">(P1690R1)</a><a class="headerlink" href="#key_type-p0919r3-p1690r1" title="Permanent link">&para;</a></h3>
 <p>C++17 までの <code class="codehilite"><span class="err">unorderd_map</span></code> や <code class="codehilite"><span class="err">unordered_set</span></code> など非順序連想コンテナでは、<code class="codehilite"><span class="err">find()</span></code>, <code class="codehilite"><span class="err">count()</span></code>, <code class="codehilite"><span class="err">equal_range()</span></code> などルックアップを行うメンバ関数は引数に <code class="codehilite"><span class="err">key_type</span></code> をとり、例えば次のようなケースで <code class="codehilite"><span class="c">std::string</span></code> 型の一時オブジェクトが作成されて非効率でした。</p>
 <div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
@@ -2718,15 +2718,22 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
 <span class="p">}</span>
 </code></pre></div>
 
-<p>C++20 では、非順序連想コンテナのテンプレートパラメータ <code class="codehilite"><span class="err">Hash</span></code> が <code class="codehilite"><span class="err">transparent_key_equal</span></code> タグを持つときに、<code class="codehilite"><span class="err">key_type</span></code> 以外の型を引数にとるメンバ関数テンプレートのオーバーロードが使用可能になり、一時オブジェクトの作成を回避できるようになります。</p>
+<p>C++20 では、非順序連想コンテナのテンプレートパラメータについて <code class="codehilite"><span class="c">Hash::is_transparent</span></code> と <code class="codehilite"><span class="c">Pred::is_transparent</span></code> が存在するときに、<code class="codehilite"><span class="err">key_type</span></code> 以外の型を引数にとるメンバ関数テンプレートのオーバーロードが使用可能になり、一時オブジェクトの作成を回避できるようになります。</p>
 <div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string_view&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
 
+<span class="k">struct</span> <span class="n">string_compare</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="n">is_transparent</span> <span class="o">=</span> <span class="kt">void</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="nf">operator</span><span class="p">()(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">key</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">txt</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">key</span> <span class="o">==</span> <span class="n">txt</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
 <span class="k">struct</span> <span class="n">string_hash</span>
 <span class="p">{</span>
-    <span class="k">using</span> <span class="n">transparent_key_equal</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">equal_to</span><span class="o">&lt;&gt;</span><span class="p">;</span>  <span class="c1">// KeyEqual to use</span>
-    <span class="k">using</span> <span class="n">hash_type</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="o">&gt;</span><span class="p">;</span>  <span class="c1">// helper local type</span>
+    <span class="k">using</span> <span class="n">is_transparent</span> <span class="o">=</span> <span class="kt">void</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">transparent_key_equal</span> <span class="o">=</span> <span class="n">string_compare</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">hash_type</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// helper local type</span>
     <span class="kt">size_t</span> <span class="nf">operator</span><span class="p">()(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">txt</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">hash_type</span><span class="p">{}(</span><span class="n">txt</span><span class="p">);</span> <span class="p">}</span>
     <span class="kt">size_t</span> <span class="nf">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">txt</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">hash_type</span><span class="p">{}(</span><span class="n">txt</span><span class="p">);</span> <span class="p">}</span>
     <span class="kt">size_t</span> <span class="nf">operator</span><span class="p">()(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">txt</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">hash_type</span><span class="p">{}(</span><span class="n">txt</span><span class="p">);</span> <span class="p">}</span>
@@ -2736,7 +2743,7 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
 <span class="p">{</span>
     <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">literals</span><span class="p">;</span>
 
-    <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="n">string_hash</span><span class="o">&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="n">string_hash</span><span class="p">,</span> <span class="n">string_compare</span><span class="o">&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">};</span>
 
     <span class="k">auto</span> <span class="n">it1</span> <span class="o">=</span> <span class="n">table</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span> <span class="c1">// std::string 型の一時オブジェクトは作成されない</span>
 

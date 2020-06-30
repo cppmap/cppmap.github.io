@@ -508,6 +508,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#stdprint" class="md-nav__link">
+    std::print()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#executors" class="md-nav__link">
     Executors
   </a>
@@ -1137,6 +1144,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#stdprint" class="md-nav__link">
+    std::print()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#executors" class="md-nav__link">
     Executors
   </a>
@@ -1436,6 +1450,14 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 <div class="codehilite"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span><span class="p">;</span>
 <span class="n">s</span> <span class="o">=</span> <span class="mf">48.0</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<h2 id="stdprint"><code class="codehilite"><span class="c">std::print()</span></code><a class="headerlink" href="#stdprint" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/P2093">Formatted output (P2093)</a></li>
+</ul>
+<p>C++20 の <code class="codehilite"><span class="c">std::format</span></code> をベースにした新しい標準出力 API, <code class="codehilite"><span class="c">std::print()</span></code> を導入する提案です。<code class="codehilite"><span class="c">std::cout</span></code> に比べて、Unicode 対応、使いやすさや実行時性能の向上、バイナリサイズの削減が期待されます。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, {}!&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
 </code></pre></div>
 
 <h2 id="executors">Executors<a class="headerlink" href="#executors" title="Permanent link">&para;</a></h2>

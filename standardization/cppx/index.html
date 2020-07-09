@@ -1,0 +1,1564 @@
+
+
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="C++23 以降に向けて議論が進行中のおもな提案の紹介">
+      
+      
+        <link rel="canonical" href="https://cppmap.github.io/standardization/cppx/">
+      
+      
+        <meta name="author" content="Ryo Suzuki">
+      
+      <link rel="shortcut icon" href="../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+    
+    
+      
+        <title>C++23 以降に向けた提案 - C++ の歩き方 | CppMap</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../../cppmap_styles.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#c23" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://cppmap.github.io/" title="C++ の歩き方 | CppMap" class="md-header-nav__button md-logo" aria-label="C++ の歩き方 | CppMap">
+      
+  <img src="../../images/donut_small-white-24dp.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            C++ の歩き方 | CppMap
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              C++23 以降に向けた提案
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/cppmap/cppmap.docs" title="リポジトリへ" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cppmap/cppmap.docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../cpp20/" class="md-tabs__link md-tabs__link--active">
+          C++ 規格
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../articles/comment-tricks/" class="md-tabs__link">
+          記事
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../learn/books/" class="md-tabs__link">
+          学習
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../libraries/boost/" class="md-tabs__link">
+          ライブラリ
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../tools/onlinecompilers/" class="md-tabs__link">
+          ツール
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../contribution/contributors/" class="md-tabs__link">
+          貢献
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://cppmap.github.io/" title="C++ の歩き方 | CppMap" class="md-nav__button md-logo" aria-label="C++ の歩き方 | CppMap">
+      
+  <img src="../../images/donut_small-white-24dp.svg" alt="logo">
+
+    </a>
+    C++ の歩き方 | CppMap
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cppmap/cppmap.docs" title="リポジトリへ" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cppmap/cppmap.docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      C++ 規格
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="C++ 規格" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        C++ 規格
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cpp20/" title="C++20 の新機能" class="md-nav__link">
+      C++20 の新機能
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        C++23 以降に向けた提案
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="C++23 以降に向けた提案" class="md-nav__link md-nav__link--active">
+      C++23 以降に向けた提案
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    標準ライブラリ モジュール
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operator" class="md-nav__link">
+    operator[] に複数の引数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    低レベル オーディオ API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ネットワーク
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    リフレクション
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    パターンマッチング
+  </a>
+  
+    <nav class="md-nav" aria-label="パターンマッチング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    整数のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    文字列のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuples" class="md-nav__link">
+    Tuples のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variants" class="md-nav__link">
+    Variants のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymorphic-types" class="md-nav__link">
+    Polymorphic Types のマッチング
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    拡張浮動小数点数型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode" class="md-nav__link">
+    Unicode 名による文字エスケープ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stdstringoperatorchar" class="md-nav__link">
+    std::string::operator=(char) の問題の解消
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stdprint" class="md-nav__link">
+    std::print()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executors" class="md-nav__link">
+    Executors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    コルーチンのライブラリサポート
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    契約プログラミング
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../meetings/" title="標準化会議" class="md-nav__link">
+      標準化会議
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../status/" title="処理系の対応状況" class="md-nav__link">
+      処理系の対応状況
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../working-drafts/" title="C++ 規格書" class="md-nav__link">
+      C++ 規格書
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../header/" title="C++ 標準ライブラリ" class="md-nav__link">
+      C++ 標準ライブラリ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      記事
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="記事" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        記事
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../articles/comment-tricks/" title="コメントアウトのトリック" class="md-nav__link">
+      コメントアウトのトリック
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../articles/it-compiles/" title="なぜかコンパイルできる" class="md-nav__link">
+      なぜかコンパイルできる
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../articles/it-does-not-compile/" title="なぜかコンパイルできない" class="md-nav__link">
+      なぜかコンパイルできない
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../articles/how-to-read-keywords/" title="予約語の読みと名前の由来" class="md-nav__link">
+      予約語の読みと名前の由来
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../articles/how-to-read-libraries/" title="標準ライブラリの読みと名前の由来" class="md-nav__link">
+      標準ライブラリの読みと名前の由来
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../articles/ieee754-arithmetic/" title="IEEE 754 演算のルール" class="md-nav__link">
+      IEEE 754 演算のルール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../articles/acronyms/" title="C++ 関連の略語" class="md-nav__link">
+      C++ 関連の略語
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../articles/type-traits/" title="C++ 型特性 早見表" class="md-nav__link">
+      C++ 型特性 早見表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../articles/member-access/" title="C++ アクセス指定子の効果" class="md-nav__link">
+      C++ アクセス指定子の効果
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      学習
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="学習" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        学習
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../learn/books/" title="C++ 書籍" class="md-nav__link">
+      C++ 書籍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../learn/online-resources/" title="C++ オンライン資料" class="md-nav__link">
+      C++ オンライン資料
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../learn/studymeetings/" title="国内の C++ 勉強会" class="md-nav__link">
+      国内の C++ 勉強会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../learn/communities/" title="C++ コミュニティ" class="md-nav__link">
+      C++ コミュニティ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../learn/conferences/" title="C++ カンファレンス" class="md-nav__link">
+      C++ カンファレンス
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      ライブラリ
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="ライブラリ" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        ライブラリ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../libraries/boost/" title="Boost" class="md-nav__link">
+      Boost
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../libraries/containers/" title="コンテナ" class="md-nav__link">
+      コンテナ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../libraries/text-data/" title="テキストデータ" class="md-nav__link">
+      テキストデータ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../libraries/concurrency/" title="並行・並列" class="md-nav__link">
+      並行・並列
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../libraries/testing/" title="テストフレームワーク" class="md-nav__link">
+      テストフレームワーク
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../libraries/math/" title="数学" class="md-nav__link">
+      数学
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      ツール
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="ツール" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        ツール
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tools/onlinecompilers/" title="C++ オンラインコンパイラ" class="md-nav__link">
+      C++ オンラインコンパイラ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tools/compilers/" title="C++ コンパイラ" class="md-nav__link">
+      C++ コンパイラ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tools/package-manager/" title="C++ パッケージマネージャ" class="md-nav__link">
+      C++ パッケージマネージャ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tools/code-formatter/" title="C++ コードフォーマッタ" class="md-nav__link">
+      C++ コードフォーマッタ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tools/project-template/" title="C++ プロジェクトテンプレート" class="md-nav__link">
+      C++ プロジェクトテンプレート
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      貢献
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="貢献" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        貢献
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../contribution/contributors/" title="コントリビュータ" class="md-nav__link">
+      コントリビュータ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    標準ライブラリ モジュール
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operator" class="md-nav__link">
+    operator[] に複数の引数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    低レベル オーディオ API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ネットワーク
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    リフレクション
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    パターンマッチング
+  </a>
+  
+    <nav class="md-nav" aria-label="パターンマッチング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    整数のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    文字列のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuples" class="md-nav__link">
+    Tuples のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variants" class="md-nav__link">
+    Variants のマッチング
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymorphic-types" class="md-nav__link">
+    Polymorphic Types のマッチング
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    拡張浮動小数点数型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode" class="md-nav__link">
+    Unicode 名による文字エスケープ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stdstringoperatorchar" class="md-nav__link">
+    std::string::operator=(char) の問題の解消
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stdprint" class="md-nav__link">
+    std::print()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executors" class="md-nav__link">
+    Executors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    コルーチンのライブラリサポート
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    契約プログラミング
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="c23">C++23 以降に向けた提案<a class="headerlink" href="#c23" title="Permanent link">&para;</a></h1>
+<p>議論が進行中のおもな提案です。標準化会議によって規格化が妥当でないと判断された場合は採択されません。</p>
+<h2 id="_1">標準ライブラリ モジュール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/p0581">Standard Library Modules (P0581)</a> </li>
+</ul>
+<p><code>&lt;iostream&gt;</code> や <code>&lt;vector&gt;</code> など、すべての C++ 標準ライブラリヘッダをモジュールとして提供する提案です。言語機能としてのモジュールは C++20 に導入されましたが、標準ライブラリへの導入は議論が間に合わず、C++23 に先送りされました。標準ライブラリのモジュールへの移行に合わせて、<a href="https://wg21.link/p1453">標準ライブラリを再編成する提案</a>も出されています。</p>
+<h2 id="operator"><code>operator[]</code> に複数の引数<a class="headerlink" href="#operator" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/p1277">Subscripts On Parade (P1277)</a></li>
+</ul>
+<p><code>m[i, j, k]</code> のように、<code>operator[]</code> の引数に複数の値を渡せるようにする提案です。多次元配列の要素に簡潔な式でアクセスできるようになります。この書き方は、C++17 規格ではコンマ演算子と解釈されて <code>m[k]</code> になってしまうため、まずは<a href="https://wg21.link/p1161">現行の文法を deprecated にする提案</a>が提出されています。<code>std::span</code> の多次元版である <a href="https://github.com/kokkos/array_ref"><code>std::mdspan</code> の提案</a>での活用も期待されます。</p>
+<h2 id="api">低レベル オーディオ API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/p1386">A Standard Audio API for C++:
+Motivation, Scope, and Basic Design (P1386)</a></li>
+</ul>
+<p>音声再生・録音を行う低レベル API <code>std::audio</code> を追加する提案です。以前頓挫した 2D Graphics API の標準化に比べれば、枯れている技術なので実現可能性は低くはなさそうです。波形データをオーディオデバイスとやり取りすることが主要な役割で、音声コーデックやフィルタなどの機能は提供しません。<a href="https://github.com/stdcpp-audio/libstdaudio">実験的な実装を公開</a>して、設計に関するフィードバックを集めている段階です。</p>
+<h2 id="_2">ネットワーク<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/n4734">Working Draft, C++ Extensions for Networking (N4734)</a></li>
+</ul>
+<p>ネットワーク機能を標準ライブラリに導入する提案です。<a href="https://www.boost.org/doc/libs/release/doc/html/boost_asio.html">Boost.Asio</a> をベースに、ソケット通信、名前解決、インターネットプロトコル、タイマー、バッファ、非同期処理のための各種機能を実装する予定です。</p>
+<h2 id="_3">リフレクション<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/n4818">Working Draft, C++ Extensions for Reﬂection (N4818)</a></li>
+</ul>
+<p>C++ にリフレクションを導入する提案です。C# のような動的なリフレクションではなく、コンパイル時に情報を取得する静的なリフレクションです。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;experimental/reflect&gt;</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">experimental</span><span class="o">::</span><span class="n">reflect</span><span class="p">;</span>
+
+<span class="k">constexpr</span> <span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">arg1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">arg2</span><span class="p">);</span>
+
+<span class="k">using</span> <span class="n">f_mobj</span> <span class="o">=</span> <span class="n">reflexpr</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+
+<span class="k">auto</span> <span class="n">name</span> <span class="o">=</span> <span class="n">get_name_v</span><span class="o">&lt;</span><span class="n">get_element_t</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="n">get_parameters_t</span><span class="o">&lt;</span><span class="n">f_mobj</span><span class="o">&gt;&gt;&gt;</span><span class="p">;</span> <span class="c1">// &quot;arg1&quot;</span>
+
+<span class="k">auto</span> <span class="n">is_constexpr_function</span> <span class="o">=</span> <span class="n">is_constexpr</span><span class="o">&lt;</span><span class="n">f_mobj</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span> <span class="c1">// true</span>
+</code></pre></div>
+
+<p>この機能を前提とした<a href="https://wg21.link/p0707">メタクラスの提案</a>も議論が進んでいます。</p>
+<h2 id="_4">パターンマッチング<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/p1371">Pattern Matching (P1371)</a></li>
+</ul>
+<p><code>std::tuple</code> や <code>std::variant</code> で C++ における代数的データ型の表現が広がりましたが、それらを扱うための <code>std::apply</code> や <code>std::visit</code> は複雑で多くの制約があります。C++ 以外のプログラミング言語にならい、パターンマッチングを導入してこの問題を解決する提案です。この提案では、より宣言的で構造化された <code>switch</code> 文として、<code>inspect</code> 文/式という新しい文法の導入を提案しています。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// inspect 文の文法</span>
+<span class="n">inspect</span> <span class="nf">constexpr_opt</span> <span class="p">(</span><span class="n">init</span><span class="o">-</span><span class="n">statement_opt</span> <span class="n">condition</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">pattern</span> <span class="nl">guard_opt</span> <span class="p">:</span> <span class="n">statement</span>
+    <span class="n">pattern</span> <span class="nl">guard_opt</span> <span class="p">:</span> <span class="n">statement</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+
+<span class="c1">// inspect 式の文法</span>
+<span class="n">inspect</span> <span class="nf">constexpr_opt</span> <span class="p">(</span><span class="n">init</span><span class="o">-</span><span class="n">statement_opt</span> <span class="n">condition</span><span class="p">)</span> <span class="n">trailing</span><span class="o">-</span><span class="k">return</span><span class="o">-</span><span class="n">type_opt</span>
+<span class="p">{</span>
+    <span class="n">pattern</span> <span class="n">guard_opt</span> <span class="o">=&gt;</span> <span class="n">expression</span> <span class="p">,</span>
+    <span class="n">pattern</span> <span class="n">guard_opt</span> <span class="o">=&gt;</span> <span class="n">expression</span> <span class="p">,</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="_5">整数のマッチング<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set" data-tabs="1:2">
+<input name="__tabbed_1" type="radio" id="__tabbed_1_1" checked="checked" /><label for="__tabbed_1_1">現在</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="k">switch</span> <span class="p">(</span><span class="n">code</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="mi">200</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;OK</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">404</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not Found</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;don&#39;t care</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<input name="__tabbed_1" type="radio" id="__tabbed_1_2" /><label for="__tabbed_1_2">提案</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="n">inspect</span> <span class="p">(</span><span class="n">code</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="mi">200</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;OK</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="mi">404</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not Found</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="nl">__</span><span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;don&#39;t care</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="c1">// __ はワイルドカードパターン</span>
+<span class="p">}</span>
+</code></pre></div></div>
+</div>
+<h3 id="_6">文字列のマッチング<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set" data-tabs="2:2">
+<input name="__tabbed_2" type="radio" id="__tabbed_2_1" checked="checked" /><label for="__tabbed_2_1">現在</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="s">&quot;png&quot;</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;PNG Image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="s">&quot;jpg&quot;</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;JPEG Image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not supported</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<input name="__tabbed_2" type="radio" id="__tabbed_2_2" /><label for="__tabbed_2_2">提案</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="n">inspect</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="s">&quot;png&quot;</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;PNG Image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="s">&quot;jpg&quot;</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;JPEG Image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="nl">__</span><span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not supported</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+</div>
+<h3 id="tuples">Tuples のマッチング<a class="headerlink" href="#tuples" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set" data-tabs="3:2">
+<input name="__tabbed_3" type="radio" id="__tabbed_3_1" checked="checked" /><label for="__tabbed_3_1">現在</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">pos</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the origin</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on X-axis</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on Y-axis</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<input name="__tabbed_3" type="radio" id="__tabbed_3_2" /><label for="__tabbed_3_2">提案</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="n">inspect</span> <span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the origin</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the X-axis</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the Y-axis</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+</div>
+<h3 id="variants">Variants のマッチング<a class="headerlink" href="#variants" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set" data-tabs="4:2">
+<input name="__tabbed_4" type="radio" id="__tabbed_4_1" checked="checked" /><label for="__tabbed_4_1">現在</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="n">Visitor</span>
+<span class="p">{</span>
+    <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;int: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">float</span> <span class="n">f</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;float: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">variant</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">float</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="mf">3.14f</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">visit</span><span class="p">(</span><span class="n">Visitor</span><span class="p">{},</span> <span class="n">v</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<input name="__tabbed_4" type="radio" id="__tabbed_4_2" /><label for="__tabbed_4_2">提案</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">variant</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">float</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="mf">3.14f</span><span class="p">;</span>
+
+    <span class="n">inspect</span> <span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="nl">i</span><span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;int: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+        <span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="nl">f</span><span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;float: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+</div>
+<h3 id="polymorphic-types">Polymorphic Types のマッチング<a class="headerlink" href="#polymorphic-types" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set" data-tabs="5:2">
+<input name="__tabbed_5" type="radio" id="__tabbed_5_1" checked="checked" /><label for="__tabbed_5_1">現在</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">Shape</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">Circle</span> <span class="p">:</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">radius</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">Rectangle</span> <span class="p">:</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">width</span> <span class="o">*</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+<input name="__tabbed_5" type="radio" id="__tabbed_5_2" /><label for="__tabbed_5_2">提案</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">Shape</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">Circle</span> <span class="p">:</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">radius</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">Rectangle</span> <span class="p">:</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">double</span> <span class="nf">Area</span><span class="p">(</span><span class="k">const</span> <span class="n">Shape</span><span class="o">&amp;</span> <span class="n">shape</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">inspect</span> <span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="o">&lt;</span><span class="n">Circle</span><span class="o">&gt;</span>    <span class="p">[</span><span class="n">r</span><span class="p">]</span>     <span class="o">=&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="p">,</span> <span class="c1">// inspect 式では =&gt; を使う</span>
+        <span class="o">&lt;</span><span class="n">Rectangle</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">]</span>  <span class="o">=&gt;</span> <span class="n">w</span> <span class="o">*</span> <span class="n">h</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+</div>
+<h2 id="_7">拡張浮動小数点数型<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/P1467">Extended floating-point types (P1467)</a></li>
+<li><a href="https://wg21.link/P1468">Fixed-layout floating-point type aliases (P1468)</a></li>
+</ul>
+<p><code>float</code>, <code>double</code>, <code>long double</code> 以外の浮動小数点数型の実装を可能にする提案です。コンピュータグラフィックスや機械学習分野で使用頻度が増えている半精度 (16-bit) 浮動小数点数型を、組み込み型として提供できるようにすることが主な目的です。</p>
+<h2 id="unicode">Unicode 名による文字エスケープ<a class="headerlink" href="#unicode" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/P2071">Named universal character escapes (P2071)</a></li>
+</ul>
+<p>Python などで採用されている、Unicode 名による文字エスケープを導入する提案です。不可視文字や似ている字形を文字 / 文字列リテラルで記述する際に役に立ちます。</p>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">a</span> <span class="o">=</span><span class="s">&quot;\N{ZERO WIDTH SPACE}&quot;</span><span class="p">;</span> <span class="c1">// &quot;​&quot; (不可視の空白)</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">b</span> <span class="o">=</span> <span class="s">&quot;\N{GREEK CAPITAL LETTER OMEGA}&quot;</span><span class="p">;</span> <span class="c1">// &quot;Ω&quot;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">c</span> <span class="o">=</span> <span class="s">&quot;\N{OHM SIGN}&quot;</span><span class="p">;</span> <span class="c1">// &quot;Ω&quot;</span>
+</code></pre></div>
+
+<h2 id="stdstringoperatorchar"><code>std::string::operator=(char)</code> の問題の解消<a class="headerlink" href="#stdstringoperatorchar" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/P2037">String's gratuitous assignment (P2037)</a></li>
+</ul>
+<p><code>std::string::operator=(char)</code> によって次のようなコードがコンパイルできてしまう問題の解決を図る提案です。この関数自体を <code>deprecated</code> にすることも解決法の候補として挙げられています。</p>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span><span class="p">;</span>
+<span class="n">s</span> <span class="o">=</span> <span class="mf">48.0</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<h2 id="stdprint"><code>std::print()</code><a class="headerlink" href="#stdprint" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/P2093">Formatted output (P2093)</a></li>
+</ul>
+<p>C++20 の <code>std::format</code> をベースにした新しい標準出力 API, <code>std::print()</code> を導入する提案です。<code>std::cout</code> に比べて、Unicode 対応、使いやすさや実行時性能の向上、バイナリサイズの削減が期待されます。</p>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, {}!&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
+</code></pre></div>
+
+<h2 id="executors">Executors<a class="headerlink" href="#executors" title="Permanent link">&para;</a></h2>
+<h2 id="_8">コルーチンのライブラリサポート<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_9">契約プログラミング<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../cpp20/" title="C++20 の新機能" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                C++20 の新機能
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../meetings/" title="標準化会議" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                標準化会議
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            To the extent possible under law, Ryo Suzuki has waived all copyright and related or neighboring rights to C++ の歩き方 | CppMap. Third party copyrights are property of their respective owners.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/Reputeless" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

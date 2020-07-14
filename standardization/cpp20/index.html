@@ -3611,7 +3611,7 @@ false
 </ul>
 <p>という、対処しにくく一貫しない挙動がありました。C++20 では同名の（ディレクトリでない）ファイルが存在する場合は常にエラーになるよう仕様が修正されます。この変更は C++17 規格にさかのぼって適用され、対応した C++17 環境でも利用できます。</p>
 <h3 id="stdmake_shared-stdallocate_shared-p0674r1"><code>std::make_shared()</code> と <code>std::allocate_shared()</code> が配列をサポート <a href="https://wg21.link/P0674R1">(P0674R1)</a><a class="headerlink" href="#stdmake_shared-stdallocate_shared-p0674r1" title="Permanent link">&para;</a></h3>
-<p>C++11 で導入された <code>std::make_shared()</code>, <code>std::allocate_shared()</code> は配列をサポートしていませんでしたが、C++20 で配列型のためのオーバーロードが追加されました。</p>
+<p>C++11 から提供される <code>std::make_shared()</code>, <code>std::allocate_shared()</code> は配列をサポートしていませんでした。C++20 からは配列型のためのオーバーロードが追加されます。</p>
 <p><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
 

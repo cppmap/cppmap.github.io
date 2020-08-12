@@ -1,139 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://cppmap.github.io/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/standardization/cpp20/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/standardization/cppx/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/standardization/meetings/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/standardization/status/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/standardization/working-drafts/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/standardization/header/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/standardization/npaperbot/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/articles/comment-tricks/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/articles/it-compiles/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/articles/it-does-not-compile/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/articles/how-to-read-keywords/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/articles/how-to-read-libraries/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/articles/ieee754-arithmetic/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/articles/acronyms/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/articles/type-traits/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/articles/member-access/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/learn/books/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/learn/online-resources/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/learn/studymeetings/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/learn/communities/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/learn/conferences/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/libraries/boost/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/libraries/containers/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/libraries/text-data/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/libraries/concurrency/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/libraries/testing/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/libraries/math/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/tools/onlinecompilers/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/tools/compilers/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/tools/package-manager/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/tools/code-formatter/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/tools/project-template/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cppmap.github.io/contribution/contributors/</loc>
-     <lastmod>2020-07-30</lastmod>
+     <lastmod>2020-08-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

@@ -793,6 +793,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stdshift_left-stdshift_right-p0769r2" class="md-nav__link">
+    範囲の要素を左右にシフトする std::shift_left(), std::shift_right() 関数 (P0769R2)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1795,6 +1802,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stdshift_left-stdshift_right-p0769r2" class="md-nav__link">
+    範囲の要素を左右にシフトする std::shift_left(), std::shift_right() 関数 (P0769R2)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2667,7 +2681,7 @@ C++20 では引数を次のように変更し、関数がバッファオーバ�
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span> <span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span> <span class="p">};</span>
 
     <span class="n">v</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span> <span class="c1">// C++20 では警告</span>
 
@@ -3160,8 +3174,8 @@ C++20 で追加される数学定数の一覧は次のとおりです。</p>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">92</span> <span class="p">};</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">li</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">92</span> <span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">92</span> <span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">list</span> <span class="n">li</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">92</span> <span class="p">};</span>
     <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">m</span> <span class="o">=</span> <span class="p">{</span>
         <span class="p">{</span> <span class="s">&quot;aa&quot;</span><span class="p">,</span> <span class="mi">3</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&quot;bb&quot;</span><span class="p">,</span> <span class="mi">14</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&quot;cc&quot;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&quot;dd&quot;</span><span class="p">,</span> <span class="mi">5</span> <span class="p">},</span> <span class="p">{</span> <span class="s">&quot;ee&quot;</span><span class="p">,</span> <span class="mi">92</span> <span class="p">}</span> <span class="p">};</span>
 
@@ -3670,6 +3684,53 @@ false
 0.7
 -2
 0.3
+</code></pre></div></p>
+<h3 id="stdshift_left-stdshift_right-p0769r2">範囲の要素を左右にシフトする <code>std::shift_left()</code>, <code>std::shift_right()</code> 関数 <a href="https://wg21.link/P0769R2">(P0769R2)</a><a class="headerlink" href="#stdshift_left-stdshift_right-p0769r2" title="Permanent link">&para;</a></h3>
+<p>ある範囲の要素を左右に移動させたいときは <code>std::rotate()</code> を使う方法がありましたが、はみ出た分は回転して反対側に移動する操作であるため、それらの値が不要な場合は余計なコストが発生していました。また、<code>std::rotate()</code> では要素をどちらにどれだけ移動するかという意図を明快に表現できませんでした。</p>
+<p>C++20 では、ある範囲の要素を回転無しで移動（シフト）させる <code>std::shift_left(first, last, n)</code>, <code>std::shift_right(first, last, n)</code> 関数が追加されます。移動させる要素の範囲を <code>first</code>, <code>last</code> で指定し、<code>n</code> 個分左右にシフトします。<code>n</code> が 0 以下の場合は何もしません。移動により要素がなくなった部分は有効で未規定の状態になるため、新しい要素を代入するか、<code>erase()</code> で削除します。</p>
+<p><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">};</span>
+
+        <span class="c1">// 左へ 1 ローテ―ト</span>
+        <span class="c1">// { 2, 3, 4, 5, 1 }</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">rotate</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+
+        <span class="n">v</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span><span class="p">;</span> <span class="c1">// 2, 3, 4, 5, 6</span>
+        <span class="p">}</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">vector</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">};</span>
+
+        <span class="c1">// 左へ 1 シフト</span>
+        <span class="c1">// { 2, 3, 4, 5, (未規定) }</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">shift_left</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="mi">1</span><span class="p">);</span>
+
+        <span class="n">v</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span><span class="p">;</span> <span class="c1">// 2, 3, 4, 5, 6</span>
+        <span class="p">}</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>2 3 4 5 6 
+2 3 4 5 6 
 </code></pre></div></p>
                 
                   

@@ -491,6 +491,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#stdto_underlying" class="md-nav__link">
+    列挙型の値を基底型に変換する std::to_underlying()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stdstring-stdstring_view-contains" class="md-nav__link">
+    std::string や std::string_view が、ある文字列を含むかを返す .contains() メンバ関数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    ソート済み配列による連想コンテナ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#executors" class="md-nav__link">
     Executors
   </a>
@@ -498,14 +519,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     コルーチンのライブラリサポート
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     契約プログラミング
   </a>
   
@@ -1182,6 +1203,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#stdto_underlying" class="md-nav__link">
+    列挙型の値を基底型に変換する std::to_underlying()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stdstring-stdstring_view-contains" class="md-nav__link">
+    std::string や std::string_view が、ある文字列を含むかを返す .contains() メンバ関数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    ソート済み配列による連想コンテナ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#executors" class="md-nav__link">
     Executors
   </a>
@@ -1189,14 +1231,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     コルーチンのライブラリサポート
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     契約プログラミング
   </a>
   
@@ -1470,9 +1512,58 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, {}!&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
 </code></pre></div>
 
+<h2 id="stdto_underlying">列挙型の値を基底型に変換する <code>std::to_underlying()</code><a class="headerlink" href="#stdto_underlying" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/P1682">std::to_underlying for enumerations (P1682)</a></li>
+</ul>
+<p><code>enum class</code> を基底型の整数値へ適切に変換するには <code>static_cast&lt;std::underlying_type_t&lt;Enum&gt;&gt;(e)</code> のようなコードを書く必要がありました。これを <code>std::to_underlying(e)</code> で書けるようにする提案です。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;utility&gt;</span><span class="cp"></span>
+
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">Enum</span> <span class="o">:</span> <span class="kt">char</span>
+<span class="p">{</span>
+    <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">F</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span> <span class="p">{}</span>
+<span class="kt">void</span> <span class="nf">F</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{}</span>
+<span class="kt">void</span> <span class="nf">F</span><span class="p">(</span><span class="kt">unsigned</span><span class="p">)</span> <span class="p">{}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Enum</span> <span class="n">e</span> <span class="o">=</span> <span class="n">Enum</span><span class="o">::</span><span class="n">A</span><span class="p">;</span>
+    <span class="n">F</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">to_underlying</span><span class="p">(</span><span class="n">e</span><span class="p">));</span> <span class="c1">// F(char) が呼ばれる</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="stdstring-stdstring_view-contains"><code>std::string</code> や <code>std::string_view</code> が、ある文字列を含むかを返す <code>.contains()</code> メンバ関数<a class="headerlink" href="#stdstring-stdstring_view-contains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/P1679">string contains function (P1679)</a></li>
+</ul>
+<p><code>std::string</code> や <code>std::string_view</code> に、ある文字や文字列が含まれるかを返す <code>.contains(basic_string_view)</code>, <code>.contains(charT)</code>, <code>.contains(const charT*)</code> メンバ関数を追加する提案です。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;C++23&quot;</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="sc">&#39;+&#39;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>   <span class="c1">// true</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="sc">&#39;-&#39;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>   <span class="c1">// false</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&quot;23&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>  <span class="c1">// true</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&quot;20&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>  <span class="c1">// false</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="_8">ソート済み配列による連想コンテナ<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wg21.link/P1222">A Standard flat_set (P1222)</a></li>
+<li><a href="https://wg21.link/P0429">A Standard flat_map (P0429)</a></li>
+</ul>
+<p>ソート済み配列（デフォルトでは vector）を使った連想コンテナ実装 <code>std::flat_set</code>, <code>std::flat_multiset</code>, <code>std::flat_map</code>, <code>std::flat_multimap</code> を標準ライブラリに追加する提案です。</p>
 <h2 id="executors">Executors<a class="headerlink" href="#executors" title="Permanent link">&para;</a></h2>
-<h2 id="_8">コルーチンのライブラリサポート<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<h2 id="_9">契約プログラミング<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_9">コルーチンのライブラリサポート<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_10">契約プログラミング<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
                 
                   
                 

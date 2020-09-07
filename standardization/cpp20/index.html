@@ -800,6 +800,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stdstring_view-p1391r4" class="md-nav__link">
+    std::string_view のコンストラクタに、範囲のイテレータペアを受け取るオーバーロードを追加 (P1391R4)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1805,6 +1812,13 @@
           <li class="md-nav__item">
   <a href="#stdshift_left-stdshift_right-p0769r2" class="md-nav__link">
     範囲の要素を左右にシフトする std::shift_left(), std::shift_right() 関数 (P0769R2)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdstring_view-p1391r4" class="md-nav__link">
+    std::string_view のコンストラクタに、範囲のイテレータペアを受け取るオーバーロードを追加 (P1391R4)
   </a>
   
 </li>
@@ -3731,6 +3745,27 @@ false
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>2 3 4 5 6 
 2 3 4 5 6 
+</code></pre></div></p>
+<h3 id="stdstring_view-p1391r4"><code>std::string_view</code> のコンストラクタに、範囲のイテレータペアを受け取るオーバーロードを追加 <a href="https://wg21.link/P1391R4">(P1391R4)</a><a class="headerlink" href="#stdstring_view-p1391r4" title="Permanent link">&para;</a></h3>
+<p>これまでは、メモリ連続な範囲から <code>std::string_view</code> を作成するには、先頭ポインタとサイズを渡す必要があり、イテレータを使用することはできませんでした。</p>
+<p>C++20 では、イテレータコンセプト <code>std::contiguous_iterator&lt;It&gt;</code> を満たす先頭イテレータ <code>It</code> と、<code>std::sized_sentinel_for&lt;It&gt;</code> を満たすイテレータ <code>End</code> による <code>string_view::string_view(It first, End last);</code> というコンストラクタのオーバーロードが追加されます。これにより、<code>char</code> 型の配列や <code>std::vector&lt;char&gt;</code>, 非標準のライブラリで使われている様々な文字列クラスからの <code>std::string_view</code> の構築が、イテレータを使う方法で実現できるようになります。</p>
+<p><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string_view&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">chars</span> <span class="o">=</span> <span class="p">{</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;B&#39;</span><span class="p">,</span> <span class="sc">&#39;C&#39;</span><span class="p">,</span> <span class="sc">&#39;D&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span> <span class="p">};</span>
+
+    <span class="c1">// C++17 まで</span>
+    <span class="c1">//const std::string_view sv{ chars.data(), chars.size() };</span>
+
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">sv</span><span class="p">{</span> <span class="n">chars</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">chars</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="p">};</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">sv</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>ABCDE
 </code></pre></div></p>
                 
                   

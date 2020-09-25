@@ -1306,20 +1306,12 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 <ul>
 <li><a href="https://wg21.link/p1371">Pattern Matching (P1371)</a></li>
 </ul>
-<p><code>std::tuple</code> や <code>std::variant</code> で C++ における代数的データ型の表現が広がりましたが、それらを扱うための <code>std::apply</code> や <code>std::visit</code> は複雑で多くの制約があります。C++ 以外のプログラミング言語にならい、パターンマッチングを導入してこの問題を解決する提案です。この提案では、より宣言的で構造化された <code>switch</code> 文として、<code>inspect</code> 文/式という新しい文法の導入を提案しています。</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// inspect 文の文法</span>
-<span class="n">inspect</span> <span class="nf">constexpr_opt</span> <span class="p">(</span><span class="n">init</span><span class="o">-</span><span class="n">statement_opt</span> <span class="n">condition</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">pattern</span> <span class="nl">guard_opt</span> <span class="p">:</span> <span class="n">statement</span>
-    <span class="n">pattern</span> <span class="nl">guard_opt</span> <span class="p">:</span> <span class="n">statement</span>
-    <span class="p">...</span>
-<span class="p">}</span>
-
-<span class="c1">// inspect 式の文法</span>
+<p><code>std::tuple</code> や <code>std::variant</code> で C++ における代数的データ型の表現が広がりましたが、それらを扱うための <code>std::apply</code> や <code>std::visit</code> は複雑で多くの制約があります。C++ 以外のプログラミング言語にならい、パターンマッチングを導入してこの問題を解決する提案です。この提案では、より宣言的で構造化された <code>switch</code> 文として、<code>inspect</code> 式という新しい文法の導入を提案しています。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// inspect 式の文法</span>
 <span class="n">inspect</span> <span class="nf">constexpr_opt</span> <span class="p">(</span><span class="n">init</span><span class="o">-</span><span class="n">statement_opt</span> <span class="n">condition</span><span class="p">)</span> <span class="n">trailing</span><span class="o">-</span><span class="k">return</span><span class="o">-</span><span class="n">type_opt</span>
 <span class="p">{</span>
-    <span class="n">pattern</span> <span class="n">guard_opt</span> <span class="o">=&gt;</span> <span class="n">expression</span> <span class="p">,</span>
-    <span class="n">pattern</span> <span class="n">guard_opt</span> <span class="o">=&gt;</span> <span class="n">expression</span> <span class="p">,</span>
+    <span class="n">pattern</span> <span class="n">guard_opt</span> <span class="o">=&gt;</span> <span class="n">statement</span>
+    <span class="n">pattern</span> <span class="n">guard_opt</span> <span class="o">=&gt;</span> <span class="o">!</span><span class="n">_opt</span> <span class="p">{</span> <span class="n">statement</span><span class="o">-</span><span class="n">seq</span> <span class="p">}</span>
     <span class="p">...</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1330,14 +1322,14 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 <span class="p">{</span>
     <span class="k">case</span> <span class="mi">200</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;OK</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
     <span class="k">case</span> <span class="mi">404</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not Found</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
-    <span class="k">default</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;don&#39;t care</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="k">default</span> <span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;don&#39;t care</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 <input name="__tabbed_1" type="radio" id="__tabbed_1_2" /><label for="__tabbed_1_2">提案</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="n">inspect</span> <span class="p">(</span><span class="n">code</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="mi">200</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;OK</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-    <span class="mi">404</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not Found</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-    <span class="nl">__</span><span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;don&#39;t care</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="c1">// __ はワイルドカードパターン</span>
+    <span class="mi">200</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;OK</span><span class="se">\n</span><span class="s">&quot;</span> <span class="p">}</span>
+    <span class="mi">404</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not Found</span><span class="se">\n</span><span class="s">&quot;</span> <span class="p">}</span>
+    <span class="n">__</span>  <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;don&#39;t care</span><span class="se">\n</span><span class="s">&quot;</span> <span class="p">}</span> <span class="c1">// __ はワイルドカードパターン</span>
 <span class="p">}</span>
 </code></pre></div></div>
 </div>
@@ -1358,9 +1350,9 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 </code></pre></div></div>
 <input name="__tabbed_2" type="radio" id="__tabbed_2_2" /><label for="__tabbed_2_2">提案</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="n">inspect</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="s">&quot;png&quot;</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;PNG Image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-    <span class="s">&quot;jpg&quot;</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;JPEG Image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-    <span class="nl">__</span><span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not supported</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="s">&quot;png&quot;</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;PNG Image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="p">}</span>
+    <span class="s">&quot;jpg&quot;</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;JPEG Image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">__</span>    <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not supported</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 </div>
@@ -1386,10 +1378,10 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 </code></pre></div></div>
 <input name="__tabbed_3" type="radio" id="__tabbed_3_2" /><label for="__tabbed_3_2">提案</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="n">inspect</span> <span class="p">(</span><span class="n">pos</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the origin</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-    <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the X-axis</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the Y-axis</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-    <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span><span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the origin</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the X-axis</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the Y-axis</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 </div>
@@ -1421,8 +1413,8 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 
     <span class="n">inspect</span> <span class="p">(</span><span class="n">v</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="nl">i</span><span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;int: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-        <span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="nl">f</span><span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;float: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+        <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">i</span>   <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;int: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="p">}</span>
+        <span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;float: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
@@ -1472,8 +1464,8 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 <span class="p">{</span>
     <span class="k">return</span> <span class="n">inspect</span> <span class="p">(</span><span class="n">shape</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="o">&lt;</span><span class="n">Circle</span><span class="o">&gt;</span>    <span class="p">[</span><span class="n">r</span><span class="p">]</span>     <span class="o">=&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="p">,</span> <span class="c1">// inspect 式では =&gt; を使う</span>
-        <span class="o">&lt;</span><span class="n">Rectangle</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">]</span>  <span class="o">=&gt;</span> <span class="n">w</span> <span class="o">*</span> <span class="n">h</span>
+        <span class="o">&lt;</span><span class="n">Circle</span><span class="o">&gt;</span>    <span class="p">[</span><span class="n">r</span><span class="p">]</span>     <span class="o">=&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="p">;</span>
+        <span class="o">&lt;</span><span class="n">Rectangle</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">]</span>  <span class="o">=&gt;</span> <span class="n">w</span> <span class="o">*</span> <span class="n">h</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>

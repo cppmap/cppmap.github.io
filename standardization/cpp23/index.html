@@ -1015,9 +1015,9 @@
 
     <span class="p">}</span>
 
-    <span class="kt">size_t</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="mi">1u</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">());</span> <span class="c1">// コンパイルエラー (64-bit 環境): 引数の型が不一致</span>
+    <span class="kt">size_t</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="mi">1u</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">());</span> <span class="c1">// コンパイルエラー (64-bit 環境): 引数の型が不一致</span>
 
-    <span class="kt">size_t</span> <span class="n">s3</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1u</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">());</span> <span class="c1">// OK</span>
+    <span class="kt">size_t</span> <span class="n">s3</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1u</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">());</span> <span class="c1">// OK</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -1035,7 +1035,7 @@
 
     <span class="p">}</span>
 
-    <span class="kt">size_t</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="mi">1u</span><span class="n">z</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">());</span> <span class="c1">// OK</span>
+    <span class="kt">size_t</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="mi">1u</span><span class="n">z</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">());</span> <span class="c1">// OK</span>
 <span class="p">}</span>
 </code></pre></div>
                 

@@ -8,10 +8,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="C++ の数学ライブラリの紹介">
+        <meta name="description" content="C++23 の新しい言語機能と標準ライブラリ機能の解説">
       
       
-        <link rel="canonical" href="https://cppmap.github.io/libraries/math/">
+        <link rel="canonical" href="https://cppmap.github.io/standardization/cpp23/">
       
       
         <meta name="author" content="Ryo Suzuki">
@@ -21,7 +21,7 @@
     
     
       
-        <title>数学 - C++ の歩き方 | cppmap</title>
+        <title>C++23 の新機能 - C++ の歩き方 | cppmap</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#c23" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -95,7 +95,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              数学
+              C++23 の新機能
             
           </span>
         </div>
@@ -178,7 +178,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../standardization/cpp20/" class="md-tabs__link">
+        <a href="../cpp20/" class="md-tabs__link md-tabs__link--active">
           C++ 規格
         </a>
       
@@ -217,7 +217,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../boost/" class="md-tabs__link md-tabs__link--active">
+        <a href="../../libraries/boost/" class="md-tabs__link">
           ライブラリ
         </a>
       
@@ -304,10 +304,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       C++ 規格
@@ -331,7 +333,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../standardization/cpp20/" title="C++20 の新機能" class="md-nav__link">
+    <a href="../cpp20/" title="C++20 の新機能" class="md-nav__link">
       C++20 の新機能
     </a>
   </li>
@@ -341,11 +343,53 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../standardization/cpp23/" title="C++23 の新機能" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        C++23 の新機能
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="C++23 の新機能" class="md-nav__link md-nav__link--active">
       C++23 の新機能
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stdsize_t-p0330" class="md-nav__link">
+    std::size_t 型の整数リテラルのためのサフィックスを追加 (P0330)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -355,7 +399,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../standardization/cppx/" title="C++23 以降に向けた提案" class="md-nav__link">
+    <a href="../cppx/" title="C++23 以降に向けた提案" class="md-nav__link">
       C++23 以降に向けた提案
     </a>
   </li>
@@ -367,7 +411,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../standardization/meetings/" title="標準化会議" class="md-nav__link">
+    <a href="../meetings/" title="標準化会議" class="md-nav__link">
       標準化会議
     </a>
   </li>
@@ -379,7 +423,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../standardization/status/" title="処理系の対応状況" class="md-nav__link">
+    <a href="../status/" title="処理系の対応状況" class="md-nav__link">
       処理系の対応状況
     </a>
   </li>
@@ -391,7 +435,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../standardization/working-drafts/" title="C++ 規格書" class="md-nav__link">
+    <a href="../working-drafts/" title="C++ 規格書" class="md-nav__link">
       C++ 規格書
     </a>
   </li>
@@ -403,7 +447,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../standardization/header/" title="C++ 標準ライブラリ" class="md-nav__link">
+    <a href="../header/" title="C++ 標準ライブラリ" class="md-nav__link">
       C++ 標準ライブラリ
     </a>
   </li>
@@ -415,7 +459,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../standardization/npaperbot/" title="C++ 文書検索 bot" class="md-nav__link">
+    <a href="../npaperbot/" title="C++ 文書検索 bot" class="md-nav__link">
       C++ 文書検索 bot
     </a>
   </li>
@@ -670,12 +714,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       ライブラリ
@@ -699,7 +741,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../boost/" title="Boost" class="md-nav__link">
+    <a href="../../libraries/boost/" title="Boost" class="md-nav__link">
       Boost
     </a>
   </li>
@@ -711,7 +753,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../containers/" title="コンテナ" class="md-nav__link">
+    <a href="../../libraries/containers/" title="コンテナ" class="md-nav__link">
       コンテナ
     </a>
   </li>
@@ -723,7 +765,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../text-data/" title="テキストデータ" class="md-nav__link">
+    <a href="../../libraries/text-data/" title="テキストデータ" class="md-nav__link">
       テキストデータ
     </a>
   </li>
@@ -735,7 +777,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../concurrency/" title="並行・並列" class="md-nav__link">
+    <a href="../../libraries/concurrency/" title="並行・並列" class="md-nav__link">
       並行・並列
     </a>
   </li>
@@ -747,7 +789,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../testing/" title="テストフレームワーク" class="md-nav__link">
+    <a href="../../libraries/testing/" title="テストフレームワーク" class="md-nav__link">
       テストフレームワーク
     </a>
   </li>
@@ -757,53 +799,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        数学
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="数学" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../libraries/math/" title="数学" class="md-nav__link">
       数学
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    固定小数点数
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -970,8 +970,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    固定小数点数
+  <a href="#stdsize_t-p0330" class="md-nav__link">
+    std::size_t 型の整数リテラルのためのサフィックスを追加 (P0330)
   </a>
   
 </li>
@@ -992,12 +992,52 @@
                   
                 
                 
-                <h1 id="_1">数学<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">固定小数点数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/johnmcfarlane/cnl">Compositional Numeric Library</a> <small>BSL 1.0</small></li>
-<li><a href="https://github.com/MikeLankamp/fpm">fpm</a> <small>MIT</small></li>
-</ul>
+                <h1 id="c23">C++23 の新機能<a class="headerlink" href="#c23" title="Permanent link">&para;</a></h1>
+<p>C++23 の規格ドラフトに入ることが決まった機能を随時追加していきます。</p>
+<h3 id="stdsize_t-p0330"><code>std::size_t</code> 型の整数リテラルのためのサフィックスを追加 <a href="http://wg21.link/p0330">(P0330)</a><a class="headerlink" href="#stdsize_t-p0330" title="Permanent link">&para;</a></h3>
+<p>これまで <code>std::size_t</code> 型の値をリテラルで表現する方法がなく、次のような不便の原因になっていました。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">};</span>
+
+    <span class="c1">// コンパイルエラー (64-bit 環境): i と s が異なる型</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0u</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="c1">// OK</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="kt">size_t</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">s</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="kt">size_t</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="mi">1u</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">());</span> <span class="c1">// コンパイルエラー (64-bit 環境): 引数の型が不一致</span>
+
+    <span class="kt">size_t</span> <span class="n">s3</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1u</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">());</span> <span class="c1">// OK</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>C++23 では <code>std::size_t</code> 型の値を表すリテラルのサフィックス <code>z</code> および <code>Z</code> が追加され、<code>123z</code> は符号付きの <code>std::size_t</code> に相当する型 (<code>std::ptrdiff_­t</code>), <code>123uz</code> が <code>std::size_t</code> 型と見なされます。 </p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">};</span>
+
+    <span class="c1">// OK</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0u</span><span class="n">z</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="kt">size_t</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="mi">1u</span><span class="n">z</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">());</span> <span class="c1">// OK</span>
+<span class="p">}</span>
+</code></pre></div>
                 
                   
                 
@@ -1018,7 +1058,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../testing/" title="テストフレームワーク" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../cpp20/" title="C++20 の新機能" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1027,19 +1067,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                テストフレームワーク
+                C++20 の新機能
               </div>
             </div>
           </a>
         
         
-          <a href="../../tools/onlinecompilers/" title="C++ オンラインコンパイラ" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../cppx/" title="C++23 以降に向けた提案" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                C++ オンラインコンパイラ
+                C++23 以降に向けた提案
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

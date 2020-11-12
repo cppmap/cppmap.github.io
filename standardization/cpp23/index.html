@@ -380,9 +380,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    言語機能
+  </a>
+  
+    <nav class="md-nav" aria-label="言語機能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#stdsize_t-p0330" class="md-nav__link">
     std::size_t 型の整数リテラルのためのサフィックスを追加 (P0330)
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    標準ライブラリ
+  </a>
+  
+    <nav class="md-nav" aria-label="標準ライブラリ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contains-p1679" class="md-nav__link">
+    文字列クラスに、指定した文字列が含まれるかを返す .contains() メンバ関数を追加 (P1679)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -970,9 +1003,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    言語機能
+  </a>
+  
+    <nav class="md-nav" aria-label="言語機能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#stdsize_t-p0330" class="md-nav__link">
     std::size_t 型の整数リテラルのためのサフィックスを追加 (P0330)
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    標準ライブラリ
+  </a>
+  
+    <nav class="md-nav" aria-label="標準ライブラリ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contains-p1679" class="md-nav__link">
+    文字列クラスに、指定した文字列が含まれるかを返す .contains() メンバ関数を追加 (P1679)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -994,7 +1060,8 @@
                 
                 <h1 id="c23">C++23 の新機能<a class="headerlink" href="#c23" title="Permanent link">&para;</a></h1>
 <p>C++23 の規格ドラフトに入ることが決まった新機能・仕様変更を随時追加していきます。</p>
-<h3 id="stdsize_t-p0330"><code>std::size_t</code> 型の整数リテラルのためのサフィックスを追加 <a href="http://wg21.link/p0330">(P0330)</a><a class="headerlink" href="#stdsize_t-p0330" title="Permanent link">&para;</a></h3>
+<h2 id="_1">言語機能<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="stdsize_t-p0330"><code>std::size_t</code> 型の整数リテラルのためのサフィックスを追加 <a href="http://wg21.link/P0330">(P0330)</a><a class="headerlink" href="#stdsize_t-p0330" title="Permanent link">&para;</a></h3>
 <p>これまで <code>std::size_t</code> 型の値をリテラルで表現する方法がなく、次のような不便の原因になっていました。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
@@ -1036,6 +1103,40 @@
     <span class="p">}</span>
 
     <span class="kt">size_t</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="mi">1u</span><span class="n">z</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">());</span> <span class="c1">// OK</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="_2">標準ライブラリ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="contains-p1679">文字列クラスに、指定した文字列が含まれるかを返す <code>.contains()</code> メンバ関数を追加 <a href="http://wg21.link/P1679">(P1679)</a><a class="headerlink" href="#contains-p1679" title="Permanent link">&para;</a></h3>
+<p>Java, C#, Rust の文字列クラスは、指定した文字列を含むかのメソッドを持っていますが、C++ の <code>std::string</code> には同等のメンバ関数がなく、次のようなコードを書く必要がありました。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;I like C++23&quot;</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;C++&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span> <span class="c1">// 文字列に &quot;C++&quot; が含まれるかを調べる</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;found!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>C++23 では <code>std::basic_string</code> と <code>std::basic_string_view</code> に、指定した文字や文字列が含まれるかを返す <code>.contains(basic_string_view)</code>, <code>.contains(charT)</code>, <code>.contains(const charT*)</code> メンバ関数が追加され、より短く書けるようになります。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;I like C++23&quot;</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="sc">&#39;+&#39;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>   <span class="c1">// true</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="sc">&#39;-&#39;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>   <span class="c1">// false</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&quot;like&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>    <span class="c1">// true</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&quot;C++11&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>   <span class="c1">// false</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// true</span>
 <span class="p">}</span>
 </code></pre></div>
                 

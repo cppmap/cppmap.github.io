@@ -414,6 +414,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#scoped-enum-stdis_scoped_enumt-trait-p1048" class="md-nav__link">
+    型が scoped enum であるかを調べる std::is_scoped_enum&lt;T&gt; trait (P1048)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1037,6 +1044,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#scoped-enum-stdis_scoped_enumt-trait-p1048" class="md-nav__link">
+    型が scoped enum であるかを調べる std::is_scoped_enum&lt;T&gt; trait (P1048)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1141,6 +1155,37 @@
 </code></pre></div>
 
 <p>なお、指定した文字列から始まるかを調べる <code>.starts_with()</code>, 指定した文字列で終わるかを調べる <code>.ends_with()</code> メンバ関数は C++20 で追加されています。</p>
+<h3 id="scoped-enum-stdis_scoped_enumt-trait-p1048">型が scoped enum であるかを調べる <code>std::is_scoped_enum&lt;T&gt;</code> trait <a href="http://wg21.link/P1048">(P1048)</a><a class="headerlink" href="#scoped-enum-stdis_scoped_enumt-trait-p1048" title="Permanent link">&para;</a></h3>
+<p>C++11 で scoped enum (<code>enum class</code> / <code>enum struct</code>) が導入されましたが、同時に導入された type trait <code>std::is_enum&lt;T&gt;</code> は、unscoped enum (<code>enum</code>) 型と scoped enum 型のどちらにも <code>true</code> を示し、両者を区別できませんでした。</p>
+<p>C++23 では型が scoped enum であるかを調べる <code>std::is_scoped_enum&lt;T&gt;</code> trait が追加され、両者を区別できるようになります。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>
+
+<span class="k">enum</span> <span class="n">UnscopedEnum</span> <span class="p">{};</span>
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">ScopedEnum</span> <span class="p">{};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>           <span class="c1">// false    </span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">UnscopedEnum</span><span class="o">&gt;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>  <span class="c1">// true</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">ScopedEnum</span><span class="o">&gt;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>    <span class="c1">// true</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>           <span class="c1">// false</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">UnscopedEnum</span><span class="o">&gt;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>  <span class="c1">// false</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">ScopedEnum</span><span class="o">&gt;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>    <span class="c1">// true</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>なお、Boost.TypeTraits にはすでに次のように実装されています。</p>
+<div class="highlight"><pre><span></span><code><span class="k">namespace</span> <span class="n">boost</span>
+<span class="p">{</span>
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+    <span class="k">struct</span> <span class="nl">is_scoped_enum</span>
+        <span class="p">:</span> <span class="n">conjunction</span><span class="o">&lt;</span><span class="n">is_enum</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">negation</span><span class="o">&lt;</span><span class="n">is_convertible</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;&gt;::</span><span class="n">type</span> <span class="p">{};</span>
+<span class="p">}</span>
+</code></pre></div>
                 
                   
                 

@@ -423,7 +423,7 @@
         
           <li class="md-nav__item">
   <a href="#c-atomics-stdatomich-p0943" class="md-nav__link">
-    C 言語との atomics の互換のための標準ライブラリヘッダ &lt;stdatomic.h&gt; を追加 (P0943)
+    C 言語との atomics の互換を目的とした標準ライブラリヘッダ &lt;stdatomic.h&gt; を追加 (P0943)
   </a>
   
 </li>
@@ -1060,7 +1060,7 @@
         
           <li class="md-nav__item">
   <a href="#c-atomics-stdatomich-p0943" class="md-nav__link">
-    C 言語との atomics の互換のための標準ライブラリヘッダ &lt;stdatomic.h&gt; を追加 (P0943)
+    C 言語との atomics の互換を目的とした標準ライブラリヘッダ &lt;stdatomic.h&gt; を追加 (P0943)
   </a>
   
 </li>
@@ -1201,14 +1201,14 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="c-atomics-stdatomich-p0943">C 言語との atomics の互換のための標準ライブラリヘッダ <code>&lt;stdatomic.h&gt;</code> を追加 <a href="http://wg21.link/P0943">(P0943)</a><a class="headerlink" href="#c-atomics-stdatomich-p0943" title="Permanent link">&para;</a></h3>
+<h3 id="c-atomics-stdatomich-p0943">C 言語との atomics の互換を目的とした標準ライブラリヘッダ <code>&lt;stdatomic.h&gt;</code> を追加 <a href="http://wg21.link/P0943">(P0943)</a><a class="headerlink" href="#c-atomics-stdatomich-p0943" title="Permanent link">&para;</a></h3>
 <p>C++ atomics の非ジェネリックな部分 (<code>atomic_char</code> や <code>atomic_ulong</code> など) は C 言語からも使えるように設計されていましたが、C 言語がジェネリック用として独自に <code>_Atomic(T)</code> 型指定子を追加したほか、C++ の規格では C 言語のヘッダ <code>&lt;stdatomic.h&gt;</code> に関する言及がないことから、実際の相互運用にはいくらかの手間が必要でした。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#ifdef __cplusplus</span>
     <span class="cp">#include</span> <span class="cpf">&lt;atomic&gt;   </span><span class="cp"></span>
     <span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">atomic_int</span><span class="p">;</span>  
     <span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">memory_order</span><span class="p">;</span>
     <span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">memory_order_acquire</span><span class="p">;</span>
-    <span class="cp"># define _Atomic(X) std::atomic&lt;X&gt;</span>
+    <span class="cp">#define _Atomic(X) std::atomic&lt;X&gt;</span>
     <span class="c1">// ...</span>
 <span class="cp">#else</span>
     <span class="cp">#include</span> <span class="cpf">&lt;stdatomic.h&gt;</span><span class="cp"></span>

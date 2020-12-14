@@ -577,8 +577,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#make-p1020r1" class="md-nav__link">
-    スマートポインタの作成時に値をデフォルト初期化する make 関数を追加 (P1020R1)
+  <a href="#make-p1020r1-p1973r1" class="md-nav__link">
+    スマートポインタの作成時に値をデフォルト初期化する make 関数を追加 (P1020R1), (P1973R1)
   </a>
   
 </li>
@@ -1617,8 +1617,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#make-p1020r1" class="md-nav__link">
-    スマートポインタの作成時に値をデフォルト初期化する make 関数を追加 (P1020R1)
+  <a href="#make-p1020r1-p1973r1" class="md-nav__link">
+    スマートポインタの作成時に値をデフォルト初期化する make 関数を追加 (P1020R1), (P1973R1)
   </a>
   
 </li>
@@ -2753,8 +2753,8 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></p>
-<h3 id="make-p1020r1">スマートポインタの作成時に値をデフォルト初期化する make 関数を追加 <a href="https://wg21.link/P1020R1">(P1020R1)</a><a class="headerlink" href="#make-p1020r1" title="Permanent link">&para;</a></h3>
-<p>実行時性能のために、<code>float</code> や <code>unsigned char</code> など組み込み型の配列の値をデフォルト初期化させたい（ゼロ初期化しない）ケースがあります。しかし、<code>make_unique</code> や <code>make_shared</code>, <code>allocate_shared</code> でスマートポインタを作成した場合には値初期化が実行されます。C++20 では、値初期化をせずにデフォルト初期化でスマートポインタを作成する関数 <code>make_unique_default_init</code>, <code>make_shared_default_init</code>, <code>allocate_shared_default_init</code> が追加されました。
+<h3 id="make-p1020r1-p1973r1">スマートポインタの作成時に値をデフォルト初期化する make 関数を追加 <a href="https://wg21.link/P1020R1">(P1020R1)</a>, <a href="https://wg21.link/P1973R1">(P1973R1)</a><a class="headerlink" href="#make-p1020r1-p1973r1" title="Permanent link">&para;</a></h3>
+<p>実行時性能のために、<code>float</code> や <code>unsigned char</code> など組み込み型の配列の値をデフォルト初期化させたい（ゼロ初期化しない）ケースがあります。しかし、<code>make_unique</code> や <code>make_shared</code>, <code>allocate_shared</code> でスマートポインタを作成した場合には値初期化が実行されます。C++20 では、値初期化をせずにデフォルト初期化でスマートポインタを作成する関数 <code>make_unique_for_overwrite</code>, <code>make_shared_for_overwrite</code>, <code>allocate_shared_for_overwrite</code> が追加されました。
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
 
@@ -2775,7 +2775,7 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
         <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">pv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="k">auto</span> <span class="n">pd</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique_default_init</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="c1">// デフォルト初期化</span>
+    <span class="k">auto</span> <span class="n">pd</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique_for_overwrite</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="c1">// デフォルト初期化</span>
 
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
     <span class="p">{</span>

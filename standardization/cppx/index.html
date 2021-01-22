@@ -1309,6 +1309,7 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 <li><a href="https://wg21.link/p1371">Pattern Matching (P1371)</a></li>
 </ul>
 <p><code>std::tuple</code> や <code>std::variant</code> で C++ における代数的データ型の表現が広がりましたが、それらを扱うための <code>std::apply</code> や <code>std::visit</code> は複雑で多くの制約があります。C++ 以外のプログラミング言語にならい、パターンマッチングを導入してこの問題を解決する提案です。この提案では、より宣言的で構造化された <code>switch</code> 文として、<code>inspect</code> 式という新しい文法の導入を提案しています。</p>
+<p>パターンマッチングの実験的な実装を <a href="https://godbolt.org/z/fdd5j4">Compiler Explorer</a> 上で試すことができます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// inspect 式の文法</span>
 <span class="n">inspect</span> <span class="nf">constexpr_opt</span> <span class="p">(</span><span class="n">init</span><span class="o">-</span><span class="n">statement_opt</span> <span class="n">condition</span><span class="p">)</span> <span class="n">trailing</span><span class="o">-</span><span class="k">return</span><span class="o">-</span><span class="n">type_opt</span>
 <span class="p">{</span>
@@ -1387,7 +1388,6 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 <span class="p">};</span>
 </code></pre></div></div>
 </div>
-<p>実験的な実装を <a href="https://godbolt.org/z/fdd5j4">Compiler Explorer</a> 上で試すことができます。</p>
 <h3 id="variants">Variants のマッチング<a class="headerlink" href="#variants" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set" data-tabs="4:2">
 <input name="__tabbed_4" type="radio" id="__tabbed_4_1" checked="checked" /><label for="__tabbed_4_1">現在</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="n">Visitor</span>

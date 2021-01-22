@@ -1315,7 +1315,7 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
     <span class="n">pattern</span> <span class="n">guard_opt</span> <span class="o">=&gt;</span> <span class="n">statement</span>
     <span class="n">pattern</span> <span class="n">guard_opt</span> <span class="o">=&gt;</span> <span class="o">!</span><span class="n">_opt</span> <span class="p">{</span> <span class="n">statement</span><span class="o">-</span><span class="n">seq</span> <span class="p">}</span>
     <span class="p">...</span>
-<span class="p">}</span>
+<span class="p">};</span>
 </code></pre></div>
 
 <h3 id="_5">整数のマッチング<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
@@ -1332,7 +1332,7 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
     <span class="mi">200</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;OK</span><span class="se">\n</span><span class="s">&quot;</span> <span class="p">}</span>
     <span class="mi">404</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not Found</span><span class="se">\n</span><span class="s">&quot;</span> <span class="p">}</span>
     <span class="n">__</span>  <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;don&#39;t care</span><span class="se">\n</span><span class="s">&quot;</span> <span class="p">}</span> <span class="c1">// __ はワイルドカードパターン</span>
-<span class="p">}</span>
+<span class="p">};</span>
 </code></pre></div></div>
 </div>
 <h3 id="_6">文字列のマッチング<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
@@ -1355,7 +1355,7 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
     <span class="s">&quot;png&quot;</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;PNG Image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="p">}</span>
     <span class="s">&quot;jpg&quot;</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;JPEG Image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="p">}</span>
     <span class="n">__</span>    <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not supported</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="p">}</span>
-<span class="p">}</span>
+<span class="p">};</span>
 </code></pre></div></div>
 </div>
 <h3 id="tuples">Tuples のマッチング<a class="headerlink" href="#tuples" title="Permanent link">&para;</a></h3>
@@ -1384,9 +1384,10 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
     <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the X-axis</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="p">}</span>
     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;on the Y-axis</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span> <span class="p">}</span>
     <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="p">}</span>
-<span class="p">}</span>
+<span class="p">};</span>
 </code></pre></div></div>
 </div>
+<p>実験的な実装を <a href="https://godbolt.org/z/fdd5j4">Compiler Explorer</a> 上で試すことができます。</p>
 <h3 id="variants">Variants のマッチング<a class="headerlink" href="#variants" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set" data-tabs="4:2">
 <input name="__tabbed_4" type="radio" id="__tabbed_4_1" checked="checked" /><label for="__tabbed_4_1">現在</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="n">Visitor</span>
@@ -1418,7 +1419,7 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
         <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">i</span>   <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;int: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="p">}</span>
         <span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;float: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span>
+<span class="p">};</span>
 </code></pre></div></div>
 </div>
 <h3 id="polymorphic-types">Polymorphic Types のマッチング<a class="headerlink" href="#polymorphic-types" title="Permanent link">&para;</a></h3>
@@ -1469,7 +1470,7 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
         <span class="o">&lt;</span><span class="n">Circle</span><span class="o">&gt;</span>    <span class="p">[</span><span class="n">r</span><span class="p">]</span>     <span class="o">=&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">numbers</span><span class="o">::</span><span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="p">;</span>
         <span class="o">&lt;</span><span class="n">Rectangle</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">]</span>  <span class="o">=&gt;</span> <span class="n">w</span> <span class="o">*</span> <span class="n">h</span><span class="p">;</span>
     <span class="p">}</span>
-<span class="p">}</span>
+<span class="p">};</span>
 </code></pre></div></div>
 </div>
 <h2 id="_7">拡張浮動小数点数型<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>

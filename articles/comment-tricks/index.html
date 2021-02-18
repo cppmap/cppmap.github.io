@@ -486,6 +486,26 @@
     範囲の ON・OFF
   </a>
   
+    <nav class="md-nav" aria-label="範囲の ON・OFF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    パターン 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    パターン 2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -983,6 +1003,26 @@
     範囲の ON・OFF
   </a>
   
+    <nav class="md-nav" aria-label="範囲の ON・OFF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    パターン 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    パターン 2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1027,6 +1067,7 @@
 開発中のちょっとしたデバッグや、ミスの防止に活用できます。</p>
 <h2 id="onoff">範囲の ON・OFF<a class="headerlink" href="#onoff" title="Permanent link">&para;</a></h2>
 <p>スラッシュ <code>/</code> の有無に応じて、範囲コメントの有効・無効を切り替えます。</p>
+<h4 id="1">パターン 1<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
 <div class="tabbed-set" data-tabs="1:2">
 <input name="__tabbed_1" type="radio" id="__tabbed_1_1" checked="checked" /><label for="__tabbed_1_1">無効</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
@@ -1055,10 +1096,39 @@
 <span class="p">}</span>
 </code></pre></div></div>
 </div>
+<h4 id="2">パターン 2<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set" data-tabs="2:2">
+<input name="__tabbed_2" type="radio" id="__tabbed_2_1" checked="checked" /><label for="__tabbed_2_1">無効</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">//*</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+    <span class="c1">//*/</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<input name="__tabbed_2" type="radio" id="__tabbed_2_2" /><label for="__tabbed_2_2">有効</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="cm">/*</span>
+<span class="cm">    int x;</span>
+
+<span class="cm">    std::cin &gt;&gt; x;</span>
+
+<span class="cm">    std::cout &lt;&lt; x * x;</span>
+<span class="cm">    //*/</span>
+<span class="p">}</span>
+</code></pre></div></div>
+</div>
 <h2 id="_2">値の切り替え<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>スラッシュ <code>/</code> の有無に応じて、左右どちらかの値を選択します。</p>
-<div class="tabbed-set" data-tabs="2:2">
-<input name="__tabbed_2" type="radio" id="__tabbed_2_1" checked="checked" /><label for="__tabbed_2_1">左</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="tabbed-set" data-tabs="3:2">
+<input name="__tabbed_3" type="radio" id="__tabbed_3_1" checked="checked" /><label for="__tabbed_3_1">左</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -1067,7 +1137,7 @@
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">N</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<input name="__tabbed_2" type="radio" id="__tabbed_2_2" /><label for="__tabbed_2_2">右</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<input name="__tabbed_3" type="radio" id="__tabbed_3_2" /><label for="__tabbed_3_2">右</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -1080,8 +1150,8 @@
 <h2 id="_3">範囲の切り替え<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>値の切り替えの範囲版です。<br />
 スラッシュ / の有無に応じて、前半、後半どちらかの範囲を選択します。</p>
-<div class="tabbed-set" data-tabs="3:2">
-<input name="__tabbed_3" type="radio" id="__tabbed_3_1" checked="checked" /><label for="__tabbed_3_1">前半</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="tabbed-set" data-tabs="4:2">
+<input name="__tabbed_4" type="radio" id="__tabbed_4_1" checked="checked" /><label for="__tabbed_4_1">前半</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -1100,7 +1170,7 @@
 <span class="cm">    /**/</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<input name="__tabbed_3" type="radio" id="__tabbed_3_2" /><label for="__tabbed_3_2">後半</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<input name="__tabbed_4" type="radio" id="__tabbed_4_2" /><label for="__tabbed_4_2">後半</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -1122,8 +1192,8 @@
 </div>
 <h2 id="_4">行の入れ替えの防止<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>リファクタリング時に、コピー＆ペーストで行の順番を入れ替えてしまうことを防ぎます。</p>
-<div class="tabbed-set" data-tabs="4:2">
-<input name="__tabbed_4" type="radio" id="__tabbed_4_1" checked="checked" /><label for="__tabbed_4_1">基本のコード</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">First</span><span class="p">()</span> <span class="p">{}</span>
+<div class="tabbed-set" data-tabs="5:2">
+<input name="__tabbed_5" type="radio" id="__tabbed_5_1" checked="checked" /><label for="__tabbed_5_1">基本のコード</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">First</span><span class="p">()</span> <span class="p">{}</span>
 <span class="kt">void</span> <span class="nf">Second</span><span class="p">()</span> <span class="p">{}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
@@ -1132,7 +1202,7 @@
 <span class="cm">    */</span><span class="n">Second</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<input name="__tabbed_4" type="radio" id="__tabbed_4_2" /><label for="__tabbed_4_2">入れ替えるとエラー</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">First</span><span class="p">()</span> <span class="p">{}</span>
+<input name="__tabbed_5" type="radio" id="__tabbed_5_2" /><label for="__tabbed_5_2">入れ替えるとエラー</label><div class="tabbed-content"><div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">First</span><span class="p">()</span> <span class="p">{}</span>
 <span class="kt">void</span> <span class="nf">Second</span><span class="p">()</span> <span class="p">{}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>

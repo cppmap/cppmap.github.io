@@ -9,14 +9,13 @@
         <meta name="description" content="C++20 の新しい言語機能と標準ライブラリ機能の解説">
       
       
-      
         <meta name="author" content="Ryo Suzuki">
       
       
         <link rel="canonical" href="https://cppmap.github.io/standardization/cpp20/">
       
       <link rel="icon" href="../../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
     
     
       
@@ -24,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8b42a75e.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6e60f8b8.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
           
           
@@ -41,18 +40,17 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
-    
     
     
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     
       <link rel="stylesheet" href="../../cppmap_styles.css">
     
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
 
     
     
@@ -67,7 +65,6 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="teal">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -83,6 +80,7 @@
     <div data-md-component="announce">
       
     </div>
+    
     
       
 
@@ -118,8 +116,7 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -151,8 +148,7 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/cppmap/cppmap.docs" title="リポジトリへ" class="md-source" data-md-component="source">
+        <a href="https://github.com/cppmap/cppmap.docs" title="リポジトリへ" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -196,8 +192,7 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/cppmap/cppmap.docs" title="リポジトリへ" class="md-source" data-md-component="source">
+      <a href="https://github.com/cppmap/cppmap.docs" title="リポジトリへ" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -280,6 +275,7 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="目次">
   
   
@@ -1411,6 +1407,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="目次">
   
   
@@ -1881,8 +1878,8 @@
             <article class="md-content__inner md-typeset">
               
                 
-                
-                <h1 id="c20">C++20 の新機能<a class="headerlink" href="#c20" title="Permanent link">&para;</a></h1>
+
+<h1 id="c20">C++20 の新機能<a class="headerlink" href="#c20" title="Permanent link">&para;</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>項目追加・執筆作業中です（完成度 約 35%）</p>
@@ -1893,16 +1890,16 @@
 <p>ビットフィールドにおけるビット幅の指定に続いて、<code>=</code> 演算子または <code>{}</code> 初期化子を使って初期化式を記述できるようになります。</p>
 <p><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">enum</span> <span class="k">class</span><span class="w"> </span><span class="nc">Terrain</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"></span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Terrain</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">Open</span><span class="p">,</span><span class="w"> </span><span class="n">Forest</span><span class="p">,</span><span class="w"> </span><span class="n">Hill</span><span class="p">,</span><span class="w"> </span><span class="n">Mountain</span><span class="p">,</span><span class="w"> </span><span class="n">Desert</span><span class="p">,</span><span class="w"> </span><span class="n">Tundra</span><span class="p">,</span><span class="w"> </span><span class="n">River</span><span class="p">,</span><span class="w"> </span><span class="n">Ocean</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">Tile</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Tile</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="nl">height</span> <span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// デフォルト値を 1 に</span>
-<span class="w">    </span><span class="n">Terrain</span><span class="w"> </span><span class="nl">terrain</span> <span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Terrain</span><span class="o">::</span><span class="n">Open</span><span class="p">;</span><span class="w"> </span><span class="c1">// デフォルト値を明示的に Terrain::Open に</span>
-<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nl">passable</span> <span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// デフォルト値を true に</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// デフォルト値を 1 に</span>
+<span class="w">    </span><span class="n">Terrain</span><span class="w"> </span><span class="n">terrain</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Terrain</span><span class="o">::</span><span class="n">Open</span><span class="p">;</span><span class="w"> </span><span class="c1">// デフォルト値を明示的に Terrain::Open に</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">passable</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// デフォルト値を true に</span>
 <span class="p">};</span><span class="w"></span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
@@ -1924,7 +1921,7 @@
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
-<span class="k">struct</span> <span class="nc">Text</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Text</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">m_data</span><span class="p">;</span><span class="w"></span>
 
@@ -2034,9 +2031,9 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <p>アロケータなどをクラスのメンバとして保持するとき、それがステートレスな空のクラスであってもオブジェクトのアドレスを一意に用意しないといけないため、サイズを 0 にできずメモリ消費が無駄に増えてしまう問題がありました。
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">struct</span> <span class="nc">Empty</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Empty</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">X</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">Empty</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w"></span>
@@ -2050,9 +2047,9 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 これを回避するために「空の基底クラスは最適化によってサイズ 0 にしてよい」という仕様を利用した Empty Base Optimization (EBO) というテクニックがあり、標準ライブラリでも　<code>std::unique_ptr</code> や <code>std::shared_ptr</code>, <code>std::vector</code> などに使われています。
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">struct</span> <span class="nc">Empty</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Empty</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">X</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Empty</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Empty</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
@@ -2065,9 +2062,9 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 しかし、これらのクラスで継承による EBO を実装するとコードが複雑になるという欠点がありました。C++20 ではメンバの宣言に <code>[[no_unique_address]]</code> 属性を付けることで、継承を使わなくてもコンパイラが EBO と同じような最適化をできるようになり、従来の継承による EBO を使っていたコードを、より単純なコードに置き換えられます。
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">struct</span> <span class="nc">Empty</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Empty</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">X</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">[[</span><span class="n">no_unique_address</span><span class="p">]]</span><span class="w"> </span><span class="n">Empty</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w"></span>
@@ -2084,25 +2081,25 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
-<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span> <span class="nc">Alloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span> <span class="nc">T</span><span class="o">::</span><span class="n">allocator_type</span><span class="o">&gt;</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">S</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="w"> </span><span class="c1">// 派生クラス定義時の基底クラスの指定</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Alloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">::</span><span class="n">allocator_type</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="w"> </span><span class="c1">// 派生クラス定義時の基底クラスの指定</span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span> <span class="nc">T</span><span class="o">::</span><span class="n">value_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">::</span><span class="n">value_type</span><span class="p">;</span><span class="w"></span>
 
 <span class="w">    </span><span class="n">S</span><span class="p">()</span><span class="w"></span>
 <span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// 初期化子リストでの基底クラスの指定</span>
 
-<span class="w">    </span><span class="k">typename</span> <span class="nc">T</span><span class="o">::</span><span class="n">size_type</span><span class="w"> </span><span class="n">max_size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">::</span><span class="n">size_type</span><span class="w"> </span><span class="n">max_size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">data</span><span class="p">()</span><span class="o">-&gt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">::</span><span class="n">pointer</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">data</span><span class="p">()</span><span class="o">-&gt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">::</span><span class="n">pointer</span><span class="p">;</span><span class="w"></span>
 
 <span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">min_size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">::</span><span class="n">size_type</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">::</span><span class="n">size_type</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">typename</span> <span class="nc">T</span><span class="o">::</span><span class="n">size_type</span><span class="w"> </span><span class="n">MaxSize</span><span class="p">();</span><span class="w"></span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">::</span><span class="n">size_type</span><span class="w"> </span><span class="n">MaxSize</span><span class="p">();</span><span class="w"></span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
@@ -2114,8 +2111,8 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
-<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span> <span class="nc">Alloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">allocator_type</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">// OK</span>
-<span class="k">struct</span> <span class="nc">S</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="w"> </span><span class="c1">// 派生クラス定義時の基底クラスの指定</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Alloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">allocator_type</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="w"> </span><span class="c1">// 派生クラス定義時の基底クラスの指定</span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
 
@@ -2132,7 +2129,7 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">size_type</span><span class="w"> </span><span class="n">MaxSize</span><span class="p">();</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">size_type</span><span class="w"> </span><span class="n">MaxSize</span><span class="p">();</span><span class="w"> </span><span class="c1">// OK</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
@@ -2143,12 +2140,12 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 </div>
 <h3 id="p1064r0">定数式での仮想関数呼び出しが可能に <a href="https://wg21.link/P1064">(P1064R0)</a><a class="headerlink" href="#p1064r0" title="Permanent link">&para;</a></h3>
 <p>コンパイル時に決定可能であれば、参照やポインタを通した仮想関数の呼び出しを <code>constexpr</code> にできるようになります。<code>constexpr</code> 修飾された仮想関数を非 <code>constexpr</code> 関数でオーバーライドすることや、その逆も可能です。</p>
-<div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Cpp</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Cpp</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">version</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">Cpp17</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Cpp</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Cpp17</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Cpp</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">version</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
@@ -2156,7 +2153,7 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">Cpp20</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Cpp</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Cpp20</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Cpp</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">version</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
@@ -2182,12 +2179,12 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <p><code>dynamic_cast</code> と <code>type_id</code> が、例外を投げるケースを除いて <code>constexpr</code> になります。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;typeinfo&gt;</span><span class="cp"></span>
 
-<span class="k">struct</span> <span class="nc">Cpp</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Cpp</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">version</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">Cpp17</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Cpp</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Cpp17</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Cpp</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">version</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
@@ -2195,7 +2192,7 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">Cpp20</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Cpp</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Cpp20</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Cpp</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">version</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
@@ -2216,12 +2213,12 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <p>次のように例外を投げるケースでは <code>constexpr</code> にできずコンパイルエラーになります。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;typeinfo&gt;</span><span class="cp"></span>
 
-<span class="k">struct</span> <span class="nc">Cpp</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Cpp</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">version</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">Cpp17</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Cpp</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Cpp17</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Cpp</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">version</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
@@ -2229,7 +2226,7 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">Cpp20</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Cpp</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Cpp20</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Cpp</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">version</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
@@ -2251,7 +2248,7 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <p>共用体のアクティブメンバとは、最後に初期化または値を代入したメンバのことです。C++17 では共用体の初期化やアクティブメンバへのアクセスを定数式で行えましたが、アクティブメンバの切り替えはできませんでした。定数式でのアクティブメンバの切り替えが可能になると、共用体によって実装される <code>std::string</code> や <code>std::optional</code> などの標準ライブラリクラスのメンバ関数の <code>constexpr</code> 対応を拡充できます。非アクティブメンバへのアクセスは未定義動作なので、定数式で行うとコンパイルエラーになります。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
 
-<span class="k">union</span> <span class="nc">Value</span><span class="w"></span>
+<span class="k">union</span><span class="w"> </span><span class="nc">Value</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
@@ -2331,7 +2328,7 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string_view&gt;</span><span class="cp"></span>
 
-<span class="k">enum</span> <span class="k">class</span><span class="w"> </span><span class="nc">Terrain</span><span class="w"></span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Terrain</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">Open</span><span class="p">,</span><span class="w"> </span><span class="n">Mountain</span><span class="p">,</span><span class="w"> </span><span class="n">River</span><span class="p">,</span><span class="w"> </span><span class="n">Ocean</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
@@ -2342,10 +2339,10 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 
 <span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">terrain</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">Terrain</span><span class="o">::</span><span class="nl">Open</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Open&quot;</span><span class="n">sv</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">Terrain</span><span class="o">::</span><span class="nl">Mountain</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Mountain&quot;</span><span class="n">sv</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">Terrain</span><span class="o">::</span><span class="nl">River</span><span class="p">:</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;River&quot;</span><span class="n">sv</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">Terrain</span><span class="o">::</span><span class="nl">Ocean</span><span class="p">:</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Ocean&quot;</span><span class="n">sv</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">Terrain</span><span class="o">::</span><span class="n">Open</span><span class="o">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Open&quot;</span><span class="n">sv</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">Terrain</span><span class="o">::</span><span class="n">Mountain</span><span class="o">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Mountain&quot;</span><span class="n">sv</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">Terrain</span><span class="o">::</span><span class="n">River</span><span class="o">:</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;River&quot;</span><span class="n">sv</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">Terrain</span><span class="o">::</span><span class="n">Ocean</span><span class="o">:</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Ocean&quot;</span><span class="n">sv</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">default</span><span class="o">:</span><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="n">sv</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -2356,7 +2353,7 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 C++20 では <code>using</code> 宣言を拡張し、<code>using Terrain::Open;</code> で <code>Open</code> をエイリアスとして使えるようになります。また <code>using enum</code> 宣言という新しい仕組みにより、<code>using enum Terrain;</code> で <code>Terrain</code> がローカルスコープに導入され、スコープ解決演算子を使わずにその列挙子を使えるようになります。
-<div class="highlight"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span><span class="w"> </span><span class="nc">Terrain</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Terrain</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">Open</span><span class="p">,</span><span class="w"> </span><span class="n">Mountain</span><span class="p">,</span><span class="w"> </span><span class="n">River</span><span class="p">,</span><span class="w"> </span><span class="n">Ocean</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
@@ -2367,7 +2364,7 @@ C++20 では <code>using</code> 宣言を拡張し、<code>using Terrain::Open;<
 
 <span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">terrain</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">enum</span> <span class="nc">Terrain</span><span class="p">;</span><span class="w"> </span><span class="c1">// using enum 宣言で、列挙型の名前 Terrain をローカルスコープに導入</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="nc">Terrain</span><span class="p">;</span><span class="w"> </span><span class="c1">// using enum 宣言で、列挙型の名前 Terrain をローカルスコープに導入</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">Open</span><span class="p">:</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Open&quot;</span><span class="n">sv</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">Mountain</span><span class="p">:</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Mountain&quot;</span><span class="n">sv</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">River</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;River&quot;</span><span class="n">sv</span><span class="p">;</span><span class="w"></span>
@@ -2386,25 +2383,25 @@ C++20 では <code>using</code> 宣言を拡張し、<code>using Terrain::Open;<
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string_view&gt;</span><span class="cp"></span>
 
-<span class="k">enum</span> <span class="k">class</span><span class="w"> </span><span class="nc">Terrain</span><span class="w"></span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Terrain</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">Open</span><span class="p">,</span><span class="w"> </span><span class="n">Mountain</span><span class="p">,</span><span class="w"> </span><span class="n">River</span><span class="p">,</span><span class="w"> </span><span class="n">Ocean</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">enum</span> <span class="k">class</span><span class="w"> </span><span class="nc">State</span><span class="w"></span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">State</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">Open</span><span class="p">,</span><span class="w"> </span><span class="n">Closed</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">enum</span> <span class="nc">Terrain</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">enum</span> <span class="nc">State</span><span class="p">;</span><span class="w">   </span><span class="c1">// コンパイルエラー: Terrain::Open と State::Open の名前が衝突</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="nc">Terrain</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="nc">State</span><span class="p">;</span><span class="w">   </span><span class="c1">// コンパイルエラー: Terrain::Open と State::Open の名前が衝突</span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 <h3 id="nodiscard-p1771r1">コンストラクタに <code>[[nodiscard]]</code> が使えるように <a href="http://wg21.link/p1771r1">(P1771R1)</a><a class="headerlink" href="#nodiscard-p1771r1" title="Permanent link">&para;</a></h3>
 <p>C++17 で <code>[[nodiscard]]</code> が導入された際、仕様ではコンストラクタを対象としていませんでした（ただし、GCC では警告を出しつつもコンストラクタに付けた <code>[[nodiscard]]</code> をチェックしていました）。コンストラクタの呼び出しによって作成された一時オブジェクトが意図せず無視されたときに警告を出せると、ユーザの間違いを減らせます。そこで、コンストラクタにも <code>[[nodiscard]]</code> 属性を付けられるよう、C++17 向けの規格にさかのぼって仕様が修正され、C++20 および、この変更に対応した C++17 コンパイラで新仕様を利用できるようになります。なお、デストラクタを定義していた場合でも警告は消えません。
-<div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Circle</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Circle</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"></span>
 
@@ -2476,7 +2473,7 @@ C++20 では <code>using</code> 宣言を拡張し、<code>using Terrain::Open;<
 </div>
 <h3 id="private-p0969r0">本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった仕様を修正 <a href="https://wg21.link/P0969R0">(P0969R0)</a><a class="headerlink" href="#private-p0969r0" title="Permanent link">&para;</a></h3>
 <p>メンバ関数内で自身の <code>private</code> メンバにアクセスすることや、<code>friend</code> 指定された関数で該当クラスの <code>private</code> メンバ変数にアクセスすることは通常可能ですが、C++17 の構造化束縛はクラスの <code>public</code> メンバにしかバインドできないという規格文面の制約があり、次のようなケースで一貫性がありませんでした。この制約を課す合理的な理由は無かったため、C++17 向けの規格にさかのぼって仕様が修正され、アクセス可能であれば <code>private</code> メンバ変数をバインドできるようになります。C++20 および、この変更に対応した C++17 コンパイラで新仕様を利用できます。</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Date</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Date</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="k">private</span><span class="o">:</span><span class="w"></span>
 
@@ -2517,18 +2514,18 @@ C++20 では <code>using</code> 宣言を拡張し、<code>using Terrain::Open;<
 </code></pre></div>
 <h3 id="p1008r1">ユーザ宣言されたコンストラクタを持つクラスの集成体初期化を禁止 <a href="https://wg21.link/P1008R1">(P1008R1)</a><a class="headerlink" href="#p1008r1" title="Permanent link">&para;</a></h3>
 <p>C++17 までは集成体の要件が緩かったため、コンストラクタについては、デフォルトコンストラクタが <code>= delete</code> または <code>private</code> であっても、集成体初期化によって初期化できる抜け道がありました。これはメンバ変数が意図しない値で初期化されるといった問題を引き起こします。C++20 からは集成体の要件が厳しくなり、ユーザ宣言されたコンストラクタがあるクラスは集成体にはなりません。</p>
-<div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">A</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">A</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">B</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="k">private</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">B</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">C</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">C</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">C</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
@@ -2552,7 +2549,7 @@ C++20 では <code>using</code> 宣言を拡張し、<code>using Terrain::Open;<
 <p>C++17 で追加された <code>[[nodiscard]]</code> 属性は、ライブラリなどが提供する関数の誤用を防ぐ助けになりますが、関数がなぜ <code>[[nodiscard]]</code> 属性を持っているのかについて、利用者に十分な情報が伝わらない場合がありました。C++20 では <code>[[nodiscard("....")]]</code> のような形式でメッセージを追加できるようになります。戻り値の無視があった場合、コンパイラは警告に加えてこのメッセージを補足情報として出力できます。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
-<span class="k">struct</span> <span class="nc">Data</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Data</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="k">private</span><span class="o">:</span><span class="w"></span>
 
@@ -2598,12 +2595,12 @@ C++20 では <code>using</code> 宣言を拡張し、<code>using Terrain::Open;<
 <p>また、初期化子の評価順序が左から右であることが保証されます。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
-<span class="k">struct</span> <span class="nc">Point</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">Item</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Item</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
@@ -2635,7 +2632,7 @@ C++20 では <code>using</code> 宣言を拡張し、<code>using Terrain::Open;<
 <p>従来までの <code>Point p{}</code>, <code>Item i{}</code> のような集成体初期化を「指示付き初期化子が 0 個の初期化」と考えると、新しい挙動も理解しやすくなります。なお、次のように集成体ではないクラスの初期化には、指示付き初期化子は使えません。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
-<span class="k">struct</span> <span class="nc">Point</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">Point</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
@@ -2694,11 +2691,11 @@ false
 </code></pre></div>
 C++20 では引数を次のように変更し、関数がバッファオーバーフローの対策を実装するようになります。
 <div class="highlight"><pre><span></span><code><span class="c1">// C++17 まで</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">charT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">traits</span><span class="o">&gt;</span><span class="w"></span>
 <span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span><span class="w"> </span><span class="n">traits</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span><span class="w"> </span><span class="n">traits</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">charT</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// C++20 から</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span> <span class="nc">traits</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">charT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">traits</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"></span>
 <span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span><span class="w"> </span><span class="n">traits</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span><span class="w"> </span><span class="n">traits</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">charT</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">)[</span><span class="n">N</span><span class="p">]);</span><span class="w"></span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -2747,7 +2744,7 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
 <p><code>std::vector</code> を constexpr にするのに必要なため、<code>std::pointer_traits::pointer_to()</code> 関数が constrexpr になります。</p>
 <h3 id="assume_aligned-p1007r3">ポインタのアライメントを最適化ヒントとしてコンパイラに伝える <code>assume_aligned()</code> 関数 <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1007r3.pdf">(P1007R3)</a><a class="headerlink" href="#assume_aligned-p1007r3" title="Permanent link">&para;</a></h3>
 <p>データのアドレスが 16 バイトなどのサイズにアライメントされている場合、コンパイラが SIMD を使った最適なコードを生成できる可能性があります。あるポインタの指すデータがアライメントされていることをコンパイラに伝える方法として、GCC や Clang では <code>__builtin_assume_aligned()</code> や <code>__attribute__((assume_aligned(alignment)))</code>, ICC では <code>__assume_aligned()</code> などの独自拡張がありますが、標準化された方法はありませんでした。C++20 では、これらの差異を吸収する次のような関数テンプレートが提供されます。
-<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">assume_aligned</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 実際には次のように使います。
@@ -2822,13 +2819,13 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string_view&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
 
-<span class="k">struct</span> <span class="nc">string_compare</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">string_compare</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">is_transparent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">void</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">txt</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">txt</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">string_hash</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">string_hash</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">is_transparent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">void</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">transparent_key_equal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_compare</span><span class="p">;</span><span class="w"></span>
@@ -2908,12 +2905,12 @@ MSVC の標準ライブラリでは Visual Studio 2017 15.6 以降、規格の�
 <h3 id="is_nothrow_convertible-p0758r1">例外を投げない暗黙の変換が可能か調べる <code>is_nothrow_convertible</code> <a href="https://wg21.link/P0758R1">(P0758R1)</a><a class="headerlink" href="#is_nothrow_convertible-p0758r1" title="Permanent link">&para;</a></h3>
 <p>型 <code>From</code> から型 <code>To</code> への暗黙の変換が可能であるかを調べる型特性クラス <code>std::is_convertible&lt;class From, class To&gt;</code> が C++11 から導入されましたが、その変換が <code>noexcept</code> でもあるかを調べられるバージョンは実装されていませんでした。
 このことが原因で、<code>std::decay_copy</code> の提案 (<a href="http://wg21.link/n3255">N3255</a>) において、適切な <code>noexcept</code> 例外仕様を移植性のある方法で定義できない問題 (<a href="http://wg21.link/lwg2040">LWG 2040</a>) が指摘されていました。
-<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span>
-<span class="k">typename</span> <span class="nc">decay</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="w"> </span><span class="n">decay_copy</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="o">???</span><span class="w"> </span><span class="cm">/* is_nothrow_convertible&lt;T, T&gt;::value */</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span>
+<span class="k">typename</span><span class="w"> </span><span class="nc">decay</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="w"> </span><span class="n">decay_copy</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="o">???</span><span class="w"> </span><span class="cm">/* is_nothrow_convertible&lt;T, T&gt;::value */</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 C++20 からは、<code>noexcept</code> な暗黙の変換が可能であることを調べる新しい型特性クラス <code>std::is_nothrow_convertible&lt;class From, class To&gt;</code> が実装されることで問題を解消できます。
 既存の標準ライブラリ関数においても、<code>std::basic_string</code> のメンバ関数テンプレートに、より適切な <code>noexcept</code> 例外仕様を定義するために活用されます。</p>
-<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="n">size_type</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n">is_nothrow_convertible_v</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">basic_string_view</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span><span class="w"> </span><span class="n">Traits</span><span class="o">&gt;&gt;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h3 id="stdto_address-p0653r2">ポインタライクなオブジェクトからアドレスを取得する <code>std::to_address()</code> 関数 <a href="https://wg21.link/P0653R2">(P0653R2)</a><a class="headerlink" href="#stdto_address-p0653r2" title="Permanent link">&para;</a></h3>
@@ -2967,7 +2964,7 @@ C++20 からは、<code>noexcept</code> な暗黙の変換が可能であるこ�
 <div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">C++17</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span> <span class="nc">memory_order</span><span class="w"></span>
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="nc">memory_order</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">memory_order_relaxed</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="n">memory_order_consume</span><span class="p">,</span><span class="w"></span>
@@ -2982,7 +2979,7 @@ C++20 からは、<code>noexcept</code> な暗黙の変換が可能であるこ�
 <input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">C++20</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">enum</span> <span class="k">class</span><span class="w"> </span><span class="nc">memory_order</span><span class="w"> </span><span class="cm">/* : unspecified */</span><span class="w"></span>
+<span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">memory_order</span><span class="w"> </span><span class="cm">/* : unspecified */</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">relaxed</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="n">consume</span><span class="p">,</span><span class="w"></span>
@@ -3009,8 +3006,8 @@ C++20 からは、<code>noexcept</code> な暗黙の変換が可能であるこ�
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;random&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
-<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Type</span><span class="o">&gt;</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">RandomizedHash</span><span class="w"></span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Type</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">RandomizedHash</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">rnd</span><span class="p">;</span><span class="w"></span>
 
@@ -3244,7 +3241,7 @@ C++20 で追加される数学定数の一覧は次のとおりです。</p>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">union</span> <span class="nc">FloatUint32</span><span class="w"></span>
+<span class="k">union</span><span class="w"> </span><span class="nc">FloatUint32</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">u</span><span class="p">;</span><span class="w"></span>
@@ -3270,7 +3267,7 @@ C++20 で追加される数学定数の一覧は次のとおりです。</p>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>しかし、<code>std::memcpy()</code> では型変換を <code>constexpr</code> にできず、また、デフォルトコンストラクト可能でない型に対応するには <code>std::aligned_storage</code> と組み合わせる必要があるなど、適切な実装は面倒でした。C++20 では、この実装をコンパイラサポートによる <code>constexpr</code> 対応も含めて実現する <code>std::bit_cast()</code> 関数が提供されます。</p>
-<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">To</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span> <span class="nc">From</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">To</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">From</span><span class="o">&gt;</span><span class="w"></span>
 <span class="k">constexpr</span><span class="w"> </span><span class="n">To</span><span class="w"> </span><span class="n">bit_cast</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">From</span><span class="o">&amp;</span><span class="w"> </span><span class="n">from</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <p>変換先の型 <code>To</code> と変換元の型 <code>From</code> について、<code>sizeof(To) != sizeof(From)</code> の場合や、<code>std::is_trivially_copyable_v&lt;To&gt; == false</code> または <code>std::is_trivially_copyable_v&lt;From&gt; == false</code> の場合にはコンパイルエラーになるため、間違いを減らす効果もあります。</p>
@@ -3340,16 +3337,16 @@ C++17 の <code>std::accumulate()</code> の中で行われること:
 <p>ある整数が 2 の累乗数であるかを調べたり、ある整数に近い 2 の累乗数を探したりする処理は、プログラミングでよく登場しますが、C++17 の標準ライブラリには実装されていませんでした。C++20 では次のような関数が追加されます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">has_single_bit</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">bit_ceil</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">bit_floor</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">bit_width</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
@@ -3479,7 +3476,7 @@ false
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;new&gt;</span><span class="cp"></span>
 
-<span class="k">struct</span> <span class="nc">Object</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Object</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">m_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span><span class="p">;</span><span class="w"></span>
 
@@ -3488,7 +3485,7 @@ false
 <span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;m_str: &quot;</span><span class="w"></span>
 <span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">m_str</span><span class="w"> </span><span class="c1">// 未定義の動作</span>
 <span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
@@ -3502,7 +3499,7 @@ false
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;new&gt;</span><span class="cp"></span>
 
-<span class="k">struct</span> <span class="nc">Object</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Object</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">m_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span><span class="p">;</span><span class="w"></span>
 
@@ -3512,7 +3509,7 @@ false
 <span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">m_str</span><span class="w"></span>
 <span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">      </span>
 <span class="w">        </span><span class="n">p</span><span class="o">-&gt;~</span><span class="n">Object</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="k">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
@@ -3526,25 +3523,25 @@ false
 <p>ビット列の左端と右端が循環するようにシフトするビットローテーションや、1 になっているビットを数える popcount などのビット操作命令は、多くの CPU アーキテクチャに搭載されていますが、それに対応する関数は C++17 標準ライブラリには存在せず、<code>__builtin_popcount</code> (GCC, Clang) や <code>__popcnt</code> (MSVC) のような、処理系が提供する非標準の組み込み関数を使う必要がありました。C++20 では、7 種類のビット操作が標準ライブラリ関数として提供されます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">rotl</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">rotr</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">countl_zero</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">countl_one</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">countr_zero</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">countr_one</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">popcount</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
@@ -3738,7 +3735,7 @@ false
 
 <span class="w">        </span><span class="n">v</span><span class="p">.</span><span class="n">back</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="nl">e</span> <span class="p">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 2 3 4 5 6</span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
@@ -3755,7 +3752,7 @@ false
 
 <span class="w">        </span><span class="n">v</span><span class="p">.</span><span class="n">back</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="nl">e</span> <span class="p">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 2 3 4 5 6</span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
@@ -3788,13 +3785,6 @@ false
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ABCDE
 </code></pre></div></p>
-                
-                  
-                
-              
-              
-                
-
 
               
             </article>
@@ -3803,8 +3793,7 @@ false
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
@@ -3843,34 +3832,33 @@ false
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            To the extent possible under law, Ryo Suzuki has waived all copyright and related or neighboring rights to C++ の歩き方 | CppMap. Third party copyrights are property of their respective owners.
-          </div>
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      To the extent possible under law, Ryo Suzuki has waived all copyright and related or neighboring rights to C++ の歩き方 | CppMap. Third party copyrights are property of their respective owners.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://twitter.com/Reputeless" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
-      </a>
     
-  </div>
-
+    <a href="https://twitter.com/Reputeless" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -3879,10 +3867,10 @@ false
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "translations": {"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "translations": {"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
       
     
   </body>

@@ -2077,7 +2077,9 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 </code></pre></div></p>
 <h3 id="typename-p0634r3">型名であることが明らかな文脈で <code>typename</code> を省略可能に <a href="https://wg21.link/P0634R3">(P0634R3)</a><a class="headerlink" href="#typename-p0634r3" title="Permanent link">&para;</a></h3>
 <p>C++17 で依存名が型である場合に <code>typename</code> を付けないのは、派生クラス定義時の基底クラスの指定と、初期化子リストでの基底クラスの指定のみでした（厳密にはこの 2 つには <code>typename</code> を付けられません）。C++20 では、型名しか使えないさらにいくつかの文脈で <code>typename</code> が省略可能になります。次のサンプルコードの左右タブで比較できます。</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">C++17</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C++17</label><label for="__tabbed_1_2">C++20</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
@@ -2107,7 +2109,7 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">C++20</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
@@ -2136,6 +2138,7 @@ C++20 では「右辺値オブジェクトから、左辺値参照修飾され�
 <span class="w">    </span><span class="n">S</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <h3 id="p1064r0">定数式での仮想関数呼び出しが可能に <a href="https://wg21.link/P1064">(P1064R0)</a><a class="headerlink" href="#p1064r0" title="Permanent link">&para;</a></h3>
@@ -2422,7 +2425,9 @@ C++20 では <code>using</code> 宣言を拡張し、<code>using Terrain::Open;<
 </code></pre></div></p>
 <h3 id="inline-namespace-p1094r2">ネストした名前空間定義で <code>inline namespace</code> を使えるように <a href="http://wg21.link/p1094r2">(P1094R2)</a><a class="headerlink" href="#inline-namespace-p1094r2" title="Permanent link">&para;</a></h3>
 <p>C++17 でネストした名前空間定義が導入されましたが、その中では <code>inline namespace</code> を使うことができず、<code>inline namespace</code> が <code>namespace</code> 内にある次のようなケースで恩恵を受けられませんでした。C++20 からはネストした名前空間定義の中で <code>inline</code> を使えるようになります。</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">C++17</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">C++17</label><label for="__tabbed_2_2">C++20</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="k">namespace</span><span class="w"> </span><span class="nn">mylib</span><span class="o">::</span><span class="nn">v1</span><span class="o">::</span><span class="nn">util</span><span class="w"></span>
@@ -2449,7 +2454,7 @@ C++20 では <code>using</code> 宣言を拡張し、<code>using Terrain::Open;<
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">C++20</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="k">namespace</span><span class="w"> </span><span class="nn">mylib</span><span class="o">::</span><span class="nn">v1</span><span class="o">::</span><span class="nn">util</span><span class="w"></span>
@@ -2469,6 +2474,7 @@ C++20 では <code>using</code> 宣言を拡張し、<code>using Terrain::Open;<
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mylib</span><span class="o">::</span><span class="n">util</span><span class="o">::</span><span class="n">GetValue</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// v2</span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <h3 id="private-p0969r0">本来アクセス可能な private メンバに構造化束縛ではアクセスできなかった仕様を修正 <a href="https://wg21.link/P0969R0">(P0969R0)</a><a class="headerlink" href="#private-p0969r0" title="Permanent link">&para;</a></h3>
@@ -2961,7 +2967,9 @@ C++20 からは、<code>noexcept</code> な暗黙の変換が可能であるこ�
 <p><code>std::atomic&lt;T&gt;</code> の <code>float</code>, <code>double</code>, <code>long double</code> 型の特殊化に、メンバ関数 <code>fetch_add()</code>, <code>fetch_sub()</code>, <code>operator+=()</code>, <code>operator-=()</code> が追加されます。</p>
 <h3 id="stdmemory_order-enum-class-p0439r0"><code>std::memory_order</code> を <code>enum class</code> に変更 <a href="https://wg21.link/P0439R0">(P0439R0)</a><a class="headerlink" href="#stdmemory_order-enum-class-p0439r0" title="Permanent link">&para;</a></h3>
 <p>C++17 まで <code>enum</code> で定義されていた <code>std::memory_order</code> を、モダンな C++ 文法と型安全のために、<code>enum class</code> で定義する仕様に変更されます。これまでの表記は定数で提供されるようになるため、既存のソースコードは影響を受けません。また、バイナリ互換性のために、<code>enum class</code> の基底型の選択は実装に任せられています。</p>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">C++17</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">C++17</label><label for="__tabbed_3_2">C++20</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="nc">memory_order</span><span class="w"></span>
@@ -2976,7 +2984,7 @@ C++20 からは、<code>noexcept</code> な暗黙の変換が可能であるこ�
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">C++20</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">memory_order</span><span class="w"> </span><span class="cm">/* : unspecified */</span><span class="w"></span>
@@ -2997,6 +3005,7 @@ C++20 からは、<code>noexcept</code> な暗黙の変換が可能であるこ�
 <span class="w">    </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">memory_order</span><span class="w"> </span><span class="n">memory_order_seq_cst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memory_order</span><span class="o">::</span><span class="n">seq_cst</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <h3 id="hash-p0809r0"><code>Hash</code> が同一の挙動をしない非順序連想コンテナどうしの比較が可能に <a href="https://wg21.link/P0809R0">(P0809R0)</a><a class="headerlink" href="#hash-p0809r0" title="Permanent link">&para;</a></h3>
@@ -3174,7 +3183,9 @@ C++20 で追加される数学定数の一覧は次のとおりです。</p>
 <p>C++17 では、<code>std::basic_string::reserve(size_type)</code> に現在の <code>capacity()</code> よりも小さい値が渡された際、shrink-to-fit を実行することが許可されていたため、注意深く使わないとメモリの再配置を頻繁に引き起こし、実行時性能を低下させることがありました。また、デフォルト引数として <code>0</code> が定義されており、<code>s.reserve()</code> と <code>s.shrink_to_fit()</code> で機能が重複するという問題や、shrink-to-fit を実行せずデフォルト引数も無い <code>std::vector::reserve(size_type)</code> との一貫性がないという問題がありました。C++20 からの新しい仕様では <code>std::vector</code> 側に合わせ、<code>std::basic_string::reserve(size_type)</code> に現在の <code>capacity()</code> よりも小さい値が渡された際には何もしないことが保証され、デフォルト引数も廃止（互換性のために deprecated 指定の <code>std::basic_string:reserve(void)</code> オーバーロードが追加）となり、これらの問題が解決されます。</p>
 <h3 id="constains-p0458r2">連想コンテナに <code>constains()</code> メンバ関数を追加 <a href="https://wg21.link/P0458R2">(P0458R2)</a><a class="headerlink" href="#constains-p0458r2" title="Permanent link">&para;</a></h3>
 <p>ある要素が連想コンテナに含まれているか調べるための C++17 までのイディオムは、直感的でなく初心者にとっても明快ではありませんでした。C++20 からは、要素の存在をチェックする <code>contains(key)</code> メンバ関数が <code>std::map</code>, <code>std::multimap</code>, <code>std::set</code>, <code>std::multiset</code>, <code>std::unordered_map</code>, <code>std::unordered_multimap</code>, <code>std::unordered_set</code>, <code>std::unordered_multiset</code> に追加されます。</p>
-<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">C++17</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">C++17</label><label for="__tabbed_4_2">C++20</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
 
@@ -3192,7 +3203,7 @@ C++20 で追加される数学定数の一覧は次のとおりです。</p>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
-<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">C++20</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
 
@@ -3209,6 +3220,7 @@ C++20 で追加される数学定数の一覧は次のとおりです。</p>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <h3 id="stderase-stderase_if-p1209r0">コンテナから指定した要素を削除する操作に一貫して使える <code>std::erase()</code>, <code>std::erase_if()</code> 関数 <a href="https://wg21.link/p1209r0">(P1209R0)</a><a class="headerlink" href="#stderase-stderase_if-p1209r0" title="Permanent link">&para;</a></h3>

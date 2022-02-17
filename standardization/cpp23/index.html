@@ -332,22 +332,50 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#contains-p1679" class="md-nav__link">
-    文字列クラスに、指定した文字列が含まれるかを返す .contains() メンバ関数を追加 (P1679)
+  <a href="#c-atomics-stdatomich-p0943r6" class="md-nav__link">
+    C 言語との atomics の互換を目的とした標準ライブラリヘッダ &lt;stdatomic.h&gt; を追加 (P0943R6)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#scoped-enum-stdis_scoped_enumt-trait-p1048" class="md-nav__link">
-    型が scoped enum であるかを調べる std::is_scoped_enum&lt;T&gt; trait (P1048)
+  <a href="#scoped-enum-stdis_scoped_enumt-trait-p1048r1" class="md-nav__link">
+    型が scoped enum であるかを調べる std::is_scoped_enum&lt;T&gt; trait (P1048R1)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#c-atomics-stdatomich-p0943" class="md-nav__link">
-    C 言語との atomics の互換を目的とした標準ライブラリヘッダ &lt;stdatomic.h&gt; を追加 (P0943)
+  <a href="#contains-p1679r3" class="md-nav__link">
+    文字列クラスに、指定した文字や文字列が含まれているかを返す .contains() メンバ関数 (P1679R3)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdto_underlying-p1682r3" class="md-nav__link">
+    列挙型の値を基底型に変換する std::to_underlying() (P1682R3)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdstringstream-stdspan-stdspanstream-p0448r4" class="md-nav__link">
+    std::stringstream と異なり、内部バッファに std::span を用いる std::spanstream (P0448R4)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type_infooperator-constexpr-p1328r1" class="md-nav__link">
+    type_info::operator==() が constexpr に (P1328R1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdstack-stdqueue-p1425r4" class="md-nav__link">
+    std::stack と std::queue に、イテレータペアをとるコンストラクタオーバーロードを追加 (P1425R4)
   </a>
   
 </li>
@@ -1059,22 +1087,50 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#contains-p1679" class="md-nav__link">
-    文字列クラスに、指定した文字列が含まれるかを返す .contains() メンバ関数を追加 (P1679)
+  <a href="#c-atomics-stdatomich-p0943r6" class="md-nav__link">
+    C 言語との atomics の互換を目的とした標準ライブラリヘッダ &lt;stdatomic.h&gt; を追加 (P0943R6)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#scoped-enum-stdis_scoped_enumt-trait-p1048" class="md-nav__link">
-    型が scoped enum であるかを調べる std::is_scoped_enum&lt;T&gt; trait (P1048)
+  <a href="#scoped-enum-stdis_scoped_enumt-trait-p1048r1" class="md-nav__link">
+    型が scoped enum であるかを調べる std::is_scoped_enum&lt;T&gt; trait (P1048R1)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#c-atomics-stdatomich-p0943" class="md-nav__link">
-    C 言語との atomics の互換を目的とした標準ライブラリヘッダ &lt;stdatomic.h&gt; を追加 (P0943)
+  <a href="#contains-p1679r3" class="md-nav__link">
+    文字列クラスに、指定した文字や文字列が含まれているかを返す .contains() メンバ関数 (P1679R3)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdto_underlying-p1682r3" class="md-nav__link">
+    列挙型の値を基底型に変換する std::to_underlying() (P1682R3)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdstringstream-stdspan-stdspanstream-p0448r4" class="md-nav__link">
+    std::stringstream と異なり、内部バッファに std::span を用いる std::spanstream (P0448R4)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type_infooperator-constexpr-p1328r1" class="md-nav__link">
+    type_info::operator==() が constexpr に (P1328R1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdstack-stdqueue-p1425r4" class="md-nav__link">
+    std::stack と std::queue に、イテレータペアをとるコンストラクタオーバーロードを追加 (P1425R4)
   </a>
   
 </li>
@@ -1144,69 +1200,9 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h2 id="_2">標準ライブラリ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="contains-p1679">文字列クラスに、指定した文字列が含まれるかを返す <code>.contains()</code> メンバ関数を追加 <a href="http://wg21.link/P1679">(P1679)</a><a class="headerlink" href="#contains-p1679" title="Permanent link">&para;</a></h3>
-<p>Java, C#, Rust の文字列クラスは、指定した文字列を含むかのメソッドを持っていますが、C++ の <code>std::string</code> には同等のメンバ関数がなく、次のようなコードを書く必要がありました。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<!-- P0881R7, P2301R1 -->
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;I like C++23&quot;</span><span class="p">;</span><span class="w"></span>
-
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;C++&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span><span class="w"> </span><span class="c1">// 文字列に &quot;C++&quot; が含まれるかを調べる</span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;found!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-<p>C++23 では <code>std::basic_string</code> と <code>std::basic_string_view</code> に、指定した文字や文字列が含まれるかを返す <code>.contains(basic_string_view)</code>, <code>.contains(charT)</code>, <code>.contains(const charT*)</code> メンバ関数が追加され、より短く書けるようになります。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;I like C++23&quot;</span><span class="p">;</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="sc">&#39;+&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">   </span><span class="c1">// true</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="sc">&#39;-&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">   </span><span class="c1">// false</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&quot;like&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">    </span><span class="c1">// true</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&quot;C++11&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">   </span><span class="c1">// false</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-<p>なお、指定した文字列から始まるかを調べる <code>.starts_with()</code>, 指定した文字列で終わるかを調べる <code>.ends_with()</code> メンバ関数は C++20 で追加されています。</p>
-<h3 id="scoped-enum-stdis_scoped_enumt-trait-p1048">型が scoped enum であるかを調べる <code>std::is_scoped_enum&lt;T&gt;</code> trait <a href="http://wg21.link/P1048">(P1048)</a><a class="headerlink" href="#scoped-enum-stdis_scoped_enumt-trait-p1048" title="Permanent link">&para;</a></h3>
-<p>C++11 で scoped enum (<code>enum class</code> / <code>enum struct</code>) が導入されましたが、同時に導入された type trait <code>std::is_enum&lt;T&gt;</code> は、unscoped enum (<code>enum</code>) 型と scoped enum 型のどちらにも <code>true</code> を示し、両者を区別できませんでした。</p>
-<p>C++23 では型が scoped enum であるかを調べる <code>std::is_scoped_enum&lt;T&gt;</code> trait が追加され、両者を区別できるようになります。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>
-
-<span class="k">enum</span><span class="w"> </span><span class="nc">UnscopedEnum</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ScopedEnum</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="p">;</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">           </span><span class="c1">// false    </span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">UnscopedEnum</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">  </span><span class="c1">// true</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">ScopedEnum</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">    </span><span class="c1">// true</span>
-
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_scoped_enum_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">            </span><span class="c1">// false</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_scoped_enum_v</span><span class="o">&lt;</span><span class="n">UnscopedEnum</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">   </span><span class="c1">// false</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_scoped_enum_v</span><span class="o">&lt;</span><span class="n">ScopedEnum</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">     </span><span class="c1">// true</span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-<p>なお、Boost.TypeTraits にはすでに次のように実装されています。</p>
-<div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">boost</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">is_scoped_enum</span><span class="w"></span>
-<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">conjunction</span><span class="o">&lt;</span><span class="n">is_enum</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">negation</span><span class="o">&lt;</span><span class="n">is_convertible</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;&gt;&gt;::</span><span class="n">type</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-<h3 id="c-atomics-stdatomich-p0943">C 言語との atomics の互換を目的とした標準ライブラリヘッダ <code>&lt;stdatomic.h&gt;</code> を追加 <a href="http://wg21.link/P0943">(P0943)</a><a class="headerlink" href="#c-atomics-stdatomich-p0943" title="Permanent link">&para;</a></h3>
+<h3 id="c-atomics-stdatomich-p0943r6">C 言語との atomics の互換を目的とした標準ライブラリヘッダ <code>&lt;stdatomic.h&gt;</code> を追加 <a href="http://wg21.link/P0943R6">(P0943R6)</a><a class="headerlink" href="#c-atomics-stdatomich-p0943r6" title="Permanent link">&para;</a></h3>
 <p>C++ atomics の非ジェネリックな部分 (<code>atomic_char</code> や <code>atomic_ulong</code> など) は C 言語からも使えるように設計されていましたが、C 言語がジェネリック用として独自に <code>_Atomic(T)</code> 型指定子を追加したほか、C++ の規格では C 言語のヘッダ <code>&lt;stdatomic.h&gt;</code> に関する言及がないことから、実際の相互運用にはいくらかの手間が必要でした。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#ifdef __cplusplus</span>
 <span class="w">    </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;atomic&gt;</span><span class="c1">   </span><span class="cp"></span>
@@ -1240,6 +1236,190 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
+<h3 id="scoped-enum-stdis_scoped_enumt-trait-p1048r1">型が scoped enum であるかを調べる <code>std::is_scoped_enum&lt;T&gt;</code> trait <a href="http://wg21.link/P1048R1">(P1048R1)</a><a class="headerlink" href="#scoped-enum-stdis_scoped_enumt-trait-p1048r1" title="Permanent link">&para;</a></h3>
+<p>C++11 で scoped enum (<code>enum class</code> / <code>enum struct</code>) が導入されましたが、同時に導入された type trait <code>std::is_enum&lt;T&gt;</code> は、unscoped enum (<code>enum</code>) 型と scoped enum 型のどちらにも <code>true</code> を示し、両者を区別できませんでした。</p>
+<p>C++23 では型が scoped enum であるかを調べる <code>std::is_scoped_enum&lt;T&gt;</code> trait が追加され、両者を区別できるようになります。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>
+
+<span class="k">enum</span><span class="w"> </span><span class="nc">UnscopedEnum</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ScopedEnum</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">           </span><span class="c1">// false    </span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">UnscopedEnum</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">  </span><span class="c1">// true</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">ScopedEnum</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">    </span><span class="c1">// true</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_scoped_enum_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">            </span><span class="c1">// false</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_scoped_enum_v</span><span class="o">&lt;</span><span class="n">UnscopedEnum</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">   </span><span class="c1">// false</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_scoped_enum_v</span><span class="o">&lt;</span><span class="n">ScopedEnum</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w">     </span><span class="c1">// true</span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>なお、Boost.TypeTraits にはすでに次のように実装されています。</p>
+<div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">boost</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">is_scoped_enum</span><span class="w"></span>
+<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">conjunction</span><span class="o">&lt;</span><span class="n">is_enum</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">negation</span><span class="o">&lt;</span><span class="n">is_convertible</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;&gt;&gt;::</span><span class="n">type</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="contains-p1679r3">文字列クラスに、指定した文字や文字列が含まれているかを返す <code>.contains()</code> メンバ関数 <a href="https://wg21.link/P1679R3">(P1679R3)</a><a class="headerlink" href="#contains-p1679r3" title="Permanent link">&para;</a></h3>
+<p><code>std::string</code> や <code>std::string_view</code> にある文字や文字列が含まれているかを調べるには、次のように <code>.find()</code> を使った少し遠回りなコードを書く必要がありました。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;C++23&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// &#39;4&#39; が含まれているかを調べる</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="sc">&#39;4&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// false</span>
+
+<span class="w">    </span><span class="c1">// &quot;++&quot; が含まれているかを調べる</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;++&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>C++23 では <code>std::basic_string</code> と <code>std::basic_string_view</code> に、指定した文字や文字列が含まれるかを返す <code>.contains(basic_string_view)</code>, <code>.contains(charT)</code>, <code>.contains(const charT*)</code> メンバ関数が追加され、より簡潔に書けるようになりました。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;C++23&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// &#39;4&#39; が含まれているかを調べる</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="sc">&#39;4&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// false</span>
+
+<span class="w">    </span><span class="c1">// &quot;++&quot; が含まれているかを調べる</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&quot;++&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>なお、指定した文字列から始まるかを調べる <code>.starts_with()</code>, 指定した文字列で終わるかを調べる <code>.ends_with()</code> メンバ関数が C++20 で追加されています。</p>
+<h3 id="stdto_underlying-p1682r3">列挙型の値を基底型に変換する <code>std::to_underlying()</code> <a href="https://wg21.link/P1682R3">(P1682R3)</a><a class="headerlink" href="#stdto_underlying-p1682r3" title="Permanent link">&para;</a></h3>
+<p>これまで <code>enum class</code> を基底型の整数値へ適切に変換するには <code>static_cast&lt;std::underlying_type_t&lt;Enum&gt;&gt;(e)</code> と書く必要がありました。C++23 ではこれを <code>std::to_underlying(e)</code> と書けるようになりました。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span><span class="cp"></span>
+
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">State</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">char</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Open</span><span class="p">,</span><span class="w"> </span><span class="n">Closed</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Terrain</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Open</span><span class="p">,</span><span class="w"> </span><span class="n">Mountain</span><span class="p">,</span><span class="w"> </span><span class="n">River</span><span class="p">,</span><span class="w"> </span><span class="n">Ocean</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_underlying</span><span class="p">(</span><span class="n">State</span><span class="o">::</span><span class="n">Open</span><span class="p">);</span><span class="w"> </span><span class="c1">// c は char</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_underlying</span><span class="p">(</span><span class="n">Terrain</span><span class="o">::</span><span class="n">Mountain</span><span class="p">);</span><span class="w"> </span><span class="c1">// b は int</span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<!-- P2212R2 -->
+
+<!-- P2162R2 -->
+
+<!-- P2017R1 -->
+
+<!-- P2259R1 -->
+
+<!-- P0401R6 -->
+
+<h3 id="stdstringstream-stdspan-stdspanstream-p0448r4"><code>std::stringstream</code> と異なり、内部バッファに <code>std::span</code> を用いる <code>std::spanstream</code> <a href="https://wg21.link/P0448R4">(P0448R4)</a><a class="headerlink" href="#stdstringstream-stdspan-stdspanstream-p0448r4" title="Permanent link">&para;</a></h3>
+<p><code>std::stringstream</code> は内部のバッファを動的に確保するものでしたが、C++23 で追加された <code>std::spanstream</code> は <code>std::span</code> をバッファとして用いることができるようになりました。例えば、スタックに確保した固定サイズのバッファを割り当てることができます。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#</span><span class="w"> </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#</span><span class="w"> </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&lt;string_view&gt;</span><span class="cp"></span>
+<span class="cp">#</span><span class="w"> </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&lt;spanstream&gt;</span><span class="cp"></span>
+<span class="cp">#</span><span class="w"> </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&lt;sstream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">input</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;11 22 33&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// C++23</span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">ispanstream</span><span class="w"> </span><span class="n">is</span><span class="p">{</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// span としてバッファを渡す</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">is</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">30</span><span class="p">]{};</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">ospanstream</span><span class="w"> </span><span class="n">os</span><span class="p">{</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// span としてバッファを渡す</span>
+<span class="w">        </span><span class="n">os</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="p">{</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="n">span</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// (比較) std::stringstream</span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">istringstream</span><span class="w"> </span><span class="n">is</span><span class="p">{</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// std::string が作られる</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">is</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span><span class="w"> </span><span class="n">os</span><span class="p">;</span><span class="w"> </span><span class="c1">// 内部バッファは動的に確保される</span>
+<span class="w">        </span><span class="n">os</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<!-- P1132R8 -->
+
+<h3 id="type_infooperator-constexpr-p1328r1"><code>type_info::operator==()</code> が constexpr に <a href="https://wg21.link/P1328R1">(P1328R1)</a><a class="headerlink" href="#type_infooperator-constexpr-p1328r1" title="Permanent link">&para;</a></h3>
+<p>C++20 で <code>typeid</code> が constexpr の文脈で使えるようになりましたが、戻り値の <code>std::type_info</code> には constexpr のメンバ関数が無く実用性がありませんでした。C++23 では <code>std::type_info::operator==</code> が constexpr になりました。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;typeinfo&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">IShape</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">IShape</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Circle</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IShape</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="k">typeid</span><span class="p">(</span><span class="n">IShape</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">Circle</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;typeid(IShape) != typeid(Circle))</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="stdstack-stdqueue-p1425r4"><code>std::stack</code> と <code>std::queue</code> に、イテレータペアをとるコンストラクタオーバーロードを追加 <a href="https://wg21.link/P1425R4">(P1425R4)</a><a class="headerlink" href="#stdstack-stdqueue-p1425r4" title="Permanent link">&para;</a></h3>
+<p><code>std::stack</code> と <code>std::queue</code> には、イテレータペアをとるコンストラクタが無く、他のコンテナやコンテナアダプタと一貫性が無かったため、C++23 で追加されました。これは、C++23 で追加された <code>ranges::to</code> の内部実装が複雑になるのを防ぐことにも貢献します。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stack&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;queue&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">());</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<!-- P1518R2 -->
+
+<!-- P1659R3 -->
+
+<!-- P2166R1 -->
+
+<!-- P2136R3 -->
+
+<!-- P1989R2 -->
+
+<!-- P1951R1 -->
+
+<!-- P2186R2 -->
 
               
             </article>

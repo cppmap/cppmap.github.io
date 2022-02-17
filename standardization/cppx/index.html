@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="C++23 以降に向けて議論が進行中のおもな提案の紹介">
+        <meta name="description" content="C++23, C++26 以降に向けて議論が進行中のおもな提案の紹介">
       
       
         <meta name="author" content="Ryo Suzuki">
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c23" class="md-skip">
+        <a href="#c23-c26" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -424,13 +424,6 @@
         <li class="md-nav__item">
   <a href="#stdprint" class="md-nav__link">
     std::print()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stdto_underlying" class="md-nav__link">
-    列挙型の値を基底型に変換する std::to_underlying()
   </a>
   
 </li>
@@ -1234,13 +1227,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stdto_underlying" class="md-nav__link">
-    列挙型の値を基底型に変換する std::to_underlying()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     ソート済み配列による連想コンテナ
   </a>
@@ -1281,7 +1267,7 @@
               
                 
 
-<h1 id="c23">C++23 以降に向けた提案<a class="headerlink" href="#c23" title="Permanent link">&para;</a></h1>
+<h1 id="c23-c26">C++23, C++26 以降に向けた提案<a class="headerlink" href="#c23-c26" title="Permanent link">&para;</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>C++23 の規格ドラフト入りが決まった機能は <a href="../cpp23">C++23 の新機能</a> に移動します。</p>
@@ -1554,28 +1540,6 @@ Motivation, Scope, and Basic Design (P1386)</a></li>
 </ul>
 <p>C++20 の <code>std::format</code> をベースにした新しい標準出力 API, <code>std::print()</code> を導入する提案です。<code>std::cout</code> に比べて、Unicode 対応、使いやすさや実行時性能の向上、バイナリサイズの削減が期待されます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, {}!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-<h2 id="stdto_underlying">列挙型の値を基底型に変換する <code>std::to_underlying()</code><a class="headerlink" href="#stdto_underlying" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://wg21.link/P1682">std::to_underlying for enumerations (P1682)</a></li>
-</ul>
-<p><code>enum class</code> を基底型の整数値へ適切に変換するには <code>static_cast&lt;std::underlying_type_t&lt;Enum&gt;&gt;(e)</code> のようなコードを書く必要がありました。これを <code>std::to_underlying(e)</code> で書けるようにする提案です。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span><span class="cp"></span>
-
-<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Enum</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">char</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">F</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">F</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">F</span><span class="p">(</span><span class="kt">unsigned</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">Enum</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Enum</span><span class="o">::</span><span class="n">A</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">F</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">to_underlying</span><span class="p">(</span><span class="n">e</span><span class="p">));</span><span class="w"> </span><span class="c1">// F(char) が呼ばれる</span>
-<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h2 id="_8">ソート済み配列による連想コンテナ<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <ul>

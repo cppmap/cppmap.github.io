@@ -6,20 +6,20 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="C++ のテストフレームワークの紹介">
+        <meta name="description" content="C++ リンターの紹介">
       
       
         <meta name="author" content="Ryo Suzuki">
       
       
-        <link rel="canonical" href="https://cppmap.github.io/libraries/testing/">
+        <link rel="canonical" href="https://cppmap.github.io/tools/linter/">
       
       <link rel="icon" href="../../assets/images/logo.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
     
     
       
-        <title>テストフレームワーク - C++ の歩き方 | cppmap</title>
+        <title>C++ リンター - C++ の歩き方 | cppmap</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#c" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              テストフレームワーク
+              C++ リンター
             
           </span>
         </div>
@@ -652,14 +652,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       
       
@@ -682,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../boost/" class="md-nav__link">
+      <a href="../../libraries/boost/" class="md-nav__link">
         Boost
       </a>
     </li>
@@ -696,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../containers/" class="md-nav__link">
+      <a href="../../libraries/containers/" class="md-nav__link">
         コンテナ
       </a>
     </li>
@@ -710,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../text-data/" class="md-nav__link">
+      <a href="../../libraries/text-data/" class="md-nav__link">
         テキストデータ
       </a>
     </li>
@@ -724,7 +722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concurrency/" class="md-nav__link">
+      <a href="../../libraries/concurrency/" class="md-nav__link">
         並行・並列
       </a>
     </li>
@@ -736,21 +734,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../libraries/testing/" class="md-nav__link">
         テストフレームワーク
       </a>
-      
     </li>
   
 
@@ -762,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../math/" class="md-nav__link">
+      <a href="../../libraries/math/" class="md-nav__link">
         数学
       </a>
     </li>
@@ -782,12 +770,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -810,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tools/onlinecompilers/" class="md-nav__link">
+      <a href="../onlinecompilers/" class="md-nav__link">
         C++ オンラインコンパイラ
       </a>
     </li>
@@ -824,7 +814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tools/compilers/" class="md-nav__link">
+      <a href="../compilers/" class="md-nav__link">
         C++ コンパイラ
       </a>
     </li>
@@ -838,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tools/package-manager/" class="md-nav__link">
+      <a href="../package-manager/" class="md-nav__link">
         C++ パッケージマネージャ
       </a>
     </li>
@@ -852,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tools/code-formatter/" class="md-nav__link">
+      <a href="../code-formatter/" class="md-nav__link">
         C++ コードフォーマッタ
       </a>
     </li>
@@ -864,11 +854,66 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../tools/linter/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          C++ リンター
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         C++ リンター
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clang-tidy" class="md-nav__link">
+    Clang-Tidy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpplint" class="md-nav__link">
+    cpplint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cppcheck" class="md-nav__link">
+    Cppcheck
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -880,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tools/project-template/" class="md-nav__link">
+      <a href="../project-template/" class="md-nav__link">
         C++ プロジェクトテンプレート
       </a>
     </li>
@@ -894,7 +939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tools/gitignore/" class="md-nav__link">
+      <a href="../gitignore/" class="md-nav__link">
         C++ 用 .gitignore
       </a>
     </li>
@@ -976,6 +1021,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clang-tidy" class="md-nav__link">
+    Clang-Tidy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpplint" class="md-nav__link">
+    cpplint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cppcheck" class="md-nav__link">
+    Cppcheck
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -988,21 +1062,18 @@
                 
 
 
-<h1 id="_1">単体テストフレームワーク<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="c">C++ リンター<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
+<h2 id="clang-tidy">Clang-Tidy<a class="headerlink" href="#clang-tidy" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://github.com/google/googletest">googletest</a> <small>BSD 3-Clause</small></li>
-<li><a href="https://github.com/catchorg/Catch2">Catch</a> <small>BSL 1.0</small><ul>
-<li>C++11 以上</li>
-<li>シングルヘッダで外部依存ライブラリなし</li>
-<li>簡単に使い始められるインターフェース</li>
+<li><a href="https://clang.llvm.org/extra/clang-tidy/">https://clang.llvm.org/extra/clang-tidy/</a></li>
 </ul>
-</li>
-<li><a href="https://github.com/onqtam/doctest">doctest</a> <small>MIT</small><ul>
-<li>C++11 以上</li>
-<li>シングルヘッダで外部依存ライブラリなし</li>
-<li>ヘッダのコンパイル時間が非常に短く（<a href="https://github.com/onqtam/doctest/blob/master/doc/markdown/benchmarks.md">ベンチマーク</a>）、テスト実行のイテレーションを速く回せるのが売り</li>
+<h2 id="cpplint">cpplint<a class="headerlink" href="#cpplint" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/cpplint/cpplint">https://github.com/cpplint/cpplint</a></li>
 </ul>
-</li>
+<h2 id="cppcheck">Cppcheck<a class="headerlink" href="#cppcheck" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://cppcheck.sourceforge.io/">https://cppcheck.sourceforge.io/</a></li>
 </ul>
 
               
@@ -1019,7 +1090,7 @@
     <nav class="md-footer__inner md-grid" aria-label="フッター" >
       
         
-        <a href="../concurrency/" class="md-footer__link md-footer__link--prev" aria-label="前: 並行・並列" rel="prev">
+        <a href="../code-formatter/" class="md-footer__link md-footer__link--prev" aria-label="前: C++ コードフォーマッタ" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1028,20 +1099,20 @@
               <span class="md-footer__direction">
                 前
               </span>
-              並行・並列
+              C++ コードフォーマッタ
             </div>
           </div>
         </a>
       
       
         
-        <a href="../math/" class="md-footer__link md-footer__link--next" aria-label="次: 数学" rel="next">
+        <a href="../project-template/" class="md-footer__link md-footer__link--next" aria-label="次: C++ プロジェクトテンプレート" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              数学
+              C++ プロジェクトテンプレート
             </div>
           </div>
           <div class="md-footer__button md-icon">
